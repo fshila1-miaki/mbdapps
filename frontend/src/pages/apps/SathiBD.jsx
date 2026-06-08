@@ -74,6 +74,10 @@ const SathiBD = () => {
     try {
       const dd = await directDebit(subscriberMsisdn, String(plan.amount), `SathiBD ${plan.name}`);
       await sendSMS([subscriberMsisdn], `SathiBD ${plan.name} activated! BDT ${plan.amount} deducted. Txn: ${dd.transactionId || "—"}`, "16222");
+      // Feed the CMS "Revenue Today" live ticker (persist + broadcast)
+      const total = (Number(localStorage.getItem("sathibd_revenue_today")) || 0) + plan.amount;
+      localStorage.setItem("sathibd_revenue_today", String(total));
+      window.dispatchEvent(new CustomEvent("sathibd:revenue", { detail: { amount: plan.amount, plan: plan.name, total } }));
       toast.success(`✓ Charged BDT ${plan.amount} via CaaS`, { description: `Plan: ${plan.name} · Txn: ${dd.transactionId || "demo-txn"}` });
     } catch (_e) {
       toast.error("Payment failed — please try again.");
