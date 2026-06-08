@@ -5,6 +5,14 @@ Build a full-stack demo web app called "BDapps" — a telecom developer platform
 Mock data only (no real backend). Visually polished, fully navigable, client-demo ready.
 Two roles: Developer & Admin. Color scheme: deep navy (#0f172a) + red (#e11d48) + white.
 
+## CHANGELOG — 2026-06-08: SathiBD replaces BondoBD (Matrimony, Matrimo theme)
+- Completely replaced the BondoBD matrimony template/example with **SathiBD (সাথীBD) — Matrimony Portal**, rebuilt to mirror the "Matrimo" theme (gold #f6af04 + dark #222 + white; Playfair Display headings, Poppins body). Tagline: "বাংলাদেশের সেরা বিবাহ পোর্টাল".
+- New SOT component `components/digital/interactive/SathiBDPreview.jsx` (exports `SathiBDWebPreview` + `sathibdAndroidScreens`). Full 6-page navigable app: Home, All Profiles (filters+interest modal+chat popup), Profile Detail, Plans (Free/Gold/Platinum + OTP→CaaS subscribe flow), User Dashboard (matches, profile status, plan, interest requests Accept/Decline), Register. Page loader (3 gold rings), scroll fade-up (IntersectionObserver), counter animations, auto-sliding testimonial carousel.
+- Working app at `/apps/sathibd` (`pages/apps/SathiBD.jsx`) is a thin wrapper reusing `SathiBDWebPreview` (Single Source of Truth) + real BDAppsAPI hooks (OTP/subscription/SMS/CaaS) + APIMonitor.
+- Renamed IDs throughout: web-bondobd→web-sathibd, pro-bondobd→pro-sathibd, and-bondobd→and-sathibd. Updated builderTemplates.js, contentSeeds.js (SathiBD seed + matrimony kind), UniversalWebPreview/WebPreviews/UniversalAndroidPreview maps, TemplateMockup.jsx (gold mockup), data.js (AS-SATHIBD app store), AppContext.jsx (APP-SATHIBD + localStorage bumped to v5). Deleted MatrimonyPreview.jsx, BondoBD.jsx, unused demoI18n.jsx. Added Playfair Display + Poppins fonts to index.html.
+- Verified: all 6 app pages + flows (playwright, 0 console errors); builder gallery card; Step 4 matrimony sections w/ SathiBD seed; Step 5 preview renders SathiBD (preview-pane + sathibd-logo); My Apps & App Store show SathiBD, zero BondoBD; regression Quiz/News/Fit/RobiMart unaffected. Testing agent iteration_15: frontend 95%, no bugs.
+
+
 ## Architecture
 - **Frontend-only React app** (no backend logic needed for this demo)
 - All state via React Context (`/src/context/AppContext.jsx`)
