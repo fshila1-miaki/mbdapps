@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { MatrimonyWebPreview } from "./MatrimonyPreview";
+import { SathiBDWebPreview } from "./SathiBDPreview";
 import { NewsWebPreview } from "./NewsPreview";
 import { QuizWebPreview } from "./QuizPreview";
 
@@ -572,7 +572,7 @@ const PREVIEWS = {
   "web-travel": TravelBooking,
   "web-ngo": NgoPlatform,
   "web-saas": SaasDashboard,
-  "web-bondobd": MatrimonyWebPreview,
+  "web-sathibd": SathiBDWebPreview,
   "web-newsnow": NewsWebPreview,
   "web-quizbd": QuizWebPreview,
 };

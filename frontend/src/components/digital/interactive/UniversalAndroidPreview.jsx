@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import AndroidEmulator from "../AndroidEmulator";
-import { matrimonyAndroidScreens } from "./MatrimonyPreview";
+import { sathibdAndroidScreens } from "./SathiBDPreview";
 
 const T = (l, en, bn) => (l === "Bengali" ? bn : en);
 
@@ -363,7 +363,7 @@ const rideScreens = (lang) => simpleScreens(lang, { screens: [
 const SCREENS = {
   "and-ecom": ecomScreens, "and-food": foodScreens, "and-doctor": doctorScreens, "and-edu": eduScreens,
   "and-fitness": fitnessScreens, "and-travel": travelScreens, "and-news": newsScreens, "and-ride": rideScreens,
-  "and-bondobd": matrimonyAndroidScreens,
+  "and-sathibd": sathibdAndroidScreens,
 };
 
 const UniversalAndroidPreview = ({ templateId, cfg }) => {

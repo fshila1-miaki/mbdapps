@@ -2,14 +2,14 @@ import React, { useState, useMemo } from "react";
 import {
   LineChart, Line, BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid,
 } from "recharts";
-import { MatrimonyWebPreview } from "./MatrimonyPreview";
+import { SathiBDWebPreview } from "./SathiBDPreview";
 import { NewsWebPreview } from "./NewsPreview";
 import { QuizWebPreview } from "./QuizPreview";
 
 // Pro builder adapter: BDappsWebPreview passes (appName, tagline, primary, accent, language).
-// MatrimonyWebPreview expects cfg.* — wrap so Pro+Web previews share one source of truth.
-const ProMatrimonyAdapter = ({ appName, tagline, primary, accent, language }) => (
-  <MatrimonyWebPreview cfg={{ appName, tagline, primary, accent, language, fontFamily: "Inter, sans-serif" }} />
+// SathiBDWebPreview expects cfg.* — wrap so Pro+Web previews share one source of truth.
+const ProSathiAdapter = ({ appName, tagline, primary, accent, language }) => (
+  <SathiBDWebPreview cfg={{ appName, tagline, primary, accent, language, fontFamily: "Poppins, sans-serif" }} />
 );
 const ProNewsAdapter = ({ appName, tagline, primary, accent, language, content }) => (
   <NewsWebPreview cfg={{ appName, tagline, primary, accent, language, fontFamily: "Inter, sans-serif" }} content={content} />
@@ -734,8 +734,8 @@ const PREVIEWS = {
   "pro-store": StorePreview,
   "pro-premium": PremiumPreview,
   "pro-admin": AdminPreview,
-  // Matrimony (BondoBD) — isolated preview
-  "pro-bondobd": ProMatrimonyAdapter,
+  // Matrimony (SathiBD) — isolated preview
+  "pro-sathibd": ProSathiAdapter,
   // News (NewsNow BD) — isolated preview
   "pro-newsnow": ProNewsAdapter,
   // Quiz (QuizBD) — isolated preview

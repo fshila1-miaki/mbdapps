@@ -147,27 +147,41 @@ const WEB_MINI = {
       </div>
     </div>
   ),
-  // ───── BondoBD Matrimony — rich Bangla mini-mockup ─────
-  "web-bondobd": (tpl) => (
-    <div className="h-full flex bg-rose-50/60">
-      <div className="flex-1 p-1 pr-0.5">
-        <div className="text-[3.5px] font-bold inline-block bg-rose-100 text-rose-700 px-1 rounded-full" style={{ fontFamily: "'Tiro Bangla', serif" }}>পরিবার-কেন্দ্রিক</div>
-        <div className="text-[7px] font-black leading-tight mt-0.5" style={{ color: "#0f172a", fontFamily: "'Tiro Bangla', serif" }}>বাংলাদেশের</div>
-        <div className="text-[7px] font-black leading-tight" style={{ color: tpl.palette.primary, fontFamily: "'Tiro Bangla', serif" }}>ম্যাট্রিমনি</div>
-        <div className="text-[4px] text-slate-500 mt-0.5">খুঁজে পান আপনার জীবন সঙ্গী</div>
-        <div className="flex items-center gap-0.5 mt-1">
-          {["#fbbf24", "#f97316", "#ec4899"].map((c, i) => <div key={i} className="w-2 h-2 rounded-full border border-white -ml-0.5 first:ml-0" style={{ background: c }}></div>)}
-          <div className="text-[4px] font-bold ml-0.5" style={{ color: tpl.palette.primary }}>৫৪৩+ আজ</div>
+  // ───── SathiBD Matrimony — Matrimo-style gold mini-mockup ─────
+  "web-sathibd": (tpl) => (
+    <div className="h-full flex flex-col bg-white">
+      {/* gold info bar */}
+      <div className="h-1.5" style={{ background: "#f6af04" }}></div>
+      {/* navbar */}
+      <div className="h-3 bg-white shadow-sm flex items-center justify-between px-1">
+        <div className="text-[5px] font-black" style={{ fontFamily: "'Playfair Display', serif" }}><span style={{ color: "#f6af04" }}>Sathi</span><span style={{ color: "#222" }}>BD</span></div>
+        <div className="flex items-center gap-0.5">
+          <div className="text-[3px] px-1 rounded-full font-bold" style={{ border: "0.5px solid #f6af04", color: "#d99400" }}>Plans</div>
+          <div className="text-[3px] px-1 rounded-full font-bold" style={{ background: "#f6af04", color: "#222" }}>Register</div>
         </div>
       </div>
-      <div className="flex-1 p-0.5">
-        <div className="bg-white rounded shadow-sm border border-slate-200 p-1 h-full">
-          <div className="text-[4px] font-bold text-center" style={{ color: "#0f172a" }}>লগইন করুন</div>
-          <div className="text-[3px] text-center text-slate-400">নাম্বার দিন</div>
-          <div className="mt-1 bg-rose-50 border border-rose-300 rounded h-2.5 flex items-center px-0.5 text-[4px] font-mono">+88 01XX</div>
-          <div className="mt-1 h-2.5 rounded flex items-center justify-center text-[4px] font-bold text-white" style={{ background: tpl.palette.primary }}>শুরু করুন →</div>
-          <div className="mt-1 text-[3px] text-slate-400 text-center leading-tight">৪ টাকা/দিন +VAT</div>
+      {/* hero */}
+      <div className="flex-1 flex">
+        <div className="flex-1 p-1">
+          <div className="text-[3px] font-bold inline-block px-1 rounded-full" style={{ background: "#fff3d6", color: "#d99400" }}>💍 #1 MATRIMONY</div>
+          <div className="text-[6px] font-black leading-tight mt-0.5" style={{ color: "#222", fontFamily: "'Playfair Display', serif" }}>Find your <span style={{ color: "#f6af04", fontStyle: "italic" }}>Right Match</span></div>
+          <div className="mt-0.5 bg-white rounded shadow-sm border border-slate-100 p-0.5">
+            {["Looking for", "Religion", "City"].map((t, i) => <div key={i} className="h-1.5 rounded mt-0.5 first:mt-0 bg-slate-50 border border-slate-100 text-[2.5px] flex items-center px-0.5 text-slate-400">{t} ▾</div>)}
+            <div className="mt-0.5 h-2 rounded flex items-center justify-center text-[3px] font-bold" style={{ background: "#f6af04", color: "#222" }}>🔍 Search</div>
+          </div>
         </div>
+        <div className="w-2/5 p-0.5">
+          <div className="h-full rounded relative overflow-hidden" style={{ background: "linear-gradient(150deg, #f6c1c1, #e0114a)" }}>
+            <div className="absolute bottom-0 left-0 right-0 flex justify-center gap-0.5 pb-0.5">
+              <div className="w-1.5 h-2 rounded-t-full bg-white/80"></div>
+              <div className="w-1.5 h-2.5 rounded-t-full bg-white/80"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* services strip */}
+      <div className="h-3 flex items-center justify-around px-0.5">
+        {["👤", "💒", "🛎", "🚀", "📸", "📰"].map((s, i) => <div key={i} className="text-[5px]">{s}</div>)}
       </div>
     </div>
   ),
