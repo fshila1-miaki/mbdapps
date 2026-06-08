@@ -5,6 +5,16 @@ Build a full-stack demo web app called "BDapps" — a telecom developer platform
 Mock data only (no real backend). Visually polished, fully navigable, client-demo ready.
 Two roles: Developer & Admin. Color scheme: deep navy (#0f172a) + red (#e11d48) + white.
 
+## CHANGELOG — 2026-06-08 (later): SathiBD real images + richer animations
+- Replaced all CSS gradient silhouettes/initials in `SathiBDPreview.jsx` (the SOT, so both `/apps/sathibd` and the Step 5 builder preview update) with **real photography**: profile/team/testimonial/dashboard faces use randomuser.me portraits (gender-matched); hero, recent-couples grid, photo gallery, blog, profile-detail and register imagery use curated Unsplash wedding/couple photos. All URLs verified 200 OK.
+- New `Photo` and `FaceAvatar` components: lazy-loaded `<img>` that fades in on load and **degrades gracefully** to the warm gradient + silhouette / initial avatar on error (zero broken-image risk).
+- Added animations: hero/detail/about/register images get a slow **ken-burns** zoom; all images **fade-in** on load; recent-couples, gallery, profile-card and related-profile photos **zoom on hover** (group-hover scale); hero "active profiles" badge **floats**; kept existing scroll fade-ups, count-up stats and 4s testimonial carousel.
+- Verified via Playwright: 0 console errors, 0 broken images; profiles 8/8, couples 8/8 real photos load; lint clean.
+
+## CHANGELOG — 2026-06-08: "Revenue Today" live ticker (SathiBD CMS)
+- Added gold animated **Revenue Today** ticker to the SathiBD My-Apps CMS Overview (matrimony stats branch) with pulsing LIVE badge; auto-increments from simulated Robi CaaS charges every ~6.5s and from real subscriptions completed in `/apps/sathibd` (persisted to localStorage + `sathibd:revenue` window event). Verified ৳6,397→৳6,945 in 8s.
+
+
 ## CHANGELOG — 2026-06-08: SathiBD replaces BondoBD (Matrimony, Matrimo theme)
 - Completely replaced the BondoBD matrimony template/example with **SathiBD (সাথীBD) — Matrimony Portal**, rebuilt to mirror the "Matrimo" theme (gold #f6af04 + dark #222 + white; Playfair Display headings, Poppins body). Tagline: "বাংলাদেশের সেরা বিবাহ পোর্টাল".
 - New SOT component `components/digital/interactive/SathiBDPreview.jsx` (exports `SathiBDWebPreview` + `sathibdAndroidScreens`). Full 6-page navigable app: Home, All Profiles (filters+interest modal+chat popup), Profile Detail, Plans (Free/Gold/Platinum + OTP→CaaS subscribe flow), User Dashboard (matches, profile status, plan, interest requests Accept/Decline), Register. Page loader (3 gold rings), scroll fade-up (IntersectionObserver), counter animations, auto-sliding testimonial carousel.

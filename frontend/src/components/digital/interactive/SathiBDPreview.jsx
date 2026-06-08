@@ -25,6 +25,21 @@ const SANS = '"Poppins","Hind Siliguri","Inter",system-ui,sans-serif';
 
 const T = (lang, en, bn) => (lang === "Bengali" ? bn : en);
 
+/* ---------------- Real imagery sources ----------------
+ * Faces: randomuser.me (real portraits, gender-matched).
+ * Couples / weddings / gallery: curated Unsplash photos. All verified 200 OK.
+ * Every <img> degrades gracefully to a warm gradient + silhouette on error. */
+const RUF = (n) => `https://randomuser.me/api/portraits/women/${n}.jpg`;
+const RUM = (n) => `https://randomuser.me/api/portraits/men/${n}.jpg`;
+const UNS = (id, w = 700) => `https://images.unsplash.com/photo-${id}?w=${w}&q=80&auto=format&fit=crop`;
+const WED = {
+  hero: "1606216794074-735e91aa2c92",
+  register: "1595407753234-0882f1e77954",
+  couples: ["1465495976277-4387d4b0b4c6", "1606216794074-735e91aa2c92", "1595407753234-0882f1e77954", "1583939003579-730e3918a45a", "1591604466107-ec97de577aff", "1597157639073-69284dc0fdaf", "1610890716171-6b1bb98ffd09", "1606800052052-a08af7148866"],
+  gallery: ["1519225421980-715cb0215aed", "1519741497674-611481863552", "1604004555489-723a93d6ce74", "1460978812857-470ed1c77af0", "1511285560929-80b456fea0bc", "1604608672516-f1b9b1d37076", "1545241047-6083a3684587", "1606216794074-735e91aa2c92", "1595407753234-0882f1e77954", "1465495976277-4387d4b0b4c6"],
+  blog: ["1597157639073-69284dc0fdaf", "1519741497674-611481863552", "1604608672516-f1b9b1d37076"],
+};
+
 /* ---------------- Default seed data ---------------- */
 const PROFILES = [
   { id: "rahima", name: "মিস রাহিমা", nameEn: "Ms. Rahima Akter", gender: "Female", age: 26, height: "155cm", education: "Masters", edu: "Masters — Computer Science, DU", profession: "Software Engineer", city: "Dhaka", religion: "Islam", online: true, plan: "Gold", c1: "#f4c4c4", c2: "#f6af04", father: "Abdul Karim", income: "BDT 35,000", company: "BJIT Ltd", dob: "15 March 1998", weight: "52kg" },
@@ -97,6 +112,19 @@ const INTEREST_REQUESTS = [
   { id: 4, name: "Md. Jamil", plan: "Gold", city: "Dhaka", age: 33, height: "5.8", job: "Business Owner", time: "Yesterday, 06:20 PM", c1: "#d9d3f4", c2: "#8a7ed8" },
 ];
 
+/* Attach real imagery to the seed data (runs once at module load) */
+(function attachImages() {
+  const fF = [65, 68, 44, 90], fM = [32, 75, 51, 86]; let fi = 0, mi = 0;
+  PROFILES.forEach((p) => { p.photo = p.gender === "Female" ? RUF(fF[fi++ % fF.length]) : RUM(fM[mi++ % fM.length]); });
+  COUPLES.forEach((c, k) => { c.img = UNS(WED.couples[k % WED.couples.length]); });
+  GALLERY.forEach((g, k) => { g.img = UNS(WED.gallery[k % WED.gallery.length]); });
+  BLOG.forEach((b, k) => { b.img = UNS(WED.blog[k % WED.blog.length]); });
+  const tImg = [RUF(12), RUM(41), RUF(33), RUF(52)]; TESTIMONIALS.forEach((t, k) => { t.photo = tImg[k]; });
+  const teamImg = [RUF(26), RUM(45), RUF(63), RUM(55)]; TEAM.forEach((m, k) => { m.photo = teamImg[k]; });
+  const reqImg = [RUM(32), RUM(75), RUM(51), RUM(86)]; INTEREST_REQUESTS.forEach((r, k) => { r.photo = reqImg[k]; });
+})();
+
+
 /* ---------------- Hooks & primitives ---------------- */
 function useInView(threshold = 0.12) {
   const ref = useRef(null);
@@ -146,29 +174,37 @@ const Avatar = ({ letter, c1, c2, size = 80, ring = true }) => (
   <div className="grid place-items-center font-bold text-white shrink-0" style={{ width: size, height: size, borderRadius: "50%", background: `linear-gradient(140deg, ${c1}, ${c2})`, border: ring ? `3px solid ${GOLD}` : "none", fontSize: size * 0.4, fontFamily: SERIF }}>{letter}</div>
 );
 
-/* Couple silhouette in a warm frame (CSS/SVG, no external assets) */
-const CoupleFrame = ({ c1, c2, label, sub, rounded = 20 }) => (
-  <div className="relative w-full h-full overflow-hidden" style={{ borderRadius: rounded, background: `linear-gradient(150deg, ${c1}, ${c2})` }}>
-    <svg viewBox="0 0 200 200" className="absolute inset-0 w-full h-full" preserveAspectRatio="xMidYMax meet" aria-hidden>
-      <g opacity="0.92" fill="rgba(255,255,255,0.85)">
-        <circle cx="78" cy="92" r="20" />
-        <path d="M50 200 C50 150 60 128 78 128 C96 128 106 150 106 200 Z" />
-        <circle cx="124" cy="96" r="18" />
-        <path d="M100 200 C100 156 110 138 124 138 C140 138 150 156 150 200 Z" />
-      </g>
-      <g fill="none" stroke="rgba(255,255,255,0.5)" strokeWidth="2">
-        <path d="M8 8 H48 M8 8 V48" /><path d="M192 8 H152 M192 8 V48" />
-        <path d="M8 192 H48 M8 192 V152" /><path d="M192 192 H152 M192 192 V152" />
-      </g>
-    </svg>
-    {label && (
-      <div className="absolute bottom-0 left-0 right-0 px-3 py-2 text-white" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.55), transparent)" }}>
-        <div className="font-bold text-sm" style={{ fontFamily: SERIF }}>{label}</div>
-        {sub && <div className="text-[11px] opacity-90">{sub}</div>}
-      </div>
-    )}
-  </div>
-);
+/* Real face portrait with graceful initial-gradient fallback */
+const FaceAvatar = ({ src, letter, c1, c2, size = 80, ring = true }) => {
+  const [err, setErr] = useState(false);
+  if (err || !src) return <Avatar letter={letter} c1={c1} c2={c2} size={size} ring={ring} />;
+  return <img src={src} alt={letter || ""} loading="lazy" onError={() => setErr(true)} className="object-cover shrink-0 sb-fadein" style={{ width: size, height: size, borderRadius: "50%", border: ring ? `3px solid ${GOLD}` : "none" }} />;
+};
+
+/* Framed photo (real image) with warm-gradient placeholder + silhouette fallback.
+ * kenburns = slow zoom loop, zoom = scale on parent hover (group). */
+const Photo = ({ src, alt = "", c1 = "#f4c4c4", c2 = "#e0114a", rounded = 16, kenburns = false, zoom = false, label, sub }) => {
+  const [err, setErr] = useState(false);
+  return (
+    <div className="relative w-full h-full overflow-hidden" style={{ borderRadius: rounded, background: `linear-gradient(150deg, ${c1}, ${c2})` }}>
+      {!err && src && (
+        <img src={src} alt={alt} loading="lazy" onError={() => setErr(true)}
+          className={`w-full h-full object-cover sb-fadein ${kenburns ? "sb-kenburns" : ""} ${zoom ? "transition-transform duration-[1200ms] ease-out group-hover:scale-110" : ""}`} />
+      )}
+      {(err || !src) && (
+        <svg viewBox="0 0 200 200" className="absolute inset-0 w-full h-full" preserveAspectRatio="xMidYMax meet" aria-hidden>
+          <g opacity="0.9" fill="rgba(255,255,255,0.85)"><circle cx="78" cy="92" r="20" /><path d="M50 200 C50 150 60 128 78 128 C96 128 106 150 106 200 Z" /><circle cx="124" cy="96" r="18" /><path d="M100 200 C100 156 110 138 124 138 C140 138 150 156 150 200 Z" /></g>
+        </svg>
+      )}
+      {label && (
+        <div className="absolute bottom-0 left-0 right-0 px-3 py-2 text-white" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.62), transparent)" }}>
+          <div className="font-bold text-sm" style={{ fontFamily: SERIF }}>{label}</div>
+          {sub && <div className="text-[11px] opacity-90">{sub}</div>}
+        </div>
+      )}
+    </div>
+  );
+};
 
 const Label = ({ children }) => (
   <div className="text-[11px] font-semibold uppercase mb-2" style={{ color: GOLD_DK, letterSpacing: "0.18em" }}>{children}</div>
@@ -261,7 +297,7 @@ const InterestModal = ({ profile, lang, onClose, onSend }) => {
     <div className="absolute inset-0 z-[70] grid place-items-center p-4" style={{ background: "rgba(0,0,0,0.5)" }} data-testid="sathibd-interest-modal">
       <div className="bg-white rounded-2xl shadow-2xl w-full max-w-sm p-5" style={{ fontFamily: SANS }}>
         <div className="flex items-center gap-3 mb-3">
-          <Avatar letter={profile.nameEn.replace(/^(Ms\.|Md\.)\s*/, "")[0]} c1={profile.c1} c2={profile.c2} size={56} />
+          <FaceAvatar src={profile.photo} letter={profile.nameEn.replace(/^(Ms\.|Md\.)\s*/, "")[0]} c1={profile.c1} c2={profile.c2} size={56} />
           <div>
             <div className="font-bold" style={{ color: DARK }}>{T(lang, "Send interest to", "আগ্রহ পাঠান")} {profile.nameEn}</div>
             <div className="text-[11px] text-slate-500">{T(lang, "They will be able to view:", "তারা দেখতে পারবেন:")}</div>
@@ -293,7 +329,7 @@ const ChatPopup = ({ profile, lang, onClose }) => {
   return (
     <div className="absolute bottom-4 right-4 z-[65] w-[300px] rounded-2xl shadow-2xl overflow-hidden flex flex-col bg-white" style={{ height: 380, fontFamily: SANS, border: `1px solid ${BORDER}` }} data-testid="sathibd-chat-popup">
       <div className="flex items-center gap-2 px-3 py-2.5" style={{ background: GOLD }}>
-        <Avatar letter={profile.nameEn.replace(/^(Ms\.|Md\.)\s*/, "")[0]} c1={profile.c1} c2={profile.c2} size={36} ring={false} />
+        <FaceAvatar src={profile.photo} letter={profile.nameEn.replace(/^(Ms\.|Md\.)\s*/, "")[0]} c1={profile.c1} c2={profile.c2} size={36} ring={false} />
         <div className="flex-1"><div className="text-sm font-bold" style={{ color: DARK }}>{profile.nameEn}</div><div className="text-[10px]" style={{ color: "#5a3e00" }}>🟢 {T(lang, "Available online", "অনলাইন")}</div></div>
         <button onClick={onClose} className="text-xl leading-none" style={{ color: DARK }} data-testid="sathibd-chat-close">×</button>
       </div>
@@ -412,10 +448,10 @@ const HomePage = ({ lang, go, cfg, profiles, onHeroSearch }) => {
         <div className="relative p-6 md:p-10 grid place-items-center" style={{ background: "#fff8f0" }}>
           <div className="relative w-full max-w-[300px]" style={{ aspectRatio: "3/4" }}>
             <div className="absolute inset-0" style={{ borderRadius: 24, padding: 8, background: `linear-gradient(135deg, ${GOLD}, #fff)` }}>
-              <CoupleFrame c1="#f6c1c1" c2="#e0114a" rounded={18} />
+              <Photo src={UNS(WED.hero, 700)} alt="Happy couple" c1="#f6c1c1" c2="#e0114a" rounded={18} kenburns />
             </div>
-            <div className="absolute -bottom-4 -left-3 bg-white rounded-xl shadow-lg px-3 py-2 flex items-center gap-2">
-              <div className="flex -space-x-2">{["#f6af04", "#e0114a", "#5ca0d8"].map((c, i) => <span key={i} className="w-7 h-7 rounded-full border-2 border-white grid place-items-center text-[9px] font-bold text-white" style={{ background: c }}>{["S", "R", "K"][i]}</span>)}</div>
+            <div className="absolute -bottom-4 -left-3 bg-white rounded-xl shadow-lg px-3 py-2 flex items-center gap-2 sb-float">
+              <div className="flex -space-x-2">{[RUF(65), RUM(32), RUF(44)].map((src, i) => <img key={i} src={src} alt="" loading="lazy" className="w-7 h-7 rounded-full border-2 border-white object-cover" />)}</div>
               <div className="text-[11px] font-semibold" style={{ color: DARK }}>2,840+ {T(lang, "active today", "সক্রিয় আজ")}</div>
             </div>
           </div>
@@ -449,7 +485,7 @@ const HomePage = ({ lang, go, cfg, profiles, onHeroSearch }) => {
           <div className="mt-8 bg-white rounded-2xl shadow-md p-8 min-h-[200px]" style={{ border: `1px solid ${BORDER}` }} data-testid="sathibd-testimonial">
             {(() => { const t = TESTIMONIALS[tIdx]; return (
               <div key={tIdx} style={{ animation: "sb-fadeup .5s ease" }}>
-                <Avatar letter={t.letter} c1={t.c1} c2={t.c2} size={70} />
+                <FaceAvatar src={t.photo} letter={t.letter} c1={t.c1} c2={t.c2} size={70} />
                 <p className="italic text-slate-600 mt-4">“{t.quote}”</p>
                 <div className="font-bold mt-3" style={{ color: DARK }}>{t.name}</div>
                 <div className="text-xs" style={{ color: GOLD_DK }}>{t.loc}</div>
@@ -477,7 +513,7 @@ const HomePage = ({ lang, go, cfg, profiles, onHeroSearch }) => {
           </div>
           <div className="grid md:grid-cols-2 gap-8 items-center mt-12">
             <div className="relative">
-              <div className="rounded-2xl overflow-hidden" style={{ height: 280 }}><CoupleFrame c1="#f6af04" c2="#e0114a" /></div>
+              <div className="rounded-2xl overflow-hidden" style={{ height: 280 }}><Photo src={UNS(WED.couples[2])} alt="Married couple" c1="#f6af04" c2="#e0114a" rounded={20} kenburns /></div>
               <div className="absolute -bottom-4 -right-3 bg-white rounded-xl shadow-lg px-4 py-2.5"><div className="text-sm font-bold" style={{ color: DARK }}>💑 2K+ {T(lang, "Couples Matched", "দম্পতি মিলেছেন")}</div></div>
             </div>
             <div>
@@ -520,7 +556,7 @@ const HomePage = ({ lang, go, cfg, profiles, onHeroSearch }) => {
             {COUPLES.map((c, i) => (
               <Reveal key={c.id} delay={i * 40}>
                 <div className="group relative rounded-2xl overflow-hidden" style={{ aspectRatio: "1", border: `1px solid ${BORDER}` }} data-testid={`sathibd-couple-${c.id}`}>
-                  <CoupleFrame c1={c.c1} c2={c.c2} label={c.couple} sub={c.city} rounded={16} />
+                  <Photo src={c.img} alt={c.couple} c1={c.c1} c2={c.c2} label={c.couple} sub={c.city} rounded={16} zoom />
                   <div className="absolute inset-0 grid place-items-center opacity-0 group-hover:opacity-100 transition-opacity" style={{ background: "rgba(34,34,34,0.55)" }}>
                     <span className="text-sm font-semibold px-4 py-2 rounded-full" style={{ background: GOLD, color: DARK }}>{T(lang, "View Story", "গল্প দেখুন")} ❤</span>
                   </div>
@@ -539,7 +575,7 @@ const HomePage = ({ lang, go, cfg, profiles, onHeroSearch }) => {
             {TEAM.map((m, i) => (
               <Reveal key={m.name} delay={i * 60}>
                 <div className="bg-white rounded-2xl p-5 group" style={{ border: `1px solid ${BORDER}` }} data-testid={`sathibd-team-${i}`}>
-                  <div className="transition-transform group-hover:scale-105 inline-block"><Avatar letter={m.letter} c1={m.c1} c2={m.c2} size={96} /></div>
+                  <div className="transition-transform group-hover:scale-105 inline-block"><FaceAvatar src={m.photo} letter={m.letter} c1={m.c1} c2={m.c2} size={96} /></div>
                   <div className="font-bold mt-3" style={{ color: DARK }}>{m.name}</div>
                   <div className="text-xs italic" style={{ color: GOLD_DK }}>{m.role}</div>
                   <div className="flex justify-center gap-1.5 mt-2">{["FB", "TW", "IG", "LI", "WA"].map((s) => <span key={s} className="w-6 h-6 grid place-items-center rounded-full text-[8px] font-bold" style={{ background: LIGHT, color: GOLD_DK }}>{s}</span>)}</div>
@@ -558,7 +594,7 @@ const HomePage = ({ lang, go, cfg, profiles, onHeroSearch }) => {
             {GALLERY.map((g, i) => (
               <Reveal key={i} delay={i * 30}>
                 <div className="group relative rounded-xl overflow-hidden" style={{ aspectRatio: "1", border: `1px solid ${BORDER}` }} data-testid={`sathibd-gallery-${i}`}>
-                  <CoupleFrame c1={g.c1} c2={g.c2} rounded={12} />
+                  <Photo src={g.img} alt="Wedding moment" c1={g.c1} c2={g.c2} rounded={12} zoom />
                   <div className="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 transition-transform px-2 py-2 text-white text-xs" style={{ background: "rgba(34,34,34,0.7)" }}>🔍 {T(lang, "View", "দেখুন")} · Bride & Groom</div>
                 </div>
               </Reveal>
@@ -664,8 +700,8 @@ const ProfilesPage = ({ lang, profiles, openProfile, onInterest, onChat, prefill
           <div className="space-y-4">
             {filtered.map((p) => (
               <div key={p.id} className="bg-white rounded-2xl p-4 flex flex-col sm:flex-row gap-4 transition-all hover:shadow-md" style={{ border: `1px solid ${BORDER}` }} data-testid={`sathibd-profile-card-${p.id}`}>
-                <div className="relative shrink-0 mx-auto sm:mx-0" style={{ width: 150, height: 170 }}>
-                  <CoupleFrame c1={p.c1} c2={p.c2} rounded={14} />
+                <div className="relative shrink-0 mx-auto sm:mx-0 group" style={{ width: 150, height: 170 }}>
+                  <Photo src={p.photo} alt={p.nameEn} c1={p.c1} c2={p.c2} rounded={14} zoom />
                   <span className="absolute top-2 right-2 text-[10px] font-semibold px-2 py-0.5 rounded-full text-white" style={{ background: p.online ? GREEN : "#888" }}>{p.online ? `🟢 ${T(lang, "Available", "অনলাইন")}` : `${T(lang, "Last seen", "শেষ দেখা")} ${p.last}`}</span>
                 </div>
                 <div className="flex-1">
@@ -720,7 +756,7 @@ const ProfileDetailPage = ({ lang, profile, profiles, openProfile, onInterest, o
       <button onClick={() => go("profiles")} className="text-sm mb-4" style={{ color: GOLD_DK }}>← {T(lang, "Back to profiles", "প্রোফাইলে ফিরুন")}</button>
       <div className="grid md:grid-cols-[300px_1fr] gap-8">
         <div>
-          <div className="rounded-2xl overflow-hidden" style={{ height: 320, border: `1px solid ${BORDER}` }}><CoupleFrame c1={profile.c1} c2={profile.c2} /></div>
+          <div className="rounded-2xl overflow-hidden" style={{ height: 320, border: `1px solid ${BORDER}` }}><Photo src={profile.photo} alt={profile.nameEn} c1={profile.c1} c2={profile.c2} rounded={20} kenburns /></div>
           <div className="flex items-center justify-center gap-3 mt-3 text-xs">
             <span className="text-slate-500"><b style={{ color: DARK }}>100</b> {T(lang, "viewers", "দর্শক")}</span>
             <span className="px-2 py-0.5 rounded-full text-white" style={{ background: profile.online ? GREEN : "#888" }}>{profile.online ? `🟢 ${T(lang, "Available", "অনলাইন")}` : T(lang, "Offline", "অফলাইন")}</span>
@@ -739,7 +775,7 @@ const ProfileDetailPage = ({ lang, profile, profiles, openProfile, onInterest, o
             <p className="text-sm text-slate-600 leading-relaxed">আমি একজন পরিশ্রমী এবং পারিবারিক মানুষ। সৎ ও ধার্মিক জীবনসঙ্গী চাই। বাবা অবসরপ্রাপ্ত সরকারি কর্মকর্তা, মা গৃহিণী। আমি সবসময় পারিবারিক মূল্যবোধকে প্রাধান্য দিই।</p>
           </Section>
           <Section title={T(lang, "Photo Gallery", "ফটো গ্যালারি")}>
-            <div className="flex gap-3">{[0, 1, 2].map((i) => <div key={i} className="rounded-xl overflow-hidden" style={{ width: 100, height: 100 }}><CoupleFrame c1={profile.c1} c2={profile.c2} rounded={12} /></div>)}</div>
+            <div className="flex gap-3">{[0, 1, 2].map((i) => <div key={i} className="group rounded-xl overflow-hidden" style={{ width: 100, height: 100 }}><Photo src={UNS(WED.gallery[i])} alt="Gallery" c1={profile.c1} c2={profile.c2} rounded={12} zoom /></div>)}</div>
           </Section>
           <Section title={T(lang, "Contact Info", "যোগাযোগ")}>
             <div className="rounded-xl p-4" style={{ background: LIGHT }}>
@@ -777,7 +813,7 @@ const ProfileDetailPage = ({ lang, profile, profiles, openProfile, onInterest, o
         <div className="flex gap-4 overflow-x-auto pb-2">
           {related.map((p) => (
             <button key={p.id} onClick={() => openProfile(p)} className="shrink-0 w-32 text-center" data-testid={`sathibd-related-${p.id}`}>
-              <div className="rounded-xl overflow-hidden mb-2" style={{ height: 120 }}><CoupleFrame c1={p.c1} c2={p.c2} rounded={12} /></div>
+              <div className="group rounded-xl overflow-hidden mb-2" style={{ height: 120 }}><Photo src={p.photo} alt={p.nameEn} c1={p.c1} c2={p.c2} rounded={12} zoom /></div>
               <div className="text-xs font-bold" style={{ color: DARK }}>{p.nameEn}</div>
               <div className="text-[10px] text-slate-500">{p.age} · {p.city}</div>
             </button>
@@ -836,7 +872,7 @@ const DashboardPage = ({ lang, profiles, openProfile }) => {
     <div className="max-w-6xl mx-auto px-4 py-8 grid md:grid-cols-[240px_1fr] gap-6" style={{ fontFamily: SANS }}>
       <aside className="bg-white rounded-2xl p-5 self-start" style={{ border: `1px solid ${BORDER}` }}>
         <div className="text-center pb-4" style={{ borderBottom: `1px solid ${BORDER}` }}>
-          <Avatar letter="R" c1="#c4e4f4" c2="#5ca0d8" size={72} />
+          <FaceAvatar src={RUM(33)} letter="R" c1="#c4e4f4" c2="#5ca0d8" size={72} />
           <div className="font-bold mt-2" style={{ color: DARK }}>{T(lang, "Welcome, মোঃ রফিউল", "স্বাগতম, মোঃ রফিউল")}</div>
         </div>
         <nav className="mt-4 space-y-1 text-sm">
@@ -852,7 +888,7 @@ const DashboardPage = ({ lang, profiles, openProfile }) => {
           <div className="flex gap-4 overflow-x-auto pb-2">
             {matches.map((p) => (
               <button key={p.id} onClick={() => openProfile(p)} className="shrink-0 w-24 text-center" data-testid={`sathibd-dash-match-${p.id}`}>
-                <Avatar letter={p.nameEn.replace(/^(Ms\.|Md\.)\s*/, "")[0]} c1={p.c1} c2={p.c2} size={64} />
+                <FaceAvatar src={p.photo} letter={p.nameEn.replace(/^(Ms\.|Md\.)\s*/, "")[0]} c1={p.c1} c2={p.c2} size={64} />
                 <div className="text-[11px] font-bold mt-1 truncate" style={{ color: DARK }}>{p.nameEn}</div>
                 <div className="text-[10px] text-slate-500">{p.city} · {p.age}</div>
                 <div className="text-[10px] font-semibold" style={{ color: GOLD_DK }}>View →</div>
@@ -883,7 +919,7 @@ const DashboardPage = ({ lang, profiles, openProfile }) => {
           <h2 className="font-bold mb-3" style={{ fontFamily: SERIF, color: DARK }}>{T(lang, "Recent Chat List", "সাম্প্রতিক চ্যাট")}</h2>
           <div className="space-y-2">
             {profiles.slice(0, 4).map((p) => (
-              <div key={p.id} className="flex items-center gap-3"><Avatar letter={p.nameEn.replace(/^(Ms\.|Md\.)\s*/, "")[0]} c1={p.c1} c2={p.c2} size={44} /><div className="flex-1 min-w-0"><div className="text-sm font-semibold" style={{ color: DARK }}>{p.nameEn}</div><div className="text-xs text-slate-400 truncate">{p.city} · {T(lang, "Hi, thanks for connecting…", "হাই, যোগাযোগের জন্য ধন্যবাদ…")}</div></div></div>
+              <div key={p.id} className="flex items-center gap-3"><FaceAvatar src={p.photo} letter={p.nameEn.replace(/^(Ms\.|Md\.)\s*/, "")[0]} c1={p.c1} c2={p.c2} size={44} /><div className="flex-1 min-w-0"><div className="text-sm font-semibold" style={{ color: DARK }}>{p.nameEn}</div><div className="text-xs text-slate-400 truncate">{p.city} · {T(lang, "Hi, thanks for connecting…", "হাই, যোগাযোগের জন্য ধন্যবাদ…")}</div></div></div>
             ))}
           </div>
         </div>
@@ -899,7 +935,7 @@ const DashboardPage = ({ lang, profiles, openProfile }) => {
             {newReqs.filter((r) => (tab === "new" ? !reqStates[r.id] : reqStates[r.id] === tab)).map((r) => (
               <div key={r.id} className="rounded-xl p-4 flex flex-col sm:flex-row gap-3" style={{ border: `1px solid ${BORDER}` }} data-testid={`sathibd-req-${r.id}`}>
                 <div className="shrink-0 text-center">
-                  <div className="rounded-xl overflow-hidden mb-1" style={{ width: 72, height: 72 }}><CoupleFrame c1={r.c1} c2={r.c2} rounded={10} /></div>
+                  <div className="rounded-xl overflow-hidden mb-1" style={{ width: 72, height: 72 }}><Photo src={r.photo} alt={r.name} c1={r.c1} c2={r.c2} rounded={10} /></div>
                   {planBadge(r.plan)}
                 </div>
                 <div className="flex-1">
@@ -968,7 +1004,7 @@ const RegisterPage = ({ lang, go }) => {
         </div>
       </div>
       <div className="hidden md:grid place-items-center p-10" style={{ background: `linear-gradient(135deg, ${GOLD}, ${GOLD_DK})` }}>
-        <div className="w-full max-w-[280px]" style={{ aspectRatio: "3/4" }}><CoupleFrame c1="#f6c1c1" c2="#e0114a" /></div>
+        <div className="w-full max-w-[280px]" style={{ aspectRatio: "3/4" }}><Photo src={UNS(WED.register)} alt="Couple" c1="#f6c1c1" c2="#e0114a" rounded={20} kenburns /></div>
       </div>
     </div>
   );
@@ -1033,6 +1069,12 @@ export const SathiBDWebPreview = ({ cfg = {}, content, onPhoneSubmit, onOtpVerif
         @keyframes sb-ring { 0%{transform:scale(.4);opacity:0} 40%{opacity:1} 100%{transform:scale(1.1);opacity:0} }
         @keyframes sb-fadeout { to { opacity:0; visibility:hidden } }
         @keyframes sb-fadeup { from { opacity:0; transform:translateY(12px) } to { opacity:1; transform:translateY(0) } }
+        @keyframes sb-kenburns { 0%{transform:scale(1)} 100%{transform:scale(1.14)} }
+        @keyframes sb-fadein { from{opacity:0} to{opacity:1} }
+        @keyframes sb-float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-9px)} }
+        .sb-kenburns{ animation: sb-kenburns 16s ease-in-out infinite alternate; }
+        .sb-fadein{ animation: sb-fadein .9s ease both; }
+        .sb-float{ animation: sb-float 4.5s ease-in-out infinite; }
       `}</style>
       {loading && <Loader />}
 
@@ -1076,11 +1118,11 @@ export const sathibdAndroidScreens = (lang) => ([
   ) },
   { id: "browse", label: T(lang, "Browse", "ব্রাউজ"), render: (ctx) => (
     <div className="h-full overflow-y-auto p-3" style={{ background: LIGHT }}>{PROFILES.slice(0, 4).map((p) => (
-      <div key={p.id} className="bg-white rounded-xl p-2.5 mb-2 flex items-center gap-2" style={{ border: `1px solid ${BORDER}` }}><Avatar letter={p.nameEn.replace(/^(Ms\.|Md\.)\s*/, "")[0]} c1={p.c1} c2={p.c2} size={40} ring={false} /><div className="flex-1"><div className="text-xs font-bold" style={{ color: DARK }}>{p.nameEn}</div><div className="text-[10px] text-slate-500">{p.age} · {p.city} · {p.profession}</div></div><button onClick={ctx.next} className="text-[10px] font-bold px-2 py-1 rounded-full" style={{ background: GOLD, color: DARK }} data-testid={`emu-sathibd-view-${p.id}`}>View</button></div>
+      <div key={p.id} className="bg-white rounded-xl p-2.5 mb-2 flex items-center gap-2" style={{ border: `1px solid ${BORDER}` }}><FaceAvatar src={p.photo} letter={p.nameEn.replace(/^(Ms\.|Md\.)\s*/, "")[0]} c1={p.c1} c2={p.c2} size={40} ring={false} /><div className="flex-1"><div className="text-xs font-bold" style={{ color: DARK }}>{p.nameEn}</div><div className="text-[10px] text-slate-500">{p.age} · {p.city} · {p.profession}</div></div><button onClick={ctx.next} className="text-[10px] font-bold px-2 py-1 rounded-full" style={{ background: GOLD, color: DARK }} data-testid={`emu-sathibd-view-${p.id}`}>View</button></div>
     ))}</div>
   ) },
   { id: "detail", label: T(lang, "Profile", "প্রোফাইল"), render: (ctx) => (
-    <div className="h-full flex flex-col"><div style={{ height: 150 }}><CoupleFrame c1="#f6c1c1" c2="#e0114a" rounded={0} /></div><div className="p-3 flex-1"><div className="font-bold" style={{ fontFamily: SERIF, color: DARK }}>Ms. Rahima Akter</div><div className="text-[11px] text-slate-500">26 · Dhaka · Software Engineer</div><button onClick={ctx.next} className="w-full mt-3 font-bold text-sm py-2.5 rounded-lg" style={{ background: GOLD, color: DARK }} data-testid="emu-sathibd-interest">💌 {T(lang, "Send Interest", "আগ্রহ পাঠান")}</button></div></div>
+    <div className="h-full flex flex-col"><div style={{ height: 150 }}><Photo src={UNS(WED.hero, 400)} alt="Couple" c1="#f6c1c1" c2="#e0114a" rounded={0} kenburns /></div><div className="p-3 flex-1"><div className="font-bold" style={{ fontFamily: SERIF, color: DARK }}>Ms. Rahima Akter</div><div className="text-[11px] text-slate-500">26 · Dhaka · Software Engineer</div><button onClick={ctx.next} className="w-full mt-3 font-bold text-sm py-2.5 rounded-lg" style={{ background: GOLD, color: DARK }} data-testid="emu-sathibd-interest">💌 {T(lang, "Send Interest", "আগ্রহ পাঠান")}</button></div></div>
   ) },
   { id: "done", label: T(lang, "Sent", "পাঠানো"), render: (ctx) => (
     <div className="h-full grid place-items-center text-center p-4"><div><div className="w-16 h-16 mx-auto rounded-full grid place-items-center text-3xl text-white" style={{ background: GREEN }}>✓</div><div className="font-bold mt-2" style={{ fontFamily: SERIF, color: DARK }}>{T(lang, "Interest Sent!", "আগ্রহ পাঠানো হয়েছে!")}</div><div className="text-[11px] text-slate-500 mt-1">{T(lang, "SMS notification delivered via Robi", "রবি দিয়ে SMS পাঠানো হয়েছে")}</div><button onClick={() => ctx.goto(0)} className="mt-3 text-xs font-bold px-4 py-1.5 rounded-full" style={{ background: GOLD, color: DARK }} data-testid="emu-sathibd-home">{T(lang, "Back Home", "হোমে ফিরুন")}</button></div></div>
