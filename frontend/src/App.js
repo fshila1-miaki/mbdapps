@@ -49,7 +49,8 @@ function App() {
       <BrowserRouter>
         <Toaster position="top-right" richColors closeButton />
         <Routes>
-          <Route path="/" element={<Login />} />
+          <Route path="/" element={<AppStore />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
 
           {/* Developer */}

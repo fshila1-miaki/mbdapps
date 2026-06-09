@@ -32,7 +32,7 @@ const Register = () => {
       toast.error("Please fix the highlighted fields");
       return;
     }
-    navigate("/", { state: { registered: true } });
+    navigate("/login", { state: { registered: true } });
   };
 
   return (
@@ -96,7 +96,7 @@ const Register = () => {
           </div>
           <div className="sm:col-span-2 flex flex-col sm:flex-row sm:items-center gap-3 pt-4">
             <Button data-testid="register-submit" type="submit" className="bg-[#e11d48] hover:bg-[#be123c] text-white h-11 px-8">Create Account</Button>
-            <Link to="/" data-testid="goto-login" className="text-sm text-slate-500 hover:text-[#0f172a]">Back to sign in</Link>
+            <Link to="/login" data-testid="goto-login" className="text-sm text-slate-500 hover:text-[#0f172a]">Back to sign in</Link>
           </div>
         </form>
       </div>

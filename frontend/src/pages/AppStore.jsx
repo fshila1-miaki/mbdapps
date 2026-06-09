@@ -36,7 +36,7 @@ const AppCard = ({ app, onClick }) => (
 );
 
 export const AppStore = () => {
-  const { storeApps, storeLayout, appStoreUser, setAppStoreUser } = useApp();
+  const { storeApps, storeLayout, appStoreUser, setAppStoreUser, user, login } = useApp();
   const { t } = useTranslation();
   const navigate = useNavigate();
   const [slide, setSlide] = useState(0);
@@ -63,13 +63,19 @@ export const AppStore = () => {
   const topRated = sectionApps((a, b) => b.rating - a.rating);
   const mostUsed = sectionApps((a, b) => (b.subscribers || 0) - (a.subscribers || 0));
 
+  const navigateToCreateApp = () => {
+    if (user) navigate("/digital", { replace: true });
+    else navigate("/login");
+    // console.log("user", user);
+  };
+
   return (
     <div className="min-h-screen bg-white" style={{ fontFamily: "'IBM Plex Sans', sans-serif" }}>
       <header className="border-b border-slate-200 bg-white sticky top-0 z-30 shadow-sm">
         <div className="max-w-[1400px] mx-auto px-4 lg:px-8 h-16 flex items-center justify-between">
           <Link to="/appstore" data-testid="bdapps-logo" className="text-2xl font-bold tracking-tighter bg-gradient-to-r from-orange-500 to-red-600 bg-clip-text text-transparent" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>bdapps</Link>
           <div className="flex items-center gap-2">
-            <Button onClick={() => navigate("/digital")} data-testid="create-app-btn" className="bg-[#e11d48] hover:bg-[#be123c] rounded-full"><span className="mr-1">+</span> Create Your Own App</Button>
+            <Button onClick={navigateToCreateApp} data-testid="create-app-btn" className="bg-[#e11d48] hover:bg-[#be123c] rounded-full"><span className="mr-1">+</span> Create Your Own App</Button>
             {appStoreUser ? <Button variant="outline" data-testid="store-user" className="rounded-full">{appStoreUser.phone}</Button>
               : <Button data-testid="store-signin" onClick={() => { setOtpOpen(true); setOtpStep(1); }} variant="outline" className="rounded-full border-rose-300 text-rose-700 hover:bg-rose-50">Sign In</Button>}
           </div>
@@ -133,7 +139,7 @@ export const AppStore = () => {
             <h3 className="font-bold tracking-tight text-xl" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>{storeLayout.hero}</h3>
             <p className="text-sm opacity-80">{storeLayout.sub}</p>
           </div>
-          <Button onClick={() => navigate("/register")} className="bg-[#e11d48] hover:bg-[#be123c]">{t("appstore.becomeDeveloper")}</Button>
+          {user ? null : <Button onClick={() => navigate("/login")} className="bg-[#e11d48] hover:bg-[#be123c]">{t("appstore.becomeDeveloper")}</Button>}
         </div>
       </div>
 
