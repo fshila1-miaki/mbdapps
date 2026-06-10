@@ -29,7 +29,7 @@ const ColorPick = ({ value, onChange, testid }) => (
   </div>
 );
 
-const ConfigureSidebar = ({ cfg, onChange, type, onGenerate, onSaveDraft, onBack }) => {
+const ConfigureSidebar = ({ cfg, onChange, type, onGenerate, onSaveDraft, onBack, celebration }) => {
   const set = (k, v) => onChange({ ...cfg, [k]: v });
   const setPayment = (k, v) => onChange({ ...cfg, payment: { ...cfg.payment, [k]: v } });
   const setStore = (k, v) => onChange({ ...cfg, store: { ...cfg.store, [k]: v } });

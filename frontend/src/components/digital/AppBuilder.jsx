@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { Button } from "../ui/button";
@@ -17,6 +17,7 @@ import WhatsNext from "./WhatsNext";
 import Confetti from "./Confetti";
 
 const AppBuilder = ({ template, type, designId, customization, content, onBack }) => {
+  const containerRef = useRef(null);
   const navigate = useNavigate();
   const { addBuildFile, addMyApp } = useApp();
   const { saveApp } = useGeneratedApps();
@@ -28,6 +29,24 @@ const AppBuilder = ({ template, type, designId, customization, content, onBack }
   const [submitOpen, setSubmitOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
+  const handleScrollToTop = () => {
+    // console.log("containerRef.current", containerRef.current);
+    // console.log("containerRef.current.scrollTop", containerRef.current.scrollTop);
+    // if (containerRef.current && containerRef.current.scrollTop > 0) {
+    //   // Set the scroll position directly on the DOM element
+    //   setTimeout(() => {
+    //     containerRef.current.scrollTo({
+    //       top: 0,
+    //       behavior: 'smooth'
+    //     });      
+    //   }, 100);
+    // }
+
+    // setTimeout(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    // }, 500);
+  };
+  
   const copyLink = async (url, label = "🔗 Preview link copied") => {
     try {
       await navigator.clipboard.writeText(url);
@@ -93,6 +112,7 @@ const AppBuilder = ({ template, type, designId, customization, content, onBack }
     setGenerating(true);
     setTimeout(() => {
       setGenerating(false);
+      handleScrollToTop();
       setCelebration(true);
       try {
         saveApp({ id: `${template.id}-${Date.now()}`, templateId: template.id, type, name: cfg.appName, tagline: cfg.tagline, color: cfg.primary, icon: template.icon, designId, customization: { ...customization, ...cfg }, createdAt: new Date().toISOString() });
@@ -130,8 +150,13 @@ const AppBuilder = ({ template, type, designId, customization, content, onBack }
     toast.success("✓ Submitted! Your APK is now in Admin Review (Provisioning → Build Files → Pending Approval)");
   };
 
+  const onSaveDraft = () => {
+    toast.success("💾 Draft saved");
+    navigate("/my-apps", { replace: true });
+  };
+
   return (
-    <div className="space-y-4">
+    <div className="space-y-4" ref={containerRef}>
       <div className="flex items-center justify-between gap-3 bg-white border border-slate-200 rounded-xl px-4 py-3">
         <button onClick={onBack} className="text-xs text-slate-500 hover:text-slate-900 flex items-center gap-1" data-testid="appbuilder-back"><ChevronLeft size={14} /> Back</button>
         <div className="text-xs uppercase tracking-widest font-bold text-slate-700">{template.name}</div>
@@ -207,7 +232,7 @@ const AppBuilder = ({ template, type, designId, customization, content, onBack }
         </div>
       ) : (
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-start">
-        <div className="lg:col-span-8" data-testid="preview-pane">
+        <div className={celebration ? "lg:col-span-12" : "lg:col-span-8"} data-testid="preview-pane">
           {loadingPhase ? (
             <LoadingSequence appName={cfg.appName} primary={cfg.primary} onDone={() => setLoadingPhase(false)} />
           ) : generating ? (
@@ -223,9 +248,9 @@ const AppBuilder = ({ template, type, designId, customization, content, onBack }
 
           {celebration && <WhatsNext type={type} />}
         </div>
-        <div className="lg:col-span-4">
-          <ConfigureSidebar cfg={cfg} onChange={setCfg} type={type} onGenerate={onGenerate} onSaveDraft={() => toast.success("💾 Draft saved")} onBack={onBack} />
-        </div>
+        {!celebration && <div className="lg:col-span-4">
+          <ConfigureSidebar cfg={cfg} onChange={setCfg} type={type} onGenerate={onGenerate} celebration={celebration} onSaveDraft={onSaveDraft} onBack={onBack} />
+        </div>}
       </div>
       )}
 
