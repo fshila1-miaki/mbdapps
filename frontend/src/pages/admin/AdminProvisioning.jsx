@@ -112,8 +112,8 @@ const AdminProvisioning = () => {
     <Layout>
       <div className="space-y-6">
         <div>
-          <p className="text-xs uppercase tracking-widest text-[#e11d48] font-bold mb-1">Admin · Provisioning</p>
-          <h1 className="text-3xl sm:text-4xl tracking-tighter font-bold" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>App Approvals</h1>
+          <p className="text-xs uppercase tracking-widest text-[#2563EB] font-bold mb-1">Admin · Provisioning</p>
+          <h1 className="text-3xl sm:text-4xl tracking-tighter font-bold" style={{ fontFamily: "'Outfit', sans-serif" }}>App Approvals</h1>
         </div>
 
         <Tabs defaultValue="apps">
@@ -135,7 +135,7 @@ const AdminProvisioning = () => {
                   </div>
                   <h3 className="font-semibold text-lg tracking-tight mb-1">{app.name}</h3>
                   <p className="text-xs text-slate-500 mb-4">{app.username}</p>
-                  <Button size="sm" disabled={!TRANSITIONS[app.status]?.length} onClick={() => { setStateApp(app); setNewState(""); setRemark(""); }} className="bg-[#0f172a] hover:bg-slate-800 w-full" data-testid={`change-state-${app.id}`}>
+                  <Button size="sm" disabled={!TRANSITIONS[app.status]?.length} onClick={() => { setStateApp(app); setNewState(""); setRemark(""); }} className="bg-[#09090B] hover:bg-slate-800 w-full" data-testid={`change-state-${app.id}`}>
                     {TRANSITIONS[app.status]?.length ? "Change State" : "No Actions"}
                   </Button>
                 </div>
@@ -182,7 +182,7 @@ const AdminProvisioning = () => {
             </div>
             <div><Label>Remarks *</Label><Textarea data-testid="state-remark" value={remark} onChange={(e) => setRemark(e.target.value)} placeholder="Reason for change" /></div>
           </div>
-          <DialogFooter><Button data-testid="state-submit" onClick={submit} className="bg-[#e11d48] hover:bg-[#be123c]">Submit</Button></DialogFooter>
+          <DialogFooter><Button data-testid="state-submit" onClick={submit} className="bg-[#2563EB] hover:bg-[#1D4ED8]">Submit</Button></DialogFooter>
         </DialogContent>
       </Dialog>
     </Layout>

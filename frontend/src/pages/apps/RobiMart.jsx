@@ -4,14 +4,14 @@ import { ShoppingCart, Search, Heart, ChevronLeft, ChevronRight, Star, Check, Tr
 
 // Products & banners — mirrors Step 4 content
 const PRODUCTS = [
-  { id: "p1", name: "Sony WH-1000XM5 Headphones", brand: "Sony", category: "Electronics", price: 18500, sale: 12999, rating: 4.9, reviews: 184, emoji: "🎧", grad: "from-slate-700 to-slate-900", colors: ["#0f172a","#64748b","#fee2e2"], stock: 24, desc: "Industry-leading noise cancellation, 30-hour battery, multipoint connection." },
-  { id: "p2", name: "Samsung Smart Watch S8", brand: "Samsung", category: "Electronics", price: 24000, rating: 4.8, reviews: 92, emoji: "⌚", grad: "from-blue-600 to-indigo-800", colors: ["#0f172a","#94a3b8"], stock: 12, desc: "Advanced fitness tracking, AMOLED display, 5-day battery." },
+  { id: "p1", name: "Sony WH-1000XM5 Headphones", brand: "Sony", category: "Electronics", price: 18500, sale: 12999, rating: 4.9, reviews: 184, emoji: "🎧", grad: "from-slate-700 to-slate-900", colors: ["#09090B","#64748b","#fee2e2"], stock: 24, desc: "Industry-leading noise cancellation, 30-hour battery, multipoint connection." },
+  { id: "p2", name: "Samsung Smart Watch S8", brand: "Samsung", category: "Electronics", price: 24000, rating: 4.8, reviews: 92, emoji: "⌚", grad: "from-blue-600 to-indigo-800", colors: ["#09090B","#94a3b8"], stock: 12, desc: "Advanced fitness tracking, AMOLED display, 5-day battery." },
   { id: "p3", name: "Eid Special Panjabi Set", brand: "Aarong", category: "Fashion", price: 2400, rating: 4.7, reviews: 53, emoji: "👔", grad: "from-amber-500 to-orange-700", colors: ["#92400e","#075985","#1e293b"], stock: 35, desc: "Premium cotton Panjabi with matching pajama. Perfect for Eid." },
   { id: "p4", name: "Nike Air Zoom Running Shoes", brand: "Nike", category: "Sports", price: 8900, rating: 4.6, reviews: 76, emoji: "👟", grad: "from-red-500 to-rose-700", colors: ["#1e293b","#dc2626","#f8fafc"], stock: 18, desc: "Lightweight, responsive cushioning for daily runs." },
   { id: "p5", name: "Philips Air Fryer 4.5L", brand: "Philips", category: "Home Living", price: 7500, sale: 5999, rating: 4.8, reviews: 128, emoji: "🍳", grad: "from-zinc-500 to-zinc-800", colors: ["#1e293b","#f8fafc"], stock: 8, desc: "Healthy frying with 90% less oil. Rapid air technology." },
   { id: "p6", name: "Gym Resistance Bands Set", brand: "Decathlon", category: "Sports", price: 1200, rating: 4.5, reviews: 41, emoji: "🏋", grad: "from-emerald-500 to-green-700", colors: ["#dc2626","#eab308","#16a34a"], stock: 60, desc: "5 resistance levels, door anchor, carry bag included." },
   { id: "p7", name: "SK-II Facial Treatment Essence", brand: "SK-II", category: "Beauty", price: 4800, rating: 4.9, reviews: 215, emoji: "🧴", grad: "from-pink-400 to-rose-600", colors: ["#fbcfe8"], stock: 30, desc: "Iconic Pitera essence for radiant skin. 75ml bottle." },
-  { id: "p8", name: "Complete React Development", brand: "Tech Press", category: "Books", price: 850, rating: 4.7, reviews: 67, emoji: "📘", grad: "from-blue-500 to-cyan-700", colors: ["#0f172a"], stock: 80, desc: "Master React from fundamentals to production deployment." },
+  { id: "p8", name: "Complete React Development", brand: "Tech Press", category: "Books", price: 850, rating: 4.7, reviews: 67, emoji: "📘", grad: "from-blue-500 to-cyan-700", colors: ["#09090B"], stock: 80, desc: "Master React from fundamentals to production deployment." },
 ];
 const CATS = [{ name: "Electronics", icon: "💻" }, { name: "Fashion", icon: "👗" }, { name: "Home Living", icon: "🏠" }, { name: "Sports", icon: "⚽" }, { name: "Beauty", icon: "💄" }, { name: "Books", icon: "📚" }];
 const BANNERS = [
@@ -80,7 +80,7 @@ const RobiMart = () => {
   const filtered = catFilter === "All" ? PRODUCTS : PRODUCTS.filter((p) => p.category === catFilter);
 
   return (
-    <div className="min-h-screen bg-slate-50" data-testid="robimart-app" style={{ fontFamily: "'IBM Plex Sans', sans-serif" }}>
+    <div className="min-h-screen bg-slate-50" data-testid="robimart-app" style={{ fontFamily: "'Inter', sans-serif" }}>
       {/* Navbar */}
       <header className="sticky top-0 z-30 bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between gap-4">

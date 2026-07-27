@@ -56,13 +56,13 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex" style={{ fontFamily: "'IBM Plex Sans', sans-serif" }}>
+    <div className="min-h-screen flex" style={{ fontFamily: "'Inter', sans-serif" }}>
       {/* Left - branding */}
-      <div className="hidden lg:flex lg:w-1/2 relative bg-[#0f172a] text-white p-16 flex-col justify-between">
+      <div className="hidden lg:flex lg:w-1/2 relative bg-[#09090B] text-white p-16 flex-col justify-between">
         <Logo className="text-white [&>span]:text-white" />
         <div className="space-y-6">
-          <h1 className="text-5xl xl:text-6xl tracking-tighter leading-[0.95]" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>
-            {t("auth.heroTitle1")} <span className="text-[#e11d48]">{t("auth.heroMillion")}</span> {t("auth.heroTitle2")}
+          <h1 className="text-5xl xl:text-6xl tracking-tighter leading-[0.95]" style={{ fontFamily: "'Outfit', sans-serif" }}>
+            {t("auth.heroTitle1")} <span className="text-[#2563EB]">{t("auth.heroMillion")}</span> {t("auth.heroTitle2")}
           </h1>
           <p className="text-slate-300 max-w-md leading-relaxed">
             {t("auth.heroSub")}
@@ -80,7 +80,7 @@ const Login = () => {
         <div className="absolute top-4 right-6"><LanguageSwitcher /></div>
         <div className="w-full max-w-sm mx-auto">
           <div className="lg:hidden mb-12"><Logo /></div>
-          <h2 className="text-3xl font-bold tracking-tight text-[#0f172a] mb-1" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>{t("auth.signInTitle")}</h2>
+          <h2 className="text-3xl font-bold tracking-tight text-[#09090B] mb-1" style={{ fontFamily: "'Outfit', sans-serif" }}>{t("auth.signInTitle")}</h2>
           <p className="text-sm text-slate-500 mb-8">{t("auth.signInSubtitle")}</p>
 
           <form onSubmit={submit} className="space-y-4" data-testid="login-form">
@@ -94,7 +94,7 @@ const Login = () => {
               <div className="flex justify-between items-center mb-2">
                 <Label htmlFor="pwd">{t("auth.password")}</Label>
                 <button type="button" onClick={() => setForgotOpen(true)} data-testid="forgot-password-link"
-                  className="text-xs text-[#e11d48] hover:underline">{t("auth.forgotPassword")}</button>
+                  className="text-xs text-[#2563EB] hover:underline">{t("auth.forgotPassword")}</button>
               </div>
               <div className="relative">
                 <Input data-testid="login-password" id="pwd" type={showPwd ? "text" : "password"}
@@ -108,12 +108,12 @@ const Login = () => {
               {errors.password && <p className="text-xs text-rose-600 mt-1">{errors.password}</p>}
             </div>
 
-            <Button data-testid="login-submit" type="submit" className="w-full bg-[#e11d48] hover:bg-[#be123c] text-white h-11">
+            <Button data-testid="login-submit" type="submit" className="w-full bg-[#2563EB] hover:bg-[#1D4ED8] text-white h-11">
               {t("auth.signIn")}
             </Button>
 
             <div className="text-center text-sm text-slate-500">
-              {t("auth.noAccount")} <Link to="/register" data-testid="goto-register" className="text-[#e11d48] font-medium hover:underline">{t("auth.createOne")}</Link>
+              {t("auth.noAccount")} <Link to="/register" data-testid="goto-register" className="text-[#2563EB] font-medium hover:underline">{t("auth.createOne")}</Link>
             </div>
           </form>
 
@@ -136,7 +136,7 @@ const Login = () => {
           <Input data-testid="forgot-email" placeholder="you@example.com" value={forgotEmail} onChange={(e) => setForgotEmail(e.target.value)} />
           <DialogFooter>
             <Button variant="outline" onClick={() => setForgotOpen(false)}>{t("common.cancel")}</Button>
-            <Button data-testid="forgot-submit" onClick={sendForgot} className="bg-[#e11d48] hover:bg-[#be123c]">{t("auth.sendLink")}</Button>
+            <Button data-testid="forgot-submit" onClick={sendForgot} className="bg-[#2563EB] hover:bg-[#1D4ED8]">{t("auth.sendLink")}</Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>

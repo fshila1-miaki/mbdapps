@@ -46,7 +46,7 @@ const Settings = () => {
             <Field label="Email"><Input data-testid="info-email" defaultValue={info.email} onChange={(e) => updateAppContent(app.id, "storeInfo", { ...info, email: e.target.value })} /></Field>
           </div>
           <Field label="Address"><Input defaultValue={info.address} onChange={(e) => updateAppContent(app.id, "storeInfo", { ...info, address: e.target.value })} /></Field>
-          <Button data-testid="save-info" onClick={saveInfo} className="bg-[#e11d48]">💾 Save Changes</Button>
+          <Button data-testid="save-info" onClick={saveInfo} className="bg-[#2563EB]">💾 Save Changes</Button>
         </div>
       )}
 
@@ -71,7 +71,7 @@ const Settings = () => {
               <label className="flex items-center gap-2 text-sm"><input type="checkbox" checked={notif.doctorSms} onChange={(e) => setNotif({ ...notif, doctorSms: e.target.checked })} /> Notify doctor via SMS</label>
             </div>
           )}
-          <Button data-testid="save-notif" onClick={saveNotif} className="bg-[#e11d48]">💾 Save Notification Settings</Button>
+          <Button data-testid="save-notif" onClick={saveNotif} className="bg-[#2563EB]">💾 Save Notification Settings</Button>
         </div>
       )}
 
@@ -91,7 +91,7 @@ const Settings = () => {
           <Field label="SEO Keywords"><Input data-testid="seo-keywords" value={seo.keywords} onChange={(e) => setSeo({ ...seo, keywords: e.target.value })} placeholder="bangladesh,shopping,electronics" /></Field>
           <Field label="Favicon (16×16)"><ImageDropzone testid="seo-favicon" value={null} onChange={() => toast.success("Favicon uploaded")} height="h-20" /></Field>
           <Field label="Open Graph Image (1200×630)"><ImageDropzone testid="seo-og" value={null} onChange={() => toast.success("OG image uploaded")} height="h-24" /></Field>
-          <Button data-testid="save-seo" onClick={() => triggerSave(() => toast.success("SEO settings saved"))} className="bg-[#e11d48]">💾 Save SEO</Button>
+          <Button data-testid="save-seo" onClick={() => triggerSave(() => toast.success("SEO settings saved"))} className="bg-[#2563EB]">💾 Save SEO</Button>
         </div>
       )}
 
@@ -119,7 +119,7 @@ const Settings = () => {
               ) : i.addon ? (
                 <Button size="sm" onClick={() => navigate("/add-ons")} className="bg-amber-500 hover:bg-amber-600 gap-1 text-xs">Upgrade <ExternalLink size={11} /></Button>
               ) : (
-                <Button size="sm" onClick={() => { setIntegs({ ...integ, [i.key]: true }); toast.success(`${i.name} connected`); }} className="bg-[#e11d48] gap-1 text-xs">Connect</Button>
+                <Button size="sm" onClick={() => { setIntegs({ ...integ, [i.key]: true }); toast.success(`${i.name} connected`); }} className="bg-[#2563EB] gap-1 text-xs">Connect</Button>
               )}
             </div>
           ))}

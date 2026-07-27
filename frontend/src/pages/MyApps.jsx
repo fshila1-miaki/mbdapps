@@ -66,7 +66,7 @@ const MyApps = () => {
             <h1 className="text-4xl font-bold tracking-tight">{t("myapps.title")} <span className="text-slate-400 text-2xl font-medium">({myApps.length})</span></h1>
             <p className="text-sm text-slate-600 mt-1">{t("myapps.subtitle")}</p>
           </div>
-          <Button data-testid="build-new-app-btn" onClick={() => navigate("/digital")} className="bg-[#e11d48] hover:bg-[#be123c] gap-1 rounded-full px-5"><Plus size={14} /> 🚀 {t("myapps.buildNew")}</Button>
+          <Button data-testid="build-new-app-btn" onClick={() => navigate("/digital")} className="bg-[#2563EB] hover:bg-[#1D4ED8] gap-1 rounded-full px-5"><Plus size={14} /> 🚀 {t("myapps.buildNew")}</Button>
         </div>
 
         {/* Filters + Sort */}
@@ -90,7 +90,7 @@ const MyApps = () => {
             <div className="text-5xl mb-3">📱</div>
             <h2 className="text-xl font-bold">{t("myapps.noMatching", { filter: FILTER_LABELS[filter] })}</h2>
             <p className="text-sm text-slate-500 mt-1">{t("myapps.tryAnother")}</p>
-            <Button onClick={() => navigate("/digital")} className="mt-4 bg-[#e11d48]">{t("myapps.buildFirst")}</Button>
+            <Button onClick={() => navigate("/digital")} className="mt-4 bg-[#2563EB]">{t("myapps.buildFirst")}</Button>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4">
@@ -152,7 +152,7 @@ const MyApps = () => {
 
                   {/* Actions */}
                   <div className="mt-3 grid grid-cols-2 gap-2">
-                    <Link to={`/my-apps/${app.id}/content`} data-testid={`manage-content-${app.id}`} className="bg-[#e11d48] hover:bg-[#be123c] text-white rounded-md px-3 py-2 text-xs font-bold inline-flex items-center justify-center gap-1">
+                    <Link to={`/my-apps/${app.id}/content`} data-testid={`manage-content-${app.id}`} className="bg-[#2563EB] hover:bg-[#1D4ED8] text-white rounded-md px-3 py-2 text-xs font-bold inline-flex items-center justify-center gap-1">
                       <Pencil size={12} /> Manage Content
                     </Link>
                     {app.status === "Live" ? (

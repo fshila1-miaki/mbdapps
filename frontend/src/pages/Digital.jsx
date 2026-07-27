@@ -87,8 +87,8 @@ const Digital = () => {
             <div className="flex items-center justify-between gap-2">
               {STEP_LABELS.map((label, i) => (
                 <React.Fragment key={label}>
-                  <div className={`flex items-center gap-1.5 text-xs ${i === currentStep ? "font-bold" : "text-slate-500"}`} style={i === currentStep ? { color: "#e11d48" } : {}}>
-                    <span className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold ${i < currentStep ? "bg-emerald-500 text-white" : i === currentStep ? "text-white" : "bg-slate-200 text-slate-600"}`} style={i === currentStep ? { background: "#e11d48" } : {}}>
+                  <div className={`flex items-center gap-1.5 text-xs ${i === currentStep ? "font-bold" : "text-slate-500"}`} style={i === currentStep ? { color: "#2563EB" } : {}}>
+                    <span className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold ${i < currentStep ? "bg-emerald-500 text-white" : i === currentStep ? "text-white" : "bg-slate-200 text-slate-600"}`} style={i === currentStep ? { background: "#2563EB" } : {}}>
                       {i < currentStep ? <Check size={11} /> : i + 1}
                     </span>
                     <span className="hidden sm:inline">{label}</span>
@@ -128,7 +128,7 @@ const Digital = () => {
           <Tabs value={tab} onValueChange={setTab}>
             <TabsList data-testid="digital-tabs" className="grid grid-cols-2 w-full h-auto bg-slate-100 p-1.5 rounded-xl gap-1.5">
               {Object.entries(TAB_META).map(([key, m]) => (
-                <TabsTrigger key={key} value={key} data-testid={`tab-${key}`} className="data-[state=active]:bg-[#e11d48] data-[state=active]:text-white data-[state=active]:shadow-md py-2.5 sm:py-3 px-2 rounded-lg gap-1 sm:gap-1.5 font-bold text-[11px] sm:text-sm whitespace-nowrap overflow-hidden">
+                <TabsTrigger key={key} value={key} data-testid={`tab-${key}`} className="data-[state=active]:bg-[#2563EB] data-[state=active]:text-white data-[state=active]:shadow-md py-2.5 sm:py-3 px-2 rounded-lg gap-1 sm:gap-1.5 font-bold text-[11px] sm:text-sm whitespace-nowrap overflow-hidden">
                   <span>{m.icon}</span>
                   <span className="truncate">{m.label}</span>
                 </TabsTrigger>
@@ -189,7 +189,7 @@ const Digital = () => {
               <div className="text-5xl">👋</div>
               <h1 className="text-2xl font-bold mt-2">Welcome to Orbit Digital Builder</h1>
               <p className="text-sm text-slate-500 mt-1">Build a complete app in minutes with zero code</p>
-              <Button data-testid="welcome-next" onClick={() => setWelcomeStep(1)} className="mt-4 bg-[#e11d48]">Next →</Button>
+              <Button data-testid="welcome-next" onClick={() => setWelcomeStep(1)} className="mt-4 bg-[#2563EB]">Next →</Button>
             </div>
           )}
           {welcomeStep === 1 && (
@@ -201,7 +201,7 @@ const Digital = () => {
               </div>
               <h1 className="text-xl font-bold">Choose template → Customize → Launch</h1>
               <p className="text-sm text-slate-500 mt-1">Three simple steps. Live preview at every stage.</p>
-              <Button data-testid="welcome-next-2" onClick={() => setWelcomeStep(2)} className="mt-4 bg-[#e11d48]">Next →</Button>
+              <Button data-testid="welcome-next-2" onClick={() => setWelcomeStep(2)} className="mt-4 bg-[#2563EB]">Next →</Button>
             </div>
           )}
           {welcomeStep === 2 && (
@@ -213,7 +213,7 @@ const Digital = () => {
                 <div className="bg-rose-50 border border-rose-200 rounded p-2"><b className="text-rose-700">~4 min</b><br/>Build time</div>
                 <div className="bg-amber-50 border border-amber-200 rounded p-2"><b className="text-amber-700">0</b><br/>Lines of code</div>
               </div>
-              <Button data-testid="welcome-start" onClick={dismissWelcome} className="mt-3 bg-[#e11d48] gap-2">Start Building <ArrowRight size={14} /></Button>
+              <Button data-testid="welcome-start" onClick={dismissWelcome} className="mt-3 bg-[#2563EB] gap-2">Start Building <ArrowRight size={14} /></Button>
               <div><button data-testid="welcome-skip" onClick={dismissWelcome} className="text-xs text-slate-500 mt-2 underline">Skip</button></div>
             </div>
           )}

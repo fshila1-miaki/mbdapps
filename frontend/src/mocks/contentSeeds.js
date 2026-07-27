@@ -7,7 +7,7 @@ export const SAMPLE_CONTENT = {
   "web-ecom": () => ({
     storeInfo: { name: "RobiMart BD", phone: "+880 1700-123456", email: "hello@robimart.bd", address: "House 24, Gulshan Avenue, Dhaka 1212", currency: "BDT" },
     banners: [
-      { id: uid("ban"), title: "Eid Sale 60% OFF", subtitle: "On all electronics this week", cta: "Shop Now", link: "Catalog", image: "", color: "#e11d48" },
+      { id: uid("ban"), title: "Eid Sale 60% OFF", subtitle: "On all electronics this week", cta: "Shop Now", link: "Catalog", image: "", color: "#2563EB" },
       { id: uid("ban"), title: "New Electronics Arrived", subtitle: "Latest gadgets in stock", cta: "Browse", link: "Catalog", image: "", color: "#0ea5e9" },
       { id: uid("ban"), title: "Free Delivery Week", subtitle: "Orders above BDT 1,000", cta: "Order Now", link: "Homepage", image: "", color: "#f59e0b" },
     ],
@@ -119,7 +119,7 @@ export const SAMPLE_CONTENT = {
   // ============ SAAS ============
   "web-saas": () => ({
     storeInfo: { name: "TaskFlow BD", phone: "+880 1788-505050", email: "hello@taskflow.bd", address: "Bashundhara R/A, Dhaka", currency: "BDT" },
-    banners: [{ id: uid("ban"), title: "Run Your Team On Autopilot", subtitle: "Start free trial today", cta: "Try Free", link: "Homepage", image: "", color: "#0f172a" }],
+    banners: [{ id: uid("ban"), title: "Run Your Team On Autopilot", subtitle: "Start free trial today", cta: "Try Free", link: "Homepage", image: "", color: "#09090B" }],
     pricing: [
       { id: uid("pr"), name: "Starter", price: 0, period: "month", features: ["Up to 5 users","Basic features","Email support"] },
       { id: uid("pr"), name: "Pro", price: 1500, period: "month", features: ["Up to 25 users","All features","Priority support","API access"] },

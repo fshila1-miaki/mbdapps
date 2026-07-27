@@ -67,7 +67,7 @@ const DeshiFood = () => {
   const menu = selectedR ? (MENU[selectedR.id] || MENU.r1) : [];
 
   return (
-    <div className="min-h-screen bg-slate-900 flex items-center justify-center p-2 sm:p-4" data-testid="deshifood-app" style={{ fontFamily: "'IBM Plex Sans', sans-serif" }}>
+    <div className="min-h-screen bg-slate-900 flex items-center justify-center p-2 sm:p-4" data-testid="deshifood-app" style={{ fontFamily: "'Inter', sans-serif" }}>
       <button onClick={() => navigate("/my-apps")} data-testid="back-from-deshifood" className="absolute top-3 left-3 text-xs text-white/60 hover:text-white flex items-center gap-1 z-10"><ChevronLeft size={14} /> Back to Orbit</button>
 
       {/* Phone frame */}

@@ -18,11 +18,11 @@ const StarRow = ({ value }) => {
 const TemplateCard = ({ tpl, type, onUse, onLivePreview, userRating, aggregate }) => (
   <div
     data-testid={`template-card-${tpl.id}`}
-    className="group relative bg-white rounded-2xl border border-slate-200 hover:border-[#e11d48] hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col overflow-hidden"
+    className="group relative bg-white rounded-2xl border border-slate-200 hover:border-[#2563EB] hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col overflow-hidden"
   >
     {/* Robi Powered badge for Pro templates */}
     {type === "pro" && (
-      <div className="absolute top-3 right-3 z-20 bg-[#e11d48] text-white text-[9px] font-bold uppercase tracking-widest px-2 py-1 rounded shadow-md">
+      <div className="absolute top-3 right-3 z-20 bg-[#2563EB] text-white text-[9px] font-bold uppercase tracking-widest px-2 py-1 rounded shadow-md">
         ⚡ Robi Powered
       </div>
     )}
@@ -82,7 +82,7 @@ const TemplateCard = ({ tpl, type, onUse, onLivePreview, userRating, aggregate }
         <Button size="sm" variant="outline" data-testid={`live-preview-${tpl.id}`} onClick={() => onLivePreview(tpl)} className="flex-1 gap-1.5">
           <Eye size={13} /> Live Preview
         </Button>
-        <Button size="sm" data-testid={`use-template-${tpl.id}`} onClick={() => onUse(tpl)} className="flex-1 bg-[#0f172a] hover:bg-[#e11d48] transition-colors gap-1.5">
+        <Button size="sm" data-testid={`use-template-${tpl.id}`} onClick={() => onUse(tpl)} className="flex-1 bg-[#09090B] hover:bg-[#2563EB] transition-colors gap-1.5">
           Use Template <ArrowRight size={12} />
         </Button>
       </div>
@@ -109,7 +109,7 @@ const TemplateGallery = ({ templates, type, categories, onSelect, onLivePreview,
       </div>
       <div className="flex md:flex-wrap gap-2 overflow-x-auto scrollbar-hide -mx-1 px-1 pb-1 md:overflow-x-visible md:mx-0 md:px-0">
         {categories.map((c) => (
-          <button key={c} data-testid={`${testidPrefix}-cat-${c.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`} onClick={() => setCategory(c)} className={`shrink-0 whitespace-nowrap text-xs font-semibold px-3 py-1.5 rounded-full transition-all ${category === c ? "bg-[#0f172a] text-white shadow-sm" : "bg-white text-slate-600 border border-slate-200 hover:border-slate-400"}`}>{c}</button>
+          <button key={c} data-testid={`${testidPrefix}-cat-${c.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`} onClick={() => setCategory(c)} className={`shrink-0 whitespace-nowrap text-xs font-semibold px-3 py-1.5 rounded-full transition-all ${category === c ? "bg-[#09090B] text-white shadow-sm" : "bg-white text-slate-600 border border-slate-200 hover:border-slate-400"}`}>{c}</button>
         ))}
       </div>
       {filtered.length === 0 ? (

@@ -45,7 +45,7 @@ const CompareFloatingBar = ({ selected, onClear, onCompare }) => {
         size="sm"
         disabled={selected.length < 2}
         onClick={onCompare}
-        className="bg-[#e11d48] hover:bg-[#be123c] text-white h-8 text-xs"
+        className="bg-[#2563EB] hover:bg-[#1D4ED8] text-white h-8 text-xs"
       >
         Compare Selected ({selected.length}) →
       </Button>
@@ -95,7 +95,7 @@ const CompareModal = ({ open, onClose, templates, onChoose }) => (
                 <Button
                   data-testid={`compare-choose-${t.id}`}
                   size="sm"
-                  className="w-full bg-[#e11d48] hover:bg-[#be123c]"
+                  className="w-full bg-[#2563EB] hover:bg-[#1D4ED8]"
                   onClick={() => onChoose(t)}
                 >
                   Choose This

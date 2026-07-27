@@ -150,7 +150,7 @@ const OrderDetailPanel = ({ order, onClose, appId, onUpdate }) => {
       </Field>
 
       <div className="grid grid-cols-2 gap-2">
-        <Button data-testid="save-order-status" onClick={saveStatus} className="bg-[#e11d48]"><RefreshCw size={12} className="mr-1" /> Save Status</Button>
+        <Button data-testid="save-order-status" onClick={saveStatus} className="bg-[#2563EB]"><RefreshCw size={12} className="mr-1" /> Save Status</Button>
         <Button variant="outline" data-testid="print-invoice" onClick={() => toast.success("📄 Invoice PDF ready — download started")}><Printer size={12} className="mr-1" /> Print Invoice</Button>
         <Button variant="outline" data-testid="contact-customer" onClick={() => setSmsOpen(true)}><MessageSquare size={12} className="mr-1" /> Contact Customer</Button>
         <Button variant="outline" data-testid="issue-refund" onClick={() => { if (window.confirm("Issue full refund?")) { toast.success("Refund initiated"); onClose(); } }} className="text-rose-600">Issue Refund</Button>

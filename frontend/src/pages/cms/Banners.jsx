@@ -47,7 +47,7 @@ const Banners = () => {
           <h1 className="text-2xl font-bold">Banners ({banners.length} active)</h1>
           <p className="text-xs text-slate-500">Drag to reorder — order reflects live on site immediately</p>
         </div>
-        <Button data-testid="add-banner" onClick={() => setEditing({})} className="bg-[#e11d48] hover:bg-[#be123c] gap-1"><Plus size={14} /> Add Banner</Button>
+        <Button data-testid="add-banner" onClick={() => setEditing({})} className="bg-[#2563EB] hover:bg-[#1D4ED8] gap-1"><Plus size={14} /> Add Banner</Button>
       </div>
 
       {banners.length === 0 ? (
@@ -92,7 +92,7 @@ const Banners = () => {
       )}
 
       <SlidePanel open={!!editing} onClose={() => setEditing(null)} title={`${editing?.id ? "Edit" : "Add"} Banner`} description="Live on your site after save"
-        footer={<Button data-testid="save-banner" onClick={() => save(editing)} className="w-full bg-[#e11d48]">💾 Save Banner</Button>}>
+        footer={<Button data-testid="save-banner" onClick={() => save(editing)} className="w-full bg-[#2563EB]">💾 Save Banner</Button>}>
         {editing && <>
           <Field label="Image"><ImageDropzone testid="ban-image" value={editing.image} onChange={(v) => setEditing({ ...editing, image: v })} height="h-36" /></Field>
           <Field label="Title" required><Input data-testid="ban-title" value={editing.title || ""} onChange={(e) => setEditing({ ...editing, title: e.target.value })} /></Field>

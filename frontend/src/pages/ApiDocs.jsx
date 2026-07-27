@@ -98,24 +98,24 @@ const ApiDocs = () => {
   const sec = SECTIONS.find((s) => s.key === active);
 
   return (
-    <div className="min-h-screen bg-white" style={{ fontFamily: "'IBM Plex Sans', sans-serif" }}>
+    <div className="min-h-screen bg-white" style={{ fontFamily: "'Inter', sans-serif" }}>
       <header className="border-b border-slate-200 bg-white sticky top-0 z-30">
         <div className="max-w-[1400px] mx-auto px-4 lg:px-8 h-16 flex items-center justify-between">
           <Logo />
           <div className="flex items-center gap-2">
             <Link to="/appstore"><Button variant="outline" size="sm" data-testid="docs-back-store">← App Store</Button></Link>
-            <Link to="/register"><Button size="sm" className="bg-[#e11d48] hover:bg-[#be123c]" data-testid="docs-signup">Sign up</Button></Link>
+            <Link to="/register"><Button size="sm" className="bg-[#2563EB] hover:bg-[#1D4ED8]" data-testid="docs-signup">Sign up</Button></Link>
           </div>
         </div>
       </header>
 
       {/* Hero */}
-      <section className="relative bg-[#0f172a] text-white overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#7f1d1d] opacity-90"></div>
-        <div className="absolute -top-10 right-1/4 w-72 h-72 bg-[#e11d48]/20 rounded-full blur-3xl"></div>
+      <section className="relative bg-[#09090B] text-white overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#09090B] via-[#1e293b] to-[#7f1d1d] opacity-90"></div>
+        <div className="absolute -top-10 right-1/4 w-72 h-72 bg-[#2563EB]/20 rounded-full blur-3xl"></div>
         <div className="relative max-w-[1400px] mx-auto px-4 lg:px-8 py-14 md:py-20">
-          <p className="text-xs uppercase tracking-widest text-[#e11d48] font-bold mb-3">API Reference · v1</p>
-          <h1 className="text-4xl md:text-6xl tracking-tighter font-bold leading-[0.95] max-w-3xl" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>
+          <p className="text-xs uppercase tracking-widest text-[#2563EB] font-bold mb-3">API Reference · v1</p>
+          <h1 className="text-4xl md:text-6xl tracking-tighter font-bold leading-[0.95] max-w-3xl" style={{ fontFamily: "'Outfit', sans-serif" }}>
             Orbit Developer API Documentation
           </h1>
           <p className="text-slate-300 mt-4 max-w-2xl text-lg">
@@ -130,7 +130,7 @@ const ApiDocs = () => {
           <nav className="space-y-1 mt-2">
             {SECTIONS.map((s) => (
               <button key={s.key} data-testid={`doc-nav-${s.key}`} onClick={() => setActive(s.key)}
-                className={`w-full text-left px-3 py-2.5 rounded-md text-sm min-h-[44px] transition ${active === s.key ? "bg-[#0f172a] text-white" : "hover:bg-slate-100"}`}>
+                className={`w-full text-left px-3 py-2.5 rounded-md text-sm min-h-[44px] transition ${active === s.key ? "bg-[#09090B] text-white" : "hover:bg-slate-100"}`}>
                 {s.label}
               </button>
             ))}
@@ -141,9 +141,9 @@ const ApiDocs = () => {
           <div className="flex items-center gap-2 mb-2">
             <span className="text-[10px] uppercase tracking-widest font-bold bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded">Try It</span>
           </div>
-          <h2 className="text-3xl md:text-4xl tracking-tighter font-bold text-[#0f172a]" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>{sec.label}</h2>
+          <h2 className="text-3xl md:text-4xl tracking-tighter font-bold text-[#09090B]" style={{ fontFamily: "'Outfit', sans-serif" }}>{sec.label}</h2>
           <div className="mt-4 text-slate-700 prose prose-slate max-w-none">{sec.body}</div>
-          <div className="mt-6 bg-[#0f172a] text-slate-100 rounded-md overflow-hidden">
+          <div className="mt-6 bg-[#09090B] text-slate-100 rounded-md overflow-hidden">
             <div className="px-4 py-2 text-xs border-b border-white/10 flex items-center justify-between">
               <span className="font-mono uppercase tracking-widest text-slate-400">Example</span>
               <span className="font-mono text-[10px] text-slate-500">cURL · JSON</span>

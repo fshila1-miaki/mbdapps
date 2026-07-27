@@ -85,7 +85,7 @@
     "title": "Dashboard",
     "subtitle": "Welcome back, {{name}}",
     "welcomeUser": "Welcome back, {{name}}.",
-    "statusLine": "You have <b class='text-[#0f172a]'>{{live}} live apps</b>, <b class='text-amber-600'>{{pending}} pending review</b>, and {{orders}}+ transactions this month.",
+    "statusLine": "You have <b class='text-[#09090B]'>{{live}} live apps</b>, <b class='text-amber-600'>{{pending}} pending review</b>, and {{orders}}+ transactions this month.",
     "myAppsSub": "Your active builds at a glance",
     "viewAllN": "View all {{n}} apps",
     "launchFirst": "Launch your first app",

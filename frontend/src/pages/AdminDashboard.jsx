@@ -17,8 +17,8 @@ const AdminDashboard = () => {
     <Layout>
       <div className="space-y-10">
         <section>
-          <p className="text-xs uppercase tracking-widest text-[#e11d48] font-bold mb-2">Admin Console</p>
-          <h1 className="text-4xl sm:text-5xl tracking-tighter font-bold text-[#0f172a]" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>
+          <p className="text-xs uppercase tracking-widest text-[#2563EB] font-bold mb-2">Admin Console</p>
+          <h1 className="text-4xl sm:text-5xl tracking-tighter font-bold text-[#09090B]" style={{ fontFamily: "'Outfit', sans-serif" }}>
             Operations Control, {user?.name?.split(" ")[0]}.
           </h1>
           <p className="text-slate-500 mt-2 max-w-2xl leading-relaxed">
@@ -30,7 +30,7 @@ const AdminDashboard = () => {
           {stats.map((s, i) => (
             <div key={i} className="border border-slate-200 rounded-md p-5 bg-white" data-testid={`admin-stat-${i}`}>
               <div className="text-xs uppercase tracking-widest text-slate-500 font-semibold">{s.label}</div>
-              <div className="text-3xl mt-2 font-bold tracking-tight text-[#0f172a]">{s.value}</div>
+              <div className="text-3xl mt-2 font-bold tracking-tight text-[#09090B]">{s.value}</div>
             </div>
           ))}
         </section>

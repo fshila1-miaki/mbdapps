@@ -29,7 +29,7 @@ const TapAdmin = () => {
     <nav className="flex gap-1 p-3 overflow-x-auto" data-testid="tap-subnav">
       {NAV.map((n) => (
         <button key={n.key} onClick={() => setActive(n.key)} data-testid={`tap-${n.key}`}
-          className={`px-3 py-1.5 rounded-md text-xs font-medium whitespace-nowrap transition ${active === n.key ? "bg-[#0f172a] text-white" : "bg-white border border-slate-200 hover:border-[#0f172a]"}`}>
+          className={`px-3 py-1.5 rounded-md text-xs font-medium whitespace-nowrap transition ${active === n.key ? "bg-[#09090B] text-white" : "bg-white border border-slate-200 hover:border-[#09090B]"}`}>
           {n.group} · {n.label}
         </button>
       ))}
@@ -73,14 +73,14 @@ const SubsManage = ({ subs }) => {
 
   return (
     <div className="space-y-5">
-      <h2 className="text-2xl tracking-tight font-bold" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>Subscription Manager</h2>
+      <h2 className="text-2xl tracking-tight font-bold" style={{ fontFamily: "'Outfit', sans-serif" }}>Subscription Manager</h2>
       <div className="flex flex-col sm:flex-row gap-2 max-w-2xl">
         <div className="flex-1">
           <Label>Subscriber Mobile<Req /></Label>
           <Input data-testid="sub-mobile" placeholder="01812345678" value={phone} onChange={(e) => setPhone(e.target.value)} className={error ? "border-rose-500" : ""} />
           {error && <p className="text-xs text-rose-600 mt-1">{error}</p>}
         </div>
-        <Button onClick={search} className="bg-[#e11d48] hover:bg-[#be123c] sm:self-end h-10" data-testid="sub-search"><Search size={14} className="mr-1" /> Search</Button>
+        <Button onClick={search} className="bg-[#2563EB] hover:bg-[#1D4ED8] sm:self-end h-10" data-testid="sub-search"><Search size={14} className="mr-1" /> Search</Button>
       </div>
       <div className="border border-slate-200 rounded-md overflow-x-auto">
         <table className="w-full text-sm min-w-[720px]">
@@ -117,7 +117,7 @@ const Row = ({ k, v }) => <div className="flex justify-between text-sm"><span cl
 
 const Governance = () => (
   <div className="space-y-5">
-    <h2 className="text-2xl tracking-tight font-bold" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>Governance</h2>
+    <h2 className="text-2xl tracking-tight font-bold" style={{ fontFamily: "'Outfit', sans-serif" }}>Governance</h2>
     <div className="border-2 border-dashed border-slate-200 rounded-md p-12 text-center bg-slate-50">
       <div className="text-4xl mb-3">⚙️</div>
       <h3 className="font-semibold text-lg">Coming Soon</h3>
@@ -145,7 +145,7 @@ const AdCreate = ({ addAd }) => {
 
   return (
     <div className="space-y-5 max-w-xl">
-      <h2 className="text-2xl tracking-tight font-bold" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>Create Advertisement</h2>
+      <h2 className="text-2xl tracking-tight font-bold" style={{ fontFamily: "'Outfit', sans-serif" }}>Create Advertisement</h2>
       <div><Label>Ad Name<Req /></Label><Input data-testid="ad-name" value={name} onChange={(e) => setName(e.target.value)} className={errors.name ? "border-rose-500" : ""} />{errors.name && <p className="text-xs text-rose-600 mt-1">{errors.name}</p>}</div>
       <div>
         <Label>Ad Content<Req /></Label>
@@ -153,7 +153,7 @@ const AdCreate = ({ addAd }) => {
         <p className={`text-xs mt-1 ${content.length > 20 ? "text-rose-600 font-bold" : "text-slate-500"}`}>{content.length} / 20 chars</p>
         {errors.content && <p className="text-xs text-rose-600">{errors.content}</p>}
       </div>
-      <Button onClick={submit} className="bg-[#e11d48] hover:bg-[#be123c]" data-testid="ad-submit">Create Ad</Button>
+      <Button onClick={submit} className="bg-[#2563EB] hover:bg-[#1D4ED8]" data-testid="ad-submit">Create Ad</Button>
     </div>
   );
 };
@@ -164,7 +164,7 @@ const AdManage = ({ ads, updateAd, removeAd }) => {
 
   return (
     <div className="space-y-5">
-      <h2 className="text-2xl tracking-tight font-bold" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>Manage Advertisements</h2>
+      <h2 className="text-2xl tracking-tight font-bold" style={{ fontFamily: "'Outfit', sans-serif" }}>Manage Advertisements</h2>
       <div className="relative max-w-md"><Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" /><Input data-testid="ad-search" placeholder="Search" value={search} onChange={(e) => setSearch(e.target.value)} className="pl-9" /></div>
       <div className="border border-slate-200 rounded-md overflow-hidden">
         <table className="w-full text-sm">
@@ -175,7 +175,7 @@ const AdManage = ({ ads, updateAd, removeAd }) => {
       <Dialog open={!!editing} onOpenChange={(o) => !o && setEditing(null)}>
         <DialogContent><DialogHeader><DialogTitle>Edit Ad</DialogTitle></DialogHeader>
           <div className="space-y-3"><div><Label>Name</Label><Input value={editing?.name || ""} onChange={(e) => setEditing({ ...editing, name: e.target.value })} data-testid="ad-edit-name" /></div><div><Label>Content</Label><Input value={editing?.content || ""} onChange={(e) => setEditing({ ...editing, content: e.target.value })} maxLength={20} data-testid="ad-edit-content" /></div></div>
-          <DialogFooter><Button variant="outline" onClick={() => setEditing(null)}>Not Now</Button><Button data-testid="ad-update" onClick={() => { updateAd(editing.id, { name: editing.name, content: editing.content }); toast.success("Updated"); setEditing(null); }} className="bg-[#e11d48] hover:bg-[#be123c]">Update</Button></DialogFooter>
+          <DialogFooter><Button variant="outline" onClick={() => setEditing(null)}>Not Now</Button><Button data-testid="ad-update" onClick={() => { updateAd(editing.id, { name: editing.name, content: editing.content }); toast.success("Updated"); setEditing(null); }} className="bg-[#2563EB] hover:bg-[#1D4ED8]">Update</Button></DialogFooter>
         </DialogContent>
       </Dialog>
     </div>
@@ -201,18 +201,18 @@ const AdAssign = ({ ads }) => {
 
   return (
     <div className="space-y-5">
-      <h2 className="text-2xl tracking-tight font-bold" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>Assign Advertisement</h2>
+      <h2 className="text-2xl tracking-tight font-bold" style={{ fontFamily: "'Outfit', sans-serif" }}>Assign Advertisement</h2>
       <div className="relative max-w-md"><Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" /><Input placeholder="Search apps" value={search} onChange={(e) => setSearch(e.target.value)} className="pl-9" data-testid="assign-search" /></div>
       <div className="border border-slate-200 rounded-md overflow-x-auto">
         <table className="w-full text-sm min-w-[600px]">
           <thead className="bg-slate-50 text-xs uppercase tracking-wide text-slate-500"><tr><th className="text-left p-3">App ID</th><th className="text-left p-3">App Name</th><th className="text-left p-3">Ad Assigned</th><th className="text-left p-3">Action</th></tr></thead>
-          <tbody>{filtered.map((a) => <tr key={a.appId} className="border-t border-slate-100"><td className="p-3 font-mono text-xs">{a.appId}</td><td className="p-3">{a.appName}</td><td className="p-3">{a.adName ? <span className="text-emerald-700 font-medium">{a.adName}</span> : <span className="text-slate-400">—</span>}</td><td className="p-3"><Button size="sm" onClick={() => { setAssigning(a); setAdId(a.adId || ""); }} className="bg-[#0f172a]" data-testid={`assign-${a.appId}`}>{a.adId ? "Reassign" : "Assign"}</Button></td></tr>)}</tbody>
+          <tbody>{filtered.map((a) => <tr key={a.appId} className="border-t border-slate-100"><td className="p-3 font-mono text-xs">{a.appId}</td><td className="p-3">{a.appName}</td><td className="p-3">{a.adName ? <span className="text-emerald-700 font-medium">{a.adName}</span> : <span className="text-slate-400">—</span>}</td><td className="p-3"><Button size="sm" onClick={() => { setAssigning(a); setAdId(a.adId || ""); }} className="bg-[#09090B]" data-testid={`assign-${a.appId}`}>{a.adId ? "Reassign" : "Assign"}</Button></td></tr>)}</tbody>
         </table>
       </div>
       <Dialog open={!!assigning} onOpenChange={(o) => !o && setAssigning(null)}>
         <DialogContent><DialogHeader><DialogTitle>Assign to {assigning?.appName}</DialogTitle></DialogHeader>
           <div><Label>Choose Ad<Req /></Label><Select value={adId} onValueChange={setAdId}><SelectTrigger data-testid="assign-ad"><SelectValue placeholder="Select" /></SelectTrigger><SelectContent>{ads.map((a) => <SelectItem key={a.id} value={a.id}>{a.name}</SelectItem>)}</SelectContent></Select></div>
-          <DialogFooter><Button onClick={confirm} className="bg-[#e11d48] hover:bg-[#be123c]" data-testid="assign-confirm">Confirm</Button></DialogFooter>
+          <DialogFooter><Button onClick={confirm} className="bg-[#2563EB] hover:bg-[#1D4ED8]" data-testid="assign-confirm">Confirm</Button></DialogFooter>
         </DialogContent>
       </Dialog>
     </div>
@@ -232,9 +232,9 @@ const GlobalUSSD = () => {
 
   return (
     <div className="space-y-5 max-w-md">
-      <h2 className="text-2xl tracking-tight font-bold" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>Global USSD Promotion</h2>
+      <h2 className="text-2xl tracking-tight font-bold" style={{ fontFamily: "'Outfit', sans-serif" }}>Global USSD Promotion</h2>
       <div><Label>Application ID<Req /></Label><Input data-testid="ussd-appid" value={appId} onChange={(e) => setAppId(e.target.value)} placeholder="APP001" className={error ? "border-rose-500" : ""} />{error && <p className="text-xs text-rose-600 mt-1">{error}</p>}<p className="text-xs text-slate-400 mt-1">Valid IDs (demo): APP001, APP002, APP003</p></div>
-      <Button onClick={submit} className="bg-[#e11d48] hover:bg-[#be123c]" data-testid="ussd-submit">Submit</Button>
+      <Button onClick={submit} className="bg-[#2563EB] hover:bg-[#1D4ED8]" data-testid="ussd-submit">Submit</Button>
     </div>
   );
 };

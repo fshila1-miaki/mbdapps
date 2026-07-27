@@ -174,7 +174,7 @@ const ConfigureSidebar = ({ cfg, onChange, type, onGenerate, onSaveDraft, onBack
       )}
 
       <div className="p-4 space-y-2 bg-slate-50">
-        <Button data-testid="cfg-generate" onClick={onGenerate} className="w-full bg-[#e11d48] hover:bg-[#be123c] font-bold gap-2"><Sparkles size={14} /> Generate & Launch</Button>
+        <Button data-testid="cfg-generate" onClick={onGenerate} className="w-full bg-[#2563EB] hover:bg-[#1D4ED8] font-bold gap-2"><Sparkles size={14} /> Generate & Launch</Button>
         <Button data-testid="cfg-save-draft" variant="outline" onClick={onSaveDraft} className="w-full gap-2"><Save size={13} /> Save Draft</Button>
         {onBack && <button data-testid="cfg-back" onClick={onBack} className="w-full text-xs text-slate-500 hover:text-slate-900 flex items-center gap-1 justify-center pt-1"><ArrowLeft size={12} /> Back to Customize</button>}
       </div>

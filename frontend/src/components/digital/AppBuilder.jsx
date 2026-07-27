@@ -40,8 +40,8 @@ const AppBuilder = ({ template, type, designId, customization, content, onBack }
   const [cfg, setCfg] = useState({
     appName: customization?.name || template.name,
     tagline: customization?.tagline || template.description,
-    primary: template.palette?.primary || "#e11d48",
-    secondary: template.palette?.accent || "#0f172a",
+    primary: template.palette?.primary || "#2563EB",
+    secondary: template.palette?.accent || "#09090B",
     accent: "#f59e0b",
     font: "Modern Sans",
     radius: 10,
@@ -178,7 +178,7 @@ const AppBuilder = ({ template, type, designId, customization, content, onBack }
             <Button data-testid="action-download" onClick={() => toast.success("⬇️ ZIP download started")} className="bg-slate-900 hover:bg-slate-800 gap-1"><Download size={13} /> ZIP</Button>
             <Button data-testid="action-github" onClick={() => toast.success("🐙 Pushed to GitHub")} className="bg-slate-700 hover:bg-slate-800 gap-1"><Github size={13} /> GitHub</Button>
             {type === "android" && cfg.store.publish && (
-              <Button data-testid="action-submit-store" onClick={() => setSubmitOpen(true)} className="bg-[#e11d48] hover:bg-[#be123c] gap-1"><Sparkles size={13} /> Submit to Orbit Store</Button>
+              <Button data-testid="action-submit-store" onClick={() => setSubmitOpen(true)} className="bg-[#2563EB] hover:bg-[#1D4ED8] gap-1"><Sparkles size={13} /> Submit to Orbit Store</Button>
             )}
             {type !== "android" && (
               <Button data-testid="action-deploy" onClick={() => copyLink(`https://${cfg.domain.subdomain}.orbit.app`, "🌐 Deployed! Link copied")} className="bg-emerald-600 hover:bg-emerald-700 gap-1"><ExternalLink size={13} /> Go Live Now</Button>
@@ -237,7 +237,7 @@ const AppBuilder = ({ template, type, designId, customization, content, onBack }
             <div className="w-12 h-12 rounded-md flex items-center justify-center text-2xl text-white" style={{ background: cfg.primary }}>{template.icon}</div>
             <div className="flex-1"><div className="font-bold">{cfg.appName}</div><div className="text-xs text-slate-500">{cfg.store.category} · ⭐ NEW</div><div className="text-[11px] text-slate-600 mt-1">{cfg.store.shortDesc}</div></div>
           </div>
-          <Button data-testid="confirm-submit-store" onClick={submitToStore} className="mt-3 w-full bg-[#e11d48]">Confirm Submission</Button>
+          <Button data-testid="confirm-submit-store" onClick={submitToStore} className="mt-3 w-full bg-[#2563EB]">Confirm Submission</Button>
         </DialogContent>
       </Dialog>
     </div>

@@ -48,7 +48,7 @@ const Appointments = () => {
             <button data-testid="view-calendar" onClick={() => setView("calendar")} className={`px-3 py-1 text-xs font-bold rounded ${view === "calendar" ? "bg-white shadow" : "text-slate-600"}`}><CalIcon size={12} className="inline mr-1" /> Calendar</button>
             <button data-testid="view-list" onClick={() => setView("list")} className={`px-3 py-1 text-xs font-bold rounded ${view === "list" ? "bg-white shadow" : "text-slate-600"}`}><List size={12} className="inline mr-1" /> List</button>
           </div>
-          <Button data-testid="add-appointment" onClick={() => setAdding(true)} className="bg-[#e11d48] hover:bg-[#be123c] gap-1"><Plus size={14} /> Add Appointment</Button>
+          <Button data-testid="add-appointment" onClick={() => setAdding(true)} className="bg-[#2563EB] hover:bg-[#1D4ED8] gap-1"><Plus size={14} /> Add Appointment</Button>
         </div>
       </div>
 
@@ -144,7 +144,7 @@ const AddAppointmentPanel = ({ open, onClose, doctors, onAdd }) => {
 
   return (
     <SlidePanel open={open} onClose={onClose} title="Book Appointment" description="For walk-in bookings"
-      footer={<Button data-testid="book-apt" onClick={submit} className="w-full bg-[#e11d48]">Book Appointment</Button>}>
+      footer={<Button data-testid="book-apt" onClick={submit} className="w-full bg-[#2563EB]">Book Appointment</Button>}>
       <Field label="Patient Name" required><Input data-testid="apt-patient" value={v.patient || ""} onChange={(e) => setV({ ...v, patient: e.target.value })} /></Field>
       <Field label="Patient Phone" required><Input data-testid="apt-phone" value={v.phone || ""} onChange={(e) => setV({ ...v, phone: e.target.value })} placeholder="+880 17..." /></Field>
       <Field label="Doctor" required>

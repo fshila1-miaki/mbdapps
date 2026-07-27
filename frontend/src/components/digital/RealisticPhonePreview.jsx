@@ -124,7 +124,7 @@ const MinimalList = ({ color, appName, tagline, categories }) => {
 };
 
 const FullScreen = ({ color, appName, tagline, icon }) => (
-  <div className="flex flex-col h-full relative overflow-hidden" style={{ background: `linear-gradient(135deg, ${color} 0%, #0f172a 60%, #000 100%)` }}>
+  <div className="flex flex-col h-full relative overflow-hidden" style={{ background: `linear-gradient(135deg, ${color} 0%, #09090B 60%, #000 100%)` }}>
     <StatusBar dark />
     <div className="absolute top-12 -right-6 w-32 h-32 rounded-full bg-white/10 blur-2xl"></div>
     <div className="absolute bottom-16 -left-6 w-24 h-24 rounded-full bg-white/10 blur-2xl"></div>
@@ -203,7 +203,7 @@ const Dashboard = ({ color, appName }) => (
 
 const REALISTIC = { "modern-card": ModernCard, "minimal-list": MinimalList, "fullscreen": FullScreen, "dashboard": Dashboard };
 
-const RealisticPhonePreview = ({ design = "modern-card", color = "#e11d48", appName = "My App", tagline = "Your tagline", icon = "🚀", categories = [] }) => {
+const RealisticPhonePreview = ({ design = "modern-card", color = "#2563EB", appName = "My App", tagline = "Your tagline", icon = "🚀", categories = [] }) => {
   const Screen = REALISTIC[design] || ModernCard;
   return (
     <PhoneFrame>

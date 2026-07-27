@@ -95,7 +95,7 @@ const Reviews = () => {
         <Field label="Your Response" required>
           <Textarea data-testid="reply-text" value={reply} onChange={(e) => setReply(e.target.value)} placeholder="Thank you for the feedback..." rows={4} />
         </Field>
-        <Button data-testid="post-reply" onClick={() => { replyReview(app.id, replyTo.id, reply); toast.success("Reply posted on live site"); setReplyTo(null); setReply(""); }} className="w-full bg-[#e11d48]">Post Reply</Button>
+        <Button data-testid="post-reply" onClick={() => { replyReview(app.id, replyTo.id, reply); toast.success("Reply posted on live site"); setReplyTo(null); setReply(""); }} className="w-full bg-[#2563EB]">Post Reply</Button>
       </SlidePanel>
     </div>
   );

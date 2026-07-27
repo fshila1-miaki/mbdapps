@@ -29,8 +29,8 @@ const DeveloperDashboard = () => {
     <Layout>
       <div className="space-y-10">
         <section>
-          <p className="text-xs uppercase tracking-widest text-[#e11d48] font-bold mb-2">{t("nav.developerConsole")}</p>
-          <h1 className="text-4xl sm:text-5xl tracking-tighter font-bold text-[#0f172a]" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>
+          <p className="text-xs uppercase tracking-widest text-[#2563EB] font-bold mb-2">{t("nav.developerConsole")}</p>
+          <h1 className="text-4xl sm:text-5xl tracking-tighter font-bold text-[#09090B]" style={{ fontFamily: "'Outfit', sans-serif" }}>
             {t("dashboard.welcomeUser", { name: user?.name?.split(" ")[0] })}
           </h1>
           <p className="text-slate-500 mt-2 max-w-2xl leading-relaxed" dangerouslySetInnerHTML={{ __html: t("dashboard.statusLine", { live: liveApps.length, pending: pendingApps.length, orders: totalOrders }) }}>
@@ -44,7 +44,7 @@ const DeveloperDashboard = () => {
               <div className={`absolute -right-3 -top-3 w-16 h-16 rounded-full opacity-10 ${s.accent === "emerald" ? "bg-emerald-500" : s.accent === "amber" ? "bg-amber-500" : s.accent === "indigo" ? "bg-indigo-500" : "bg-rose-500"}`}></div>
               <s.icon size={18} className={s.accent === "emerald" ? "text-emerald-500" : s.accent === "amber" ? "text-amber-500" : s.accent === "indigo" ? "text-indigo-500" : "text-rose-500"} />
               <div className="text-xs uppercase tracking-widest text-slate-500 font-bold mt-3">{s.label}</div>
-              <div className="text-3xl mt-1 font-bold tracking-tight text-[#0f172a] tabular-nums">{s.value}</div>
+              <div className="text-3xl mt-1 font-bold tracking-tight text-[#09090B] tabular-nums">{s.value}</div>
             </div>
           ))}
         </section>
@@ -53,10 +53,10 @@ const DeveloperDashboard = () => {
         <section data-testid="my-apps-quickview">
           <div className="flex items-end justify-between mb-4">
             <div>
-              <h2 className="text-2xl font-bold tracking-tight" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>{t("nav.myApps")}</h2>
+              <h2 className="text-2xl font-bold tracking-tight" style={{ fontFamily: "'Outfit', sans-serif" }}>{t("nav.myApps")}</h2>
               <p className="text-sm text-slate-500 mt-0.5">{t("dashboard.myAppsSub")}</p>
             </div>
-            <Link to="/my-apps" data-testid="view-all-apps" className="text-sm text-[#e11d48] font-bold hover:underline flex items-center gap-1">{t("dashboard.viewAllN", { n: myApps.length })} <ArrowRight size={14} /></Link>
+            <Link to="/my-apps" data-testid="view-all-apps" className="text-sm text-[#2563EB] font-bold hover:underline flex items-center gap-1">{t("dashboard.viewAllN", { n: myApps.length })} <ArrowRight size={14} /></Link>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {myApps.slice(0, 6).map((app) => (

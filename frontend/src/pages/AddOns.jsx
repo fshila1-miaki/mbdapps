@@ -73,7 +73,7 @@ const CampaignBuilder = ({ open, onClose }) => {
         {step === 0 && (
           <div className="grid grid-cols-2 gap-2 mt-2">
             {[{ id: "installs", e: "📱", l: "Get App Installs" }, { id: "subs", e: "👥", l: "Grow Subscribers" }, { id: "sales", e: "💰", l: "Drive Sales" }, { id: "brand", e: "🌟", l: "Brand Awareness" }].map((g) => (
-              <button key={g.id} data-testid={`camp-goal-${g.id}`} onClick={() => setData({ ...data, goal: g.id })} className={`p-4 border-2 rounded-xl text-left ${data.goal === g.id ? "border-[#e11d48] bg-rose-50" : "border-slate-200"}`}>
+              <button key={g.id} data-testid={`camp-goal-${g.id}`} onClick={() => setData({ ...data, goal: g.id })} className={`p-4 border-2 rounded-xl text-left ${data.goal === g.id ? "border-[#2563EB] bg-rose-50" : "border-slate-200"}`}>
                 <div className="text-3xl">{g.e}</div>
                 <div className="font-bold mt-1">{g.l}</div>
               </button>
@@ -83,7 +83,7 @@ const CampaignBuilder = ({ open, onClose }) => {
         {step === 1 && (
           <div className="grid grid-cols-2 gap-2 mt-2">
             {CHANNELS.map((c) => (
-              <button key={c.id} data-testid={`camp-ch-${c.id}`} onClick={() => setData({ ...data, channels: data.channels.includes(c.id) ? data.channels.filter((x) => x !== c.id) : [...data.channels, c.id] })} className={`p-3 border-2 rounded-xl text-left ${data.channels.includes(c.id) ? "border-[#e11d48] bg-rose-50" : "border-slate-200"}`}>
+              <button key={c.id} data-testid={`camp-ch-${c.id}`} onClick={() => setData({ ...data, channels: data.channels.includes(c.id) ? data.channels.filter((x) => x !== c.id) : [...data.channels, c.id] })} className={`p-3 border-2 rounded-xl text-left ${data.channels.includes(c.id) ? "border-[#2563EB] bg-rose-50" : "border-slate-200"}`}>
                 <div className="text-2xl">{c.icon}</div>
                 <div className="text-xs font-bold mt-1">{c.name}</div>
               </button>
@@ -114,7 +114,7 @@ const CampaignBuilder = ({ open, onClose }) => {
         )}
         <div className="flex justify-between mt-3">
           {step > 0 ? <Button variant="outline" size="sm" onClick={prev}>← Back</Button> : <span />}
-          {step < 4 ? <Button data-testid="camp-next" size="sm" onClick={next} className="bg-[#e11d48]">Next →</Button> : <Button data-testid="camp-launch" size="sm" onClick={launch} className="bg-[#e11d48]">Launch Campaign</Button>}
+          {step < 4 ? <Button data-testid="camp-next" size="sm" onClick={next} className="bg-[#2563EB]">Next →</Button> : <Button data-testid="camp-launch" size="sm" onClick={launch} className="bg-[#2563EB]">Launch Campaign</Button>}
         </div>
       </DialogContent>
     </Dialog>
@@ -130,7 +130,7 @@ const TrialModal = ({ open, onClose }) => {
         <DialogDescription>Full Analytics access for 14 days</DialogDescription>
         <Input data-testid="trial-email" placeholder="Contact email" value={email} onChange={(e) => setEmail(e.target.value)} className="mt-2" />
         <Input data-testid="trial-phone" placeholder="Phone" value={phone} onChange={(e) => setPhone(e.target.value)} className="mt-2" />
-        <Button data-testid="trial-activate" disabled={!email} onClick={() => { toast.success("🎉 Analytics live! Check your Reports section."); onClose(); }} className="mt-3 w-full bg-[#e11d48]">Activate Free Trial</Button>
+        <Button data-testid="trial-activate" disabled={!email} onClick={() => { toast.success("🎉 Analytics live! Check your Reports section."); onClose(); }} className="mt-3 w-full bg-[#2563EB]">Activate Free Trial</Button>
       </DialogContent>
     </Dialog>
   );
@@ -150,14 +150,14 @@ const AddOns = () => {
 
   const growth = Array.from({ length: 90 }, (_, i) => ({ d: i, v: 8000 + i * 53 + Math.sin(i / 5) * 200 }));
   const revenue = Array.from({ length: 30 }, (_, i) => ({ d: `D${i + 1}`, v: 7000 + Math.sin(i / 3) * 1500 + i * 80 }));
-  const channels = [{ name: "SMS", value: 40, color: "#e11d48" }, { name: "Subscription", value: 35, color: "#0f172a" }, { name: "CaaS", value: 15, color: "#f59e0b" }, { name: "Web", value: 10, color: "#06b6d4" }];
+  const channels = [{ name: "SMS", value: 40, color: "#2563EB" }, { name: "Subscription", value: 35, color: "#09090B" }, { name: "CaaS", value: 15, color: "#f59e0b" }, { name: "Web", value: 10, color: "#06b6d4" }];
 
   return (
     <Layout>
       <div className="space-y-6 max-w-7xl">
         {/* Hero */}
         <div className="bg-gradient-to-r from-slate-900 via-rose-900 to-slate-900 text-white rounded-2xl px-6 py-8 relative overflow-hidden">
-          <div className="absolute inset-0 opacity-20" style={{ background: "radial-gradient(circle at 30% 50%, #e11d48, transparent 60%)" }}></div>
+          <div className="absolute inset-0 opacity-20" style={{ background: "radial-gradient(circle at 30% 50%, #2563EB, transparent 60%)" }}></div>
           <div className="relative">
             <h1 className="text-3xl font-bold tracking-tight flex items-center gap-2">⚡ {t("addonsPage.heroTitle")}</h1>
             <p className="text-sm opacity-80 mt-1 max-w-2xl">{t("addonsPage.heroSub")}</p>
@@ -181,7 +181,7 @@ const AddOns = () => {
               <div className="text-lg font-bold">Run one campaign. Reach across 6 channels simultaneously.</div>
               <div className="flex gap-2 mt-2">{CHANNELS.slice(0, 6).map((c) => <span key={c.id} className="text-xl">{c.icon}</span>)}</div>
             </div>
-            <Button data-testid="open-campaign-builder" onClick={() => setCampOpen(true)} className="bg-[#e11d48] gap-1"><Sparkles size={14} /> Build a Campaign</Button>
+            <Button data-testid="open-campaign-builder" onClick={() => setCampOpen(true)} className="bg-[#2563EB] gap-1"><Sparkles size={14} /> Build a Campaign</Button>
           </div>
 
           {/* 6 channel cards */}
@@ -197,7 +197,7 @@ const AddOns = () => {
                 <p className="text-xs text-slate-600 mt-2">{c.pitch}</p>
                 <div className="flex flex-wrap gap-1 mt-2">{c.stats.map((s) => <span key={s} className="text-[10px] bg-slate-50 px-1.5 py-0.5 rounded">{s}</span>)}</div>
                 <ul className="text-xs text-slate-600 mt-2 space-y-0.5">{c.features.map((f) => <li key={f}>✓ {f}</li>)}</ul>
-                <Button data-testid={`addon-add-${c.id}`} onClick={() => toast.success(`Added ${c.name} to plan`)} size="sm" className="mt-3 w-full bg-[#0f172a] hover:bg-[#e11d48]">Add to Plan</Button>
+                <Button data-testid={`addon-add-${c.id}`} onClick={() => toast.success(`Added ${c.name} to plan`)} size="sm" className="mt-3 w-full bg-[#09090B] hover:bg-[#2563EB]">Add to Plan</Button>
               </div>
             ))}
           </div>
@@ -237,7 +237,7 @@ const AddOns = () => {
                   <LineChart data={growth}>
                     <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
                     <XAxis dataKey="d" fontSize={10} /><YAxis fontSize={10} /><Tooltip />
-                    <Line type="monotone" dataKey="v" stroke="#e11d48" strokeWidth={2} dot={false} />
+                    <Line type="monotone" dataKey="v" stroke="#2563EB" strokeWidth={2} dot={false} />
                   </LineChart>
                 </ResponsiveContainer>
               </div>
@@ -262,7 +262,7 @@ const AddOns = () => {
             <div className="text-xs uppercase tracking-widest font-bold text-slate-500 mb-2">Daily Revenue — Last 30 Days</div>
             <div className="h-40 w-full min-h-[160px]">
               <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
-                <BarChart data={revenue}><CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" /><XAxis dataKey="d" fontSize={9} interval={3} /><YAxis fontSize={10} /><Tooltip /><Bar dataKey="v" fill="#e11d48" radius={[3, 3, 0, 0]} /></BarChart>
+                <BarChart data={revenue}><CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" /><XAxis dataKey="d" fontSize={9} interval={3} /><YAxis fontSize={10} /><Tooltip /><Bar dataKey="v" fill="#2563EB" radius={[3, 3, 0, 0]} /></BarChart>
               </ResponsiveContainer>
             </div>
           </div>
@@ -289,7 +289,7 @@ const AddOns = () => {
               <div className="text-xs opacity-80">Know where to find them.</div>
             </div>
             <div className="flex gap-2">
-              <Button data-testid="open-trial" onClick={() => setTrialOpen(true)} className="bg-[#e11d48]"><TrendingUp size={14} className="mr-1" /> Start Free 14-Day Trial</Button>
+              <Button data-testid="open-trial" onClick={() => setTrialOpen(true)} className="bg-[#2563EB]"><TrendingUp size={14} className="mr-1" /> Start Free 14-Day Trial</Button>
               <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white hover:text-slate-900">Book a Live Demo</Button>
             </div>
           </div>

@@ -1,23 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Cabinet Grotesk via Fontshare */
+/* Cabinet Grotesk kept as legacy fallback (headings now use Outfit) */
 @font-face {
   font-family: 'Cabinet Grotesk';
   src: url('https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800&display=swap');
 }
-@import url('https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800&display=swap');
 
 body {
   margin: 0;
-  font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: #ffffff;
-  color: #0f172a;
+  color: #09090B;
 }
 
 /* Site-wide horizontal overflow guard — prevents any rogue element from
@@ -65,7 +64,7 @@ code, .font-mono {
 @layer base {
   * { @apply border-border; }
   body { @apply bg-background text-foreground; }
-  ::selection { background: #e11d48; color: white; }
+  ::selection { background: #2563EB; color: white; }
 }
 
 /* Hide scrollbar but allow scroll */
@@ -98,6 +97,6 @@ code, .font-mono {
 
 @keyframes rippleExpand { 0% { transform: scale(0); opacity: 1; } 100% { transform: scale(8); opacity: 0; } }
 @keyframes slideInRight { from { transform: translateX(20px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
-@keyframes pulseGlow { 0%, 100% { box-shadow: 0 0 0 rgba(225,29,72,0.3); } 50% { box-shadow: 0 0 30px rgba(225,29,72,0.6); } }
+@keyframes pulseGlow { 0%, 100% { box-shadow: 0 0 0 rgba(37,99,235,0.3); } 50% { box-shadow: 0 0 30px rgba(37,99,235,0.6); } }
 
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }

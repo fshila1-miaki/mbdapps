@@ -41,7 +41,7 @@ export const AppProvider = ({ children }) => {
   const [subscriptions] = useState(seedSubscriptions);
   const [storeApps, setStoreApps] = useState(() => {
     // Force-refresh seed if SathiBD apps missing (migration to v5)
-    const existing = safeParse("bdapps_store_v5", null);
+    const existing = safeParse("bdapps_store_v6", null);
     if (!existing || !existing.find((a) => a.id === "AS-SATHIBD")) return seedAppStore;
     return existing;
   });
@@ -61,7 +61,6 @@ export const AppProvider = ({ children }) => {
       { id: "APP-FITBD", name: "FitBD", templateId: "and-fitness", templateType: "android", kind: "fitness", slug: "fitbd", status: "Live", icon: "💪", color: "#16a34a", iconGradient: "from-green-500 to-lime-600", templateName: "Fitness Tracker App", stats: { downloads: 3100, rating: 4.5, reviews: 98 }, launchedAt: new Date(now - 14 * 86400000).toISOString(), lastUpdated: new Date(now - 4 * 3600 * 1000).toISOString(), submittedAt: new Date(now - 16 * 86400000).toISOString(), version: "1.1.0", rejectionReason: null },
       { id: "APP-SHOPLOCAL", name: "ShopLocal BD", templateId: "and-marketplace", templateType: "android", kind: "ecommerce", slug: "shoplocal-bd", status: "Pending Review", icon: "🏪", color: "#f59e0b", iconGradient: "from-amber-500 to-orange-600", templateName: "Local Marketplace App", stats: { downloads: 0 }, launchedAt: new Date(now - 1 * 86400000).toISOString(), lastUpdated: new Date(now - 1 * 86400000).toISOString(), submittedAt: new Date(now - 1 * 86400000).toISOString(), version: "1.0.0", rejectionReason: null },
       { id: "APP-SATHIBD", name: "SathiBD", templateId: "web-sathibd", templateType: "web", kind: "matrimony", slug: "sathibd", status: "Live", icon: "💑", color: "#f6af04", iconGradient: "from-rose-500 to-amber-500", templateName: "SathiBD Matrimony Portal", stats: { subscribers: 1840, registered: 3200, interests: 648, sms: 18400, revenue: 642160 }, launchedAt: new Date(now - 7 * 86400000).toISOString(), lastUpdated: new Date(now - 1 * 3600 * 1000).toISOString(), submittedAt: new Date(now - 9 * 86400000).toISOString(), version: "3.0.0" },
-      { id: "APP-QUIZBD", name: "QuizBD", templateId: "pro-quiz", templateType: "pro", kind: "entertainment", slug: "quizbd", status: "Live", icon: "🧠", color: "#7c3aed", iconGradient: "from-purple-600 to-indigo-800", templateName: "Entertainment Quiz", stats: { subscribers: 184000, revenue: 896000, questions: 2400000 }, launchedAt: new Date(now - 35 * 86400000).toISOString(), lastUpdated: new Date(now - 30 * 60 * 1000).toISOString(), submittedAt: new Date(now - 37 * 86400000).toISOString(), version: "2.0.1" },
       { id: "APP-NEWSNOW", name: "NewsNow BD", templateId: "web-news", templateType: "web", kind: "news", slug: "newsnow", status: "Live", icon: "📰", color: "#475569", iconGradient: "from-slate-700 to-gray-900", templateName: "News & Media", stats: { subscribers: 94200, revenue: 461580, articles: 15 }, launchedAt: new Date(now - 22 * 86400000).toISOString(), lastUpdated: new Date(now - 4 * 3600 * 1000).toISOString(), submittedAt: new Date(now - 24 * 86400000).toISOString(), version: "1.5.2" },
       { id: "APP-FITBDPRO", name: "FitBD Pro", templateId: "and-fitness-pro", templateType: "android", kind: "fitness", slug: "fitbd", status: "Pending Review", icon: "💪", color: "#10b981", iconGradient: "from-lime-500 to-emerald-700", templateName: "Fitness Tracker", stats: { downloads: 0 }, launchedAt: new Date(now - 3 * 86400000).toISOString(), lastUpdated: new Date(now - 3 * 86400000).toISOString(), submittedAt: new Date(now - 3 * 86400000).toISOString(), version: "1.0.0", rejectionReason: null },
     ];
@@ -89,7 +88,7 @@ export const AppProvider = ({ children }) => {
   });
 
   const [myApps, setMyApps] = useState(() => {
-    const existing = safeParse("bdapps_myapps_v5", null);
+    const existing = safeParse("bdapps_myapps_v6", null);
     if (!existing || !existing.find((a) => a.id === "APP-SATHIBD")) return seedMyApps();
     return existing;
   });
@@ -97,7 +96,7 @@ export const AppProvider = ({ children }) => {
   const [mediaLibrary, setMediaLibrary] = useState(() => safeParse("bdapps_media", []));
   const [cmsCollections, setCmsCollections] = useState(() => safeParse("bdapps_cms_v2", seedCmsCollections()));
 
-  useEffect(() => localStorage.setItem("bdapps_myapps_v5", JSON.stringify(myApps)), [myApps]);
+  useEffect(() => localStorage.setItem("bdapps_myapps_v6", JSON.stringify(myApps)), [myApps]);
   useEffect(() => localStorage.setItem("bdapps_appcontent_v2", JSON.stringify(appContent)), [appContent]);
   useEffect(() => localStorage.setItem("bdapps_media", JSON.stringify(mediaLibrary)), [mediaLibrary]);
   useEffect(() => localStorage.setItem("bdapps_cms_v2", JSON.stringify(cmsCollections)), [cmsCollections]);
@@ -115,7 +114,7 @@ export const AppProvider = ({ children }) => {
       slug: app.slug || app.name.toLowerCase().replace(/[^a-z0-9]+/g, "-"),
       status: app.type === "android" ? "In Review" : "Live",
       icon: app.icon || "📱",
-      color: app.color || "#0f172a",
+      color: app.color || "#09090B",
       stats: { orders: 0, revenue: 0, customers: 0 },
       launchedAt: new Date().toISOString(),
       lastUpdated: new Date().toISOString(),
@@ -252,7 +251,7 @@ export const AppProvider = ({ children }) => {
   useEffect(() => localStorage.setItem("bdapps_apps", JSON.stringify(apps)), [apps]);
   useEffect(() => localStorage.setItem("bdapps_liteapps", JSON.stringify(liteApps)), [liteApps]);
   useEffect(() => localStorage.setItem("bdapps_ads", JSON.stringify(ads)), [ads]);
-  useEffect(() => localStorage.setItem("bdapps_store_v5", JSON.stringify(storeApps)), [storeApps]);
+  useEffect(() => localStorage.setItem("bdapps_store_v6", JSON.stringify(storeApps)), [storeApps]);
   useEffect(() => localStorage.setItem("bdapps_layout", JSON.stringify(storeLayout)), [storeLayout]);
   useEffect(() => localStorage.setItem("bdapps_buildfiles", JSON.stringify(buildFiles)), [buildFiles]);
   useEffect(() => {

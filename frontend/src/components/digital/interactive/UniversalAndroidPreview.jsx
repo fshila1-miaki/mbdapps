@@ -79,7 +79,7 @@ const ecomScreens = (lang) => {
               <div className="text-[10px] text-slate-500">⭐ 4.7 · 284 reviews</div>
               <div className="text-xl font-bold mt-1" style={{ color: ctx.primary }}>৳ {p.p}</div>
               <div className="text-[10px] mt-3">{T(lang, "Color", "রঙ")}</div>
-              <div className="flex gap-1.5 mt-1">{["#ef4444", "#3b82f6", "#10b981", "#0f172a"].map((c, i) => <span key={c} className={`w-5 h-5 rounded-full ${i === 0 ? "ring-2 ring-offset-1 ring-slate-900" : ""}`} style={{ background: c }}></span>)}</div>
+              <div className="flex gap-1.5 mt-1">{["#ef4444", "#3b82f6", "#10b981", "#09090B"].map((c, i) => <span key={c} className={`w-5 h-5 rounded-full ${i === 0 ? "ring-2 ring-offset-1 ring-slate-900" : ""}`} style={{ background: c }}></span>)}</div>
               <div className="text-[10px] mt-3">{T(lang, "Size", "সাইজ")}</div>
               <div className="flex gap-1 mt-1">{["S", "M", "L", "XL"].map((s, i) => <span key={s} className={`text-[10px] px-2 py-0.5 rounded ${i === 1 ? "text-white" : "bg-slate-100"}`} style={i === 1 ? { background: ctx.primary } : {}}>{s}</span>)}</div>
             </div>

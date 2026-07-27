@@ -85,7 +85,7 @@
     "title": "ড্যাশবোর্ড",
     "subtitle": "আবার স্বাগতম, {{name}}",
     "welcomeUser": "আবার স্বাগতম, {{name}}।",
-    "statusLine": "আপনার <b class='text-[#0f172a]'>{{live}}টি লাইভ অ্যাপ</b>, <b class='text-amber-600'>{{pending}}টি রিভিউ অপেক্ষমাণ</b>, এবং এই মাসে {{orders}}+ লেনদেন।",
+    "statusLine": "আপনার <b class='text-[#09090B]'>{{live}}টি লাইভ অ্যাপ</b>, <b class='text-amber-600'>{{pending}}টি রিভিউ অপেক্ষমাণ</b>, এবং এই মাসে {{orders}}+ লেনদেন।",
     "myAppsSub": "আপনার সক্রিয় বিল্ডগুলো এক নজরে",
     "viewAllN": "সব {{n}}টি অ্যাপ দেখুন",
     "launchFirst": "প্রথম অ্যাপ লঞ্চ করুন",

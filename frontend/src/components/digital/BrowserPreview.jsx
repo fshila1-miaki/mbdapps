@@ -93,7 +93,7 @@ const RealisticModernCard = ({ appName, tagline, primaryColor, secondaryColor })
     {/* Hero */}
     <div className="px-6 py-8 grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
       <div>
-        <h1 className="text-2xl md:text-3xl font-bold leading-tight tracking-tight" style={{ color: secondaryColor || "#0f172a" }}>{tagline}</h1>
+        <h1 className="text-2xl md:text-3xl font-bold leading-tight tracking-tight" style={{ color: secondaryColor || "#09090B" }}>{tagline}</h1>
         <p className="text-sm text-slate-500 mt-2">Powered by Orbit Platform — built in minutes.</p>
         <div className="mt-4 flex gap-2">
           <button className="text-xs font-semibold px-4 py-2 rounded-md text-white" style={{ background: primaryColor }}>Start Now</button>
@@ -176,7 +176,7 @@ const RealisticMinimalList = ({ appName, tagline, primaryColor }) => (
 
 const RealisticFullScreen = ({ appName, tagline, primaryColor, secondaryColor }) => (
   <div className="font-sans">
-    <div className="text-white px-6 py-12 text-center relative overflow-hidden" style={{ background: `linear-gradient(135deg, ${primaryColor} 0%, ${secondaryColor || "#0f172a"} 100%)` }}>
+    <div className="text-white px-6 py-12 text-center relative overflow-hidden" style={{ background: `linear-gradient(135deg, ${primaryColor} 0%, ${secondaryColor || "#09090B"} 100%)` }}>
       <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-white/10 blur-3xl"></div>
       <div className="absolute -bottom-10 -left-10 w-40 h-40 rounded-full bg-white/10 blur-3xl"></div>
       <div className="relative">
@@ -198,7 +198,7 @@ const RealisticFullScreen = ({ appName, tagline, primaryColor, secondaryColor })
         </div>
       </div>
     </div>
-    <div className="px-6 py-12 text-white text-center" style={{ background: secondaryColor || "#0f172a" }}>
+    <div className="px-6 py-12 text-white text-center" style={{ background: secondaryColor || "#09090B" }}>
       <h2 className="text-2xl font-bold tracking-tight">Ready to start?</h2>
       <button className="mt-4 text-sm font-semibold px-6 py-3 rounded-md text-white" style={{ background: primaryColor }}>Begin Now</button>
     </div>
@@ -266,8 +266,8 @@ const BrowserPreview = ({
   url,
   appName = "Your App",
   tagline = "Your awesome tagline",
-  primaryColor = "#e11d48",
-  secondaryColor = "#0f172a",
+  primaryColor = "#2563EB",
+  secondaryColor = "#09090B",
   height = "h-[560px]",
 }) => {
   if (mode === "wireframe") {

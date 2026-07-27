@@ -742,7 +742,7 @@ const PREVIEWS = {
   "pro-quizbd": ProQuizAdapter,
 };
 
-const OrbitWebPreview = ({ templateId, appName = "Orbit App", tagline = "Your tagline", primaryColor = "#0f172a", secondaryColor = "#e11d48", language = "English", url, height }) => {
+const OrbitWebPreview = ({ templateId, appName = "Orbit App", tagline = "Your tagline", primaryColor = "#09090B", secondaryColor = "#2563EB", language = "English", url, height }) => {
   const Comp = PREVIEWS[templateId] || SubPortalPreview;
   const fallbackUrl = useMemo(() => url || `${(appName || "app").toLowerCase().replace(/[^a-z0-9]+/g, "-")}.orbit.app`, [url, appName]);
   return (

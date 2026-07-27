@@ -73,7 +73,7 @@ const EduPath = () => {
       {/* Top bar */}
       <header className="bg-gradient-to-r from-indigo-600 to-purple-700 text-white sticky top-0 z-30 shadow-md">
         <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between gap-3">
-          <button onClick={() => setPage("home")} data-testid="edupath-logo" className="flex items-center gap-2 font-bold text-xl tracking-tight" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>
+          <button onClick={() => setPage("home")} data-testid="edupath-logo" className="flex items-center gap-2 font-bold text-xl tracking-tight" style={{ fontFamily: "'Outfit', sans-serif" }}>
             <span className="w-9 h-9 rounded-xl bg-white text-indigo-600 flex items-center justify-center text-xl">📚</span>
             EduPath BD
           </button>
@@ -95,7 +95,7 @@ const EduPath = () => {
               <div className="grid md:grid-cols-2 gap-6 items-center">
                 <div>
                   <p className="text-xs uppercase tracking-widest font-bold opacity-90">Welcome back, Demo Student 👋</p>
-                  <h1 className="text-3xl sm:text-5xl font-bold tracking-tight mt-2 leading-tight" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>Your path to <span className="text-amber-300">A+</span> starts here.</h1>
+                  <h1 className="text-3xl sm:text-5xl font-bold tracking-tight mt-2 leading-tight" style={{ fontFamily: "'Outfit', sans-serif" }}>Your path to <span className="text-amber-300">A+</span> starts here.</h1>
                   <p className="mt-3 opacity-90 max-w-md">Master SSC & HSC subjects with video lessons, quizzes, and BD's largest student community.</p>
                   <div className="mt-5 flex gap-2 flex-wrap">
                     <button onClick={() => setPage("catalog")} data-testid="explore-courses-btn" className="bg-white text-indigo-700 font-bold px-5 h-11 rounded-full hover:bg-amber-300 transition-colors">Explore Courses →</button>
@@ -129,7 +129,7 @@ const EduPath = () => {
 
             {/* Continue learning */}
             <section>
-              <h2 className="text-xl font-bold tracking-tight mb-3" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>Continue Learning</h2>
+              <h2 className="text-xl font-bold tracking-tight mb-3" style={{ fontFamily: "'Outfit', sans-serif" }}>Continue Learning</h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                 {enrolledCourses.slice(0, 3).map((c) => (
                   <button key={c.id} onClick={() => { setSelected(c); setPage("course"); }} data-testid={`continue-${c.id}`}
@@ -149,7 +149,7 @@ const EduPath = () => {
             {/* Recommended */}
             <section>
               <div className="flex justify-between items-end mb-3">
-                <h2 className="text-xl font-bold tracking-tight" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>Recommended for You</h2>
+                <h2 className="text-xl font-bold tracking-tight" style={{ fontFamily: "'Outfit', sans-serif" }}>Recommended for You</h2>
                 <button onClick={() => setPage("catalog")} className="text-xs font-bold text-indigo-600">See all →</button>
               </div>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
@@ -165,7 +165,7 @@ const EduPath = () => {
         {page === "catalog" && (
           <>
             <button onClick={() => setPage("home")} data-testid="back-home" className="text-sm text-slate-500 hover:text-slate-900 flex items-center gap-1"><ChevronLeft size={14} /> Back to Home</button>
-            <h1 className="text-3xl font-bold tracking-tight" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>All Courses <span className="text-slate-400 font-medium text-xl">({COURSES.length})</span></h1>
+            <h1 className="text-3xl font-bold tracking-tight" style={{ fontFamily: "'Outfit', sans-serif" }}>All Courses <span className="text-slate-400 font-medium text-xl">({COURSES.length})</span></h1>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
               {COURSES.map((c) => <CourseCard key={c.id} course={c} onClick={() => { setSelected(c); setPage("course"); }} enrolled={enrolled.includes(c.id)} />)}
             </div>
@@ -181,7 +181,7 @@ const EduPath = () => {
                 <div className="w-20 h-20 rounded-2xl bg-white/15 backdrop-blur flex items-center justify-center text-4xl flex-shrink-0">{selected.icon}</div>
                 <div className="flex-1 min-w-0">
                   <div className="text-[10px] uppercase tracking-widest font-bold opacity-90">{selected.level} · {selected.subject}</div>
-                  <h1 className="text-2xl sm:text-4xl font-bold tracking-tight mt-1" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>{selected.title}</h1>
+                  <h1 className="text-2xl sm:text-4xl font-bold tracking-tight mt-1" style={{ fontFamily: "'Outfit', sans-serif" }}>{selected.title}</h1>
                   <p className="mt-2 opacity-90 max-w-2xl">{selected.desc}</p>
                   <div className="mt-3 flex items-center gap-4 flex-wrap text-sm">
                     <span className="flex items-center gap-1"><Star size={14} className="fill-amber-300 text-amber-300" /><b>{selected.rating}</b> rating</span>
@@ -297,7 +297,7 @@ const EduPath = () => {
                 {lessonStep === "done" && (
                   <div className="bg-white border border-slate-200 rounded-2xl p-8 text-center" data-testid="quiz-complete">
                     <div className="w-24 h-24 mx-auto rounded-full bg-amber-100 flex items-center justify-center text-5xl">🏆</div>
-                    <h2 className="text-3xl font-bold tracking-tight mt-3" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>Lesson Complete!</h2>
+                    <h2 className="text-3xl font-bold tracking-tight mt-3" style={{ fontFamily: "'Outfit', sans-serif" }}>Lesson Complete!</h2>
                     <p className="text-slate-600 mt-1">You scored <b className="text-indigo-600">{score}/{LESSON_QUIZ.length}</b> · Earned <b className="text-amber-600">+50 points</b></p>
                     <div className="mt-4 inline-flex items-center gap-2 bg-amber-100 text-amber-800 px-4 py-2 rounded-full font-bold text-sm"><Award size={14} /> +50 XP · Streak day {streak} 🔥</div>
                     <div className="mt-5 flex justify-center gap-2 flex-wrap">
@@ -336,7 +336,7 @@ const EduPath = () => {
               <div className="flex items-center gap-3">
                 <Trophy size={36} />
                 <div>
-                  <h1 className="text-3xl font-bold tracking-tight" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>National Leaderboard</h1>
+                  <h1 className="text-3xl font-bold tracking-tight" style={{ fontFamily: "'Outfit', sans-serif" }}>National Leaderboard</h1>
                   <p className="text-sm opacity-90">Top students across Bangladesh this week</p>
                 </div>
               </div>

@@ -403,7 +403,7 @@ export const QuizWebPreview = ({ cfg, content, onPhoneSubmit, onOtpVerify, onFin
   const handleLoginOtp = async (o) => { if (onOtpVerify) await onOtpVerify(o); setRegistered(true); };
 
   return (
-    <div className="min-h-full bg-gradient-to-b from-slate-50 to-white" style={{ fontFamily: SANS, color: "#0f172a" }}>
+    <div className="min-h-full bg-gradient-to-b from-slate-50 to-white" style={{ fontFamily: SANS, color: "#09090B" }}>
       {view !== "landing" && (
         <TopBar appName={appName} primary={primary} points={points} streak={streak} registered={registered} onLogo={() => setView("home")} onProfile={() => setView("leaderboard")} language={language} />
       )}

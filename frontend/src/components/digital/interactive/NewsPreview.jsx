@@ -119,7 +119,7 @@ const Masthead = ({ appName, primary, language, onCategoryClick, activeCat, cate
 const HeroArticle = ({ article, onOpen, language, categories }) => (
   <button onClick={() => onOpen(article)} data-testid="news-hero-article" className="block text-left w-full group">
     <div className="grid md:grid-cols-2 gap-5 items-start">
-      <div className="rounded-sm overflow-hidden bg-slate-200 aspect-[16/10]" style={{ background: article.featuredImage ? `url(${article.featuredImage}) center/cover` : `linear-gradient(135deg,#0f172a,#475569)` }} />
+      <div className="rounded-sm overflow-hidden bg-slate-200 aspect-[16/10]" style={{ background: article.featuredImage ? `url(${article.featuredImage}) center/cover` : `linear-gradient(135deg,#09090B,#475569)` }} />
       <div>
         <CategoryPill cat={article.category} categories={categories} active />
         <h2 className="mt-2 font-black leading-[1.1] group-hover:underline" style={{ fontFamily: SERIF, fontSize: "clamp(24px, 3.4vw, 38px)", color: "#111827" }}>{article.title}</h2>

@@ -38,8 +38,8 @@ const AppStoreAdmin = () => {
     <Layout>
       <div className="space-y-6">
         <div>
-          <p className="text-xs uppercase tracking-widest text-[#e11d48] font-bold mb-1">Admin · App Store</p>
-          <h1 className="text-3xl sm:text-4xl tracking-tighter font-bold" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>Store Administration</h1>
+          <p className="text-xs uppercase tracking-widest text-[#2563EB] font-bold mb-1">Admin · App Store</p>
+          <h1 className="text-3xl sm:text-4xl tracking-tighter font-bold" style={{ fontFamily: "'Outfit', sans-serif" }}>Store Administration</h1>
         </div>
 
         <Tabs defaultValue="apps">
@@ -70,7 +70,7 @@ const AppStoreAdmin = () => {
                 <div className="space-y-3"><Input type="file" accept="image/*" /><div><Label>Title</Label><Input data-testid="sub-title" value={layoutForm.sub} onChange={(e) => setLayoutForm({ ...layoutForm, sub: e.target.value })} /></div></div>
               </div>
             </div>
-            <Button onClick={() => { setStoreLayout(layoutForm); toast.success("Layout saved"); }} className="mt-4 bg-[#e11d48] hover:bg-[#be123c]" data-testid="layout-save">Save</Button>
+            <Button onClick={() => { setStoreLayout(layoutForm); toast.success("Layout saved"); }} className="mt-4 bg-[#2563EB] hover:bg-[#1D4ED8]" data-testid="layout-save">Save</Button>
           </TabsContent>
         </Tabs>
       </div>
@@ -93,7 +93,7 @@ const AppStoreAdmin = () => {
               <div><Label>Banner</Label><Input type="file" accept="image/*" /></div>
             </TabsContent>
           </Tabs>
-          <DialogFooter><Button onClick={togglePublish} className="bg-[#e11d48] hover:bg-[#be123c]" data-testid="toggle-publish">{editing?.status === "Published" ? "Unpublish" : "Publish"}</Button></DialogFooter>
+          <DialogFooter><Button onClick={togglePublish} className="bg-[#2563EB] hover:bg-[#1D4ED8]" data-testid="toggle-publish">{editing?.status === "Published" ? "Unpublish" : "Publish"}</Button></DialogFooter>
         </DialogContent>
       </Dialog>
     </Layout>

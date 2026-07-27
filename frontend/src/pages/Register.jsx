@@ -36,10 +36,10 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-start bg-white px-4 sm:px-10 py-10 lg:py-16" style={{ fontFamily: "'IBM Plex Sans', sans-serif" }}>
+    <div className="min-h-screen flex flex-col items-start bg-white px-4 sm:px-10 py-10 lg:py-16" style={{ fontFamily: "'Inter', sans-serif" }}>
       <Logo />
       <div className="max-w-2xl w-full mx-auto mt-10">
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl tracking-tighter font-bold text-[#0f172a] mb-2" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl tracking-tighter font-bold text-[#09090B] mb-2" style={{ fontFamily: "'Outfit', sans-serif" }}>
           Create your developer account
         </h1>
         <p className="text-slate-500 mb-8">Join thousands of developers building on the Robi network.</p>
@@ -95,8 +95,8 @@ const Register = () => {
             {errors.phone && <p className="text-xs text-rose-600 mt-1">{errors.phone}</p>}
           </div>
           <div className="sm:col-span-2 flex flex-col sm:flex-row sm:items-center gap-3 pt-4">
-            <Button data-testid="register-submit" type="submit" className="bg-[#e11d48] hover:bg-[#be123c] text-white h-11 px-8">Create Account</Button>
-            <Link to="/" data-testid="goto-login" className="text-sm text-slate-500 hover:text-[#0f172a]">Back to sign in</Link>
+            <Button data-testid="register-submit" type="submit" className="bg-[#2563EB] hover:bg-[#1D4ED8] text-white h-11 px-8">Create Account</Button>
+            <Link to="/" data-testid="goto-login" className="text-sm text-slate-500 hover:text-[#09090B]">Back to sign in</Link>
           </div>
         </form>
       </div>

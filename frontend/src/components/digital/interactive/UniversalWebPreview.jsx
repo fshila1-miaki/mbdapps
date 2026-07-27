@@ -43,7 +43,7 @@ const PaymentOverlay = ({ open, onDone, cfg }) => {
   return (
     <div className="absolute inset-0 bg-slate-900/70 z-50 flex items-center justify-center p-4">
       <div className="bg-white rounded-2xl p-6 max-w-sm w-full text-center">
-        <div className="w-12 h-12 mx-auto rounded-full border-4 border-slate-200 border-t-[#e11d48] animate-spin"></div>
+        <div className="w-12 h-12 mx-auto rounded-full border-4 border-slate-200 border-t-[#2563EB] animate-spin"></div>
         <div className="font-bold mt-3" style={{ color: cfg.primary }}>{T(cfg.language, "Processing payment securely...", "নিরাপদে পেমেন্ট...")}</div>
         <div className="text-xs text-slate-500 mt-1 transition-all">{messages[phase] || messages[0]}</div>
       </div>

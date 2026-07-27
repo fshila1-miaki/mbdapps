@@ -25,7 +25,7 @@ const Frame = ({ tpl, kids }) => (
 const WEB_MINI = {
   "web-ecom": (tpl) => (
     <div className="h-full flex flex-col">
-      <div className="h-3 flex items-center justify-between px-1.5" style={{ background: "#0f172a" }}>
+      <div className="h-3 flex items-center justify-between px-1.5" style={{ background: "#09090B" }}>
         <div className="text-[5px] text-white font-bold">🛍 SHOP</div>
         <div className="flex gap-0.5"><span className="text-[5px] text-white">🔍</span><span className="text-[5px] text-white relative">🛒<sup className="text-[3px] bg-rose-500 text-white rounded-full px-0.5">2</sup></span></div>
       </div>
@@ -209,7 +209,7 @@ const WEB_MINI = {
           <div className="mt-0.5 space-y-0.5">
             {[{ tag: "রাজনীতি", color: "#fecaca" }, { tag: "অর্থনীতি", color: "#bbf7d0" }, { tag: "খেলাধুলা", color: "#fde68a" }].map((it, i) => (
               <div key={i} className="bg-white rounded p-0.5">
-                <span className="text-[3px] px-0.5 rounded font-bold" style={{ background: it.color, color: "#0f172a" }}>{it.tag}</span>
+                <span className="text-[3px] px-0.5 rounded font-bold" style={{ background: it.color, color: "#09090B" }}>{it.tag}</span>
                 <div className="h-0.5 rounded mt-0.5 bg-slate-300"></div>
                 <div className="h-0.5 rounded mt-0.5 bg-slate-200 w-2/3"></div>
               </div>
@@ -233,7 +233,7 @@ const WEB_MINI = {
             <span className="font-mono">⏱ 9:42</span>
           </div>
           <div className="h-0.5 bg-slate-100 rounded mt-0.5"><div className="h-full rounded" style={{ width: "30%", background: tpl.palette.primary }}></div></div>
-          <div className="text-[4px] font-bold mt-1" style={{ color: "#0f172a", fontFamily: "'Tiro Bangla', serif" }}>বাংলাদেশের জাতীয় ফুল?</div>
+          <div className="text-[4px] font-bold mt-1" style={{ color: "#09090B", fontFamily: "'Tiro Bangla', serif" }}>বাংলাদেশের জাতীয় ফুল?</div>
           <div className="mt-1 space-y-0.5">
             {[{ l: "A", t: "শাপলা", correct: true }, { l: "B", t: "গোলাপ" }, { l: "C", t: "পদ্ম" }, { l: "D", t: "অর্কিড" }].map((o) => (
               <div key={o.l} className={`flex items-center gap-0.5 rounded px-0.5 py-0.5 border ${o.correct ? "bg-emerald-50 border-emerald-400" : "bg-slate-50 border-slate-200"}`}>
