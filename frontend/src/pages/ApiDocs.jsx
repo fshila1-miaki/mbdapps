@@ -8,12 +8,12 @@ const SECTIONS = [
     key: "start", label: "Getting Started",
     body: (
       <>
-        <p className="leading-relaxed">Welcome to the <strong>BDapps Developer API</strong>. This documentation explains how to authenticate and call our telecom services to build SMS, USSD, OTP and Subscription apps for 76M Robi subscribers.</p>
+        <p className="leading-relaxed">Welcome to the <strong>Orbit Developer API</strong>. This documentation explains how to authenticate and call our telecom services to build SMS, USSD, OTP and Subscription apps for 76M Robi subscribers.</p>
         <h3 className="font-bold tracking-tight mt-4">Authentication</h3>
         <p className="leading-relaxed">All API calls require an API key sent in the <code className="bg-slate-100 px-1 py-0.5 rounded">X-API-Key</code> header. Generate yours from the developer dashboard.</p>
       </>
     ),
-    code: `curl https://api.bdapps.com/v1/sms \\
+    code: `curl https://api.orbit.com/v1/sms \\
   -H "X-API-Key: bd_live_xxxxxxxxxxxx" \\
   -H "Content-Type: application/json"`,
   },
@@ -23,7 +23,7 @@ const SECTIONS = [
     code: `POST /v1/sms/mt
 {
   "to": "+8801711234567",
-  "from": "BDapps",
+  "from": "Orbit",
   "message": "Welcome to Cricket Live Updates!",
   "deliveryReport": true
 }
@@ -84,9 +84,9 @@ POST /v1/otp/verify
   },
   {
     key: "down", label: "Downloadable API",
-    body: <p className="leading-relaxed">Distribute APKs and resource bundles to subscribers through the BDapps Downloadable SDK.</p>,
+    body: <p className="leading-relaxed">Distribute APKs and resource bundles to subscribers through the Orbit Downloadable SDK.</p>,
     code: `// SDK init
-BDappsSDK.init({
+OrbitSDK.init({
   apiKey: "bd_live_xxxxxxxxxxxx",
   appId: "APP-1001"
 });`,
@@ -116,7 +116,7 @@ const ApiDocs = () => {
         <div className="relative max-w-[1400px] mx-auto px-4 lg:px-8 py-14 md:py-20">
           <p className="text-xs uppercase tracking-widest text-[#e11d48] font-bold mb-3">API Reference · v1</p>
           <h1 className="text-4xl md:text-6xl tracking-tighter font-bold leading-[0.95] max-w-3xl" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>
-            BDapps Developer API Documentation
+            Orbit Developer API Documentation
           </h1>
           <p className="text-slate-300 mt-4 max-w-2xl text-lg">
             Build powerful telecom apps with Robi's network. SMS, USSD, OTP, CaaS, and Subscription — all in one platform.

@@ -67,7 +67,7 @@ export const AppStore = () => {
     <div className="min-h-screen bg-white" style={{ fontFamily: "'IBM Plex Sans', sans-serif" }}>
       <header className="border-b border-slate-200 bg-white sticky top-0 z-30 shadow-sm">
         <div className="max-w-[1400px] mx-auto px-4 lg:px-8 h-16 flex items-center justify-between">
-          <Link to="/appstore" data-testid="bdapps-logo" className="text-2xl font-bold tracking-tighter bg-gradient-to-r from-orange-500 to-red-600 bg-clip-text text-transparent" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>bdapps</Link>
+          <Link to="/appstore" data-testid="bdapps-logo" className="text-2xl font-bold tracking-tighter bg-gradient-to-r from-orange-500 to-red-600 bg-clip-text text-transparent" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>Orbit</Link>
           <div className="flex items-center gap-2">
             <Button onClick={() => navigate("/digital")} data-testid="create-app-btn" className="bg-[#e11d48] hover:bg-[#be123c] rounded-full"><span className="mr-1">+</span> Create Your Own App</Button>
             {appStoreUser ? <Button variant="outline" data-testid="store-user" className="rounded-full">{appStoreUser.phone}</Button>
@@ -179,7 +179,7 @@ export const AppStore = () => {
       <footer className="border-t border-slate-200 bg-slate-50 py-10">
         <div className="max-w-[1400px] mx-auto px-4 lg:px-8 flex flex-col md:flex-row justify-between gap-4">
           <Logo />
-          <div className="flex items-center gap-3 text-sm text-slate-600"><Mail size={14} /> support@bdapps.com</div>
+          <div className="flex items-center gap-3 text-sm text-slate-600"><Mail size={14} /> support@orbit.com</div>
           <div className="flex items-center gap-3 text-slate-500"><Twitter size={16} /><Facebook size={16} /></div>
         </div>
       </footer>
@@ -370,7 +370,7 @@ export const AppStoreDetail = () => {
                       <div className="w-2 h-2 rounded-full bg-rose-400"></div>
                       <div className="w-2 h-2 rounded-full bg-amber-400"></div>
                       <div className="w-2 h-2 rounded-full bg-emerald-400"></div>
-                      <div className="ml-2 bg-white text-[10px] text-slate-500 px-2 py-0.5 rounded flex-1 truncate">https://{app.slug || "app"}.bdapps.app</div>
+                      <div className="ml-2 bg-white text-[10px] text-slate-500 px-2 py-0.5 rounded flex-1 truncate">https://{app.slug || "app"}.orbit.app</div>
                     </div>
                     <div className="h-56 relative overflow-hidden bg-white">
                       <AppArt id={app.artId} initials={app.name?.[0]} />
@@ -394,7 +394,7 @@ export const AppStoreDetail = () => {
         <section>
           <h2 className="text-xl font-bold tracking-tight mb-3" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>About this app</h2>
           <p className={`text-slate-700 leading-relaxed ${!readMore ? "line-clamp-3" : ""}`}>
-            {app.description} {app.description} Built specifically for the Bangladeshi telecom market, this service is optimized for Robi network conditions and works on any handset — feature phones included. No data charges. Reliable delivery via the BDapps engine. Subscribe today and join thousands of happy users.
+            {app.description} {app.description} Built specifically for the Bangladeshi telecom market, this service is optimized for Robi network conditions and works on any handset — feature phones included. No data charges. Reliable delivery via the Orbit engine. Subscribe today and join thousands of happy users.
           </p>
           <button onClick={() => setReadMore(!readMore)} data-testid="read-more" className="text-[#e11d48] font-medium text-sm mt-1 hover:underline">{readMore ? "Show less" : "Read more"}</button>
           <div className="bg-slate-50 border border-slate-200 rounded-md p-3 text-sm font-mono mt-4">{app.instructions}</div>

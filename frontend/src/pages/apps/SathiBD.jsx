@@ -4,7 +4,7 @@ import { toast } from "sonner";
 import { ChevronLeft } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import APIMonitor from "../../components/APIMonitor";
-import { requestOTP, verifyOTP, userSubscription, sendSMS, directDebit } from "../../services/BDAppsAPI";
+import { requestOTP, verifyOTP, userSubscription, sendSMS, directDebit } from "../../services/OrbitAPI";
 import { SathiBDWebPreview } from "../../components/digital/interactive/SathiBDPreview";
 
 /**
@@ -14,7 +14,7 @@ import { SathiBDWebPreview } from "../../components/digital/interactive/SathiBDP
  * powers the /digital Step 5 Live Preview, so the generated app is identical
  * to the builder preview. This wrapper only adds:
  *   1. A thin outer toolbar (Back + Lang toggle)
- *   2. Real BDAppsAPI calls bound to the preview's onPhoneSubmit / onOtpVerify
+ *   2. Real OrbitAPI calls bound to the preview's onPhoneSubmit / onOtpVerify
  *      / onInterest / onSubscribe hooks
  *   3. APIMonitor panel showing live telecom API traffic.
  */
@@ -32,7 +32,7 @@ const SathiBD = () => {
       const otpRes = await requestOTP(clean);
       if (otpRes.statusCode === "S1000") {
         setAuthState({ msisdn: clean, referenceNo: otpRes.referenceNo });
-        toast.success(`OTP sent via Robi: ${otpRes._demo_otp}`, { description: "BDApps OTP API — Tk 0.50 SMS only", duration: 5000 });
+        toast.success(`OTP sent via Robi: ${otpRes._demo_otp}`, { description: "Orbit OTP API — Tk 0.50 SMS only", duration: 5000 });
       } else {
         toast.error("Failed to send OTP — please retry.");
       }
@@ -47,7 +47,7 @@ const SathiBD = () => {
     try {
       const verifyRes = await verifyOTP(authState.referenceNo || "DEMO_REF", enteredOtp);
       const subRes = await userSubscription(subscriberMsisdn, "SUB");
-      await sendSMS([subscriberMsisdn], "Welcome to SathiBD! Browse verified profiles at sathibd.bdapps.app", "16222");
+      await sendSMS([subscriberMsisdn], "Welcome to SathiBD! Browse verified profiles at sathibd.orbit.app", "16222");
       if (subRes.statusCode === "S1000") {
         toast.success("Subscription activated", { description: verifyRes.statusCode === "S1000" ? "SathiBD plan is now live on your Robi number." : "Demo bypass — proceeding." });
       }

@@ -158,10 +158,10 @@ const OrderDetailPanel = ({ order, onClose, appId, onUpdate }) => {
 
       {smsOpen && (
         <div className="bg-blue-50 border border-blue-200 rounded p-3 mt-2" data-testid="sms-compose">
-          <div className="text-xs font-bold text-blue-800 mb-1">📨 Send SMS via BDApps</div>
+          <div className="text-xs font-bold text-blue-800 mb-1">📨 Send SMS via Orbit</div>
           <textarea value={smsText} onChange={(e) => setSmsText(e.target.value)} placeholder={`Hi ${order.customer}, your order ${order.id} update...`} className="w-full border border-blue-200 rounded p-2 text-sm h-20" />
           <div className="flex gap-2 mt-2">
-            <Button size="sm" data-testid="send-sms" onClick={() => { toast.success(`📨 SMS sent to ${order.phone} via BDApps`); setSmsOpen(false); setSmsText(""); }} className="bg-blue-600">Send SMS</Button>
+            <Button size="sm" data-testid="send-sms" onClick={() => { toast.success(`📨 SMS sent to ${order.phone} via Orbit`); setSmsOpen(false); setSmsText(""); }} className="bg-blue-600">Send SMS</Button>
             <Button size="sm" variant="outline" onClick={() => setSmsOpen(false)}>Cancel</Button>
           </div>
         </div>

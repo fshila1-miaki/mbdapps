@@ -84,7 +84,7 @@ const Register = () => {
           </div>
           <div>
             <Label htmlFor="organization">Organization<Req /></Label>
-            <Input id="organization" value={form.organization} onChange={update("organization")} placeholder="BDapps"
+            <Input id="organization" value={form.organization} onChange={update("organization")} placeholder="Orbit"
               className={errors.organization ? "border-rose-500" : ""} data-testid="register-organization" autoComplete="organization" />
             {errors.organization && <p className="text-xs text-rose-600 mt-1">{errors.organization}</p>}
           </div>

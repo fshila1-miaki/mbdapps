@@ -52,7 +52,7 @@ const CmsLayout = () => {
         </div>
         <div className="flex items-center gap-2">
           <SyncIndicator lastSync={lastSync} saving={saving} />
-          <a href={`https://${app.slug}.bdapps.app`} target="_blank" rel="noopener noreferrer" data-testid="view-live-site" className="hidden sm:inline-flex items-center gap-1 text-xs text-slate-600 hover:text-slate-900 border border-slate-200 px-2 py-1 rounded">
+          <a href={`https://${app.slug}.orbit.app`} target="_blank" rel="noopener noreferrer" data-testid="view-live-site" className="hidden sm:inline-flex items-center gap-1 text-xs text-slate-600 hover:text-slate-900 border border-slate-200 px-2 py-1 rounded">
             <ExternalLink size={12} /> View Live Site
           </a>
         </div>
@@ -79,7 +79,7 @@ const CmsLayout = () => {
             <StorageMeter usedBytes={usedBytes} compact />
             <div className="mt-2 bg-gradient-to-br from-blue-50 to-emerald-50 border border-emerald-200 rounded-lg p-2.5 text-center" data-testid="manage-onthego">
               <div className="text-xs font-bold text-slate-700">📱 Manage on the go</div>
-              <div className="text-[10px] text-slate-500 mt-0.5">Download the BDApps Admin app</div>
+              <div className="text-[10px] text-slate-500 mt-0.5">Download the Orbit Admin app</div>
               <button className="mt-1.5 w-full bg-slate-900 text-white rounded text-[10px] py-1.5 font-bold">Get on Play Store</button>
             </div>
           </div>

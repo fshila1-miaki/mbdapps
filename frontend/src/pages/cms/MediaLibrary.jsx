@@ -22,7 +22,7 @@ const MediaLibrary = () => {
       reader.onload = (e) => addMediaFile({ name: file.name, dataUrl: e.target.result, size: file.size, folder: folder === "All" ? "Miscellaneous" : folder });
       reader.readAsDataURL(file);
     });
-    toast.success(`✓ ${files.length} file(s) uploaded to BDApps Cloud`);
+    toast.success(`✓ ${files.length} file(s) uploaded to Orbit Cloud`);
   };
 
   const filtered = mediaLibrary.filter((m) => (folder === "All" || m.folder === folder) && (!q || m.name?.toLowerCase().includes(q.toLowerCase())));

@@ -86,7 +86,7 @@ const Login = () => {
           <form onSubmit={submit} className="space-y-4" data-testid="login-form">
             <div>
               <Label htmlFor="email">{t("auth.email")}</Label>
-              <Input data-testid="login-email" id="email" type="email" placeholder="developer@bdapps.com"
+              <Input data-testid="login-email" id="email" type="email" placeholder="developer@orbit.com"
                 value={email} onChange={(e) => setEmail(e.target.value)} className={errors.email ? "border-rose-500" : ""} />
               {errors.email && <p className="text-xs text-rose-600 mt-1">{errors.email}</p>}
             </div>
@@ -120,8 +120,8 @@ const Login = () => {
           <div className="mt-10 p-4 bg-slate-50 border border-slate-200 rounded-md">
             <p className="text-xs uppercase font-bold tracking-widest text-slate-500 mb-2">{t("auth.demoCredentials")}</p>
             <div className="space-y-1 text-xs font-mono text-slate-700">
-              <div>developer@bdapps.com / dev123</div>
-              <div>admin@bdapps.com / admin123</div>
+              <div>developer@orbit.com / dev123</div>
+              <div>admin@orbit.com / admin123</div>
             </div>
           </div>
         </div>

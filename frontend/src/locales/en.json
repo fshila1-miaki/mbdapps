@@ -47,7 +47,7 @@
     "adminConsole": "Admin Console",
     "dashboard": "Dashboard",
     "provisioning": "Provisioning",
-    "bdappsLite": "BDapps Lite",
+    "bdappsLite": "Orbit Lite",
     "appStore": "App Store",
     "reports": "Reports",
     "digital": "Digital",
@@ -72,7 +72,7 @@
     "heroTitle1": "Build telecom apps for",
     "heroTitle2": "Robi subscribers.",
     "heroMillion": "76 million",
-    "heroSub": "BDapps is the official developer platform for Robi. Provision SMS, USSD, OTP and Subscription services in minutes.",
+    "heroSub": "Orbit is the official developer platform for Robi. Provision SMS, USSD, OTP and Subscription services in minutes.",
     "welcomeBack": "Welcome back!",
     "accountCreated": "Account created. Please sign in.",
     "resetPassword": "Reset password",
@@ -97,7 +97,7 @@
     "tileMyApps": "Manage your launched apps. Edit products, view orders, no code needed.",
     "tileProvisioning": "Submit and manage Pro apps with full SMS, USSD, CaaS, OTP and Subscription configurations.",
     "tileLite": "Build keyword-based SMS apps in 4 simple steps — perfect for alerts and services.",
-    "tileAppStore": "Browse the public BDapps catalog. Promote your apps to 76M Robi subscribers.",
+    "tileAppStore": "Browse the public Orbit catalog. Promote your apps to 76M Robi subscribers.",
     "tileReports": "Drill into yearly, monthly and daily analytics across applications and subscriptions.",
     "quickStats": "Quick Stats",
     "myAppsQuick": "My Apps · Quick View",
@@ -118,7 +118,7 @@
   },
   "appstore": {
     "title": "App Store",
-    "subtitle": "Discover apps built on BDapps",
+    "subtitle": "Discover apps built on Orbit",
     "topRated": "Top Rated",
     "mostUsed": "Most Used",
     "newlyAdded": "Newly Added",
@@ -171,7 +171,7 @@
     "androidBuilder": "Android App Builder",
     "proHeader": "Build telecom-powered services using Robi's network",
     "webHeader": "Launch a professional web app in minutes — no code required",
-    "androidHeader": "Native Android apps published directly to BDapps Store",
+    "androidHeader": "Native Android apps published directly to Orbit Store",
     "searchTemplates": "Search templates...",
     "useTemplate": "Use this template",
     "preview": "Preview",
@@ -256,7 +256,7 @@
     "comingSoon": "Coming Soon"
   },
   "lite": {
-    "title": "BDapps Lite",
+    "title": "Orbit Lite",
     "subtitle": "Launch SMS subscription apps in 60 seconds",
     "console": "Lite Console",
     "consoleSub": "Build keyword-based SMS apps in minutes.",
@@ -269,7 +269,7 @@
     "viewReportsSub": "Message history and analytics."
   },
   "footer": {
-    "copyright": "© 2026 Robi Axiata Limited. BDapps developer platform.",
+    "copyright": "© 2026 Robi Axiata Limited. Orbit developer platform.",
     "tagline": "Build for 76M Robi subscribers",
     "support": "Support",
     "docs": "API Docs",

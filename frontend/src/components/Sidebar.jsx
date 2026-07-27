@@ -6,8 +6,6 @@ import { useApp } from "../context/AppContext";
 
 const DEV_LINKS = [
   { to: "/dashboard", labelKey: "nav.dashboard", testid: "side-dashboard", icon: LayoutDashboard, exact: true },
-  { to: "/provisioning", labelKey: "nav.provisioning", testid: "side-provisioning", icon: ServerCog },
-  { to: "/lite", labelKey: "nav.bdappsLite", testid: "side-bdapps-lite", icon: Sparkles },
   { to: "/appstore", labelKey: "nav.appStore", testid: "side-app-store", icon: Store },
   { to: "/reports", labelKey: "nav.reports", testid: "side-reports", icon: BarChart3 },
   { to: "/digital", labelKey: "nav.digital", testid: "side-digital", icon: Layers, accent: true },
@@ -71,7 +69,7 @@ const Sidebar = ({ open, onClose }) => {
         <div className="h-16 px-3 flex items-center justify-between border-b border-white/10">
           <Link to={user.role === "admin" ? "/admin" : "/dashboard"} className="flex items-center gap-2" onClick={onClose}>
             <div className="w-8 h-8 bg-[#e11d48] rounded-md flex items-center justify-center font-bold shrink-0">B</div>
-            {!collapsed && <span className="font-bold text-lg tracking-tight" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>BDapps</span>}
+            {!collapsed && <span className="font-bold text-lg tracking-tight" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>Orbit</span>}
           </Link>
           <button onClick={onClose} className="lg:hidden p-1 hover:bg-white/10 rounded" data-testid="sidebar-close"><X size={18} /></button>
         </div>

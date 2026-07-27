@@ -20,12 +20,11 @@ const Digital = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
   const TAB_META = {
-    pro:     { icon: "⚡", label: t("digital.proBuilder"),     tagline: t("digital.proHeader") },
     web:     { icon: "🌐", label: t("digital.webBuilder"),     tagline: t("digital.webHeader") },
     android: { icon: "📱", label: t("digital.androidBuilder"), tagline: t("digital.androidHeader") },
   };
   const STEP_LABELS = [t("digital.step1"), t("digital.step2"), t("digital.step3"), t("digital.step4"), t("digital.step5")];
-  const [tab, setTab] = useState("pro");
+  const [tab, setTab] = useState("web");
   // Flow state: null = gallery, otherwise { template, type, designId?, customization?, content? }
   const [chooser, setChooser] = useState(null);
   const [customizing, setCustomizing] = useState(null);
@@ -127,7 +126,7 @@ const Digital = () => {
         ) : (
           /* Step 1 — Gallery */
           <Tabs value={tab} onValueChange={setTab}>
-            <TabsList data-testid="digital-tabs" className="grid grid-cols-3 w-full h-auto bg-slate-100 p-1.5 rounded-xl gap-1.5">
+            <TabsList data-testid="digital-tabs" className="grid grid-cols-2 w-full h-auto bg-slate-100 p-1.5 rounded-xl gap-1.5">
               {Object.entries(TAB_META).map(([key, m]) => (
                 <TabsTrigger key={key} value={key} data-testid={`tab-${key}`} className="data-[state=active]:bg-[#e11d48] data-[state=active]:text-white data-[state=active]:shadow-md py-2.5 sm:py-3 px-2 rounded-lg gap-1 sm:gap-1.5 font-bold text-[11px] sm:text-sm whitespace-nowrap overflow-hidden">
                   <span>{m.icon}</span>
@@ -188,7 +187,7 @@ const Digital = () => {
           {welcomeStep === 0 && (
             <div className="text-center py-3">
               <div className="text-5xl">👋</div>
-              <h1 className="text-2xl font-bold mt-2">Welcome to BDapps Digital Builder</h1>
+              <h1 className="text-2xl font-bold mt-2">Welcome to Orbit Digital Builder</h1>
               <p className="text-sm text-slate-500 mt-1">Build a complete app in minutes with zero code</p>
               <Button data-testid="welcome-next" onClick={() => setWelcomeStep(1)} className="mt-4 bg-[#e11d48]">Next →</Button>
             </div>

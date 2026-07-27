@@ -144,7 +144,7 @@ const PaymentScreen = ({ ctx, lang }) => {
       <div className="h-full flex flex-col items-center justify-center bg-white p-6">
         <div className="w-12 h-12 rounded-full border-4 border-slate-200 border-t-current animate-spin" style={{ color: ctx.primary }}></div>
         <div className="text-xs font-bold mt-3" style={{ color: ctx.primary }}>{T(lang, "Processing payment...", "পেমেন্ট প্রসেসিং...")}</div>
-        <div className="text-[10px] text-slate-500 mt-1 text-center">{T(lang, "Routing through BDApps Proxy → SSL Commerz → bKash", "BDApps Proxy → SSL Commerz → bKash")}</div>
+        <div className="text-[10px] text-slate-500 mt-1 text-center">{T(lang, "Routing through Orbit Proxy → SSL Commerz → bKash", "Orbit Proxy → SSL Commerz → bKash")}</div>
       </div>
     );
   }

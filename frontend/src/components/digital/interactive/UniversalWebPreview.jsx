@@ -35,7 +35,7 @@ const PaymentOverlay = ({ open, onDone, cfg }) => {
   }, [open, onDone]);
   if (!open) return null;
   const messages = [
-    T(cfg.language, "Routing through BDApps Proxy...", "BDApps Proxy দিয়ে রাউটিং..."),
+    T(cfg.language, "Routing through Orbit Proxy...", "Orbit Proxy দিয়ে রাউটিং..."),
     T(cfg.language, "SSL Commerz secure gateway...", "SSL Commerz সিকিউর গেটওয়ে..."),
     T(cfg.language, "Confirming with bKash...", "bKash এ নিশ্চিতকরণ..."),
     T(cfg.language, "Payment successful ✓", "পেমেন্ট সম্পন্ন ✓"),
@@ -580,7 +580,7 @@ const PREVIEWS = {
 const UniversalWebPreview = ({ templateId, cfg, url, height = "h-[600px]", content }) => {
   const Comp = PREVIEWS[templateId] || EcomStore;
   return (
-    <BrowserChrome url={url || `${(cfg.appName || "app").toLowerCase().replace(/[^a-z0-9]+/g, "-")}.bdapps.app`} dark={cfg.dark} height={height}>
+    <BrowserChrome url={url || `${(cfg.appName || "app").toLowerCase().replace(/[^a-z0-9]+/g, "-")}.orbit.app`} dark={cfg.dark} height={height}>
       <Comp cfg={cfg} content={content} />
     </BrowserChrome>
   );

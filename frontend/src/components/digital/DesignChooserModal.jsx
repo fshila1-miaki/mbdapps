@@ -52,7 +52,7 @@ const DesignChooserModal = ({ template, type = "android", open, onClose, onConti
                 >
                   <div className="flex-shrink-0 mx-auto sm:mx-0 w-full sm:w-72">
                     {type !== "android" ? (
-                      <BrowserPreview design={d.id} mode="wireframe" url={`preview.bdapps.app/${template.slug}`} />
+                      <BrowserPreview design={d.id} mode="wireframe" url={`preview.orbit.app/${template.slug}`} />
                     ) : (
                       <PhonePreview design={d.id} color="#7c3aed" appName={template.name} icon={template.icon} size="sm" />
                     )}

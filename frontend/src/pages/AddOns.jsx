@@ -216,7 +216,7 @@ const AddOns = () => {
         {/* Section B — Analytics */}
         <section className="space-y-4" ref={ref}>
           <div>
-            <h2 className="text-2xl font-bold tracking-tight">📊 BDapps Analytics</h2>
+            <h2 className="text-2xl font-bold tracking-tight">📊 Orbit Analytics</h2>
             <p className="text-sm text-slate-500">Know exactly what's working. Double down on growth.</p>
           </div>
 

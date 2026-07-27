@@ -5,6 +5,16 @@ Build a full-stack demo web app called "BDapps" — a telecom developer platform
 Mock data only (no real backend). Visually polished, fully navigable, client-demo ready.
 Two roles: Developer & Admin. Color scheme: deep navy (#0f172a) + red (#e11d48) + white.
 
+> **NOTE (2026-06-27): Brand renamed "BDApps" → "Orbit".** The product is now branded **Orbit** throughout the UI. Internal localStorage keys (`bdapps_*`), custom events (`bdapps:sidebar`) and CSS/testid tokens (`bdapps-logo`) were intentionally left unchanged. Email domain changed to `orbit.com` (login: `developer@orbit.com` / `dev123`, `admin@orbit.com` / `admin123`). Service file `services/BDAppsAPI.js` → `services/OrbitAPI.js`.
+
+## CHANGELOG — 2026-06-27: Rebrand to Orbit + dashboard/builder trims
+- **Rebrand**: replaced all user-facing "BDApps/BDapps/BD Apps/BDAPPS" and Bengali "বিডিঅ্যাপস" strings with **Orbit** across pages, components, locales (en+bn); app URLs `*.bdapps.app→*.orbit.app`, `bdapps.dev→orbit.dev`, `bdapps.com→orbit.com`. Renamed `BDAppsAPI.js→OrbitAPI.js` (+ all imports).
+- **Removed developer-side Provisioning**: deleted `/provisioning` route, sidebar link (DEV_LINKS) and dashboard module tile. (Admin `/admin/provisioning` kept — it powers the app-approval workflow.)
+- **Removed Orbit Lite (formerly BDapps Lite)**: deleted `/lite` + `/lite/:sub` routes, sidebar link, and dashboard module tile. `Lite.jsx`/`Provisioning.jsx` page files remain in repo but are no longer routed.
+- **Removed "Pro" App Builder tab** from Digital Builder — only **Web** & **Android** tabs remain (default tab now `web`, tabs grid `cols-3→cols-2`). Pro templates catalog retained in `builderTemplates.js` but unreachable from UI.
+- Verified via screenshots: login (Orbit brand + orbit.com creds), developer dashboard (no Provisioning/Lite tiles), Digital Builder (2 tabs, welcome modal reads "Orbit Digital Builder"). Compiles clean (pre-existing lint warnings only).
+
+
 ## CHANGELOG — 2026-06-08 (later): SathiBD real images + richer animations
 - Replaced all CSS gradient silhouettes/initials in `SathiBDPreview.jsx` (the SOT, so both `/apps/sathibd` and the Step 5 builder preview update) with **real photography**: profile/team/testimonial/dashboard faces use randomuser.me portraits (gender-matched); hero, recent-couples grid, photo gallery, blog, profile-detail and register imagery use curated Unsplash wedding/couple photos. All URLs verified 200 OK.
 - New `Photo` and `FaceAvatar` components: lazy-loaded `<img>` that fades in on load and **degrades gracefully** to the warm gradient + silhouette / initial avatar on error (zero broken-image risk).

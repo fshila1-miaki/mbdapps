@@ -666,7 +666,7 @@ const PREVIEWS = {
   "and-islamic": IslamicAppPreview,
 };
 
-const BDappsAndroidPreview = ({ templateId, appName = "BDapps App", tagline = "Your tagline", primaryColor = "#e11d48", icon = "🚀", language = "English" }) => {
+const OrbitAndroidPreview = ({ templateId, appName = "Orbit App", tagline = "Your tagline", primaryColor = "#e11d48", icon = "🚀", language = "English" }) => {
   const Comp = PREVIEWS[templateId] || AlertAppPreview;
   return (
     <div className="flex flex-wrap items-start justify-center gap-4 py-3">
@@ -675,4 +675,4 @@ const BDappsAndroidPreview = ({ templateId, appName = "BDapps App", tagline = "Y
   );
 };
 
-export default BDappsAndroidPreview;
+export default OrbitAndroidPreview;

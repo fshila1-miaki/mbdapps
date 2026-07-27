@@ -41,7 +41,7 @@ const ShelfCard = ({ app }) => {
     }, 1400);
   };
   const triggerShare = () => {
-    const url = app.previewUrl || `preview.bdapps.com/app/${Math.random().toString(36).slice(2, 8)}`;
+    const url = app.previewUrl || `preview.orbit.com/app/${Math.random().toString(36).slice(2, 8)}`;
     navigator.clipboard?.writeText(url).catch(() => {});
     toast.success(`Preview link copied! ${url}`);
   };

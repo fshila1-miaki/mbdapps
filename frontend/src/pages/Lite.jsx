@@ -392,7 +392,7 @@ const MyApplications = () => {
 
       <Dialog open={!!helpApp} onOpenChange={(o) => !o && setHelpApp(null)}>
         <DialogContent><DialogHeader><DialogTitle>Help · {helpApp?.name}</DialogTitle></DialogHeader>
-          <div className="text-sm space-y-2"><p>Subscribers SMS <span className="font-mono bg-slate-100 px-1 rounded">{helpApp?.keyword}</span> to 21333 to subscribe.</p><p>To unsubscribe, send STOP to 21333.</p><p>Need more help? Contact support@bdapps.com</p></div>
+          <div className="text-sm space-y-2"><p>Subscribers SMS <span className="font-mono bg-slate-100 px-1 rounded">{helpApp?.keyword}</span> to 21333 to subscribe.</p><p>To unsubscribe, send STOP to 21333.</p><p>Need more help? Contact support@orbit.com</p></div>
         </DialogContent>
       </Dialog>
 
@@ -456,10 +456,10 @@ const LiteSettings = () => {
             <Card title="Basic Details" disabled>
               <Field label="Name" value="Rafiul Karim" disabled />
               <Field label="Username" value="developer" disabled />
-              <Field label="Email" value="developer@bdapps.com" disabled />
+              <Field label="Email" value="developer@orbit.com" disabled />
             </Card>
             <Card title="Organization Details" edit={orgEdit} onEdit={() => setOrgEdit(!orgEdit)} testid="edit-org">
-              <Field label="Org Name" defaultValue="BDapps Demo" disabled={!orgEdit} />
+              <Field label="Org Name" defaultValue="Orbit Demo" disabled={!orgEdit} />
               <Field label="Address" defaultValue="Gulshan, Dhaka" disabled={!orgEdit} />
               <Field label="Tax ID" defaultValue="TIN-12345" disabled={!orgEdit} />
             </Card>

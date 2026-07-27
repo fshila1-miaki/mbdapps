@@ -20,7 +20,7 @@ const AppStoreAdmin = () => {
   const [editMode, setEditMode] = useState(false);
   const [layoutForm, setLayoutForm] = useState(storeLayout);
 
-  const apps = storeApps.map((a) => ({ ...a, status: a.status || "Published", type: a.type || "BDApps-Pro" }));
+  const apps = storeApps.map((a) => ({ ...a, status: a.status || "Published", type: a.type || "Orbit-Pro" }));
   const filtered = apps.filter((a) =>
     (!search || a.name.toLowerCase().includes(search.toLowerCase())) &&
     (statusF === "any" || a.status === statusF) &&
@@ -49,7 +49,7 @@ const AppStoreAdmin = () => {
             <div className="flex flex-col md:flex-row gap-3 items-end">
               <div className="relative flex-1 max-w-md"><Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" /><Input data-testid="store-admin-search" placeholder="Search" value={search} onChange={(e) => setSearch(e.target.value)} className="pl-9" /></div>
               <Select value={statusF} onValueChange={setStatusF}><SelectTrigger className="md:w-40" data-testid="store-status"><SelectValue /></SelectTrigger><SelectContent><SelectItem value="any">Any Status</SelectItem><SelectItem value="New">New</SelectItem><SelectItem value="Published">Published</SelectItem><SelectItem value="Unpublished">Unpublished</SelectItem></SelectContent></Select>
-              <Select value={typeF} onValueChange={setTypeF}><SelectTrigger className="md:w-40" data-testid="store-type"><SelectValue /></SelectTrigger><SelectContent><SelectItem value="any">Any Type</SelectItem><SelectItem value="BDApps-Pro">BDApps-Pro</SelectItem><SelectItem value="BDApps-Lite">BDApps-Lite</SelectItem></SelectContent></Select>
+              <Select value={typeF} onValueChange={setTypeF}><SelectTrigger className="md:w-40" data-testid="store-type"><SelectValue /></SelectTrigger><SelectContent><SelectItem value="any">Any Type</SelectItem><SelectItem value="Orbit-Pro">Orbit-Pro</SelectItem><SelectItem value="Orbit-Lite">Orbit-Lite</SelectItem></SelectContent></Select>
             </div>
             <div className="border border-slate-200 rounded-md overflow-hidden">
               <table className="w-full text-sm">

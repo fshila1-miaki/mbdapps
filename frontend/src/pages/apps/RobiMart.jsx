@@ -84,7 +84,7 @@ const RobiMart = () => {
       {/* Navbar */}
       <header className="sticky top-0 z-30 bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between gap-4">
-          <button data-testid="back-to-bdapps" onClick={() => navigate("/my-apps")} className="text-xs text-slate-500 hover:text-slate-900 flex items-center gap-1"><ChevronLeft size={14} /> Back to BDApps</button>
+          <button data-testid="back-to-bdapps" onClick={() => navigate("/my-apps")} className="text-xs text-slate-500 hover:text-slate-900 flex items-center gap-1"><ChevronLeft size={14} /> Back to Orbit</button>
           <button onClick={() => setPage("home")} className="flex items-center gap-2">
             <div className="w-9 h-9 bg-gradient-to-br from-orange-500 to-red-600 rounded-xl flex items-center justify-center text-xl">🛒</div>
             <span className="font-bold text-lg tracking-tight">RobiMart <span className="text-orange-600">BD</span></span>
@@ -104,7 +104,7 @@ const RobiMart = () => {
             </button>
             {accOpen && (
               <div className="absolute right-4 top-14 bg-white border border-slate-200 rounded-lg shadow-lg w-56 py-2 z-40">
-                <div className="px-3 py-2 border-b border-slate-100"><div className="text-sm font-bold">Rafiul Karim</div><div className="text-[10px] text-slate-500">rafiul@bdapps.com</div></div>
+                <div className="px-3 py-2 border-b border-slate-100"><div className="text-sm font-bold">Rafiul Karim</div><div className="text-[10px] text-slate-500">rafiul@orbit.com</div></div>
                 <button data-testid="goto-account" onClick={() => { setPage("account"); setAccOpen(false); }} className="w-full text-left px-3 py-2 text-sm hover:bg-slate-50">My Account</button>
                 <button onClick={() => { setPage("home"); setAccOpen(false); }} className="w-full text-left px-3 py-2 text-sm hover:bg-slate-50">Order History</button>
                 <button onClick={() => setAccOpen(false)} className="w-full text-left px-3 py-2 text-sm hover:bg-slate-50 text-rose-600">Logout</button>
@@ -283,7 +283,7 @@ const RobiMart = () => {
                   </label>
                 ))}
               </div>
-              <div className="bg-blue-50 border border-blue-200 rounded p-2 text-[11px] text-blue-700 flex items-center gap-1"><Lock size={11} /> All transactions secured by BDApps Proxy Gateway</div>
+              <div className="bg-blue-50 border border-blue-200 rounded p-2 text-[11px] text-blue-700 flex items-center gap-1"><Lock size={11} /> All transactions secured by Orbit Proxy Gateway</div>
               <button data-testid="place-order" onClick={placeOrder} className="w-full bg-orange-600 hover:bg-orange-700 text-white py-3 rounded-lg font-bold">Place Order — ৳{total.toLocaleString()}</button>
             </div>
           )}
@@ -311,7 +311,7 @@ const RobiMart = () => {
           <h1 className="text-2xl font-bold">My Account</h1>
           <div className="bg-white border border-slate-200 rounded-xl p-4">
             <div className="text-xs uppercase font-bold text-slate-500 mb-2">Profile</div>
-            <div className="space-y-1 text-sm"><div><b>Name:</b> Rafiul Karim</div><div><b>Email:</b> rafiul@bdapps.com</div><div><b>Phone:</b> +880 1700-123456</div><div><b>Address:</b> 123, Gulshan-1, Dhaka 1212</div></div>
+            <div className="space-y-1 text-sm"><div><b>Name:</b> Rafiul Karim</div><div><b>Email:</b> rafiul@orbit.com</div><div><b>Phone:</b> +880 1700-123456</div><div><b>Address:</b> 123, Gulshan-1, Dhaka 1212</div></div>
           </div>
           <div className="bg-white border border-slate-200 rounded-xl p-4">
             <div className="text-xs uppercase font-bold text-slate-500 mb-2">Order History</div>
@@ -330,7 +330,7 @@ const RobiMart = () => {
           <div className="bg-white rounded-2xl p-6 max-w-sm text-center">
             <div className="w-12 h-12 mx-auto border-4 border-orange-200 border-t-orange-600 rounded-full animate-spin"></div>
             <div className="font-bold mt-3">Processing your payment securely...</div>
-            <div className="text-xs text-slate-500 mt-1">BDApps Proxy → SSL Commerz → bKash</div>
+            <div className="text-xs text-slate-500 mt-1">Orbit Proxy → SSL Commerz → bKash</div>
             <div className="mt-3 h-1.5 bg-slate-200 rounded-full overflow-hidden"><div className="h-full bg-orange-600 animate-pulse" style={{ width: "80%" }}></div></div>
           </div>
         </div>
@@ -344,7 +344,7 @@ const RobiMart = () => {
           <div><div className="font-bold text-white mb-2">Help</div><div className="text-xs space-y-1"><div>Returns</div><div>Shipping</div><div>FAQ</div></div></div>
           <div><div className="font-bold text-white mb-2">Payment</div><div className="text-xs flex gap-1 flex-wrap"><span className="bg-pink-600 px-2 py-1 rounded text-white">bKash</span><span className="bg-orange-500 px-2 py-1 rounded text-white">Nagad</span><span className="bg-blue-700 px-2 py-1 rounded text-white">VISA</span></div></div>
         </div>
-        <div className="max-w-7xl mx-auto pt-6 mt-6 border-t border-slate-700 text-xs text-center">© 2026 RobiMart BD. Powered by BDApps.</div>
+        <div className="max-w-7xl mx-auto pt-6 mt-6 border-t border-slate-700 text-xs text-center">© 2026 RobiMart BD. Powered by Orbit.</div>
       </footer>
     </div>
   );

@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import Layout from "../components/Layout";
 import Tile from "../components/Tile";
 import { useApp } from "../context/AppContext";
-import { ServerCog, Sparkles, Store, BarChart3, Layers, FolderOpen, Smartphone, Globe, ArrowRight, TrendingUp, Users, DollarSign } from "lucide-react";
+import { Store, BarChart3, Layers, FolderOpen, Smartphone, Globe, ArrowRight, TrendingUp, Users, DollarSign } from "lucide-react";
 
 const DeveloperDashboard = () => {
   const { user, apps, liteApps, myApps } = useApp();
@@ -93,8 +93,6 @@ const DeveloperDashboard = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             <Tile testid="tile-digital" to="/digital" title={t("nav.digital")} description={t("dashboard.tileDigital")} icon={Layers} accent badge={t("dashboard.badgeBuild")} />
             <Tile testid="tile-myapps" to="/my-apps" title={t("nav.myApps")} description={t("dashboard.tileMyApps")} icon={FolderOpen} accent badge={t("dashboard.badgeCMS")} />
-            <Tile testid="tile-provisioning" to="/provisioning" title={t("nav.provisioning")} description={t("dashboard.tileProvisioning")} icon={ServerCog} />
-            <Tile testid="tile-lite" to="/lite" title={t("nav.bdappsLite")} description={t("dashboard.tileLite")} icon={Sparkles} />
             <Tile testid="tile-appstore" to="/appstore" title={t("nav.appStore")} description={t("dashboard.tileAppStore")} icon={Store} />
             <Tile testid="tile-reports" to="/reports" title={t("nav.reports")} description={t("dashboard.tileReports")} icon={BarChart3} />
           </div>

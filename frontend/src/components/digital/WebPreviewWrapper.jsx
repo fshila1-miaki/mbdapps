@@ -45,7 +45,7 @@ const WebPreviewWrapper = ({ children, url, customerMode, onCustomerToggle, onRe
 
   const sharePreview = () => {
     const id = Math.random().toString(36).slice(2, 10);
-    const link = `https://preview.bdapps.app/demo/${id}`;
+    const link = `https://preview.orbit.app/demo/${id}`;
     navigator.clipboard?.writeText(link);
     toast.success("Preview link copied! Share with your client.");
   };

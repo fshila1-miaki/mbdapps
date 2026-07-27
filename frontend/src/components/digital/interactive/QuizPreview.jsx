@@ -124,7 +124,7 @@ const LandingScreen = ({ details, primary, onStart, onLoginPhone, onLoginOtp, la
   const handleOtp = async () => {
     if (otp.length < 4) return;
     // Optimistically advance to home so the user never sees a stuck screen
-    // while the BDAppsAPI chain (verifyOTP + userSubscription + sendSMS) runs.
+    // while the OrbitAPI chain (verifyOTP + userSubscription + sendSMS) runs.
     onStart();
     try { if (onLoginOtp) await onLoginOtp(otp); } catch {}
   };
@@ -425,7 +425,7 @@ export const QuizWebPreview = ({ cfg, content, onPhoneSubmit, onOtpVerify, onFin
       )}
 
       <footer className="mt-12 border-t border-slate-200 py-6 text-center text-xs text-slate-500" style={{ fontFamily: SANS }}>
-        © {new Date().getFullYear()} {appName} · Powered by BDApps
+        © {new Date().getFullYear()} {appName} · Powered by Orbit
       </footer>
     </div>
   );

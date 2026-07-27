@@ -8,8 +8,8 @@ import { SAMPLE_CONTENT, sampleOrders, sampleAppointments, sampleReviews, sample
 const AppContext = createContext(null);
 
 const USERS = {
-  "developer@bdapps.com": { password: "dev123", role: "developer", name: "Rafiul Karim", username: "developer" },
-  "admin@bdapps.com": { password: "admin123", role: "admin", name: "System Admin", username: "admin" },
+  "developer@orbit.com": { password: "dev123", role: "developer", name: "Rafiul Karim", username: "developer" },
+  "admin@orbit.com": { password: "admin123", role: "admin", name: "System Admin", username: "admin" },
 };
 
 const safeParse = (key, fallback) => {
@@ -232,7 +232,7 @@ export const AppProvider = ({ children }) => {
   const approveMyApp = (appId) => {
     const app = myApps.find((a) => a.id === appId);
     setMyApps((p) => p.map((a) => a.id === appId ? { ...a, status: "Live", rejectionReason: null, lastUpdated: new Date().toISOString() } : a));
-    pushNotif({ type: "approval", title: "App Approved 🎉", body: `Your app ${app?.name} has been approved and is now live on BDApps App Store!`, appId });
+    pushNotif({ type: "approval", title: "App Approved 🎉", body: `Your app ${app?.name} has been approved and is now live on Orbit App Store!`, appId });
   };
   const rejectMyApp = (appId, reason) => {
     const app = myApps.find((a) => a.id === appId);
@@ -275,7 +275,7 @@ export const AppProvider = ({ children }) => {
       id,
       created: new Date().toISOString().slice(0, 10),
       status: "Pending Approval",
-      username: user?.email || "developer@bdapps.com",
+      username: user?.email || "developer@orbit.com",
       revenueShare: { developer: 65, operator: 25, platform: 10 },
       activity: [{ actor: user?.email || "developer", date: new Date().toISOString().slice(0, 10), remark: "App submitted" }],
       ...app,

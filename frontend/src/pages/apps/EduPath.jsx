@@ -82,7 +82,7 @@ const EduPath = () => {
             <button onClick={() => setPage("leaderboard")} data-testid="nav-leaderboard" className={`px-3 py-1.5 rounded-full font-medium ${page === "leaderboard" ? "bg-white/20" : "hover:bg-white/10"}`}>Leaderboard</button>
             <div className="hidden sm:flex items-center gap-1 bg-white/15 backdrop-blur px-3 py-1 rounded-full"><span className="text-amber-300">🔥</span> <span className="font-bold tabular-nums">{streak}d streak</span></div>
             <div className="hidden sm:flex items-center gap-1 bg-amber-400 text-amber-900 px-3 py-1 rounded-full font-bold text-xs"><Trophy size={12} /> {points.toLocaleString()} pts</div>
-            <Link to="/" data-testid="back-bdapps" className="hidden md:inline-block text-xs opacity-80 hover:opacity-100">Powered by BDApps</Link>
+            <Link to="/" data-testid="back-bdapps" className="hidden md:inline-block text-xs opacity-80 hover:opacity-100">Powered by Orbit</Link>
           </div>
         </div>
       </header>
@@ -379,7 +379,7 @@ const EduPath = () => {
       </main>
 
       <footer className="mt-12 border-t border-slate-200 bg-white py-6 text-center text-xs text-slate-500">
-        EduPath BD · Powered by <span className="text-rose-600 font-bold">BDApps</span> · 2026
+        EduPath BD · Powered by <span className="text-rose-600 font-bold">Orbit</span> · 2026
       </footer>
     </div>
   );

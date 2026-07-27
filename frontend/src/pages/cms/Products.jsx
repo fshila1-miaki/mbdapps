@@ -123,7 +123,7 @@ const Products = () => {
                     <div className="flex items-center gap-1">
                       <button data-testid={`edit-product-${p.id}`} onClick={() => setEditing(p)} className="p-1.5 hover:bg-slate-100 rounded text-slate-600"><Pencil size={13} /></button>
                       <button data-testid={`del-product-${p.id}`} onClick={() => del(p)} className="p-1.5 hover:bg-rose-50 rounded text-rose-600"><Trash2 size={13} /></button>
-                      <button onClick={() => window.open(`https://${app.slug}.bdapps.app`, "_blank")} className="p-1.5 hover:bg-slate-100 rounded text-slate-600"><ExternalLink size={13} /></button>
+                      <button onClick={() => window.open(`https://${app.slug}.orbit.app`, "_blank")} className="p-1.5 hover:bg-slate-100 rounded text-slate-600"><ExternalLink size={13} /></button>
                     </div>
                   </Td>
                 </tr>

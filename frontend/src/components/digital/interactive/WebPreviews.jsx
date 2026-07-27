@@ -6,7 +6,7 @@ import { SathiBDWebPreview } from "./SathiBDPreview";
 import { NewsWebPreview } from "./NewsPreview";
 import { QuizWebPreview } from "./QuizPreview";
 
-// Pro builder adapter: BDappsWebPreview passes (appName, tagline, primary, accent, language).
+// Pro builder adapter: OrbitWebPreview passes (appName, tagline, primary, accent, language).
 // SathiBDWebPreview expects cfg.* — wrap so Pro+Web previews share one source of truth.
 const ProSathiAdapter = ({ appName, tagline, primary, accent, language }) => (
   <SathiBDWebPreview cfg={{ appName, tagline, primary, accent, language, fontFamily: "Poppins, sans-serif" }} />
@@ -742,9 +742,9 @@ const PREVIEWS = {
   "pro-quizbd": ProQuizAdapter,
 };
 
-const BDappsWebPreview = ({ templateId, appName = "BDapps App", tagline = "Your tagline", primaryColor = "#0f172a", secondaryColor = "#e11d48", language = "English", url, height }) => {
+const OrbitWebPreview = ({ templateId, appName = "Orbit App", tagline = "Your tagline", primaryColor = "#0f172a", secondaryColor = "#e11d48", language = "English", url, height }) => {
   const Comp = PREVIEWS[templateId] || SubPortalPreview;
-  const fallbackUrl = useMemo(() => url || `${(appName || "app").toLowerCase().replace(/[^a-z0-9]+/g, "-")}.bdapps.app`, [url, appName]);
+  const fallbackUrl = useMemo(() => url || `${(appName || "app").toLowerCase().replace(/[^a-z0-9]+/g, "-")}.orbit.app`, [url, appName]);
   return (
     <BrowserChrome url={fallbackUrl} height={height}>
       <div className="relative h-full">
@@ -754,4 +754,4 @@ const BDappsWebPreview = ({ templateId, appName = "BDapps App", tagline = "Your 
   );
 };
 
-export default BDappsWebPreview;
+export default OrbitWebPreview;

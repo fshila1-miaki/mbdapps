@@ -33,7 +33,7 @@ export const CreateAppDialog = ({ open, onOpenChange, prefill = null }) => {
 
   React.useEffect(() => {
     if (open && prefill) {
-      setBasic({ name: prefill.name || "", description: prefill.description || "", host: "https://api.bdapps.dev", whitelist: "", blacklist: "" });
+      setBasic({ name: prefill.name || "", description: prefill.description || "", host: "https://api.orbit.dev", whitelist: "", blacklist: "" });
       setServices({ operator: true, apis: prefill.apis || [] });
       setStep(1);
     } else if (open && !prefill) {
@@ -254,8 +254,8 @@ const ApiConfigSMS = () => {
         {mo && <div><Label>Message Receiving URL<Req /></Label><Input placeholder="https://api.example.com/sms" data-testid="sms-mo-url" /></div>}
         <ToggleRow label="Enable Mobile Terminated SMS" checked={mt} onChange={setMt} testid="sms-mt" />
         {mt && <>
-          <div><Label>Default Sender Address</Label><Input defaultValue="BDapps" /></div>
-          <div><Label>Sender Address Aliases<Opt /></Label><Input defaultValue="BDapps,BDA" /></div>
+          <div><Label>Default Sender Address</Label><Input defaultValue="Orbit" /></div>
+          <div><Label>Sender Address Aliases<Opt /></Label><Input defaultValue="Orbit,BDA" /></div>
         </>}
         <ToggleRow label="Enable Delivery Reports" checked={dr} onChange={setDr} testid="sms-dr" />
         {dr && <div><Label>Delivery Report URL<Req /></Label><Input placeholder="https://api.example.com/dr" data-testid="sms-dr-url" /></div>}

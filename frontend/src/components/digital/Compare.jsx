@@ -18,7 +18,7 @@ const COMPLEXITY_COLOR = {
   Advanced: "bg-rose-100 text-rose-700",
 };
 
-// Best For per category (BDapps ecosystem)
+// Best For per category (Orbit ecosystem)
 const BEST_FOR = {
   "Subscription Service": "Subscription apps with OTP onboarding",
   "USSD Companion": "USSD service operators",

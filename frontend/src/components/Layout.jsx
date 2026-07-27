@@ -15,7 +15,7 @@ export const Logo = ({ className = "" }) => (
   <Link to="/" data-testid="bdapps-logo" className={`flex items-center gap-2 ${className}`}>
     <div className="w-8 h-8 bg-[#e11d48] rounded-md flex items-center justify-center text-white font-bold tracking-tight">B</div>
     <span className="font-bold text-xl tracking-tight text-[#0f172a]" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>
-      BDapps
+      Orbit
     </span>
   </Link>
 );

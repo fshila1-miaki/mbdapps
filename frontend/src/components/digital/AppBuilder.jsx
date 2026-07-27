@@ -7,7 +7,7 @@ import { Sparkles, Download, Github, Share2, ExternalLink, BarChart3, ChevronLef
 import ConfigureSidebar from "./ConfigureSidebar";
 import UniversalWebPreview from "./interactive/UniversalWebPreview";
 import UniversalAndroidPreview from "./interactive/UniversalAndroidPreview";
-import BDappsWebPreview from "./interactive/WebPreviews";
+import OrbitWebPreview from "./interactive/WebPreviews";
 import GenerationProgress from "./GenerationProgress";
 import LoadingSequence from "./LoadingSequence";
 import WebPreviewWrapper from "./WebPreviewWrapper";
@@ -77,13 +77,13 @@ const AppBuilder = ({ template, type, designId, customization, content, onBack }
     }
     if (type === "pro") {
       return (
-        <WebPreviewWrapper url={`${cfg.domain?.subdomain || template.slug}.bdapps.app`} customerMode={customerMode} onCustomerToggle={() => setCustomerMode(!customerMode)} onRestart={() => setRestartKey((k) => k + 1)}>
-          <BDappsWebPreview key={restartKey} templateId={template.id} appName={cfg.appName} tagline={cfg.tagline} primaryColor={cfg.primary} secondaryColor={cfg.accent} language={cfg.language} height="h-[600px]" />
+        <WebPreviewWrapper url={`${cfg.domain?.subdomain || template.slug}.orbit.app`} customerMode={customerMode} onCustomerToggle={() => setCustomerMode(!customerMode)} onRestart={() => setRestartKey((k) => k + 1)}>
+          <OrbitWebPreview key={restartKey} templateId={template.id} appName={cfg.appName} tagline={cfg.tagline} primaryColor={cfg.primary} secondaryColor={cfg.accent} language={cfg.language} height="h-[600px]" />
         </WebPreviewWrapper>
       );
     }
     return (
-      <WebPreviewWrapper url={`${cfg.domain?.subdomain || template.slug}.bdapps.app`} customerMode={customerMode} onCustomerToggle={() => setCustomerMode(!customerMode)} onRestart={() => setRestartKey((k) => k + 1)}>
+      <WebPreviewWrapper url={`${cfg.domain?.subdomain || template.slug}.orbit.app`} customerMode={customerMode} onCustomerToggle={() => setCustomerMode(!customerMode)} onRestart={() => setRestartKey((k) => k + 1)}>
         <UniversalWebPreview key={restartKey} templateId={template.id} cfg={cfg} content={content} height="h-[600px]" />
       </WebPreviewWrapper>
     );
@@ -108,7 +108,7 @@ const AppBuilder = ({ template, type, designId, customization, content, onBack }
         // store reference for "Manage Content" CTA
         window.__lastLaunchedAppId = newApp?.id;
       } catch { /* noop */ }
-      toast.success("🎉 Your app is ready to launch! Content stored in BDApps Cloud DB.");
+      toast.success("🎉 Your app is ready to launch! Content stored in Orbit Cloud DB.");
     }, 1800);
   };
 
@@ -118,7 +118,7 @@ const AppBuilder = ({ template, type, designId, customization, content, onBack }
       app: cfg.appName,
       type: "APK",
       size: `${(Math.random() * 20 + 8).toFixed(1)} MB`,
-      uploadedBy: "developer@bdapps.com",
+      uploadedBy: "developer@orbit.com",
       category: cfg.store.category,
       shortDesc: cfg.store.shortDesc,
       longDesc: cfg.store.longDesc,
@@ -157,7 +157,7 @@ const AppBuilder = ({ template, type, designId, customization, content, onBack }
         <div data-testid="submitted-for-review" className="bg-amber-50 border-2 border-amber-300 rounded-2xl p-5 max-w-3xl mx-auto text-center">
           <div className="text-3xl">📋</div>
           <h2 className="text-xl font-bold tracking-tight mt-1">Submitted for Review</h2>
-          <p className="text-sm text-slate-700 mt-1">Your {type === "android" ? "Android app" : type === "web" ? "web app" : "service"} has been submitted to BDApps admin for review. This typically takes 24–48 hours.</p>
+          <p className="text-sm text-slate-700 mt-1">Your {type === "android" ? "Android app" : type === "web" ? "web app" : "service"} has been submitted to Orbit admin for review. This typically takes 24–48 hours.</p>
           <div className="mt-3 bg-white border border-slate-200 rounded-lg p-3 text-sm text-left max-w-md mx-auto">
             <div className="text-xs uppercase tracking-widest font-bold text-slate-500 mb-1.5">While you wait:</div>
             <ul className="space-y-1 text-xs">
@@ -178,12 +178,12 @@ const AppBuilder = ({ template, type, designId, customization, content, onBack }
             <Button data-testid="action-download" onClick={() => toast.success("⬇️ ZIP download started")} className="bg-slate-900 hover:bg-slate-800 gap-1"><Download size={13} /> ZIP</Button>
             <Button data-testid="action-github" onClick={() => toast.success("🐙 Pushed to GitHub")} className="bg-slate-700 hover:bg-slate-800 gap-1"><Github size={13} /> GitHub</Button>
             {type === "android" && cfg.store.publish && (
-              <Button data-testid="action-submit-store" onClick={() => setSubmitOpen(true)} className="bg-[#e11d48] hover:bg-[#be123c] gap-1"><Sparkles size={13} /> Submit to BDApps Store</Button>
+              <Button data-testid="action-submit-store" onClick={() => setSubmitOpen(true)} className="bg-[#e11d48] hover:bg-[#be123c] gap-1"><Sparkles size={13} /> Submit to Orbit Store</Button>
             )}
             {type !== "android" && (
-              <Button data-testid="action-deploy" onClick={() => copyLink(`https://${cfg.domain.subdomain}.bdapps.app`, "🌐 Deployed! Link copied")} className="bg-emerald-600 hover:bg-emerald-700 gap-1"><ExternalLink size={13} /> Go Live Now</Button>
+              <Button data-testid="action-deploy" onClick={() => copyLink(`https://${cfg.domain.subdomain}.orbit.app`, "🌐 Deployed! Link copied")} className="bg-emerald-600 hover:bg-emerald-700 gap-1"><ExternalLink size={13} /> Go Live Now</Button>
             )}
-            <Button data-testid="action-share" variant="outline" onClick={() => copyLink(`https://${cfg.domain.subdomain}.bdapps.app`, "🔗 Preview link copied")} className="gap-1"><Share2 size={13} /> Share</Button>
+            <Button data-testid="action-share" variant="outline" onClick={() => copyLink(`https://${cfg.domain.subdomain}.orbit.app`, "🔗 Preview link copied")} className="gap-1"><Share2 size={13} /> Share</Button>
             <Button data-testid="action-analytics" variant="outline" onClick={() => navigate("/reports")} className="gap-1 text-purple-700 border-purple-200"><BarChart3 size={13} /> Analytics</Button>
           </div>
           {window.__lastLaunchedAppId && (
@@ -216,7 +216,7 @@ const AppBuilder = ({ template, type, designId, customization, content, onBack }
 
           {celebration && submitted && (
             <div data-testid="store-submitted-card" className="mt-4 bg-emerald-50 border border-emerald-200 rounded-xl p-4">
-              <div className="font-bold flex items-center gap-2">📱 Submitted to BDApps App Store</div>
+              <div className="font-bold flex items-center gap-2">📱 Submitted to Orbit App Store</div>
               <div className="text-xs text-slate-600 mt-1">Your APK is now in <b>Admin Provisioning → Build Files</b> awaiting approval (24-48 hrs).</div>
             </div>
           )}
@@ -232,7 +232,7 @@ const AppBuilder = ({ template, type, designId, customization, content, onBack }
       <Dialog open={submitOpen} onOpenChange={setSubmitOpen}>
         <DialogContent data-testid="submit-store-modal" className="max-w-md">
           <DialogTitle>Submit {cfg.appName}?</DialogTitle>
-          <DialogDescription>Confirm submission to BDApps App Store</DialogDescription>
+          <DialogDescription>Confirm submission to Orbit App Store</DialogDescription>
           <div className="bg-slate-50 rounded-md p-3 mt-2 flex items-center gap-3">
             <div className="w-12 h-12 rounded-md flex items-center justify-center text-2xl text-white" style={{ background: cfg.primary }}>{template.icon}</div>
             <div className="flex-1"><div className="font-bold">{cfg.appName}</div><div className="text-xs text-slate-500">{cfg.store.category} · ⭐ NEW</div><div className="text-[11px] text-slate-600 mt-1">{cfg.store.shortDesc}</div></div>

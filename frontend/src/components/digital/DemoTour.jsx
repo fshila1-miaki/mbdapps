@@ -3,7 +3,7 @@ import { Button } from "../ui/button";
 import { X } from "lucide-react";
 
 const STEPS = [
-  { target: "tabs-bar", title: "Pick a Path", body: "Choose between Lite SMS templates, Provisioning API templates, Web app templates, or Android app templates." },
+  { target: "tabs-bar", title: "Pick a Path", body: "Choose between Web app templates or Android app templates." },
   { target: "template-card", title: "Pick a Template", body: "Pick a pre-built template matching your app idea." },
   { target: "design-picker", title: "Choose a Design", body: "Choose the look and feel of your app." },
   { target: "cust-form", title: "Tell Us About Your App", body: "Tell us about your app — name, colors, features." },

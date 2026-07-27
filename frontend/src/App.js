@@ -9,8 +9,6 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import DeveloperDashboard from "./pages/DeveloperDashboard";
 import AdminDashboard from "./pages/AdminDashboard";
-import Provisioning from "./pages/Provisioning";
-import Lite from "./pages/Lite";
 import { AppStore, AppStoreDetail } from "./pages/AppStore";
 import Reports from "./pages/Reports";
 import Digital from "./pages/Digital";
@@ -54,9 +52,6 @@ function App() {
 
           {/* Developer */}
           <Route path="/dashboard" element={<ProtectedRoute role="developer"><DeveloperDashboard /></ProtectedRoute>} />
-          <Route path="/provisioning" element={<ProtectedRoute><Provisioning /></ProtectedRoute>} />
-          <Route path="/lite" element={<ProtectedRoute><Lite /></ProtectedRoute>} />
-          <Route path="/lite/:sub" element={<ProtectedRoute><Lite /></ProtectedRoute>} />
           <Route path="/digital" element={<ProtectedRoute role="developer"><Digital /></ProtectedRoute>} />
           <Route path="/add-ons" element={<ProtectedRoute role="developer"><AddOns /></ProtectedRoute>} />
           <Route path="/reports" element={<ProtectedRoute><Reports /></ProtectedRoute>} />

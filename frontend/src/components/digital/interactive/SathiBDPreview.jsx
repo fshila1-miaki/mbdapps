@@ -7,7 +7,7 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
  * Single Source of Truth shared by:
  *   - UniversalWebPreview (web-sathibd)   → Step 5 builder live preview
  *   - WebPreviews / Pro builder (pro-sathibd)
- *   - /apps/sathibd public app (thin wrapper adds real BDAppsAPI hooks)
+ *   - /apps/sathibd public app (thin wrapper adds real OrbitAPI hooks)
  * Full 6-page journey: Home → All Profiles → Profile Detail → Plans
  *                      → User Dashboard → Register/Login
  * ========================================================================= */
@@ -264,7 +264,7 @@ const SubscribeFlow = ({ plan, lang, onClose, onPhoneSubmit, onOtpVerify, onSubs
                   className="w-10 h-12 text-center text-lg font-bold rounded-lg outline-none" style={{ border: `2px solid ${BORDER}` }} />
               ))}
             </div>
-            <div className="rounded-lg p-2.5 text-[11px] mb-3" style={{ background: "#fff8e8", color: GOLD_DK }}>⚡ BDApps OTP API · /otp/request · /otp/verify</div>
+            <div className="rounded-lg p-2.5 text-[11px] mb-3" style={{ background: "#fff8e8", color: GOLD_DK }}>⚡ Orbit OTP API · /otp/request · /otp/verify</div>
             <GoldBtn full testid="sathibd-otp-verify" onClick={verify}><span className="mt-2.5 mb-0.5 block">{T(lang, "Verify & Subscribe", "যাচাই ও সাবস্ক্রাইব")}</span></GoldBtn>
           </div>
         )}
@@ -501,7 +501,7 @@ const HomePage = ({ lang, go, cfg, profiles, onHeroSearch }) => {
         <div className="max-w-6xl mx-auto">
           <Reveal className="text-center"><Label>{T(lang, "#1 Wedding Website", "#১ বিবাহ ওয়েবসাইট")}</Label><H2 center>{T(lang, "Why choose ", "কেন আমাদের ")}<span style={{ color: GOLD }}>{T(lang, "us", "বেছে নেবেন")}</span></H2><p className="text-slate-500 mt-2">{T(lang, "Most Trusted and premium Matrimony Service in Bangladesh", "বাংলাদেশের সবচেয়ে বিশ্বস্ত ও প্রিমিয়াম বিবাহ সেবা")}</p></Reveal>
           <div className="grid md:grid-cols-3 gap-5 mt-8">
-            {[["🏆", "Genuine profiles", "100% verified mobile via BDApps OTP"], ["🤝", "Most trusted", "The most trusted matrimony brand — Robi powered"], ["💍", "2000+ marriages", "Lakhs of people found their life partner on SathiBD"]].map((f, i) => (
+            {[["🏆", "Genuine profiles", "100% verified mobile via Orbit OTP"], ["🤝", "Most trusted", "The most trusted matrimony brand — Robi powered"], ["💍", "2000+ marriages", "Lakhs of people found their life partner on SathiBD"]].map((f, i) => (
               <Reveal key={f[1]} delay={i * 80}>
                 <div className="bg-white rounded-2xl p-6 text-center h-full" style={{ border: `1px solid ${BORDER}` }}>
                   <div className="w-14 h-14 mx-auto rounded-full grid place-items-center text-2xl" style={{ background: "#fff3d6" }}>{f[0]}</div>
@@ -976,7 +976,7 @@ const RegisterPage = ({ lang, go }) => {
             <div className="text-center py-8">
               <div className="w-16 h-16 mx-auto rounded-full grid place-items-center text-3xl text-white" style={{ background: GREEN }}>✓</div>
               <div className="font-bold text-lg mt-3" style={{ fontFamily: SERIF, color: DARK }}>{T(lang, "Account Created!", "অ্যাকাউন্ট তৈরি হয়েছে!")}</div>
-              <p className="text-xs text-slate-500 mt-1">{T(lang, "OTP verified via BDApps. Welcome to SathiBD.", "BDApps দিয়ে OTP যাচাই হয়েছে। স্বাগতম।")}</p>
+              <p className="text-xs text-slate-500 mt-1">{T(lang, "OTP verified via Orbit. Welcome to SathiBD.", "Orbit দিয়ে OTP যাচাই হয়েছে। স্বাগতম।")}</p>
               <GoldBtn full testid="sathibd-reg-dashboard" onClick={() => go("dashboard")}><span className="mt-2.5 mb-0.5 block">{T(lang, "Go to Dashboard", "ড্যাশবোর্ডে যান")}</span></GoldBtn>
             </div>
           ) : (

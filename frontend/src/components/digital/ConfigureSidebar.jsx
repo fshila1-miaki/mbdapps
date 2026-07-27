@@ -139,8 +139,8 @@ const ConfigureSidebar = ({ cfg, onChange, type, onGenerate, onSaveDraft, onBack
       </Section>
 
       {type === "android" && (
-        <Section title="📱 BDApps App Store" defaultOpen testid="cfg-section-store">
-          <div className="flex items-center justify-between"><Label className="text-[11px]">Publish to BDApps Store</Label><Switch data-testid="cfg-publish" checked={cfg.store?.publish ?? true} onCheckedChange={(c) => setStore("publish", c)} /></div>
+        <Section title="📱 Orbit App Store" defaultOpen testid="cfg-section-store">
+          <div className="flex items-center justify-between"><Label className="text-[11px]">Publish to Orbit Store</Label><Switch data-testid="cfg-publish" checked={cfg.store?.publish ?? true} onCheckedChange={(c) => setStore("publish", c)} /></div>
           {(cfg.store?.publish ?? true) && (
             <>
               <div><Label className="text-[10px]">Store Category</Label>
@@ -164,9 +164,9 @@ const ConfigureSidebar = ({ cfg, onChange, type, onGenerate, onSaveDraft, onBack
             <Label className="text-[10px]">Subdomain</Label>
             <div className="flex items-center gap-1">
               <Input data-testid="cfg-subdomain" value={cfg.domain?.subdomain || ""} onChange={(e) => setDomain("subdomain", e.target.value.toLowerCase().replace(/[^a-z0-9-]/g, ""))} placeholder="my-store" className="h-7 text-xs" />
-              <span className="text-[10px] text-slate-500">.bdapps.app</span>
+              <span className="text-[10px] text-slate-500">.orbit.app</span>
             </div>
-            <div className="text-[10px] text-emerald-700 mt-1">Preview: <b>{cfg.domain?.subdomain || "my-app"}.bdapps.app</b></div>
+            <div className="text-[10px] text-emerald-700 mt-1">Preview: <b>{cfg.domain?.subdomain || "my-app"}.orbit.app</b></div>
           </div>
           <div><Label className="text-[10px]">Custom Domain (Optional)</Label><Input data-testid="cfg-custom-domain" value={cfg.domain?.custom || ""} onChange={(e) => setDomain("custom", e.target.value)} placeholder="www.mystore.com.bd" className="h-7 text-xs" /></div>
           <div className="text-[10px] text-emerald-700">✓ SSL Certificate included free</div>

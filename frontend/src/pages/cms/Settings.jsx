@@ -13,7 +13,7 @@ const Settings = () => {
   const { appContent, updateAppContent, updateMyApp, removeMyApp } = useApp();
   const info = appContent[app.id]?.storeInfo || {};
   const [tab, setTab] = useState("info");
-  const [notif, setNotif] = useState({ email: "developer@bdapps.com", sms: "+880 1700-000000", whatsapp: false, lowStock: 5, smsConfirm: true, doctorSms: true, reviewEmail: true });
+  const [notif, setNotif] = useState({ email: "developer@orbit.com", sms: "+880 1700-000000", whatsapp: false, lowStock: 5, smsConfirm: true, doctorSms: true, reviewEmail: true });
   const [seo, setSeo] = useState({ customDomain: "", title: app.name, desc: "", keywords: "" });
   const [integ, setIntegs] = useState({ ssl: true, robi: true, ga: false, fb: false, whatsapp: false, push: false });
   const [deleteText, setDeleteText] = useState("");
@@ -56,7 +56,7 @@ const Settings = () => {
             <div className="text-sm font-bold mb-2">New Order Notifications</div>
             <div className="space-y-2">
               <Field label="Email notify"><Input data-testid="notif-email" value={notif.email} onChange={(e) => setNotif({ ...notif, email: e.target.value })} /></Field>
-              <Field label="SMS notify (via BDApps)"><Input data-testid="notif-sms" value={notif.sms} onChange={(e) => setNotif({ ...notif, sms: e.target.value })} /></Field>
+              <Field label="SMS notify (via Orbit)"><Input data-testid="notif-sms" value={notif.sms} onChange={(e) => setNotif({ ...notif, sms: e.target.value })} /></Field>
               <label className="flex items-center gap-2 text-sm"><input data-testid="notif-whatsapp" type="checkbox" checked={notif.whatsapp} onChange={(e) => setNotif({ ...notif, whatsapp: e.target.checked })} /> WhatsApp notification (Add-On required)</label>
             </div>
           </div>
@@ -78,12 +78,12 @@ const Settings = () => {
       {tab === "seo" && (
         <div className="bg-white border border-slate-200 rounded-xl p-4 space-y-3 max-w-2xl">
           <Field label="Current Domain (read-only)">
-            <Input value={`${app.slug}.bdapps.app`} disabled className="bg-slate-50" />
+            <Input value={`${app.slug}.orbit.app`} disabled className="bg-slate-50" />
           </Field>
           <Field label="Custom Domain">
             <div className="flex gap-2">
               <Input data-testid="custom-domain" value={seo.customDomain} onChange={(e) => setSeo({ ...seo, customDomain: e.target.value })} placeholder="www.yourdomain.com" />
-              <Button data-testid="verify-domain" onClick={() => toast.success("DNS verification: Add CNAME → bdapps.app (point to ns1.bdapps.app)")} variant="outline">Verify Domain</Button>
+              <Button data-testid="verify-domain" onClick={() => toast.success("DNS verification: Add CNAME → orbit.app (point to ns1.orbit.app)")} variant="outline">Verify Domain</Button>
             </div>
           </Field>
           <Field label="SEO Title"><Input data-testid="seo-title" value={seo.title} onChange={(e) => setSeo({ ...seo, title: e.target.value })} /></Field>

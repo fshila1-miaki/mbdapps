@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "../ui/dialog";
 import { Button } from "../ui/button";
 import { X, ArrowRight } from "lucide-react";
-import BDappsWebPreview from "./interactive/WebPreviews";
+import OrbitWebPreview from "./interactive/WebPreviews";
 import UniversalWebPreview from "./interactive/UniversalWebPreview";
 import UniversalAndroidPreview from "./interactive/UniversalAndroidPreview";
 
@@ -40,7 +40,7 @@ const LivePreviewModal = ({ open, onClose, template, type, onUse }) => {
         </div>
         <div className="flex-1 overflow-y-auto bg-slate-50 p-5">
           {type === "pro" ? (
-            <BDappsWebPreview templateId={template.id} appName={cfg.appName} tagline={cfg.tagline} primaryColor={primary} secondaryColor={accent} language="English" height="h-[65vh]" />
+            <OrbitWebPreview templateId={template.id} appName={cfg.appName} tagline={cfg.tagline} primaryColor={primary} secondaryColor={accent} language="English" height="h-[65vh]" />
           ) : type === "web" ? (
             <UniversalWebPreview templateId={template.id} cfg={cfg} height="h-[65vh]" />
           ) : (
