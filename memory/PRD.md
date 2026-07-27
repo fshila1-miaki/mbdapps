@@ -5,6 +5,14 @@ Build a full-stack demo web app called "BDapps" — a telecom developer platform
 Mock data only (no real backend). Visually polished, fully navigable, client-demo ready.
 Two roles: Developer & Admin. Color scheme: deep navy (#0f172a) + red (#e11d48) + white.
 
+## CHANGELOG — 2026-06-27 (later): Blue rebrand theme + Play-Store App Store + logomark + app cleanup
+- **New palette (site-wide)**: primary `#2563EB`, hover `#1D4ED8`, ink `#09090B` (replaced the old rose #e11d48 / navy #0f172a via global find/replace). Fonts switched to **Outfit** (headings) + **Inter** (body); index.css imports + body updated.
+- **Orbit logomark**: new `components/OrbitMark.jsx` (planet core + tilted orbit ring + satellite dot, uses currentColor). Wired into Layout `<Logo>` (login hero + headers, blue), Sidebar (white on dark), and App Store header. Replaced the plain "B" square.
+- **Play-Store-style App Store** (`pages/AppStore.jsx` fully rewritten): sticky glass header w/ pill search, scrollable category chips (For you / Top charts / New + categories), Editor's Choice featured banner (`featured-banner` + `featured-install`), horizontal scroll rows (`row-recommended`/`row-top`/`row-new`), rounded-2xl app cards w/ star ratings, and a Browse-all grid. Detail page restyled to match. NOTE: `AppArt` renders `absolute inset-0` so any wrapper must be `position:relative` (fixed the featured-icon stretch bug).
+- **Removed pro/lite/SMS apps**: all `type:"lite"` entries removed from `seedAppStore` (9 web/android apps remain); `CATEGORIES` trimmed to real ones; `APP-QUIZBD` (pro) removed from `seedMyApps`. localStorage seeds bumped `bdapps_store_v5→v6`, `bdapps_myapps_v5→v6` to force reseed.
+- Verified: testing_agent iteration_16 — frontend 100%, 0 blocking issues (login dev/admin, App Store browse/filter/search/detail/OTP, dashboard w/o Provisioning/Lite, My Apps=9 no QuizBD, Digital 2 tabs no Pro, logomark present).
+
+
 > **NOTE (2026-06-27): Brand renamed "BDApps" → "Orbit".** The product is now branded **Orbit** throughout the UI. Internal localStorage keys (`bdapps_*`), custom events (`bdapps:sidebar`) and CSS/testid tokens (`bdapps-logo`) were intentionally left unchanged. Email domain changed to `orbit.com` (login: `developer@orbit.com` / `dev123`, `admin@orbit.com` / `admin123`). Service file `services/BDAppsAPI.js` → `services/OrbitAPI.js`.
 
 ## CHANGELOG — 2026-06-27: Rebrand to Orbit + dashboard/builder trims
