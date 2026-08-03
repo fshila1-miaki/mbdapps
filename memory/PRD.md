@@ -5,6 +5,16 @@ Build a full-stack demo web app called "BDapps" — a telecom developer platform
 Mock data only (no real backend). Visually polished, fully navigable, client-demo ready.
 Two roles: Developer & Admin. Color scheme: deep navy (#0f172a) + red (#e11d48) + white.
 
+
+## CHANGELOG — 2026-06 (later): Deep Space design system + full Orbit rebrand + Provisioning/Lite/Pro removal
+- **Deep Space theme (dark by default, light toggle)**: rewrote `src/index.css` with CSS vars on `:root` (dark: bg #0B0C10, surface #14161D, primary #5B7CFA, ai #2DD4BF) and `:root.light` (bg #F7F8FB, surface #FFF, primary #3B50C7, ai #0E8F82). shadcn HSL tokens remapped for both modes. Added a scoped **compatibility override layer** (`.orbit-app .bg-white/.text-slate-*/.border-slate-*/.bg-[#2563EB]` → Deep Space vars) so the 60+ pages authored with hardcoded slate/zinc/hex utilities re-skin without per-file edits. `.orbit-app` wrapper added to Layout, Login, Register, AppStore(+Detail), CmsLayout. Demo apps under `/apps/*` intentionally excluded (keep own brand palettes).
+- **Theme controller**: `src/lib/theme.js` (initTheme/toggleTheme add/remove `.light` on `<html>`, persist `orbit_theme`), `components/ThemeToggle.jsx` (testid `theme-toggle`) wired into Layout header + Login.
+- **New Orbit mark**: `OrbitMark.jsx` rewritten — ring with a break + teal satellite dot (stroke `var(--c-primary)`, dot `var(--ai)`). Lowercase `orbit` wordmark (`.orbit-wordmark`, Inter 300). Favicon (inline SVG) + tab title 'Orbit — build your app' in index.html.
+- **Removed Provisioning/Lite/Pro (per user)**: admin `/admin/provisioning` route + import removed from App.js; provisioning link removed from ADMIN_LINKS; provisioning tile removed from AdminDashboard (now 5 tiles: User Management, App Store, Reporting, Tap Admin, App Store Admin). Dev dashboard = 4 tiles (App Store/Reports/Builder/My Apps). Digital already had only Web+Android tabs. AppBuilder submit copy no longer mentions Provisioning/Build Files.
+- **Orbit Builder**: Digital header title → 'Orbit Builder' (en+bn locale). Added AI compose bar (testids `ai-compose-bar`/`ai-compose-input`, teal pulsing dot + 'LISTENING' badge). Deep-space builder banner.
+- **Email domain**: all `orbit.com` → `orbit.app` across src (USERS login, mock data, seeds, demo apps, CMS). Demo creds: developer@orbit.app / dev123, admin@orbit.app / admin123.
+- Verified: testing_agent iteration_17 — frontend 100%, 0 console errors, all 12 checks pass (dark default, toggle persists, tile/sidebar counts, 2 builder tabs + AI bar, provisioning route gone, brand check clean).
+
 ## CHANGELOG — 2026-06-27 (later): Blue rebrand theme + Play-Store App Store + logomark + app cleanup
 - **New palette (site-wide)**: primary `#2563EB`, hover `#1D4ED8`, ink `#09090B` (replaced the old rose #e11d48 / navy #0f172a via global find/replace). Fonts switched to **Outfit** (headings) + **Inter** (body); index.css imports + body updated.
 - **Orbit logomark**: new `components/OrbitMark.jsx` (planet core + tilted orbit ring + satellite dot, uses currentColor). Wired into Layout `<Logo>` (login hero + headers, blue), Sidebar (white on dark), and App Store header. Replaced the plain "B" square.
