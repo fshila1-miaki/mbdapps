@@ -13,7 +13,7 @@ const Settings = () => {
   const { appContent, updateAppContent, updateMyApp, removeMyApp } = useApp();
   const info = appContent[app.id]?.storeInfo || {};
   const [tab, setTab] = useState("info");
-  const [notif, setNotif] = useState({ email: "developer@orbit.com", sms: "+880 1700-000000", whatsapp: false, lowStock: 5, smsConfirm: true, doctorSms: true, reviewEmail: true });
+  const [notif, setNotif] = useState({ email: "developer@orbit.app", sms: "+880 1700-000000", whatsapp: false, lowStock: 5, smsConfirm: true, doctorSms: true, reviewEmail: true });
   const [seo, setSeo] = useState({ customDomain: "", title: app.name, desc: "", keywords: "" });
   const [integ, setIntegs] = useState({ ssl: true, robi: true, ga: false, fb: false, whatsapp: false, push: false });
   const [deleteText, setDeleteText] = useState("");

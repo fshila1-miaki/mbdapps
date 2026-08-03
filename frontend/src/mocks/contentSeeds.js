@@ -164,7 +164,7 @@ export const SAMPLE_CONTENT = {
     ],
     ads: [
       { id: uid("ad"), name: "Sidebar Sponsor — Robi", image: "", targetUrl: "https://robi.com.bd", placement: "Sidebar" },
-      { id: uid("ad"), name: "Top Banner — Orbit", image: "", targetUrl: "https://orbit.com", placement: "Header" },
+      { id: uid("ad"), name: "Top Banner — Orbit", image: "", targetUrl: "https://orbit.app", placement: "Header" },
     ],
     liveFeed: [
       { id: uid("lf"), source: "Prothom Alo", endpoint: "https://api.prothomalo.com/rss", category: "All" },

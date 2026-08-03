@@ -81,13 +81,13 @@ export const AppStore = () => {
   const gridCls = "grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-x-4 gap-y-6";
 
   return (
-    <div className="min-h-screen bg-white" style={{ fontFamily: "'Inter', sans-serif" }}>
+    <div className="orbit-app min-h-screen" style={{ fontFamily: "'Inter', sans-serif", background: "var(--bg)", color: "var(--text)" }}>
       {/* Header */}
-      <header className="bg-white/90 backdrop-blur-md border-b border-zinc-200 sticky top-0 z-40">
+      <header className="backdrop-blur-md sticky top-0 z-40" style={{ background: "color-mix(in srgb, var(--surface) 90%, transparent)", borderBottom: "1px solid var(--c-border)" }}>
         <div className="max-w-[1400px] mx-auto px-4 lg:px-8 h-16 flex items-center gap-3 sm:gap-6">
-          <Link to="/appstore" data-testid="bdapps-logo" className="flex items-center gap-2 shrink-0">
-            <OrbitMark size={28} className="text-[#2563EB]" />
-            <span className="text-xl font-bold tracking-tight text-zinc-900 hidden sm:block" style={HEAD}>Orbit</span>
+          <Link to="/appstore" data-testid="bdapps-logo" className="flex items-center gap-2.5 shrink-0">
+            <OrbitMark size={26} />
+            <span className="orbit-wordmark text-[20px] hidden sm:block">orbit</span>
           </Link>
           <div className="relative flex-1 max-w-xl">
             <Search size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-400" />
@@ -104,7 +104,7 @@ export const AppStore = () => {
       </header>
 
       {/* Category chips */}
-      <div className="bg-white/90 backdrop-blur-md border-b border-zinc-100 sticky top-16 z-30">
+      <div className="backdrop-blur-md sticky top-16 z-30" style={{ background: "color-mix(in srgb, var(--surface) 90%, transparent)", borderBottom: "1px solid var(--c-border)" }}>
         <div className="max-w-[1400px] mx-auto px-4 lg:px-8 py-3 flex gap-2 overflow-x-auto scrollbar-hide">
           {CHIPS.map((c) => (
             <button key={c} onClick={() => { setChip(c); setSearch(""); }} data-testid={`chip-${c}`}
@@ -165,11 +165,11 @@ export const AppStore = () => {
         )}
       </main>
 
-      <footer className="border-t border-zinc-200 bg-zinc-50 py-10">
+      <footer className="py-10" style={{ borderTop: "1px solid var(--c-border)", background: "var(--surface)" }}>
         <div className="max-w-[1400px] mx-auto px-4 lg:px-8 flex flex-col md:flex-row justify-between gap-4 items-center">
           <Logo />
-          <div className="flex items-center gap-2 text-sm text-zinc-600"><Mail size={14} /> support@orbit.com</div>
-          <div className="flex items-center gap-3 text-zinc-400"><Twitter size={16} className="hover:text-[#2563EB] cursor-pointer transition-colors" /><Facebook size={16} className="hover:text-[#2563EB] cursor-pointer transition-colors" /></div>
+          <div className="text-sm" style={{ color: "var(--text-muted)" }}>Powered by Orbit · Built on Robi's network</div>
+          <div className="flex items-center gap-3" style={{ color: "var(--text-muted)" }}><Mail size={14} /> support@orbit.app</div>
         </div>
       </footer>
 
@@ -207,7 +207,7 @@ export const AppStoreDetail = () => {
   const [phoneInput, setPhoneInput] = useState("");
   const [otpInput, setOtpInput] = useState("");
 
-  if (!app) return <div className="p-8">App not found. <Link to="/appstore" className="text-[#2563EB] underline">Back</Link></div>;
+  if (!app) return <div className="orbit-app p-8" style={{ background: "var(--bg)", color: "var(--text)", minHeight: "100vh" }}>App not found. <Link to="/appstore" className="text-[#2563EB] underline">Back</Link></div>;
   const fromDev = storeApps.filter((a) => a.developer === app.developer && a.id !== app.id).slice(0, 6);
 
   const stats = { rating: app.rating, reviews: 1248, subscribers: app.subscribers || 34500, version: "2.4.1", lastUpdated: "Jan 28, 2026" };
@@ -245,8 +245,8 @@ export const AppStoreDetail = () => {
     : { label: "Open", classes: "bg-[#2563EB] hover:bg-[#1D4ED8]" };
 
   return (
-    <div className="min-h-screen bg-white" style={{ fontFamily: "'Inter', sans-serif" }}>
-      <header className="bg-white/90 backdrop-blur-md border-b border-zinc-200 sticky top-0 z-30">
+    <div className="orbit-app min-h-screen" style={{ fontFamily: "'Inter', sans-serif", background: "var(--bg)", color: "var(--text)" }}>
+      <header className="backdrop-blur-md sticky top-0 z-30" style={{ background: "color-mix(in srgb, var(--surface) 90%, transparent)", borderBottom: "1px solid var(--c-border)" }}>
         <div className="max-w-[1400px] mx-auto px-4 lg:px-8 h-16 flex items-center justify-between">
           <Logo />
           <Button variant="outline" onClick={() => navigate("/appstore")} data-testid="back-store" size="sm" className="rounded-full"><ChevronLeft size={14} className="mr-1" /> Store</Button>

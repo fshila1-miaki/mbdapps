@@ -118,7 +118,7 @@ const AppBuilder = ({ template, type, designId, customization, content, onBack }
       app: cfg.appName,
       type: "APK",
       size: `${(Math.random() * 20 + 8).toFixed(1)} MB`,
-      uploadedBy: "developer@orbit.com",
+      uploadedBy: "developer@orbit.app",
       category: cfg.store.category,
       shortDesc: cfg.store.shortDesc,
       longDesc: cfg.store.longDesc,
@@ -127,7 +127,7 @@ const AppBuilder = ({ template, type, designId, customization, content, onBack }
     });
     setSubmitted(true);
     setSubmitOpen(false);
-    toast.success("✓ Submitted! Your APK is now in Admin Review (Provisioning → Build Files → Pending Approval)");
+    toast.success("✓ Submitted! Your app is now in Orbit Admin Review — Pending Approval");
   };
 
   return (
@@ -217,7 +217,7 @@ const AppBuilder = ({ template, type, designId, customization, content, onBack }
           {celebration && submitted && (
             <div data-testid="store-submitted-card" className="mt-4 bg-emerald-50 border border-emerald-200 rounded-xl p-4">
               <div className="font-bold flex items-center gap-2">📱 Submitted to Orbit App Store</div>
-              <div className="text-xs text-slate-600 mt-1">Your APK is now in <b>Admin Provisioning → Build Files</b> awaiting approval (24-48 hrs).</div>
+              <div className="text-xs text-slate-600 mt-1">Your app is now in <b>Orbit Admin Review</b> awaiting approval (24-48 hrs).</div>
             </div>
           )}
 

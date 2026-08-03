@@ -1,102 +1,201 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Cabinet Grotesk kept as legacy fallback (headings now use Outfit) */
-@font-face {
-  font-family: 'Cabinet Grotesk';
-  src: url('https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800&display=swap');
+/* ============================================================================
+ * ORBIT — DEEP SPACE DESIGN SYSTEM
+ * Dark mode is the default (no class). Light mode = `.light` on <html>.
+ * ========================================================================= */
+
+:root {
+  /* Raw palette (Deep Space — dark by default) */
+  --bg:          #0B0C10;
+  --surface:     #14161D;
+  --surface-2:   #1C1F29;
+  --border:      #242835;
+  --text:        #E7E9F0;
+  --text-muted:  #8A90A2;
+  --primary:     #5B7CFA;
+  --on-primary:  #06070C;
+  --ai:          #2DD4BF;
+  --success:     #3FBF7F;
+  --warning:     #E0A83C;
+  --danger:      #F26D6D;
+  --radius:      8px;
+  --radius-lg:   12px;
+
+  /* shadcn HSL tokens mapped to Deep Space (dark) */
+  --background: 228 19% 5%;
+  --foreground: 227 26% 92%;
+  --card: 226 18% 10%;
+  --card-foreground: 227 26% 92%;
+  --popover: 226 18% 10%;
+  --popover-foreground: 227 26% 92%;
+  --primary-hsl: 228 94% 67%;
+  --primary-foreground: 228 33% 4%;
+  --secondary: 226 19% 14%;
+  --secondary-foreground: 227 26% 92%;
+  --muted: 226 19% 14%;
+  --muted-foreground: 225 12% 59%;
+  --accent: 226 19% 14%;
+  --accent-foreground: 227 26% 92%;
+  --destructive: 0 84% 69%;
+  --destructive-foreground: 0 0% 100%;
+  --ring: 228 94% 67%;
+  --input: 226 19% 17%;
+}
+
+/* shadcn uses --primary and --border directly; alias them to our tokens */
+:root {
+  --primary: 228 94% 67%;
+  --border: 226 19% 17%;
+}
+/* Restore raw hex helpers under a separate namespace so both worlds coexist */
+:root {
+  --c-primary: #5B7CFA;
+  --c-border: #242835;
+}
+
+:root.light {
+  --bg:          #F7F8FB;
+  --surface:     #FFFFFF;
+  --surface-2:   #EEF1F6;
+  --text:        #10121A;
+  --text-muted:  #5C6479;
+  --on-primary:  #FFFFFF;
+  --ai:          #0E8F82;
+  --success:     #1F8A56;
+  --warning:     #9A6B10;
+  --danger:      #C93838;
+  --c-primary:   #3B50C7;
+  --c-border:    #E3E7F0;
+
+  --background: 220 33% 98%;
+  --foreground: 228 24% 8%;
+  --card: 0 0% 100%;
+  --card-foreground: 228 24% 8%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 228 24% 8%;
+  --primary: 231 54% 51%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 216 30% 95%;
+  --secondary-foreground: 228 24% 8%;
+  --muted: 216 30% 95%;
+  --muted-foreground: 226 14% 42%;
+  --accent: 216 30% 95%;
+  --accent-foreground: 228 24% 8%;
+  --destructive: 0 55% 50%;
+  --destructive-foreground: 0 0% 100%;
+  --ring: 231 54% 51%;
+  --border: 222 33% 92%;
+  --input: 222 33% 92%;
 }
 
 body {
   margin: 0;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #ffffff;
-  color: #09090B;
+  background: var(--bg);
+  color: var(--text);
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-/* Site-wide horizontal overflow guard — prevents any rogue element from
-   pushing the page wider than the viewport on mobile (iter 16 fix). */
-html, body {
-  overflow-x: hidden;
-  max-width: 100vw;
-}
+html, body { overflow-x: hidden; max-width: 100vw; }
 *, *::before, *::after { box-sizing: border-box; }
 img, video, iframe, svg { max-width: 100%; height: auto; }
 
-/* Hide-scrollbar utility for horizontal-scroll category pills, etc. */
 .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
 .scrollbar-hide::-webkit-scrollbar { display: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-code, .font-mono {
-  font-family: 'JetBrains Mono', monospace;
-}
-
-@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 222 47% 11%;
-    --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
-    --primary: 222 47% 11%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 222 47% 11%;
-    --muted: 210 40% 96%;
-    --muted-foreground: 215 16% 47%;
-    --accent: 210 40% 96%;
-    --accent-foreground: 222 47% 11%;
-    --destructive: 346 87% 49%;
-    --destructive-foreground: 0 0% 100%;
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 222 47% 11%;
-    --radius: 0.375rem;
-  }
-}
+code, .font-mono { font-family: 'JetBrains Mono', monospace; }
 
 @layer base {
   * { @apply border-border; }
   body { @apply bg-background text-foreground; }
-  ::selection { background: #2563EB; color: white; }
+  ::selection { background: var(--c-primary); color: white; }
 }
 
-/* Hide scrollbar but allow scroll */
-.no-scrollbar::-webkit-scrollbar { display: none; }
-.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-
-@layer base {
-  [data-debug-wrapper="true"] { display: contents !important; }
-  [data-debug-wrapper="true"] > * {
-    margin-left: inherit; margin-right: inherit; margin-top: inherit; margin-bottom: inherit;
-    padding-left: inherit; padding-right: inherit; padding-top: inherit; padding-bottom: inherit;
-    column-gap: inherit; row-gap: inherit; gap: inherit;
-    border-left-width: inherit; border-right-width: inherit; border-top-width: inherit; border-bottom-width: inherit;
-    border-left-style: inherit; border-right-style: inherit; border-top-style: inherit; border-bottom-style: inherit;
-    border-left-color: inherit; border-right-color: inherit; border-top-color: inherit; border-bottom-color: inherit;
-  }
+/* ---------- Orbit wordmark ---------- */
+.orbit-wordmark {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 300;
+  letter-spacing: -0.03em;
+  color: var(--text);
 }
 
-@keyframes shineSweep {
-  0% { transform: translateX(-100%) skewX(12deg); }
-  100% { transform: translateX(400%) skewX(12deg); }
+/* ---------- Reusable Deep Space primitives ---------- */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-lg);
+}
+.badge-success { background: rgba(63,191,127,0.12); color: var(--success); }
+.badge-warning { background: rgba(224,168,60,0.12); color: var(--warning); }
+.badge-danger  { background: rgba(242,109,109,0.12); color: var(--danger); }
+.badge-primary { background: rgba(91,124,250,0.12); color: var(--c-primary); }
+.badge-ai      { background: rgba(45,212,191,0.12); color: var(--ai); }
+
+.ai-indicator {
+  background: var(--ai);
+  animation: pulse-ai 2s infinite;
+}
+@keyframes pulse-ai {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(45, 212, 191, 0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(45, 212, 191, 0); }
 }
 
-@keyframes confettiFall {
-  0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
-  100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
-}
+/* ============================================================================
+ * COMPATIBILITY OVERRIDE LAYER
+ * The console pages were authored with hardcoded slate/zinc/hex utilities.
+ * We remap the common ones to the Deep Space variables, scoped to `.orbit-app`
+ * so the standalone demo apps (/apps/*) keep their own brand palettes.
+ * Higher specificity (.orbit-app .x) beats the base Tailwind utility.
+ * ========================================================================= */
+.orbit-app .bg-white { background-color: var(--surface) !important; }
+.orbit-app .bg-slate-50, .orbit-app .bg-zinc-50 { background-color: var(--bg) !important; }
+.orbit-app .bg-slate-100, .orbit-app .bg-zinc-100,
+.orbit-app .bg-slate-200, .orbit-app .bg-zinc-200 { background-color: var(--surface-2) !important; }
 
+.orbit-app .text-\[\#09090B\],
+.orbit-app .text-slate-900, .orbit-app .text-slate-800,
+.orbit-app .text-zinc-900, .orbit-app .text-zinc-800 { color: var(--text) !important; }
+.orbit-app .text-slate-700, .orbit-app .text-slate-600, .orbit-app .text-slate-500, .orbit-app .text-slate-400,
+.orbit-app .text-zinc-700, .orbit-app .text-zinc-600, .orbit-app .text-zinc-500, .orbit-app .text-zinc-400,
+.orbit-app .text-slate-300, .orbit-app .text-zinc-300 { color: var(--text-muted) !important; }
+
+.orbit-app .border-slate-100, .orbit-app .border-zinc-100,
+.orbit-app .border-slate-200, .orbit-app .border-zinc-200,
+.orbit-app .border-slate-300, .orbit-app .border-zinc-300,
+.orbit-app .border-y, .orbit-app .divide-slate-200 { border-color: var(--c-border) !important; }
+
+.orbit-app .text-\[\#2563EB\] { color: var(--c-primary) !important; }
+.orbit-app .bg-\[\#2563EB\] { background-color: var(--c-primary) !important; }
+.orbit-app .hover\:bg-\[\#1D4ED8\]:hover { background-color: var(--c-primary) !important; filter: brightness(0.9); }
+.orbit-app .border-\[\#2563EB\] { border-color: var(--c-primary) !important; }
+.orbit-app .hover\:border-\[\#09090B\]:hover { border-color: var(--c-primary) !important; }
+
+/* Inputs adopt the deep-space surface */
+.orbit-app input:not([type="checkbox"]):not([type="radio"]),
+.orbit-app select,
+.orbit-app textarea {
+  background-color: var(--bg);
+  border-color: var(--c-border);
+  color: var(--text);
+}
+.orbit-app input::placeholder, .orbit-app textarea::placeholder { color: var(--text-muted); }
+
+/* ---------- Legacy keyframes ---------- */
+@keyframes shineSweep { 0% { transform: translateX(-100%) skewX(12deg); } 100% { transform: translateX(400%) skewX(12deg); } }
+@keyframes confettiFall { 0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; } 100% { transform: translateY(100vh) rotate(720deg); opacity: 0; } }
 @keyframes countUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
 @keyframes rippleExpand { 0% { transform: scale(0); opacity: 1; } 100% { transform: scale(8); opacity: 0; } }
 @keyframes slideInRight { from { transform: translateX(20px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
-@keyframes pulseGlow { 0%, 100% { box-shadow: 0 0 0 rgba(37,99,235,0.3); } 50% { box-shadow: 0 0 30px rgba(37,99,235,0.6); } }
-
+@keyframes pulseGlow { 0%, 100% { box-shadow: 0 0 0 rgba(91,124,250,0.3); } 50% { box-shadow: 0 0 30px rgba(91,124,250,0.6); } }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }

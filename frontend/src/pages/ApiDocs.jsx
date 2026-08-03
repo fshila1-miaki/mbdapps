@@ -13,7 +13,7 @@ const SECTIONS = [
         <p className="leading-relaxed">All API calls require an API key sent in the <code className="bg-slate-100 px-1 py-0.5 rounded">X-API-Key</code> header. Generate yours from the developer dashboard.</p>
       </>
     ),
-    code: `curl https://api.orbit.com/v1/sms \\
+    code: `curl https://api.orbit.app/v1/sms \\
   -H "X-API-Key: bd_live_xxxxxxxxxxxx" \\
   -H "Content-Type: application/json"`,
   },

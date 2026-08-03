@@ -10,14 +10,13 @@ import { Badge } from "../components/ui/badge";
 import Sidebar, { useSidebarCollapsed } from "./Sidebar";
 import { OrbitMark } from "./OrbitMark";
 import LanguageSwitcher from "./LanguageSwitcher";
+import ThemeToggle from "./ThemeToggle";
 import { useTranslation } from "react-i18next";
 
 export const Logo = ({ className = "" }) => (
-  <Link to="/" data-testid="bdapps-logo" className={`flex items-center gap-2 ${className}`}>
-    <OrbitMark size={30} className="text-[#2563EB] shrink-0" />
-    <span className="font-bold text-xl tracking-tight text-[#09090B]" style={{ fontFamily: "'Outfit', sans-serif" }}>
-      Orbit
-    </span>
+  <Link to="/" data-testid="bdapps-logo" className={`flex items-center gap-2.5 ${className}`}>
+    <OrbitMark size={28} className="shrink-0" />
+    <span className="orbit-wordmark text-[22px]">orbit</span>
   </Link>
 );
 
@@ -46,21 +45,22 @@ const Layout = ({ children, subnav = null }) => {
   const mainOffsetClass = user ? (collapsed ? "lg:ml-16" : "lg:ml-64") : "";
 
   return (
-    <div className="min-h-screen bg-white text-[#09090B]" style={{ fontFamily: "'Inter', sans-serif" }}>
+    <div className="orbit-app min-h-screen" style={{ fontFamily: "'Inter', sans-serif", background: "var(--bg)", color: "var(--text)" }}>
       {user && <Sidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} />}
       <div className={`flex flex-col min-h-screen ${mainOffsetClass} transition-[margin] duration-200 ease-in-out`}>
-        <header className="sticky top-0 z-30 bg-white border-b border-slate-200">
-          <div className="px-4 lg:px-8 h-16 flex items-center justify-between gap-3">
+        <header className="sticky top-0 z-30" style={{ background: "var(--surface)", borderBottom: "1px solid var(--c-border)" }}>
+          <div className="px-4 lg:px-8 h-[52px] flex items-center justify-between gap-3">
             <div className="flex items-center gap-3">
               {user && (
-                <button data-testid="sidebar-toggle" onClick={() => setSidebarOpen(true)} className="lg:hidden p-2 -ml-2 hover:bg-slate-100 rounded-md min-w-[44px] min-h-[44px] flex items-center justify-center">
+                <button data-testid="sidebar-toggle" onClick={() => setSidebarOpen(true)} className="lg:hidden p-2 -ml-2 hover:bg-white/5 rounded-md min-w-[44px] min-h-[44px] flex items-center justify-center">
                   <Menu size={20} />
                 </button>
               )}
               {!user && <Logo />}
             </div>
 
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1.5">
+              <ThemeToggle />
               <LanguageSwitcher />
               {user && (
                 <>

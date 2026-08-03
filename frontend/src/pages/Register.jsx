@@ -36,13 +36,13 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-start bg-white px-4 sm:px-10 py-10 lg:py-16" style={{ fontFamily: "'Inter', sans-serif" }}>
+    <div className="orbit-app min-h-screen flex flex-col items-start px-4 sm:px-10 py-10 lg:py-16" style={{ fontFamily: "'Inter', sans-serif", background: "var(--bg)", color: "var(--text)" }}>
       <Logo />
       <div className="max-w-2xl w-full mx-auto mt-10">
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl tracking-tighter font-bold text-[#09090B] mb-2" style={{ fontFamily: "'Outfit', sans-serif" }}>
-          Create your developer account
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl tracking-tight font-semibold mb-2" style={{ color: "var(--text)" }}>
+          Create your Orbit account
         </h1>
-        <p className="text-slate-500 mb-8">Join thousands of developers building on the Robi network.</p>
+        <p className="mb-8" style={{ color: "var(--text-muted)" }}>Join thousands of developers building on the Robi network.</p>
 
         <form onSubmit={submit} className="grid grid-cols-1 sm:grid-cols-2 gap-4" data-testid="register-form" autoComplete="on">
           <div>

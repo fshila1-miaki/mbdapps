@@ -16,6 +16,28 @@ import LivePreviewModal from "../components/digital/LivePreviewModal";
 import DemoTour from "../components/digital/DemoTour";
 import { PRO_TEMPLATES, WEB_TEMPLATES, ANDROID_TEMPLATES, ALL_CATEGORIES_PRO, ALL_CATEGORIES_WEB, ALL_CATEGORIES_ANDROID } from "../mocks/builderTemplates";
 
+const AiComposeBar = () => {
+  const [value, setValue] = useState("");
+  return (
+    <div className="ai-compose-bar flex items-center gap-3 px-5 py-3.5 rounded-xl mt-2"
+      style={{ background: "var(--surface)", border: "1px solid var(--c-border)" }} data-testid="ai-compose-bar">
+      <div className="ai-indicator w-7 h-7 rounded-full flex items-center justify-center shrink-0">
+        <span className="w-2.5 h-2.5 rounded-full" style={{ background: "var(--on-primary)" }} />
+      </div>
+      <input
+        data-testid="ai-compose-input"
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        placeholder="Describe the app you want to build..."
+        className="flex-1 bg-transparent border-0 outline-none text-sm"
+        style={{ color: "var(--text)" }}
+      />
+      <span className="text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full shrink-0"
+        style={{ color: "var(--ai)", border: "1px solid var(--ai)" }}>Listening</span>
+    </div>
+  );
+};
+
 const Digital = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
@@ -125,8 +147,9 @@ const Digital = () => {
           </div>
         ) : (
           /* Step 1 — Gallery */
+          <>
           <Tabs value={tab} onValueChange={setTab}>
-            <TabsList data-testid="digital-tabs" className="grid grid-cols-2 w-full h-auto bg-slate-100 p-1.5 rounded-xl gap-1.5">
+            <TabsList data-testid="digital-tabs" className="grid grid-cols-2 w-full h-auto p-1.5 rounded-xl gap-1.5" style={{ background: "var(--surface-2)" }}>
               {Object.entries(TAB_META).map(([key, m]) => (
                 <TabsTrigger key={key} value={key} data-testid={`tab-${key}`} className="data-[state=active]:bg-[#2563EB] data-[state=active]:text-white data-[state=active]:shadow-md py-2.5 sm:py-3 px-2 rounded-lg gap-1 sm:gap-1.5 font-bold text-[11px] sm:text-sm whitespace-nowrap overflow-hidden">
                   <span>{m.icon}</span>
@@ -137,10 +160,10 @@ const Digital = () => {
 
             {Object.entries(TAB_META).map(([key, m]) => (
               <TabsContent key={key} value={key} className="pt-5 space-y-5">
-                <div className="bg-gradient-to-r from-slate-900 via-rose-900 to-slate-900 text-white rounded-xl px-4 sm:px-5 py-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
+                <div className="rounded-xl px-4 sm:px-5 py-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2" style={{ background: "linear-gradient(90deg, var(--surface), rgba(91,124,250,0.14), var(--surface))", border: "1px solid var(--c-border)", color: "var(--text)" }}>
                   <div className="min-w-0">
-                    <div className="text-[10px] sm:text-xs uppercase tracking-widest font-bold opacity-70">{m.label}</div>
-                    <div className="text-base sm:text-lg font-bold mt-0.5 break-words">{m.tagline}</div>
+                    <div className="text-[10px] sm:text-xs uppercase tracking-widest font-bold" style={{ color: "var(--text-muted)" }}>{m.label}</div>
+                    <div className="text-base sm:text-lg font-semibold mt-0.5 break-words">{m.tagline}</div>
                   </div>
                   <span className="text-2xl sm:text-3xl shrink-0">{m.icon}</span>
                 </div>
@@ -155,6 +178,8 @@ const Digital = () => {
               </TabsContent>
             ))}
           </Tabs>
+          <AiComposeBar />
+          </>
         )}
       </div>
 
@@ -187,7 +212,7 @@ const Digital = () => {
           {welcomeStep === 0 && (
             <div className="text-center py-3">
               <div className="text-5xl">👋</div>
-              <h1 className="text-2xl font-bold mt-2">Welcome to Orbit Digital Builder</h1>
+              <h1 className="text-2xl font-bold mt-2">Welcome to Orbit Builder</h1>
               <p className="text-sm text-slate-500 mt-1">Build a complete app in minutes with zero code</p>
               <Button data-testid="welcome-next" onClick={() => setWelcomeStep(1)} className="mt-4 bg-[#2563EB]">Next →</Button>
             </div>

@@ -104,7 +104,7 @@ const RobiMart = () => {
             </button>
             {accOpen && (
               <div className="absolute right-4 top-14 bg-white border border-slate-200 rounded-lg shadow-lg w-56 py-2 z-40">
-                <div className="px-3 py-2 border-b border-slate-100"><div className="text-sm font-bold">Rafiul Karim</div><div className="text-[10px] text-slate-500">rafiul@orbit.com</div></div>
+                <div className="px-3 py-2 border-b border-slate-100"><div className="text-sm font-bold">Rafiul Karim</div><div className="text-[10px] text-slate-500">rafiul@orbit.app</div></div>
                 <button data-testid="goto-account" onClick={() => { setPage("account"); setAccOpen(false); }} className="w-full text-left px-3 py-2 text-sm hover:bg-slate-50">My Account</button>
                 <button onClick={() => { setPage("home"); setAccOpen(false); }} className="w-full text-left px-3 py-2 text-sm hover:bg-slate-50">Order History</button>
                 <button onClick={() => setAccOpen(false)} className="w-full text-left px-3 py-2 text-sm hover:bg-slate-50 text-rose-600">Logout</button>
@@ -311,7 +311,7 @@ const RobiMart = () => {
           <h1 className="text-2xl font-bold">My Account</h1>
           <div className="bg-white border border-slate-200 rounded-xl p-4">
             <div className="text-xs uppercase font-bold text-slate-500 mb-2">Profile</div>
-            <div className="space-y-1 text-sm"><div><b>Name:</b> Rafiul Karim</div><div><b>Email:</b> rafiul@orbit.com</div><div><b>Phone:</b> +880 1700-123456</div><div><b>Address:</b> 123, Gulshan-1, Dhaka 1212</div></div>
+            <div className="space-y-1 text-sm"><div><b>Name:</b> Rafiul Karim</div><div><b>Email:</b> rafiul@orbit.app</div><div><b>Phone:</b> +880 1700-123456</div><div><b>Address:</b> 123, Gulshan-1, Dhaka 1212</div></div>
           </div>
           <div className="bg-white border border-slate-200 rounded-xl p-4">
             <div className="text-xs uppercase font-bold text-slate-500 mb-2">Order History</div>

@@ -8,8 +8,8 @@ import { SAMPLE_CONTENT, sampleOrders, sampleAppointments, sampleReviews, sample
 const AppContext = createContext(null);
 
 const USERS = {
-  "developer@orbit.com": { password: "dev123", role: "developer", name: "Rafiul Karim", username: "developer" },
-  "admin@orbit.com": { password: "admin123", role: "admin", name: "System Admin", username: "admin" },
+  "developer@orbit.app": { password: "dev123", role: "developer", name: "Rafiul Karim", username: "developer" },
+  "admin@orbit.app": { password: "admin123", role: "admin", name: "System Admin", username: "admin" },
 };
 
 const safeParse = (key, fallback) => {
@@ -274,7 +274,7 @@ export const AppProvider = ({ children }) => {
       id,
       created: new Date().toISOString().slice(0, 10),
       status: "Pending Approval",
-      username: user?.email || "developer@orbit.com",
+      username: user?.email || "developer@orbit.app",
       revenueShare: { developer: 65, operator: 25, platform: 10 },
       activity: [{ actor: user?.email || "developer", date: new Date().toISOString().slice(0, 10), remark: "App submitted" }],
       ...app,

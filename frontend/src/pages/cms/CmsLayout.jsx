@@ -32,7 +32,7 @@ const CmsLayout = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col">
+    <div className="orbit-app min-h-screen flex flex-col" style={{ background: "var(--bg)", color: "var(--text)" }}>
       {/* Top app bar */}
       <header className="h-14 bg-white border-b border-slate-200 flex items-center justify-between px-3 sticky top-0 z-30">
         <div className="flex items-center gap-2 min-w-0">
@@ -68,7 +68,8 @@ const CmsLayout = () => {
                 to={`/my-apps/${appId}/content/${item.key}`}
                 data-testid={`cms-nav-${item.key}`}
                 onClick={() => setMobileOpen(false)}
-                className={({ isActive }) => `flex items-center gap-2 px-3 py-2 rounded-md text-sm ${isActive ? "bg-rose-50 text-rose-700 font-bold" : "text-slate-700 hover:bg-slate-50"}`}
+                className={({ isActive }) => `flex items-center gap-2 px-3 py-2 rounded-md text-sm ${isActive ? "font-bold" : "hover:bg-white/5"}`}
+                style={({ isActive }) => (isActive ? { background: "rgba(91,124,250,0.12)", color: "var(--c-primary)" } : { color: "var(--text-muted)" })}
               >
                 <span className="text-base">{item.icon}</span>
                 <span>{item.label}</span>

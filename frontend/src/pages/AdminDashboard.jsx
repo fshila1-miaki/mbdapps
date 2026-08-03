@@ -2,7 +2,7 @@ import React from "react";
 import Layout from "../components/Layout";
 import Tile from "../components/Tile";
 import { useApp } from "../context/AppContext";
-import { Users, ServerCog, Store, BarChart3, ShieldCheck, Settings2 } from "lucide-react";
+import { Users, Store, BarChart3, ShieldCheck, Settings2 } from "lucide-react";
 
 const AdminDashboard = () => {
   const { user, apps, systemUsers } = useApp();
@@ -39,10 +39,9 @@ const AdminDashboard = () => {
           <h2 className="text-lg font-semibold mb-4 tracking-tight">Modules</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             <Tile testid="admin-tile-users" to="/admin/users" title="User Management" description="Manage system users, app creators and App Store users." icon={Users} />
-            <Tile testid="admin-tile-provisioning" to="/admin/provisioning" title="Provisioning" description="Review pending apps. Approve, reject, suspend or terminate." icon={ServerCog} accent />
             <Tile testid="admin-tile-appstore" to="/admin/appstore" title="App Store" description="Curate published apps and manage banner layouts." icon={Store} />
             <Tile testid="admin-tile-reporting" to="/reports" title="Reporting" description="Platform-wide analytics across all apps and subscriptions." icon={BarChart3} />
-            <Tile testid="admin-tile-tap" to="/admin/tap" title="Tap Admin" description="Subscription manager, governance, advertisements and promotions." icon={ShieldCheck} />
+            <Tile testid="admin-tile-tap" to="/admin/tap" title="Tap Admin" description="Subscription manager, governance, advertisements and promotions." icon={ShieldCheck} accent />
             <Tile testid="admin-tile-storeadmin" to="/admin/appstore" title="App Store Admin" description="Application management and layout configuration for the public store." icon={Settings2} />
           </div>
         </section>

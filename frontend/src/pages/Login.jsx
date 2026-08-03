@@ -8,6 +8,7 @@ import { Input } from "../components/ui/input";
 import { Label } from "../components/ui/label";
 import { Logo } from "../components/Layout";
 import LanguageSwitcher from "../components/LanguageSwitcher";
+import ThemeToggle from "../components/ThemeToggle";
 import { Eye, EyeOff } from "lucide-react";
 import {
   Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter,
@@ -56,19 +57,19 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex" style={{ fontFamily: "'Inter', sans-serif" }}>
+    <div className="orbit-app min-h-screen flex" style={{ fontFamily: "'Inter', sans-serif", background: "var(--bg)", color: "var(--text)" }}>
       {/* Left - branding */}
-      <div className="hidden lg:flex lg:w-1/2 relative bg-[#09090B] text-white p-16 flex-col justify-between">
-        <Logo className="text-white [&>span]:text-white" />
+      <div className="hidden lg:flex lg:w-1/2 relative p-16 flex-col justify-between" style={{ background: "var(--surface)", borderRight: "1px solid var(--c-border)" }}>
+        <Logo />
         <div className="space-y-6">
-          <h1 className="text-5xl xl:text-6xl tracking-tighter leading-[0.95]" style={{ fontFamily: "'Outfit', sans-serif" }}>
-            {t("auth.heroTitle1")} <span className="text-[#2563EB]">{t("auth.heroMillion")}</span> {t("auth.heroTitle2")}
+          <h1 className="text-5xl xl:text-6xl tracking-tight leading-[1.02] font-semibold" style={{ color: "var(--text)" }}>
+            {t("auth.heroTitle1")} <span style={{ color: "var(--c-primary)" }}>{t("auth.heroMillion")}</span> {t("auth.heroTitle2")}
           </h1>
-          <p className="text-slate-300 max-w-md leading-relaxed">
+          <p className="max-w-md leading-relaxed" style={{ color: "var(--text-muted)" }}>
             {t("auth.heroSub")}
           </p>
         </div>
-        <div className="flex items-center gap-8 text-xs uppercase tracking-widest text-slate-400">
+        <div className="flex items-center gap-8 text-xs uppercase tracking-widest" style={{ color: "var(--text-muted)" }}>
           <span>v 4.2.1</span>
           <span>SLA 99.95%</span>
           <span>API Docs</span>
@@ -76,17 +77,17 @@ const Login = () => {
       </div>
 
       {/* Right - form */}
-      <div className="flex-1 flex flex-col justify-center px-6 sm:px-12 lg:px-20 bg-white relative">
-        <div className="absolute top-4 right-6"><LanguageSwitcher /></div>
+      <div className="flex-1 flex flex-col justify-center px-6 sm:px-12 lg:px-20 relative" style={{ background: "var(--bg)" }}>
+        <div className="absolute top-4 right-6 flex items-center gap-1"><ThemeToggle /><LanguageSwitcher /></div>
         <div className="w-full max-w-sm mx-auto">
           <div className="lg:hidden mb-12"><Logo /></div>
-          <h2 className="text-3xl font-bold tracking-tight text-[#09090B] mb-1" style={{ fontFamily: "'Outfit', sans-serif" }}>{t("auth.signInTitle")}</h2>
-          <p className="text-sm text-slate-500 mb-8">{t("auth.signInSubtitle")}</p>
+          <h2 className="text-3xl font-semibold tracking-tight mb-1" style={{ color: "var(--text)" }}>{t("auth.signInTitle")}</h2>
+          <p className="text-sm mb-8" style={{ color: "var(--text-muted)" }}>{t("auth.signInSubtitle")}</p>
 
           <form onSubmit={submit} className="space-y-4" data-testid="login-form">
             <div>
               <Label htmlFor="email">{t("auth.email")}</Label>
-              <Input data-testid="login-email" id="email" type="email" placeholder="developer@orbit.com"
+              <Input data-testid="login-email" id="email" type="email" placeholder="developer@orbit.app"
                 value={email} onChange={(e) => setEmail(e.target.value)} className={errors.email ? "border-rose-500" : ""} />
               {errors.email && <p className="text-xs text-rose-600 mt-1">{errors.email}</p>}
             </div>
@@ -119,9 +120,9 @@ const Login = () => {
 
           <div className="mt-10 p-4 bg-slate-50 border border-slate-200 rounded-md">
             <p className="text-xs uppercase font-bold tracking-widest text-slate-500 mb-2">{t("auth.demoCredentials")}</p>
-            <div className="space-y-1 text-xs font-mono text-slate-700">
-              <div>developer@orbit.com / dev123</div>
-              <div>admin@orbit.com / admin123</div>
+            <div className="space-y-1 text-xs font-mono" style={{ color: "var(--text)" }}>
+              <div>developer@orbit.app / dev123</div>
+              <div>admin@orbit.app / admin123</div>
             </div>
           </div>
         </div>

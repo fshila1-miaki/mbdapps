@@ -4,7 +4,7 @@
 
 const MOCK_APP_ID = "APP_000375";
 const MOCK_PASSWORD = "a07118cda5215fc6d01db5b2ab848edd";
-const BASE_URL = "https://developer.orbit.com";
+const BASE_URL = "https://developer.orbit.app";
 
 // Simulated delay to feel realistic (800ms - 1500ms)
 const delay = (ms) => new Promise((res) => setTimeout(res, ms));

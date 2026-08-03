@@ -100,7 +100,7 @@ const APIMonitor = ({ autoOpen = false }) => {
 
           {/* Demo banner */}
           <div className="px-3 py-2 bg-amber-500/10 border-b border-amber-500/20 text-[10px] text-amber-200">
-            ℹ️ Demo Mode · Calls are simulated. Production endpoint: <code className="text-amber-300">developer.orbit.com</code>
+            ℹ️ Demo Mode · Calls are simulated. Production endpoint: <code className="text-amber-300">developer.orbit.app</code>
           </div>
 
           {/* Logs */}

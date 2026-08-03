@@ -15,7 +15,6 @@ import Digital from "./pages/Digital";
 import AddOns from "./pages/AddOns";
 import ApiDocs from "./pages/ApiDocs";
 import UserManagement from "./pages/admin/UserManagement";
-import AdminProvisioning from "./pages/admin/AdminProvisioning";
 import AppStoreAdmin from "./pages/admin/AppStoreAdmin";
 import TapAdmin from "./pages/admin/TapAdmin";
 import MyApps from "./pages/MyApps";
@@ -109,7 +108,6 @@ function App() {
           {/* Admin */}
           <Route path="/admin" element={<ProtectedRoute role="admin"><AdminDashboard /></ProtectedRoute>} />
           <Route path="/admin/users" element={<ProtectedRoute role="admin"><UserManagement /></ProtectedRoute>} />
-          <Route path="/admin/provisioning" element={<ProtectedRoute role="admin"><AdminProvisioning /></ProtectedRoute>} />
           <Route path="/admin/appstore" element={<ProtectedRoute role="admin"><AppStoreAdmin /></ProtectedRoute>} />
           <Route path="/admin/tap" element={<ProtectedRoute role="admin"><TapAdmin /></ProtectedRoute>} />
 
