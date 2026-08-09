@@ -87,7 +87,7 @@ export const AppStore = () => {
         <div className="max-w-[1400px] mx-auto px-4 lg:px-8 h-16 flex items-center gap-3 sm:gap-6">
           <Link to="/appstore" data-testid="bdapps-logo" className="flex items-center gap-2.5 shrink-0">
             <OrbitMark size={26} />
-            <span className="orbit-wordmark text-[20px] hidden sm:block">orbit</span>
+            <span className="orbit-wordmark text-[20px] hidden sm:block">Orbit</span>
           </Link>
           <div className="relative flex-1 max-w-xl">
             <Search size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-400" />

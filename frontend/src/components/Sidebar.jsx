@@ -71,7 +71,7 @@ const Sidebar = ({ open, onClose }) => {
         <div className="h-[52px] px-4 flex items-center justify-between" style={{ borderBottom: "1px solid var(--c-border)" }}>
           <Link to={user.role === "admin" ? "/admin" : "/dashboard"} className="flex items-center gap-2.5" onClick={onClose}>
             <OrbitMark size={26} className="shrink-0" />
-            {!collapsed && <span className="orbit-wordmark text-[20px]">orbit</span>}
+            {!collapsed && <span className="orbit-wordmark text-[20px]">Orbit</span>}
           </Link>
           <button onClick={onClose} className="lg:hidden p-1 hover:bg-white/10 rounded" data-testid="sidebar-close"><X size={18} /></button>
         </div>

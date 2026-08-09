@@ -16,7 +16,7 @@ import { useTranslation } from "react-i18next";
 export const Logo = ({ className = "" }) => (
   <Link to="/" data-testid="bdapps-logo" className={`flex items-center gap-2.5 ${className}`}>
     <OrbitMark size={28} className="shrink-0" />
-    <span className="orbit-wordmark text-[22px]">orbit</span>
+    <span className="orbit-wordmark text-[22px]">Orbit</span>
   </Link>
 );
 

@@ -125,8 +125,8 @@ code, .font-mono { font-family: 'JetBrains Mono', monospace; }
 /* ---------- Orbit wordmark ---------- */
 .orbit-wordmark {
   font-family: 'Inter', system-ui, sans-serif;
-  font-weight: 300;
-  letter-spacing: -0.03em;
+  font-weight: 600;
+  letter-spacing: -0.02em;
   color: var(--text);
 }
 
