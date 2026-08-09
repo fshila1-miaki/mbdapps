@@ -1,0 +1,32 @@
+{
+  "summary": "Verified logout redirect behavior across all three entry points (dev header dropdown, dev sidebar, admin header dropdown). ALL THREE FAILED — after logout the final URL is /login (not '/'). The 'navigate before logout' change in Layout.jsx and Sidebar.jsx does NOT eliminate the ProtectedRoute race. Browser navigation trace during logout: URL log = ['/', '/login', '/login'] — so the app DOES push '/' first, and then ProtectedRoute immediately replaces to '/login'. localStorage.bdapps_user becomes null (logout itself works).",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [
+      {"component": "Layout.jsx onLogout / Sidebar.jsx onLogout / ProtectedRoute.jsx", "issue": "Logout still lands on /login instead of / (Orbit App Store). Confirmed by framenavigated log '/' -> '/login' (replace). Race is NOT resolved by ordering navigate('/', {replace:true}) before logout(); the two updates come from independent subscriptions (react-router history vs React setState) and the ProtectedRoute wrapping /dashboard (or /admin) re-renders with user=null while the router's location state is still /dashboard, causing <Navigate to='/login' replace/> to fire and overwrite the earlier push to '/'.", "selector": "[data-testid='logout-button'], [data-testid='sidebar-logout']", "priority": "CRITICAL"}
+    ],
+    "integration_issues": [
+      {"flow": "Developer header-dropdown logout", "issue": "Ends on /login (App Store not visible; create-app-btn not present)", "affected_selectors": ["[data-testid='user-menu-trigger']", "[data-testid='logout-button']", "[data-testid='create-app-btn']"]},
+      {"flow": "Developer sidebar logout", "issue": "Ends on /login", "affected_selectors": ["[data-testid='sidebar-logout']"]},
+      {"flow": "Admin header-dropdown logout", "issue": "Ends on /login", "affected_selectors": ["[data-testid='user-menu-trigger']", "[data-testid='logout-button']"]}
+    ],
+    "design_issues": []
+  },
+  "test_report_links": [],
+  "action_items": [
+    "Fix the ProtectedRoute-vs-logout race so all logout paths land on '/' (App Store). Options that will actually work: (a) In ProtectedRoute, redirect unauthenticated users to '/' instead of '/login' (matches product intent that App Store is the public landing). (b) Or move the logout redirect INSIDE a useEffect that runs after user becomes null (e.g., in Layout, useEffect(() => { if (!user) navigate('/', {replace:true}); }, [user])) and call only logout() from onLogout — but also change ProtectedRoute to render null (or a spinner) while user===null instead of Navigate to /login, otherwise the same race recurs. (c) Or defer logout: onLogout = () => { navigate('/', {replace:true}); setTimeout(logout, 0); } — but this is fragile; prefer (a).",
+    "Recommended minimal fix: change ProtectedRoute.jsx to Navigate to='/' instead of '/login'. This satisfies the requirement in one line and removes the race entirely."
+  ],
+  "critical_code_review_comments": [
+    "ProtectedRoute redirecting unauthenticated users to /login while the product's public landing is '/' creates an inherent race with any 'logout then go home' UX. Redirect to '/' (public App Store) is the semantically correct choice.",
+    "onLogout ordering (navigate then logout) assumes both updates flush atomically to the same render — they don't reliably in react-router v6 + React 18 because location state is delivered via a separate subscription; a ProtectedRoute currently mounted can re-render with user=null before the location subscription fires."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A", "frontend": "0% (0/4 logout scenarios pass)"},
+  "test_credentials": "developer@orbit.app / dev123, admin@orbit.app / admin123 (from /app/memory/test_credentials.md not consulted; provided in task and confirmed working for login).",
+  "seed_data_creation": "None",
+  "retest_needed": true,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "Only logout redirect behavior needs to be verified. All 3 entry points (header dropdown for dev + admin, sidebar for dev) currently land on /login. Root cause is the ProtectedRoute race — recommended fix is to change ProtectedRoute Navigate target from '/login' to '/'. After fix, retest T1/T2/T3 above and sanity check (T4) that App Store landing renders with create-app-btn.",
+  "rca of the issue": "During onLogout, navigate('/', {replace:true}) pushes '/' onto history (sync history call) and setUser(null) is queued. React re-renders. Because React state (user=null) and react-router's internal location state are delivered via independent subscriptions, in practice the currently-mounted /dashboard tree re-renders with user=null WHILE the router still reports location=/dashboard. ProtectedRoute sees user=null and returns <Navigate to='/login' replace/>, which calls history.replace('/login'), overwriting the earlier push to '/'. Observed framenavigated trace: '/', '/login', '/login'. Deterministic fix: make ProtectedRoute redirect to '/' (public App Store) so even if the race occurs the destination is correct; this also aligns with product intent."
+}

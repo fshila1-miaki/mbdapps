@@ -52,7 +52,7 @@ const Sidebar = ({ open, onClose }) => {
   const links = user.role === "admin" ? ADMIN_LINKS : DEV_LINKS;
   const isActive = (l) => l.exact ? loc.pathname === l.to : loc.pathname === l.to || loc.pathname.startsWith(l.to + "/");
 
-  const onLogout = () => { logout(); navigate("/", { replace: true }); };
+  const onLogout = () => { navigate("/", { replace: true }); logout(); };
 
   const width = collapsed ? "w-16" : "w-64";
 

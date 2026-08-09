@@ -35,8 +35,8 @@ const Layout = ({ children, subnav = null }) => {
   const unread = (appNotifs || []).filter((n) => !n.read).length;
 
   const onLogout = () => {
-    logout();
     navigate("/", { replace: true });
+    logout();
   };
 
   // Sidebar uses position:fixed at all viewports. We reserve space for it on
