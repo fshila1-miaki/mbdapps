@@ -54,7 +54,7 @@ const PlayRow = ({ title, apps, onOpen, onSeeAll, testid }) => (
 );
 
 export const AppStore = () => {
-  const { storeApps, appStoreUser, setAppStoreUser } = useApp();
+  const { storeApps, appStoreUser, setAppStoreUser, user } = useApp();
   const navigate = useNavigate();
   const [search, setSearch] = useState("");
   const [chip, setChip] = useState("For you");
@@ -95,7 +95,7 @@ export const AppStore = () => {
               className="w-full h-10 pl-11 pr-4 rounded-full bg-zinc-100 text-sm placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-[#2563EB]/30 focus:bg-white transition-all" />
           </div>
           <div className="flex items-center gap-2 shrink-0">
-            <Button onClick={() => navigate("/digital")} data-testid="create-app-btn" className="bg-[#2563EB] hover:bg-[#1D4ED8] rounded-full hidden sm:flex active:scale-95 transition-all"><span className="mr-1">+</span> Create App</Button>
+            <Button onClick={() => navigate(user ? "/digital" : "/login")} data-testid="create-app-btn" className="bg-[#2563EB] hover:bg-[#1D4ED8] rounded-full hidden sm:flex active:scale-95 transition-all"><span className="mr-1">+</span> Create App</Button>
             {appStoreUser
               ? <Button variant="outline" data-testid="store-user" className="rounded-full">{appStoreUser.phone}</Button>
               : <Button data-testid="store-signin" onClick={() => { setOtpOpen(true); setOtpStep(1); }} variant="outline" className="rounded-full">Sign In</Button>}

@@ -1,7 +1,7 @@
 import React from "react";
 
-// Orbit mark — gradient ring (blue→teal) with a break, and a teal satellite
-// dot sitting in the break. Matches the uploaded brand mark.
+// Orbit mark — gradient ring (blue→teal) with a gap at the top and a teal
+// satellite dot sitting exactly on the ring's upper-right end (no protruding tail).
 export const OrbitMark = ({ size = 28, className = "" }) => {
   const gid = React.useId().replace(/:/g, "");
   return (
@@ -15,23 +15,25 @@ export const OrbitMark = ({ size = 28, className = "" }) => {
       style={{ display: "block" }}
     >
       <defs>
-        <linearGradient id={`orbit-ring-${gid}`} x1="12" y1="54" x2="52" y2="12" gradientUnits="userSpaceOnUse">
+        <linearGradient id={`orbit-ring-${gid}`} x1="16" y1="54" x2="50" y2="14" gradientUnits="userSpaceOnUse">
           <stop offset="0" stopColor="#5B7CFA" />
-          <stop offset="0.6" stopColor="#5F9CE8" />
+          <stop offset="0.65" stopColor="#5FA0E6" />
           <stop offset="1" stopColor="#2DD4BF" />
         </linearGradient>
       </defs>
+      {/* Ring: 298° arc (62° gap at top), rotated so the gap sits at 12 o'clock */}
       <circle
         cx="32" cy="33" r="20"
         fill="none"
         stroke={`url(#orbit-ring-${gid})`}
         strokeWidth="7"
         strokeLinecap="round"
-        strokeDasharray="104 22"
-        strokeDashoffset="-8"
-        transform="rotate(-108 32 33)"
+        pathLength="360"
+        strokeDasharray="298 62"
+        transform="rotate(-59 32 33)"
       />
-      <circle cx="46" cy="18" r="8" fill="#2DD4BF" />
+      {/* Satellite dot covers the ring's upper-right terminus */}
+      <circle cx="42.3" cy="15.9" r="8" fill="#2DD4BF" />
     </svg>
   );
 };
