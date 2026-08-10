@@ -4,7 +4,7 @@ import { useApp } from "../context/AppContext";
 
 const ProtectedRoute = ({ children, role }) => {
   const { user } = useApp();
-  if (!user) return <Navigate to="/login" replace />;
+  if (!user) return <Navigate to="/" replace />;
   if (role && user.role !== role) return <Navigate to={user.role === "admin" ? "/admin" : "/dashboard"} replace />;
   return children;
 };
