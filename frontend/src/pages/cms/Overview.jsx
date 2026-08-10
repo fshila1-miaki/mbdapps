@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useOutletContext, useNavigate } from "react-router-dom";
 import { Button } from "../../components/ui/button";
 import { Plus, Pencil, Eye, BarChart3 } from "lucide-react";
@@ -11,6 +11,79 @@ const StatCard = ({ label, value, delta, color = "text-slate-900" }) => (
     {delta && <div className="text-[11px] text-emerald-600 mt-0.5 font-semibold">▲ {delta}</div>}
   </div>
 );
+
+const REV_KEY = "sathibd_revenue_today";
+const SIM_PLANS = [{ name: "Gold", amt: 349 }, { name: "Platinum", amt: 549 }, { name: "Gold", amt: 349 }, { name: "Platinum", amt: 549 }, { name: "Gold", amt: 349 }];
+const readExtra = () => Number(localStorage.getItem(REV_KEY)) || 0;
+
+/**
+ * Live "Revenue Today" ticker for the SathiBD matrimony CMS.
+ * Eases up to a target that grows from (a) simulated incoming Robi CaaS charges
+ * every few seconds and (b) real subscriptions completed in /apps/sathibd
+ * (dispatched as a `sathibd:revenue` window event + persisted to localStorage).
+ */
+const RevenueTicker = ({ base = 6397 }) => {
+  const [target, setTarget] = useState(() => base + readExtra());
+  const [display, setDisplay] = useState(() => base + readExtra());
+  const [flash, setFlash] = useState(null);
+
+  useEffect(() => {
+    if (display === target) return;
+    const id = setInterval(() => {
+      setDisplay((d) => {
+        const diff = target - d;
+        if (Math.abs(diff) < 1) { clearInterval(id); return target; }
+        return Math.round(d + diff * 0.25);
+      });
+    }, 30);
+    return () => clearInterval(id);
+  }, [target, display]);
+
+  const bump = useCallback((amt, name) => {
+    const total = readExtra() + amt;
+    localStorage.setItem(REV_KEY, String(total));
+    setTarget(base + total);
+    const f = { amt, name, id: Date.now() };
+    setFlash(f);
+    setTimeout(() => setFlash((cur) => (cur && cur.id === f.id ? null : cur)), 2800);
+  }, [base]);
+
+  // (a) simulated incoming subscriptions — keeps the demo alive
+  useEffect(() => {
+    const id = setInterval(() => {
+      const p = SIM_PLANS[Math.floor(Math.random() * SIM_PLANS.length)];
+      bump(p.amt, p.name);
+    }, 6500);
+    return () => clearInterval(id);
+  }, [bump]);
+
+  // (b) real subscriptions completed in the live app
+  useEffect(() => {
+    const h = (e) => {
+      const total = (e.detail && typeof e.detail.total === "number") ? e.detail.total : readExtra();
+      setTarget(base + total);
+      const amt = e.detail?.amount || 0;
+      const f = { amt, name: e.detail?.plan || "Gold", id: Date.now() };
+      setFlash(f);
+      setTimeout(() => setFlash((cur) => (cur && cur.id === f.id ? null : cur)), 2800);
+    };
+    window.addEventListener("sathibd:revenue", h);
+    return () => window.removeEventListener("sathibd:revenue", h);
+  }, [base]);
+
+  return (
+    <div data-testid="sathibd-revenue-ticker" className="relative overflow-hidden rounded-xl p-4 text-white" style={{ background: "linear-gradient(135deg,#f6af04,#d99400)" }}>
+      <div className="flex items-center justify-between">
+        <div className="text-xs uppercase tracking-widest font-bold opacity-90">Revenue Today</div>
+        <span className="flex items-center gap-1 text-[10px] font-bold bg-white/25 rounded-full px-2 py-0.5"><span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" /> LIVE</span>
+      </div>
+      <div className="text-2xl font-bold mt-1 tabular-nums" style={{ fontFamily: "'Playfair Display', serif" }} data-testid="sathibd-revenue-value">৳ {display.toLocaleString("en-IN")}</div>
+      <div className="text-[11px] mt-0.5 opacity-95 h-4 transition-opacity">
+        {flash ? `💳 New ${flash.name} subscription · +৳${flash.amt} via CaaS` : "via Robi CaaS direct debit"}
+      </div>
+    </div>
+  );
+};
 
 const Overview = () => {
   const { app } = useOutletContext();
@@ -41,6 +114,13 @@ const Overview = () => {
       { label: "Active Doctors", value: (content.doctors || []).length },
       { label: "Revenue This Month", value: "BDT 84,000" },
     ];
+  } else if (app.kind === "matrimony") {
+    stats = [
+      { label: "Total Profiles", value: (app.stats?.registered || 3200).toLocaleString("en-IN"), delta: "64 today" },
+      { label: "Subscribers", value: (app.stats?.subscribers || 1840).toLocaleString("en-IN"), delta: "32 today" },
+      { ticker: true, base: 6397 },
+      { label: "SMS Sent", value: (app.stats?.sms || 18400).toLocaleString("en-IN"), delta: "240 today" },
+    ];
   } else {
     stats = [
       { label: "Total Items", value: Object.values(content).reduce((s, v) => s + (Array.isArray(v) ? v.length : 0), 0) },
@@ -54,6 +134,11 @@ const Overview = () => {
     { label: "Add Appointment", icon: "📅", to: "appointments" },
     { label: "Update Doctor", icon: "👨‍⚕️", to: "doctors" },
     { label: "View Reviews", icon: "⭐", to: "reviews" },
+  ] : app.kind === "matrimony" ? [
+    { label: "View Subscriptions", icon: "💳", to: "reports" },
+    { label: "Update Banner", icon: "🖼", to: "banners" },
+    { label: "View Reviews", icon: "⭐", to: "reviews" },
+    { label: "Settings", icon: "⚙", to: "settings" },
   ] : app.kind === "restaurant" ? [
     { label: "Add Menu Item", icon: "🍽", to: "menu" },
     { label: "Update Banner", icon: "🖼", to: "banners" },
@@ -74,7 +159,7 @@ const Overview = () => {
       </div>
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
-        {stats.map((s, i) => <StatCard key={i} {...s} />)}
+        {stats.map((s, i) => s.ticker ? <RevenueTicker key={i} base={s.base} /> : <StatCard key={i} {...s} />)}
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">

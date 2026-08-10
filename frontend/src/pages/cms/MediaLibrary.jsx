@@ -22,7 +22,7 @@ const MediaLibrary = () => {
       reader.onload = (e) => addMediaFile({ name: file.name, dataUrl: e.target.result, size: file.size, folder: folder === "All" ? "Miscellaneous" : folder });
       reader.readAsDataURL(file);
     });
-    toast.success(`✓ ${files.length} file(s) uploaded to BDApps Cloud`);
+    toast.success(`✓ ${files.length} file(s) uploaded to Orbit Cloud`);
   };
 
   const filtered = mediaLibrary.filter((m) => (folder === "All" || m.folder === folder) && (!q || m.name?.toLowerCase().includes(q.toLowerCase())));
@@ -36,7 +36,7 @@ const MediaLibrary = () => {
         </div>
         <div className="flex gap-2 items-center">
           <Input data-testid="media-search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search files..." className="w-40 h-9 text-sm" />
-          <Button data-testid="upload-files" onClick={() => fileRef.current?.click()} className="bg-[#e11d48] hover:bg-[#be123c] gap-1"><Upload size={14} /> Upload Files</Button>
+          <Button data-testid="upload-files" onClick={() => fileRef.current?.click()} className="bg-[#2563EB] hover:bg-[#1D4ED8] gap-1"><Upload size={14} /> Upload Files</Button>
           <input ref={fileRef} type="file" accept="image/*" multiple className="hidden" onChange={(e) => onFiles(e.target.files)} />
         </div>
       </div>

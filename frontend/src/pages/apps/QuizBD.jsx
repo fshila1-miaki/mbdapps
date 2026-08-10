@@ -4,7 +4,7 @@ import { toast } from "sonner";
 import { ChevronLeft } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import APIMonitor from "../../components/APIMonitor";
-import { requestOTP, verifyOTP, userSubscription, sendSMS, directDebit } from "../../services/BDAppsAPI";
+import { requestOTP, verifyOTP, userSubscription, sendSMS, directDebit } from "../../services/OrbitAPI";
 import { QuizWebPreview } from "../../components/digital/interactive/QuizPreview";
 
 /**
@@ -15,7 +15,7 @@ import { QuizWebPreview } from "../../components/digital/interactive/QuizPreview
  * therefore byte-identical to what users see when previewing the Quiz
  * template in the App Builder. This page only adds:
  *   1. A thin outer toolbar (Back + Lang toggle)
- *   2. Real BDAppsAPI calls (requestOTP / verifyOTP / userSubscription / sendSMS / directDebit)
+ *   2. Real OrbitAPI calls (requestOTP / verifyOTP / userSubscription / sendSMS / directDebit)
  *      bound to the preview's onPhoneSubmit / onOtpVerify / onFinish hooks
  *   3. APIMonitor panel so visitors can see live telecom API traffic.
  */

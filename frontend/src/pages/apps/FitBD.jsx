@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { ChevronLeft, Play, Pause, Lock, Flame, Footprints, Droplet, Timer } from "lucide-react";
 import APIMonitor from "../../components/APIMonitor";
-import { requestOTP, verifyOTP, userSubscription, sendSMS, queryBalance, directDebit } from "../../services/BDAppsAPI";
+import { requestOTP, verifyOTP, userSubscription, sendSMS, queryBalance, directDebit } from "../../services/OrbitAPI";
 
 const PLANS = [
   { id: "beginner", name: "Beginner Full Body", duration: "4 weeks · 3x/week", exercises: 5, time: 30, free: true, exerciseList: [
@@ -166,7 +166,7 @@ const FitBD = () => {
   return (
     <div className="min-h-screen bg-slate-100 p-4 md:p-8" data-testid="fitbd-app">
       <div className="max-w-md mx-auto mb-3 flex items-center justify-between">
-        <button onClick={() => navigate(-1)} className="text-xs text-slate-600 flex items-center gap-1"><ChevronLeft size={14} /> Back to BDApps</button>
+        <button onClick={() => navigate(-1)} className="text-xs text-slate-600 flex items-center gap-1"><ChevronLeft size={14} /> Back to Orbit</button>
         <span className="text-[10px] uppercase tracking-widest font-bold text-emerald-700">📱 Android Emulator</span>
       </div>
 
@@ -176,7 +176,7 @@ const FitBD = () => {
             <div className="text-7xl mb-3 animate-pulse">💪</div>
             <h1 className="text-4xl font-black tracking-tight">FitBD</h1>
             <p className="text-sm opacity-90 mt-2">Your Personal Fitness Companion</p>
-            <div className="absolute bottom-12 text-[10px] opacity-60">v1.0.0 · Powered by BDApps</div>
+            <div className="absolute bottom-12 text-[10px] opacity-60">v1.0.0 · Powered by Orbit</div>
           </div>
         )}
 

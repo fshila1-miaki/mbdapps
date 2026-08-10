@@ -81,7 +81,7 @@ const MinimalListScreen = ({ color, appName, icon }) => (
 );
 
 const FullScreenScreen = ({ color, appName, icon }) => (
-  <div className="flex flex-col h-full relative overflow-hidden" style={{ background: `linear-gradient(135deg, ${color} 0%, #1e293b 60%, #0f172a 100%)` }}>
+  <div className="flex flex-col h-full relative overflow-hidden" style={{ background: `linear-gradient(135deg, ${color} 0%, #1e293b 60%, #09090B 100%)` }}>
     <StatusBar />
     <div className="absolute top-12 -right-6 w-24 h-24 rounded-full bg-white/10 blur-2xl"></div>
     <div className="absolute bottom-20 -left-6 w-20 h-20 rounded-full bg-white/10 blur-2xl"></div>
@@ -113,7 +113,7 @@ const FullScreenScreen = ({ color, appName, icon }) => (
   </div>
 );
 
-const PhonePreview = ({ design = "modern-card", color = "#e11d48", appName = "My App", icon = "🚀", size = "md" }) => {
+const PhonePreview = ({ design = "modern-card", color = "#2563EB", appName = "My App", icon = "🚀", size = "md" }) => {
   const s = sizeMap[size] || sizeMap.md;
   const Screen = design === "minimal-list" ? MinimalListScreen : design === "fullscreen" ? FullScreenScreen : ModernCardScreen;
   return (

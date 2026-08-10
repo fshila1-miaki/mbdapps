@@ -9,15 +9,12 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import DeveloperDashboard from "./pages/DeveloperDashboard";
 import AdminDashboard from "./pages/AdminDashboard";
-import Provisioning from "./pages/Provisioning";
-import Lite from "./pages/Lite";
 import { AppStore, AppStoreDetail } from "./pages/AppStore";
 import Reports from "./pages/Reports";
 import Digital from "./pages/Digital";
 import AddOns from "./pages/AddOns";
 import ApiDocs from "./pages/ApiDocs";
 import UserManagement from "./pages/admin/UserManagement";
-import AdminProvisioning from "./pages/admin/AdminProvisioning";
 import AppStoreAdmin from "./pages/admin/AppStoreAdmin";
 import TapAdmin from "./pages/admin/TapAdmin";
 import MyApps from "./pages/MyApps";
@@ -38,7 +35,7 @@ import GenericSection from "./pages/cms/GenericSection";
 import RobiMart from "./pages/apps/RobiMart";
 import DeshiFood from "./pages/apps/DeshiFood";
 import EduPath from "./pages/apps/EduPath";
-import BondoBD from "./pages/apps/BondoBD";
+import SathiBD from "./pages/apps/SathiBD";
 import QuizBD from "./pages/apps/QuizBD";
 import NewsNow from "./pages/apps/NewsNow";
 import FitBD from "./pages/apps/FitBD";
@@ -55,9 +52,6 @@ function App() {
 
           {/* Developer */}
           <Route path="/dashboard" element={<ProtectedRoute role="developer"><DeveloperDashboard /></ProtectedRoute>} />
-          <Route path="/provisioning" element={<ProtectedRoute><Provisioning /></ProtectedRoute>} />
-          <Route path="/lite" element={<ProtectedRoute><Lite /></ProtectedRoute>} />
-          <Route path="/lite/:sub" element={<ProtectedRoute><Lite /></ProtectedRoute>} />
           <Route path="/digital" element={<ProtectedRoute role="developer"><Digital /></ProtectedRoute>} />
           <Route path="/add-ons" element={<ProtectedRoute role="developer"><AddOns /></ProtectedRoute>} />
           <Route path="/reports" element={<ProtectedRoute><Reports /></ProtectedRoute>} />
@@ -106,8 +100,8 @@ function App() {
           <Route path="/apps/fitbd" element={<FitBD />} />
           <Route path="/apps/fitbd-web" element={<FitBD />} />
           <Route path="/apps/shoplocal-bd" element={<RobiMart />} />
-          <Route path="/apps/bondobd" element={<BondoBD />} />
-          <Route path="/apps/bondobd-android" element={<BondoBD />} />
+          <Route path="/apps/sathibd" element={<SathiBD />} />
+          <Route path="/apps/sathibd-android" element={<SathiBD />} />
           <Route path="/apps/quizbd" element={<QuizBD />} />
           <Route path="/apps/newsnow" element={<NewsNow />} />
           <Route path="/apps/newsnow-bd" element={<NewsNow />} />
@@ -115,7 +109,6 @@ function App() {
           {/* Admin */}
           <Route path="/admin" element={<ProtectedRoute role="admin"><AdminDashboard /></ProtectedRoute>} />
           <Route path="/admin/users" element={<ProtectedRoute role="admin"><UserManagement /></ProtectedRoute>} />
-          <Route path="/admin/provisioning" element={<ProtectedRoute role="admin"><AdminProvisioning /></ProtectedRoute>} />
           <Route path="/admin/appstore" element={<ProtectedRoute role="admin"><AppStoreAdmin /></ProtectedRoute>} />
           <Route path="/admin/tap" element={<ProtectedRoute role="admin"><TapAdmin /></ProtectedRoute>} />
 

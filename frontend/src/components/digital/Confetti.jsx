@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const colors = ["#e11d48", "#f59e0b", "#10b981", "#3b82f6", "#a855f7", "#facc15"];
+const colors = ["#2563EB", "#f59e0b", "#10b981", "#3b82f6", "#a855f7", "#facc15"];
 
 const Confetti = ({ onDone }) => {
   const [show, setShow] = useState(true);

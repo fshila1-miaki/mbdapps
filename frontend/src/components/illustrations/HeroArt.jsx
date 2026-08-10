@@ -10,7 +10,7 @@ export const HeroDeveloperScene = () => (
     <defs>
       <linearGradient id="screen" x1="0" x2="0" y1="0" y2="1">
         <stop offset="0%" stopColor="#1e293b" />
-        <stop offset="100%" stopColor="#0f172a" />
+        <stop offset="100%" stopColor="#09090B" />
       </linearGradient>
       <linearGradient id="dev-skin" x1="0" x2="0" y1="0" y2="1">
         <stop offset="0%" stopColor="#fde68a" />
@@ -26,7 +26,7 @@ export const HeroDeveloperScene = () => (
 
     {/* laptop */}
     <g transform="translate(190 165)">
-      <rect x="0" y="0" width="220" height="125" rx="6" fill="#1e293b" stroke="#0f172a" strokeWidth="2" />
+      <rect x="0" y="0" width="220" height="125" rx="6" fill="#1e293b" stroke="#09090B" strokeWidth="2" />
       <rect x="6" y="6" width="208" height="105" rx="3" fill="url(#screen)" />
       {/* code lines */}
       <rect x="14" y="14" width="6" height="6" rx="1" fill="#ef4444" />
@@ -55,22 +55,22 @@ export const HeroDeveloperScene = () => (
       {/* head */}
       <ellipse cx="45" cy="45" rx="32" ry="36" fill="url(#dev-skin)" />
       {/* glasses */}
-      <circle cx="32" cy="46" r="7" fill="none" stroke="#0f172a" strokeWidth="2" />
-      <circle cx="58" cy="46" r="7" fill="none" stroke="#0f172a" strokeWidth="2" />
-      <line x1="39" y1="46" x2="51" y2="46" stroke="#0f172a" strokeWidth="2" />
+      <circle cx="32" cy="46" r="7" fill="none" stroke="#09090B" strokeWidth="2" />
+      <circle cx="58" cy="46" r="7" fill="none" stroke="#09090B" strokeWidth="2" />
+      <line x1="39" y1="46" x2="51" y2="46" stroke="#09090B" strokeWidth="2" />
       {/* eyes */}
-      <circle cx="32" cy="46" r="2" fill="#0f172a" />
-      <circle cx="58" cy="46" r="2" fill="#0f172a" />
+      <circle cx="32" cy="46" r="2" fill="#09090B" />
+      <circle cx="58" cy="46" r="2" fill="#09090B" />
       {/* smile */}
-      <path d="M36 62 Q45 68, 54 62" stroke="#0f172a" strokeWidth="2" fill="none" strokeLinecap="round" />
+      <path d="M36 62 Q45 68, 54 62" stroke="#09090B" strokeWidth="2" fill="none" strokeLinecap="round" />
       {/* shirt */}
-      <path d="M-15 85 L0 78 L20 75 L45 90 L70 75 L90 78 L105 85 L105 130 L-15 130 Z" fill="#e11d48" />
+      <path d="M-15 85 L0 78 L20 75 L45 90 L70 75 L90 78 L105 85 L105 130 L-15 130 Z" fill="#2563EB" />
       <path d="M37 78 L45 95 L53 78 Z" fill="#fff" />
     </g>
 
     {/* phone leaning against laptop */}
     <g transform="translate(420 195)">
-      <rect x="0" y="0" width="50" height="95" rx="8" fill="#0f172a" />
+      <rect x="0" y="0" width="50" height="95" rx="8" fill="#09090B" />
       <rect x="3" y="8" width="44" height="80" rx="3" fill="#fb923c" />
       <rect x="22" y="2" width="6" height="2" rx="1" fill="#475569" />
       {/* app screen content */}
@@ -85,9 +85,9 @@ export const HeroDeveloperScene = () => (
 
     {/* mug */}
     <g transform="translate(120 245)">
-      <rect x="0" y="0" width="32" height="30" rx="3" fill="#fff" stroke="#0f172a" strokeWidth="2" />
-      <path d="M32 8 Q42 8, 42 18 Q42 28, 32 28" fill="none" stroke="#0f172a" strokeWidth="2" />
-      <rect x="6" y="6" width="20" height="20" rx="2" fill="#e11d48" />
+      <rect x="0" y="0" width="32" height="30" rx="3" fill="#fff" stroke="#09090B" strokeWidth="2" />
+      <path d="M32 8 Q42 8, 42 18 Q42 28, 32 28" fill="none" stroke="#09090B" strokeWidth="2" />
+      <rect x="6" y="6" width="20" height="20" rx="2" fill="#2563EB" />
       <text x="16" y="20" textAnchor="middle" fontSize="11" fontWeight="900" fill="#fff">B</text>
       {/* steam */}
       <path d="M10 -4 Q6 -10, 12 -16" stroke="#fff" strokeWidth="2" fill="none" opacity="0.7" />
@@ -98,11 +98,11 @@ export const HeroDeveloperScene = () => (
     <g transform="translate(40 90)">
       <rect x="0" y="0" width="68" height="22" rx="11" fill="#fff" />
       <circle cx="11" cy="11" r="4" fill="#10b981" />
-      <text x="20" y="15" fontSize="9" fontWeight="700" fill="#0f172a">+248 sales</text>
+      <text x="20" y="15" fontSize="9" fontWeight="700" fill="#09090B">+248 sales</text>
     </g>
     <g transform="translate(490 70)">
       <rect x="0" y="0" width="80" height="22" rx="11" fill="#fff" />
-      <text x="40" y="15" fontSize="9" fontWeight="700" fill="#e11d48" textAnchor="middle">★ 4.9 rating</text>
+      <text x="40" y="15" fontSize="9" fontWeight="700" fill="#2563EB" textAnchor="middle">★ 4.9 rating</text>
     </g>
     <g transform="translate(30 200)">
       <rect x="0" y="0" width="58" height="22" rx="11" fill="#fff" />
@@ -135,7 +135,7 @@ export const HeroSubscribersScene = () => (
     {[[200, 130], [410, 140], [180, 250], [430, 240], [300, 80], [300, 320], [120, 200], [480, 200]].map(([x, y], i) => (
       <g key={i} transform={`translate(${x} ${y})`}>
         <circle r="12" fill="#fff" />
-        <circle r="6" fill="#0f172a" />
+        <circle r="6" fill="#09090B" />
         <path d="M-4 -2 Q0 -8, 4 -2 Q3 2, 0 4 Q-3 2, -4 -2 Z" fill="#fff" />
       </g>
     ))}
@@ -146,7 +146,7 @@ export const HeroSubscribersScene = () => (
     <g transform="translate(40 50)">
       <rect x="0" y="0" width="200" height="56" rx="14" fill="#fff" />
       <text x="14" y="22" fontSize="10" fontWeight="700" fill="#94a3b8">ACTIVE SUBSCRIBERS</text>
-      <text x="14" y="46" fontSize="22" fontWeight="900" fill="#0f172a" fontFamily="system-ui">10,482,914</text>
+      <text x="14" y="46" fontSize="22" fontWeight="900" fill="#09090B" fontFamily="system-ui">10,482,914</text>
     </g>
   </svg>
 );

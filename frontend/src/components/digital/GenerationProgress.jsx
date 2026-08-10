@@ -30,7 +30,7 @@ const GenerationProgress = ({ onDone, totalMs = 3000 }) => {
     <div data-testid="generation-progress" className="max-w-md mx-auto py-8">
       <div className="flex items-center gap-3 mb-6">
         <div className="w-12 h-12 rounded-2xl bg-rose-50 border border-rose-100 flex items-center justify-center">
-          <Sparkles size={20} className="text-[#e11d48]" />
+          <Sparkles size={20} className="text-[#2563EB]" />
         </div>
         <div>
           <div className="font-bold tracking-tight text-lg">Generating your app...</div>
@@ -46,7 +46,7 @@ const GenerationProgress = ({ onDone, totalMs = 3000 }) => {
               </div>
             ) : i === step ? (
               <div className="w-5 h-5 rounded-full bg-rose-50 border border-rose-200 flex items-center justify-center">
-                <Loader2 size={12} className="animate-spin text-[#e11d48]" />
+                <Loader2 size={12} className="animate-spin text-[#2563EB]" />
               </div>
             ) : (
               <div className="w-5 h-5 rounded-full border border-slate-200"></div>
@@ -59,7 +59,7 @@ const GenerationProgress = ({ onDone, totalMs = 3000 }) => {
       </div>
       <div className="w-full bg-slate-100 rounded-full h-1.5 mt-6 overflow-hidden">
         <div
-          className="h-full bg-gradient-to-r from-[#e11d48] to-[#7c3aed] transition-all duration-500"
+          className="h-full bg-gradient-to-r from-[#2563EB] to-[#7c3aed] transition-all duration-500"
           style={{ width: `${(step / STEPS.length) * 100}%` }}
         />
       </div>

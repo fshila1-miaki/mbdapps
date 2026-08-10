@@ -1,4 +1,4 @@
-// Centralized mock data for BDapps demo
+// Centralized mock data for Orbit demo
 
 export const STATUS_COLORS = {
   "Active Production": "bg-emerald-100 text-emerald-700 border-emerald-200",
@@ -34,90 +34,90 @@ export const seedApps = [
     id: "APP-1001",
     name: "Cricket Live Updates",
     type: "Pro",
-    username: "developer@bdapps.com",
+    username: "developer@orbit.app",
     created: daysAgo(28),
     status: "Active Production",
     description: "Live ball-by-ball cricket score updates via SMS.",
-    host: "https://cricket.bdapps.dev",
+    host: "https://cricket.orbit.dev",
     apis: ["SMS", "Subscription"],
     revenueShare: { developer: 70, operator: 25, platform: 5 },
     activity: [
-      { actor: "admin@bdapps.com", date: daysAgo(28), remark: "Approved - Active Production" },
-      { actor: "developer@bdapps.com", date: daysAgo(30), remark: "App submitted" },
+      { actor: "admin@orbit.app", date: daysAgo(28), remark: "Approved - Active Production" },
+      { actor: "developer@orbit.app", date: daysAgo(30), remark: "App submitted" },
     ],
   },
   {
     id: "APP-1002",
     name: "Daily Quiz Bangla",
     type: "Lite",
-    username: "developer@bdapps.com",
+    username: "developer@orbit.app",
     created: daysAgo(15),
     status: "Pending Approval",
     description: "Bangla GK quiz delivered daily via SMS subscription.",
-    host: "https://quiz.bdapps.dev",
+    host: "https://quiz.orbit.dev",
     apis: ["SMS"],
     revenueShare: { developer: 60, operator: 30, platform: 10 },
-    activity: [{ actor: "developer@bdapps.com", date: daysAgo(15), remark: "App submitted for review" }],
+    activity: [{ actor: "developer@orbit.app", date: daysAgo(15), remark: "App submitted for review" }],
   },
   {
     id: "APP-1003",
     name: "Bus Ticket USSD",
     type: "Pro",
-    username: "developer@bdapps.com",
+    username: "developer@orbit.app",
     created: daysAgo(45),
     status: "Suspended",
     description: "USSD-based interstate bus ticket booking.",
-    host: "https://bus.bdapps.dev",
+    host: "https://bus.orbit.dev",
     apis: ["USSD", "CaaS"],
     revenueShare: { developer: 65, operator: 25, platform: 10 },
     activity: [
-      { actor: "admin@bdapps.com", date: daysAgo(5), remark: "Suspended - compliance review" },
-      { actor: "admin@bdapps.com", date: daysAgo(40), remark: "Approved" },
+      { actor: "admin@orbit.app", date: daysAgo(5), remark: "Suspended - compliance review" },
+      { actor: "admin@orbit.app", date: daysAgo(40), remark: "Approved" },
     ],
   },
   {
     id: "APP-1004",
     name: "Recipe of the Day",
     type: "Lite",
-    username: "developer@bdapps.com",
+    username: "developer@orbit.app",
     created: daysAgo(2),
     status: "Draft",
     description: "Daily Bangla recipe SMS.",
     host: "",
     apis: [],
     revenueShare: { developer: 60, operator: 30, platform: 10 },
-    activity: [{ actor: "developer@bdapps.com", date: daysAgo(2), remark: "Draft created" }],
+    activity: [{ actor: "developer@orbit.app", date: daysAgo(2), remark: "Draft created" }],
   },
   {
     id: "APP-1005",
     name: "Stock Trade Alerts",
     type: "Pro",
-    username: "developer@bdapps.com",
+    username: "developer@orbit.app",
     created: daysAgo(60),
     status: "Rejected",
     description: "Real-time DSE stock alerts.",
-    host: "https://stocks.bdapps.dev",
+    host: "https://stocks.orbit.dev",
     apis: ["SMS", "Subscription"],
     revenueShare: { developer: 0, operator: 0, platform: 0 },
     activity: [
-      { actor: "admin@bdapps.com", date: daysAgo(55), remark: "Rejected - missing SEBL license" },
-      { actor: "developer@bdapps.com", date: daysAgo(60), remark: "Submitted" },
+      { actor: "admin@orbit.app", date: daysAgo(55), remark: "Rejected - missing SEBL license" },
+      { actor: "developer@orbit.app", date: daysAgo(60), remark: "Submitted" },
     ],
   },
   {
     id: "APP-1006",
     name: "City Prayer Times",
     type: "Lite",
-    username: "developer@bdapps.com",
+    username: "developer@orbit.app",
     created: daysAgo(20),
     status: "Limited Production",
     description: "5x daily prayer time SMS for Dhaka, Chittagong, Sylhet.",
-    host: "https://salah.bdapps.dev",
+    host: "https://salah.orbit.dev",
     apis: ["SMS"],
     revenueShare: { developer: 65, operator: 25, platform: 10 },
     activity: [
-      { actor: "admin@bdapps.com", date: daysAgo(18), remark: "Limited Production granted" },
-      { actor: "developer@bdapps.com", date: daysAgo(20), remark: "Submitted" },
+      { actor: "admin@orbit.app", date: daysAgo(18), remark: "Limited Production granted" },
+      { actor: "developer@orbit.app", date: daysAgo(20), remark: "Submitted" },
     ],
   },
 ];
@@ -140,14 +140,14 @@ export const seedKeywords = [
 ];
 
 export const seedSystemUsers = [
-  { username: "admin", firstName: "System", lastName: "Admin", status: "Active", group: "SuperAdmin", email: "admin@bdapps.com" },
+  { username: "admin", firstName: "System", lastName: "Admin", status: "Active", group: "SuperAdmin", email: "admin@orbit.app" },
   { username: "amir.ops", firstName: "Amir", lastName: "Hossain", status: "Active", group: "Operator", email: "amir@robi.com.bd" },
-  { username: "rina.qa", firstName: "Rina", lastName: "Akter", status: "Disabled", group: "Reviewer", email: "rina@bdapps.com" },
-  { username: "tanvir.fin", firstName: "Tanvir", lastName: "Khan", status: "Initial", group: "Finance", email: "tanvir@bdapps.com" },
+  { username: "rina.qa", firstName: "Rina", lastName: "Akter", status: "Disabled", group: "Reviewer", email: "rina@orbit.app" },
+  { username: "tanvir.fin", firstName: "Tanvir", lastName: "Khan", status: "Initial", group: "Finance", email: "tanvir@orbit.app" },
 ];
 
 export const seedAppCreators = [
-  { username: "developer", status: "Active", profileStatus: "Verified", email: "developer@bdapps.com", mobile: "+8801711000001" },
+  { username: "developer", status: "Active", profileStatus: "Verified", email: "developer@orbit.app", mobile: "+8801711000001" },
   { username: "shahin.dev", status: "Active", profileStatus: "Verified", email: "shahin@dev.com", mobile: "+8801712000002" },
   { username: "nadia.dev", status: "Disabled", profileStatus: "Pending", email: "nadia@dev.com", mobile: "+8801713000003" },
 ];
@@ -204,28 +204,20 @@ export const VALID_OPERATOR_PREFIXES = ["018", "016", "019"];
 
 export const seedAppStore = [
   // ───── Web apps (Visit Site CTA) ─────
-  { id: "AS-ROBIMART", name: "RobiMart BD", developer: "Rafiul Karim", rating: 4.8, subscribers: 12400, category: "E-Commerce", artId: "ecom", icon: "🛒", iconGradient: "from-orange-500 to-red-600", type: "web", cost: "Free", slug: "robimart-bd", description: "Full online store with electronics, fashion, home & living, sports, beauty, and books. Cash on delivery and bKash supported across Bangladesh.", instructions: "Visit robimart-bd.bdapps.app" },
-  { id: "AS-EDUPATH", name: "EduPath BD", developer: "EduTech BD", rating: 4.9, subscribers: 18200, category: "Education", artId: "edu", icon: "📚", iconGradient: "from-indigo-500 to-purple-700", type: "web", cost: "Free", slug: "edupath-bd", description: "SSC & HSC preparation with video lessons, mock tests, quizzes and a national leaderboard. Track progress across 8 subjects.", instructions: "Visit edupath-bd.bdapps.app" },
-  { id: "AS-MEDILIFE", name: "Medilife Clinic", developer: "Medilife Group", rating: 4.6, subscribers: 9400, category: "Health", artId: "health", icon: "⚕️", iconGradient: "from-teal-500 to-emerald-700", type: "web", cost: "Free", slug: "medilife-clinic", description: "Book doctor appointments, view reports, manage prescriptions. 24/7 telemedicine.", instructions: "Visit medilife-clinic.bdapps.app" },
+  { id: "AS-ROBIMART", name: "RobiMart BD", developer: "Rafiul Karim", rating: 4.8, subscribers: 12400, category: "E-Commerce", artId: "ecom", icon: "🛒", iconGradient: "from-orange-500 to-red-600", type: "web", cost: "Free", slug: "robimart-bd", description: "Full online store with electronics, fashion, home & living, sports, beauty, and books. Cash on delivery and bKash supported across Bangladesh.", instructions: "Visit robimart-bd.orbit.app" },
+  { id: "AS-EDUPATH", name: "EduPath BD", developer: "EduTech BD", rating: 4.9, subscribers: 18200, category: "Education", artId: "edu", icon: "📚", iconGradient: "from-indigo-500 to-purple-700", type: "web", cost: "Free", slug: "edupath-bd", description: "SSC & HSC preparation with video lessons, mock tests, quizzes and a national leaderboard. Track progress across 8 subjects.", instructions: "Visit edupath-bd.orbit.app" },
+  { id: "AS-MEDILIFE", name: "Medilife Clinic", developer: "Medilife Group", rating: 4.6, subscribers: 9400, category: "Health", artId: "health", icon: "⚕️", iconGradient: "from-teal-500 to-emerald-700", type: "web", cost: "Free", slug: "medilife-clinic", description: "Book doctor appointments, view reports, manage prescriptions. 24/7 telemedicine.", instructions: "Visit medilife-clinic.orbit.app" },
   // ───── Android apps (Download CTA) ─────
-  { id: "AS-DESHIFOOD", name: "DeshiFood", developer: "Rafiul Karim", rating: 4.7, subscribers: 8400, category: "Food & Dining", artId: "food", icon: "🍽", iconGradient: "from-red-500 to-rose-600", type: "android", cost: "Free", slug: "deshifood", description: "Order from top Dhaka restaurants — Kacchi Bhai, Pizza Hut, Haji Biriyani and more. Live order tracking and bKash/Nagad payments.", instructions: "Install from BDApps Store" },
-  { id: "AS-FITBD", name: "FitBD", developer: "FitBD Co.", rating: 4.5, subscribers: 3100, category: "Fitness", artId: "fitness", icon: "💪", iconGradient: "from-green-500 to-lime-600", type: "android", cost: "Free", slug: "fitbd", description: "Personalised workouts, calorie tracking, step counter and BMI calculator built for Bangladeshi lifestyles.", instructions: "Install from BDApps Store" },
-  { id: "AS-SPORTSLIVE", name: "BPL Live", developer: "SportsBD", rating: 4.8, subscribers: 184000, category: "Sports", artId: "cricket", icon: "🏏", iconGradient: "from-green-700 to-teal-900", type: "android", cost: "Tk 2/day", description: "Live ball-by-ball cricket coverage for BPL, BAN matches and ICC tournaments with commentary in Bangla.", instructions: "Install from BDApps Store" },
-  // ───── Lite / Pro apps (Subscribe CTA) ─────
-  { id: "AS-WEATHER", name: "Weather Alert BD", developer: "WeatherTech BD", rating: 4.7, subscribers: 84200, category: "Alert Service", artId: "weather", icon: "🌤", iconGradient: "from-sky-400 to-blue-600", type: "lite", cost: "Tk 1/day", description: "Real-time weather alerts for all 64 districts of Bangladesh. Get rain warnings, temperature updates, and cyclone alerts.", instructions: "Send WTHR to 21333" },
-  { id: "AS-HADITH", name: "Daily Hadith", developer: "Islamic Digital BD", rating: 4.9, subscribers: 214000, category: "Islamic", artId: "islamic", icon: "🕌", iconGradient: "from-emerald-600 to-green-800", type: "lite", cost: "Tk 1/day", description: "Authentic daily Hadith from Sahih Bukhari and Muslim with Bangla translation.", instructions: "Send HADITH to 21333" },
-  { id: "AS-HEALTH", name: "Daily Health Tips", developer: "HealthBD", rating: 4.6, subscribers: 62400, category: "Health", artId: "health", icon: "💊", iconGradient: "from-teal-400 to-cyan-600", type: "lite", cost: "Free", description: "Curated wellness tips by doctors. Diet, exercise, mental health.", instructions: "Send HEALTH to 21333" },
-  { id: "AS-PRAYER", name: "Prayer Time Alert", developer: "Islamic Digital BD", rating: 4.9, subscribers: 320000, category: "Islamic", artId: "islamic", icon: "🕋", iconGradient: "from-green-800 to-emerald-950", type: "lite", cost: "Free", description: "Five-times daily prayer time alerts based on your district.", instructions: "Send SALAH to 21333" },
-  { id: "AS-STOCK", name: "Stock Market Brief", developer: "FinanceBD", rating: 4.5, subscribers: 28400, category: "Finance", artId: "finance", icon: "📈", iconGradient: "from-slate-700 to-blue-900", type: "lite", cost: "Tk 5/day", description: "DSE & CSE market summaries with top gainers/losers.", instructions: "Send STK to 21333" },
-  { id: "AS-NEWSBD", name: "News Bangla 24x7", developer: "Prothom Digital", rating: 4.7, subscribers: 96000, category: "News", artId: "news", icon: "📰", iconGradient: "from-slate-800 to-zinc-900", type: "lite", cost: "Tk 1/day", description: "Top headlines from Prothom Alo, BBC Bangla and Daily Star, summarised in Bangla.", instructions: "Send NEWS to 21333" },
-  // ───── New BDApps demo apps (Feb 2026) ─────
-  { id: "AS-BONDOBD", name: "BondoBD", developer: "Rafiul Karim", rating: 4.8, subscribers: 84200, category: "Matrimony", artId: "ngo", icon: "💍", iconGradient: "from-pink-400 to-rose-600", type: "web", cost: "Free", slug: "bondobd", description: "Bangladesh's most trusted matrimony service. Browse profiles, express interest via SMS, unlock contact details with OTP-verified subscription.", instructions: "Visit bondobd.bdapps.app or Send BOND to 16222" },
-  { id: "AS-QUIZBD", name: "QuizBD", developer: "Rafiul Karim", rating: 4.7, subscribers: 184000, category: "Entertainment", artId: "edu", icon: "🧠", iconGradient: "from-purple-600 to-indigo-800", type: "lite", cost: "Tk 1/day", slug: "quizbd", description: "Daily knowledge quiz delivered via SMS. Answer A/B/C/D, win points, climb the leaderboard. CaaS-powered prize disbursement.", instructions: "Send QUIZ to 16222" },
-  { id: "AS-NEWSNOW", name: "NewsNow BD", developer: "Rafiul Karim", rating: 4.6, subscribers: 94200, category: "News", artId: "news", icon: "📰", iconGradient: "from-slate-700 to-gray-900", type: "web", cost: "Free", slug: "newsnow", description: "Daily news portal with breaking news SMS alerts. Web companion shows full articles. 15 articles across 5 categories.", instructions: "Visit newsnow.bdapps.app or Send NEWS to 16222" },
-  { id: "AS-FITBDPRO", name: "FitBD Pro", developer: "Rafiul Karim", rating: 4.8, subscribers: 62400, category: "Fitness", artId: "fitness", icon: "💪", iconGradient: "from-lime-500 to-emerald-700", type: "android", cost: "Free", slug: "fitbd", description: "Personal fitness companion with workout plans, nutrition tracking, daily SMS health tips. CaaS-charged premium HIIT plans.", instructions: "Install from BDApps Store" },
+  { id: "AS-DESHIFOOD", name: "DeshiFood", developer: "Rafiul Karim", rating: 4.7, subscribers: 8400, category: "Food & Dining", artId: "food", icon: "🍽", iconGradient: "from-red-500 to-rose-600", type: "android", cost: "Free", slug: "deshifood", description: "Order from top Dhaka restaurants — Kacchi Bhai, Pizza Hut, Haji Biriyani and more. Live order tracking and bKash/Nagad payments.", instructions: "Install from Orbit Store" },
+  { id: "AS-FITBD", name: "FitBD", developer: "FitBD Co.", rating: 4.5, subscribers: 3100, category: "Fitness", artId: "fitness", icon: "💪", iconGradient: "from-green-500 to-lime-600", type: "android", cost: "Free", slug: "fitbd", description: "Personalised workouts, calorie tracking, step counter and BMI calculator built for Bangladeshi lifestyles.", instructions: "Install from Orbit Store" },
+  { id: "AS-SPORTSLIVE", name: "BPL Live", developer: "SportsBD", rating: 4.8, subscribers: 184000, category: "Sports", artId: "cricket", icon: "🏏", iconGradient: "from-green-700 to-teal-900", type: "android", cost: "Tk 2/day", description: "Live ball-by-ball cricket coverage for BPL, BAN matches and ICC tournaments with commentary in Bangla.", instructions: "Install from Orbit Store" },
+  // ───── New Orbit demo apps (Feb 2026) ─────
+  { id: "AS-SATHIBD", name: "SathiBD", developer: "Rafiul Karim", rating: 4.9, subscribers: 184000, category: "Matrimony", artId: "ngo", icon: "💑", iconGradient: "from-rose-500 to-amber-500", type: "web", cost: "Free", slug: "sathibd", popular: true, description: "Bangladesh's most trusted matrimony portal. OTP-verified profiles, advanced filters, interest alerts, photo gallery, user dashboard, and Robi subscription billing (Free/Gold/Platinum).", instructions: "Visit sathibd.orbit.app or Send SATHI to 16222" },
+  { id: "AS-NEWSNOW", name: "NewsNow BD", developer: "Rafiul Karim", rating: 4.6, subscribers: 94200, category: "News", artId: "news", icon: "📰", iconGradient: "from-slate-700 to-gray-900", type: "web", cost: "Free", slug: "newsnow", description: "Daily news portal with breaking news SMS alerts. Web companion shows full articles. 15 articles across 5 categories.", instructions: "Visit newsnow.orbit.app or Send NEWS to 16222" },
+  { id: "AS-FITBDPRO", name: "FitBD Pro", developer: "Rafiul Karim", rating: 4.8, subscribers: 62400, category: "Fitness", artId: "fitness", icon: "💪", iconGradient: "from-lime-500 to-emerald-700", type: "android", cost: "Free", slug: "fitbd", description: "Personal fitness companion with workout plans, nutrition tracking, daily SMS health tips. CaaS-charged premium HIIT plans.", instructions: "Install from Orbit Store" },
 ];
 
-export const CATEGORIES = ["SMS Services","Entertainment","Health","Education","Finance","Sports","Islamic","Travel","Food","Productivity","E-Commerce","Food & Dining","Matrimony","News","Fitness"];
+export const CATEGORIES = ["E-Commerce","Education","Health","Food & Dining","Fitness","Sports","Matrimony","News","Entertainment"];
 
 export const HERO_SLIDES = [
   { id: "developer", title: "Build Apps for 10 Million+ Bangladeshis", subtitle: "Join Bangladesh's largest developer ecosystem — telecom services, web apps, Android apps. All from one platform.", overlay: "5,000+ Apps · 10M+ Users · BDT 2B+ Revenue", color: "from-rose-600 via-red-700 to-rose-900", scene: "developer" },
@@ -244,11 +236,11 @@ export const LITE_TEMPLATES = [
 
 export const PROVISIONING_TEMPLATES = [
   { id: "pt1", name: "SMS Subscription Service", apis: ["SMS", "Subscription"], icon: "💬", description: "Full SMS MO+MT with subscription charging.",
-    flow: ["User SMS to shortcode", "BDapps validates", "Charging engine debits", "MT confirmation"], useCase: "Daily news, quotes, recipes." },
+    flow: ["User SMS to shortcode", "Orbit validates", "Charging engine debits", "MT confirmation"], useCase: "Daily news, quotes, recipes." },
   { id: "pt2", name: "USSD Menu App", apis: ["USSD", "CaaS"], icon: "📞", description: "Interactive USSD session handler.",
     flow: ["Dial *123#", "Menu shown", "User selects", "CaaS deducts charge", "Result returned"], useCase: "Bus ticket, account check." },
   { id: "pt3", name: "OTP Verification Service", apis: ["OTP", "SMS"], icon: "🔐", description: "OTP-based authentication system.",
-    flow: ["User requests OTP", "BDapps generates", "SMS MT delivered", "Verify on callback"], useCase: "Login auth, KYC, txn approval." },
+    flow: ["User requests OTP", "Orbit generates", "SMS MT delivered", "Verify on callback"], useCase: "Login auth, KYC, txn approval." },
   { id: "pt4", name: "Charged Content Platform", apis: ["CaaS", "Subscription", "SMS"], icon: "💎", description: "Premium content with CaaS charging.",
     flow: ["Subscribe via keyword", "CaaS charging", "Premium content delivered", "Daily rebill"], useCase: "Music, video clips, exclusive content." },
 ];

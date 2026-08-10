@@ -1,10 +1,10 @@
-// BDApps API Simulation Layer
+// Orbit API Simulation Layer
 // Mirrors real API from swagger documentation
 // All endpoints return structured responses matching the real API schema
 
 const MOCK_APP_ID = "APP_000375";
 const MOCK_PASSWORD = "a07118cda5215fc6d01db5b2ab848edd";
-const BASE_URL = "https://developer.bdapps.com";
+const BASE_URL = "https://developer.orbit.app";
 
 // Simulated delay to feel realistic (800ms - 1500ms)
 const delay = (ms) => new Promise((res) => setTimeout(res, ms));
@@ -54,7 +54,7 @@ export const requestOTP = async (subscriberMSISDN) => {
   state.smsLogs.push({
     type: "OTP",
     to: msisdn,
-    message: `Your BDApps OTP is: ${otp}. Valid for 5 minutes.`,
+    message: `Your Orbit OTP is: ${otp}. Valid for 5 minutes.`,
     timestamp: new Date().toISOString(),
     status: "DELIVERED",
   });
@@ -70,7 +70,7 @@ export const requestOTP = async (subscriberMSISDN) => {
     method: "POST",
     endpoint: "/otp/request",
     category: "OTP",
-    request: { applicationId: MOCK_APP_ID, password: "***", subscriberMSISDN, applicationHash: "f56a1c...", applicationMetaData: { client: "WEB", device: "Browser", os: "Android", appName: "BDApps Demo" } },
+    request: { applicationId: MOCK_APP_ID, password: "***", subscriberMSISDN, applicationHash: "f56a1c...", applicationMetaData: { client: "WEB", device: "Browser", os: "Android", appName: "Orbit Demo" } },
     response,
     statusCode: "S1000",
     elapsedMs: Date.now() - start,

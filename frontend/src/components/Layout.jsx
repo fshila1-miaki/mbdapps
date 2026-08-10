@@ -8,15 +8,15 @@ import {
 } from "../components/ui/dropdown-menu";
 import { Badge } from "../components/ui/badge";
 import Sidebar, { useSidebarCollapsed } from "./Sidebar";
+import { OrbitMark } from "./OrbitMark";
 import LanguageSwitcher from "./LanguageSwitcher";
+import ThemeToggle from "./ThemeToggle";
 import { useTranslation } from "react-i18next";
 
 export const Logo = ({ className = "" }) => (
-  <Link to="/" data-testid="bdapps-logo" className={`flex items-center gap-2 ${className}`}>
-    <div className="w-8 h-8 bg-[#e11d48] rounded-md flex items-center justify-center text-white font-bold tracking-tight">B</div>
-    <span className="font-bold text-xl tracking-tight text-[#0f172a]" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>
-      BDapps
-    </span>
+  <Link to="/" data-testid="bdapps-logo" className={`flex items-center gap-2.5 ${className}`}>
+    <OrbitMark size={28} className="shrink-0" />
+    <span className="orbit-wordmark text-[22px]">Orbit</span>
   </Link>
 );
 
@@ -35,8 +35,8 @@ const Layout = ({ children, subnav = null }) => {
   const unread = (appNotifs || []).filter((n) => !n.read).length;
 
   const onLogout = () => {
-    logout();
     navigate("/", { replace: true });
+    logout();
   };
 
   // Sidebar uses position:fixed at all viewports. We reserve space for it on
@@ -45,21 +45,22 @@ const Layout = ({ children, subnav = null }) => {
   const mainOffsetClass = user ? (collapsed ? "lg:ml-16" : "lg:ml-64") : "";
 
   return (
-    <div className="min-h-screen bg-white text-[#0f172a]" style={{ fontFamily: "'IBM Plex Sans', sans-serif" }}>
+    <div className="orbit-app min-h-screen" style={{ fontFamily: "'Inter', sans-serif", background: "var(--bg)", color: "var(--text)" }}>
       {user && <Sidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} />}
       <div className={`flex flex-col min-h-screen ${mainOffsetClass} transition-[margin] duration-200 ease-in-out`}>
-        <header className="sticky top-0 z-30 bg-white border-b border-slate-200">
-          <div className="px-4 lg:px-8 h-16 flex items-center justify-between gap-3">
+        <header className="sticky top-0 z-30" style={{ background: "var(--surface)", borderBottom: "1px solid var(--c-border)" }}>
+          <div className="px-4 lg:px-8 h-[52px] flex items-center justify-between gap-3">
             <div className="flex items-center gap-3">
               {user && (
-                <button data-testid="sidebar-toggle" onClick={() => setSidebarOpen(true)} className="lg:hidden p-2 -ml-2 hover:bg-slate-100 rounded-md min-w-[44px] min-h-[44px] flex items-center justify-center">
+                <button data-testid="sidebar-toggle" onClick={() => setSidebarOpen(true)} className="lg:hidden p-2 -ml-2 hover:bg-white/5 rounded-md min-w-[44px] min-h-[44px] flex items-center justify-center">
                   <Menu size={20} />
                 </button>
               )}
               {!user && <Logo />}
             </div>
 
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1.5">
+              <ThemeToggle />
               <LanguageSwitcher />
               {user && (
                 <>
@@ -67,11 +68,11 @@ const Layout = ({ children, subnav = null }) => {
                     <DropdownMenuTrigger asChild>
                       <button data-testid="notification-bell" className="relative p-2 hover:bg-slate-100 rounded-md transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center">
                         <Bell size={18} />
-                        {unread > 0 && <span data-testid="notification-badge" className="absolute top-0.5 right-0.5 bg-[#e11d48] text-white text-[9px] font-bold rounded-full min-w-[16px] h-4 px-1 flex items-center justify-center">{unread}</span>}
+                        {unread > 0 && <span data-testid="notification-badge" className="absolute top-0.5 right-0.5 bg-[#2563EB] text-white text-[9px] font-bold rounded-full min-w-[16px] h-4 px-1 flex items-center justify-center">{unread}</span>}
                       </button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end" className="w-80">
-                      <DropdownMenuLabel>{t("common.notifications")} {unread > 0 && <span className="text-[#e11d48]">({unread} {t("common.new").toLowerCase()})</span>}</DropdownMenuLabel>
+                      <DropdownMenuLabel>{t("common.notifications")} {unread > 0 && <span className="text-[#2563EB]">({unread} {t("common.new").toLowerCase()})</span>}</DropdownMenuLabel>
                       <DropdownMenuSeparator />
                       {(appNotifs || []).slice(0, 5).map((n) => (
                         <DropdownMenuItem key={n.id} className="flex flex-col items-start gap-0.5 py-2" onClick={() => n.appId && navigate(`/my-apps`)}>
@@ -93,7 +94,7 @@ const Layout = ({ children, subnav = null }) => {
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
                       <button data-testid="user-menu-trigger" className="flex items-center gap-2 px-2 py-1.5 hover:bg-slate-100 rounded-md transition-colors min-h-[44px]">
-                        <div className="w-8 h-8 bg-[#0f172a] text-white rounded-full flex items-center justify-center text-sm font-semibold">
+                        <div className="w-8 h-8 bg-[#09090B] text-white rounded-full flex items-center justify-center text-sm font-semibold">
                           {user.name?.[0] || "U"}
                         </div>
                         <span className="hidden sm:block text-sm font-medium">{user.name}</span>
@@ -106,9 +107,9 @@ const Layout = ({ children, subnav = null }) => {
                         <span className="text-xs font-normal text-slate-500">{user.email}</span>
                       </DropdownMenuLabel>
                       <DropdownMenuSeparator />
-                      <Badge className="ml-2 my-1 bg-slate-100 text-[#0f172a] hover:bg-slate-100">{user.role}</Badge>
+                      <Badge className="ml-2 my-1 bg-slate-100 text-[#09090B] hover:bg-slate-100">{user.role}</Badge>
                       <DropdownMenuSeparator />
-                      <DropdownMenuItem data-testid="logout-button" onClick={onLogout} className="text-[#e11d48]">
+                      <DropdownMenuItem data-testid="logout-button" onClick={onLogout} className="text-[#2563EB]">
                         <LogOut size={14} className="mr-2" /> {t("common.logout")}
                       </DropdownMenuItem>
                     </DropdownMenuContent>

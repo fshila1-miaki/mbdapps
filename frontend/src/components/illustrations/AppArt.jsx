@@ -136,8 +136,8 @@ export const FitnessArt = () =>
       {/* dumbbell */}
       <g transform="translate(40 90) rotate(-15)">
         <rect x="0" y="14" width="120" height="12" fill="#1e293b" />
-        <rect x="-8" y="0" width="20" height="40" rx="3" fill="#0f172a" />
-        <rect x="108" y="0" width="20" height="40" rx="3" fill="#0f172a" />
+        <rect x="-8" y="0" width="20" height="40" rx="3" fill="#09090B" />
+        <rect x="108" y="0" width="20" height="40" rx="3" fill="#09090B" />
         <rect x="-12" y="5" width="6" height="30" rx="2" fill="#475569" />
         <rect x="126" y="5" width="6" height="30" rx="2" fill="#475569" />
       </g>
@@ -200,7 +200,7 @@ export const IslamicArt = () =>
       <rect x="140" y="70" width="10" height="40" fill="#fff" />
       <circle cx="145" cy="65" r="7" fill="#fde68a" />
       {/* arch */}
-      <path d="M85 170 L85 130 Q100 110, 115 130 L115 170 Z" fill="#0f172a" />
+      <path d="M85 170 L85 130 Q100 110, 115 130 L115 170 Z" fill="#09090B" />
       {/* moon */}
       <path d="M40 35 a16 16 0 1 0 8 28 a13 13 0 1 1 -8 -28 Z" fill="#fde047" />
       {/* stars */}
@@ -268,7 +268,7 @@ export const FinanceArt = () =>
         <polygon points="0,15 10,0 20,15 14,15 14,28 6,28 6,15" fill="#22c55e" />
       </g>
     </>,
-    "#0f172a"
+    "#09090B"
   );
 
 // ─────────── TRAVEL ───────────
@@ -307,12 +307,12 @@ export const MusicArt = () =>
   wrap(
     <>
       {/* vinyl */}
-      <circle cx="100" cy="100" r="65" fill="#0f172a" />
+      <circle cx="100" cy="100" r="65" fill="#09090B" />
       <circle cx="100" cy="100" r="60" fill="none" stroke="#334155" strokeWidth="1" />
       <circle cx="100" cy="100" r="50" fill="none" stroke="#334155" strokeWidth="1" />
       <circle cx="100" cy="100" r="40" fill="none" stroke="#334155" strokeWidth="1" />
       <circle cx="100" cy="100" r="20" fill="#dc2626" />
-      <circle cx="100" cy="100" r="4" fill="#0f172a" />
+      <circle cx="100" cy="100" r="4" fill="#09090B" />
       {/* notes */}
       <g fill="#fff">
         <circle cx="40" cy="60" r="5" />
@@ -396,7 +396,7 @@ export const NgoArt = () =>
   wrap(
     <>
       {/* hands forming heart */}
-      <path d="M100 165 C 60 130, 30 95, 55 75 C 70 65, 90 75, 100 90 C 110 75, 130 65, 145 75 C 170 95, 140 130, 100 165 Z" fill="#fff" stroke="#be123c" strokeWidth="3" />
+      <path d="M100 165 C 60 130, 30 95, 55 75 C 70 65, 90 75, 100 90 C 110 75, 130 65, 145 75 C 170 95, 140 130, 100 165 Z" fill="#fff" stroke="#1D4ED8" strokeWidth="3" />
       <path d="M100 155 C 70 125, 45 95, 65 80 C 75 73, 88 80, 100 95 C 112 80, 125 73, 135 80 C 155 95, 130 125, 100 155 Z" fill="#fecaca" />
       {/* people circle */}
       <g fill="#fff">
@@ -407,7 +407,7 @@ export const NgoArt = () =>
       {/* lines connecting */}
       <path d="M50 50 Q100 60, 150 50" stroke="#fff" strokeWidth="2" strokeDasharray="3 3" fill="none" />
     </>,
-    "#be123c"
+    "#1D4ED8"
   );
 
 // ─────────── PRODUCTIVITY / SAAS ───────────

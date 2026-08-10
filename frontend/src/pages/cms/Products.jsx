@@ -63,7 +63,7 @@ const Products = () => {
         <div className="flex gap-2 flex-wrap">
           <Button data-testid="csv-import" variant="outline" onClick={() => toast.success("📥 CSV template downloaded")} className="gap-1 text-xs"><Upload size={12} /> Import CSV</Button>
           <Button data-testid="csv-export" variant="outline" onClick={() => toast.success("📤 Export started")} className="gap-1 text-xs"><DownloadIcon size={12} /> Export CSV</Button>
-          <Button data-testid="add-product" onClick={() => setEditing({})} className="bg-[#e11d48] hover:bg-[#be123c] gap-1"><Plus size={14} /> Add {isRestaurant ? "Item" : "Product"}</Button>
+          <Button data-testid="add-product" onClick={() => setEditing({})} className="bg-[#2563EB] hover:bg-[#1D4ED8] gap-1"><Plus size={14} /> Add {isRestaurant ? "Item" : "Product"}</Button>
         </div>
       </div>
 
@@ -123,7 +123,7 @@ const Products = () => {
                     <div className="flex items-center gap-1">
                       <button data-testid={`edit-product-${p.id}`} onClick={() => setEditing(p)} className="p-1.5 hover:bg-slate-100 rounded text-slate-600"><Pencil size={13} /></button>
                       <button data-testid={`del-product-${p.id}`} onClick={() => del(p)} className="p-1.5 hover:bg-rose-50 rounded text-rose-600"><Trash2 size={13} /></button>
-                      <button onClick={() => window.open(`https://${app.slug}.bdapps.app`, "_blank")} className="p-1.5 hover:bg-slate-100 rounded text-slate-600"><ExternalLink size={13} /></button>
+                      <button onClick={() => window.open(`https://${app.slug}.orbit.app`, "_blank")} className="p-1.5 hover:bg-slate-100 rounded text-slate-600"><ExternalLink size={13} /></button>
                     </div>
                   </Td>
                 </tr>
@@ -145,7 +145,7 @@ const ProductEditor = ({ open, onClose, initial, onSave, categories, isRestauran
 
   return (
     <SlidePanel open={open} onClose={onClose} title={`${v.id ? "Edit" : "Add"} ${isRestaurant ? "Menu Item" : "Product"}`} description="Changes will be live on your site immediately"
-      footer={<Button data-testid="save-product" onClick={() => onSave(v)} className="w-full bg-[#e11d48] hover:bg-[#be123c]">💾 Save Changes</Button>}>
+      footer={<Button data-testid="save-product" onClick={() => onSave(v)} className="w-full bg-[#2563EB] hover:bg-[#1D4ED8]">💾 Save Changes</Button>}>
       <Field label="Image" optional>
         <ImageDropzone testid="prod-image" value={v.image} onChange={(img) => upd({ image: img })} height="h-36" label="Drop primary image" />
       </Field>

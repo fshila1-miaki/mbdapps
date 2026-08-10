@@ -20,7 +20,7 @@ const AppStoreAdmin = () => {
   const [editMode, setEditMode] = useState(false);
   const [layoutForm, setLayoutForm] = useState(storeLayout);
 
-  const apps = storeApps.map((a) => ({ ...a, status: a.status || "Published", type: a.type || "BDApps-Pro" }));
+  const apps = storeApps.map((a) => ({ ...a, status: a.status || "Published", type: a.type || "Orbit-Pro" }));
   const filtered = apps.filter((a) =>
     (!search || a.name.toLowerCase().includes(search.toLowerCase())) &&
     (statusF === "any" || a.status === statusF) &&
@@ -38,8 +38,8 @@ const AppStoreAdmin = () => {
     <Layout>
       <div className="space-y-6">
         <div>
-          <p className="text-xs uppercase tracking-widest text-[#e11d48] font-bold mb-1">Admin · App Store</p>
-          <h1 className="text-3xl sm:text-4xl tracking-tighter font-bold" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>Store Administration</h1>
+          <p className="text-xs uppercase tracking-widest text-[#2563EB] font-bold mb-1">Admin · App Store</p>
+          <h1 className="text-3xl sm:text-4xl tracking-tighter font-bold" style={{ fontFamily: "'Outfit', sans-serif" }}>Store Administration</h1>
         </div>
 
         <Tabs defaultValue="apps">
@@ -49,7 +49,7 @@ const AppStoreAdmin = () => {
             <div className="flex flex-col md:flex-row gap-3 items-end">
               <div className="relative flex-1 max-w-md"><Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" /><Input data-testid="store-admin-search" placeholder="Search" value={search} onChange={(e) => setSearch(e.target.value)} className="pl-9" /></div>
               <Select value={statusF} onValueChange={setStatusF}><SelectTrigger className="md:w-40" data-testid="store-status"><SelectValue /></SelectTrigger><SelectContent><SelectItem value="any">Any Status</SelectItem><SelectItem value="New">New</SelectItem><SelectItem value="Published">Published</SelectItem><SelectItem value="Unpublished">Unpublished</SelectItem></SelectContent></Select>
-              <Select value={typeF} onValueChange={setTypeF}><SelectTrigger className="md:w-40" data-testid="store-type"><SelectValue /></SelectTrigger><SelectContent><SelectItem value="any">Any Type</SelectItem><SelectItem value="BDApps-Pro">BDApps-Pro</SelectItem><SelectItem value="BDApps-Lite">BDApps-Lite</SelectItem></SelectContent></Select>
+              <Select value={typeF} onValueChange={setTypeF}><SelectTrigger className="md:w-40" data-testid="store-type"><SelectValue /></SelectTrigger><SelectContent><SelectItem value="any">Any Type</SelectItem><SelectItem value="Orbit-Pro">Orbit-Pro</SelectItem><SelectItem value="Orbit-Lite">Orbit-Lite</SelectItem></SelectContent></Select>
             </div>
             <div className="border border-slate-200 rounded-md overflow-hidden">
               <table className="w-full text-sm">
@@ -70,7 +70,7 @@ const AppStoreAdmin = () => {
                 <div className="space-y-3"><Input type="file" accept="image/*" /><div><Label>Title</Label><Input data-testid="sub-title" value={layoutForm.sub} onChange={(e) => setLayoutForm({ ...layoutForm, sub: e.target.value })} /></div></div>
               </div>
             </div>
-            <Button onClick={() => { setStoreLayout(layoutForm); toast.success("Layout saved"); }} className="mt-4 bg-[#e11d48] hover:bg-[#be123c]" data-testid="layout-save">Save</Button>
+            <Button onClick={() => { setStoreLayout(layoutForm); toast.success("Layout saved"); }} className="mt-4 bg-[#2563EB] hover:bg-[#1D4ED8]" data-testid="layout-save">Save</Button>
           </TabsContent>
         </Tabs>
       </div>
@@ -93,7 +93,7 @@ const AppStoreAdmin = () => {
               <div><Label>Banner</Label><Input type="file" accept="image/*" /></div>
             </TabsContent>
           </Tabs>
-          <DialogFooter><Button onClick={togglePublish} className="bg-[#e11d48] hover:bg-[#be123c]" data-testid="toggle-publish">{editing?.status === "Published" ? "Unpublish" : "Publish"}</Button></DialogFooter>
+          <DialogFooter><Button onClick={togglePublish} className="bg-[#2563EB] hover:bg-[#1D4ED8]" data-testid="toggle-publish">{editing?.status === "Published" ? "Unpublish" : "Publish"}</Button></DialogFooter>
         </DialogContent>
       </Dialog>
     </Layout>

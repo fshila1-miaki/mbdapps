@@ -107,7 +107,7 @@ const TextField = ({ label, value, onChange, required, optional, type = "text", 
 );
 
 const BannerEditor = ({ items = [], onChange }) => {
-  const add = () => onChange([...items, { id: uid("ban"), title: "", subtitle: "", cta: "Learn More", link: "Homepage", image: "", color: "#e11d48" }]);
+  const add = () => onChange([...items, { id: uid("ban"), title: "", subtitle: "", cta: "Learn More", link: "Homepage", image: "", color: "#2563EB" }]);
   const upd = (id, patch) => onChange(items.map((b) => b.id === id ? { ...b, ...patch } : b));
   const del = (id) => onChange(items.filter((b) => b.id !== id));
   return (
@@ -633,7 +633,7 @@ const ContentManager = ({ template, onBack, onContinue, initial }) => {
         <div className="px-4 py-3 border-t border-slate-200 flex items-center justify-between gap-2 bg-white sticky bottom-0">
           <Button variant="outline" onClick={onBack} data-testid="content-back" className="gap-1"><ChevronLeft size={14} /> Back</Button>
           <Button variant="outline" onClick={fillSample} data-testid="content-skip" className="gap-1 text-xs">Skip — Use Sample Data</Button>
-          <Button onClick={next} data-testid="content-next" className="bg-[#e11d48] hover:bg-[#be123c] gap-1">Next: Preview →</Button>
+          <Button onClick={next} data-testid="content-next" className="bg-[#2563EB] hover:bg-[#1D4ED8] gap-1">Next: Preview →</Button>
         </div>
       </div>
 
@@ -660,7 +660,7 @@ const ContentManager = ({ template, onBack, onContinue, initial }) => {
 };
 
 const MiniPreview = ({ content, template, section }) => {
-  const primary = template.palette?.primary || "#e11d48";
+  const primary = template.palette?.primary || "#2563EB";
   if (section === "banners" && content.banners?.length > 0) {
     const b = content.banners[0];
     return (

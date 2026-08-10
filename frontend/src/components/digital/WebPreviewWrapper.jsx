@@ -45,7 +45,7 @@ const WebPreviewWrapper = ({ children, url, customerMode, onCustomerToggle, onRe
 
   const sharePreview = () => {
     const id = Math.random().toString(36).slice(2, 10);
-    const link = `https://preview.bdapps.app/demo/${id}`;
+    const link = `https://preview.orbit.app/demo/${id}`;
     navigator.clipboard?.writeText(link);
     toast.success("Preview link copied! Share with your client.");
   };
@@ -62,7 +62,7 @@ const WebPreviewWrapper = ({ children, url, customerMode, onCustomerToggle, onRe
         {Object.values(DEVICES).map((d) => {
           const Icon = d.icon;
           return (
-            <button key={d.id} data-testid={`device-${d.id}`} onClick={() => setDevice(d.id)} className={`flex items-center gap-1 text-xs font-semibold px-3 py-1.5 rounded-lg ${device === d.id ? "bg-[#e11d48] text-white" : "text-slate-600 hover:bg-slate-100"}`}>
+            <button key={d.id} data-testid={`device-${d.id}`} onClick={() => setDevice(d.id)} className={`flex items-center gap-1 text-xs font-semibold px-3 py-1.5 rounded-lg ${device === d.id ? "bg-[#2563EB] text-white" : "text-slate-600 hover:bg-slate-100"}`}>
               <Icon size={13} /> <span className="hidden sm:inline">{d.label}</span>
             </button>
           );
@@ -96,11 +96,11 @@ const WebPreviewWrapper = ({ children, url, customerMode, onCustomerToggle, onRe
               <div className="flex gap-1">
                 {Object.values(DEVICES).map((d) => {
                   const Icon = d.icon;
-                  return <button key={d.id} data-testid={`fs-device-${d.id}`} onClick={() => setDevice(d.id)} className={`flex items-center gap-1 text-xs px-3 py-1 rounded-lg ${device === d.id ? "bg-[#e11d48] text-white" : "text-slate-300 hover:bg-slate-800"}`}><Icon size={13} /></button>;
+                  return <button key={d.id} data-testid={`fs-device-${d.id}`} onClick={() => setDevice(d.id)} className={`flex items-center gap-1 text-xs px-3 py-1 rounded-lg ${device === d.id ? "bg-[#2563EB] text-white" : "text-slate-300 hover:bg-slate-800"}`}><Icon size={13} /></button>;
                 })}
               </div>
             </div>
-            <button data-testid="fs-exit-btn" onClick={() => setFs(false)} className="flex items-center gap-1 bg-[#e11d48] hover:bg-[#be123c] px-3 py-1.5 rounded-lg text-xs font-bold"><X size={13} /> Exit Fullscreen</button>
+            <button data-testid="fs-exit-btn" onClick={() => setFs(false)} className="flex items-center gap-1 bg-[#2563EB] hover:bg-[#1D4ED8] px-3 py-1.5 rounded-lg text-xs font-bold"><X size={13} /> Exit Fullscreen</button>
           </div>
           <div className="overflow-y-auto p-6" style={{ height: "calc(100vh - 50px)" }}>{renderContent()}</div>
         </div>

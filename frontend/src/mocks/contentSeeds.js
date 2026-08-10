@@ -7,7 +7,7 @@ export const SAMPLE_CONTENT = {
   "web-ecom": () => ({
     storeInfo: { name: "RobiMart BD", phone: "+880 1700-123456", email: "hello@robimart.bd", address: "House 24, Gulshan Avenue, Dhaka 1212", currency: "BDT" },
     banners: [
-      { id: uid("ban"), title: "Eid Sale 60% OFF", subtitle: "On all electronics this week", cta: "Shop Now", link: "Catalog", image: "", color: "#e11d48" },
+      { id: uid("ban"), title: "Eid Sale 60% OFF", subtitle: "On all electronics this week", cta: "Shop Now", link: "Catalog", image: "", color: "#2563EB" },
       { id: uid("ban"), title: "New Electronics Arrived", subtitle: "Latest gadgets in stock", cta: "Browse", link: "Catalog", image: "", color: "#0ea5e9" },
       { id: uid("ban"), title: "Free Delivery Week", subtitle: "Orders above BDT 1,000", cta: "Order Now", link: "Homepage", image: "", color: "#f59e0b" },
     ],
@@ -119,7 +119,7 @@ export const SAMPLE_CONTENT = {
   // ============ SAAS ============
   "web-saas": () => ({
     storeInfo: { name: "TaskFlow BD", phone: "+880 1788-505050", email: "hello@taskflow.bd", address: "Bashundhara R/A, Dhaka", currency: "BDT" },
-    banners: [{ id: uid("ban"), title: "Run Your Team On Autopilot", subtitle: "Start free trial today", cta: "Try Free", link: "Homepage", image: "", color: "#0f172a" }],
+    banners: [{ id: uid("ban"), title: "Run Your Team On Autopilot", subtitle: "Start free trial today", cta: "Try Free", link: "Homepage", image: "", color: "#09090B" }],
     pricing: [
       { id: uid("pr"), name: "Starter", price: 0, period: "month", features: ["Up to 5 users","Basic features","Email support"] },
       { id: uid("pr"), name: "Pro", price: 1500, period: "month", features: ["Up to 25 users","All features","Priority support","API access"] },
@@ -144,7 +144,7 @@ export const SAMPLE_CONTENT = {
       { id: uid("art"), title: "Bangladesh Economy Grows 6.5% in Q4 — GDP Report 2026", subtitle: "Strong garment exports, remittance inflows lead growth", summary: "Bangladesh's economy expanded by 6.5% in the fourth quarter, exceeding analyst expectations driven by strong garment exports and remittance inflows.", content: "Bangladesh's economy expanded by 6.5% in the fourth quarter of 2025-26, exceeding analyst expectations of 5.8%. The growth was driven by a 12% jump in garment exports, an 18% increase in remittance inflows from the Middle East, and a notable rise in domestic consumption fueled by easing inflation.\n\nFinance Minister highlighted the Robi-backed digital service economy as a 'major contributor' to the growth, citing the 2 billion BDT generated through telecom-native apps in 2025.\n\nThe BB governor also confirmed inflation has eased to 6.1%, well within the target band. Analysts now expect another rate cut at the next monetary policy committee meeting in March.", author: "Mehedi Hassan", publishDate: "2026-02-14", featuredImage: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1000&q=80", category: "Business", tags: ["GDP","Economy","Bangladesh"], readTime: 5, featured: true, trending: true, status: "Published" },
       { id: uid("art"), title: "Metro Rail Extension to Gazipur Inaugurated", subtitle: "Cuts commute times by half for 4M daily commuters", summary: "The PM inaugurated the metro rail extension from Uttara to Gazipur.", content: "The Prime Minister has officially inaugurated the metro rail extension from Uttara to Gazipur, cutting commute times by half for the 4 million daily commuters. The new 22km stretch features 8 stations and will run every 4 minutes during peak hours.", author: "Bangladesh Sangbad Sangstha", publishDate: "2026-02-14", featuredImage: "https://images.unsplash.com/photo-1581262208435-41726149a759?w=1000&q=80", category: "Politics", tags: ["Metro","Infrastructure"], readTime: 3, featured: true, trending: true, status: "Published" },
       { id: uid("art"), title: "Bangladesh Wins Asia Cup Series Against Pakistan", subtitle: "Shakib named Player of the Series in 2-1 victory", summary: "Bangladesh clinched a thrilling 2-1 series victory against Pakistan.", content: "Bangladesh clinched a thrilling 2-1 series victory against Pakistan in the Asia Cup ODI series. Shakib Al Hasan was named player of the series. The decider in Mirpur drew over 25,000 fans.", author: "T Sports", publishDate: "2026-02-13", featuredImage: "https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=1000&q=80", category: "Sports", tags: ["Cricket","Asia Cup"], readTime: 2, featured: false, trending: true, status: "Published" },
-      { id: uid("art"), title: "BDApps Reaches 10 Million Developer Downloads", subtitle: "Platform now hosts 5,000+ active developer apps", summary: "Robi's BDApps platform crossed 10 million downloads.", content: "Robi's BDApps platform crossed 10 million downloads across its developer-built apps. The platform now hosts over 5,000 active apps from 1,200+ Bangladeshi developers.", author: "Tech Desk", publishDate: "2026-02-14", featuredImage: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=1000&q=80", category: "Technology", tags: ["BDApps","Robi"], readTime: 3, featured: true, trending: false, status: "Published" },
+      { id: uid("art"), title: "Orbit Reaches 10 Million Developer Downloads", subtitle: "Platform now hosts 5,000+ active developer apps", summary: "Robi's Orbit platform crossed 10 million downloads.", content: "Robi's Orbit platform crossed 10 million downloads across its developer-built apps. The platform now hosts over 5,000 active apps from 1,200+ Bangladeshi developers.", author: "Tech Desk", publishDate: "2026-02-14", featuredImage: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=1000&q=80", category: "Technology", tags: ["Orbit","Robi"], readTime: 3, featured: true, trending: false, status: "Published" },
       { id: uid("art"), title: "DSE Index Rises 2.4% on Banking Sector Strength", subtitle: "Main index closes at 6,310 led by banks and pharma", summary: "The DSE main index closed at 6,310, up 2.4%.", content: "The DSE main index closed at 6,310, up 2.4% led by banking and pharma stocks. Daily turnover crossed BDT 12 billion for the first time in eight months.", author: "Business Desk", publishDate: "2026-02-14", featuredImage: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1000&q=80", category: "Business", tags: ["Stocks","DSE"], readTime: 3, featured: false, trending: false, status: "Published" },
       { id: uid("art"), title: "Shakib Al Hasan Retires from T20 Internationals", subtitle: "End of an era after 17 years in international cricket", summary: "Shakib Al Hasan announced his retirement from T20I cricket.", content: "Shakib Al Hasan announced his retirement from T20I cricket after 17 years. He thanked fans at a press conference held at the BCB head office. He will continue playing ODIs and Tests.", author: "Sports Desk", publishDate: "2026-02-14", featuredImage: "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=1000&q=80", category: "Sports", tags: ["Cricket","Shakib"], readTime: 2, featured: true, trending: true, status: "Published" },
       { id: uid("art"), title: "UN Climate Summit: Bangladesh Secures $500M Fund", subtitle: "Climate adaptation funding announced at COP", summary: "Bangladesh secured USD 500 million in climate adaptation funding.", content: "Bangladesh secured USD 500 million in climate adaptation funding at the UN COP summit. The fund will support coastal embankment projects and salinity-resistant crop research.", author: "International Desk", publishDate: "2026-02-13", featuredImage: "https://images.unsplash.com/photo-1569163139394-de4798aa62b6?w=1000&q=80", category: "International", tags: ["Climate","UN"], readTime: 4, featured: false, trending: false, status: "Published" },
@@ -160,11 +160,11 @@ export const SAMPLE_CONTENT = {
     editorsPicks: [
       { id: uid("ep"), articleTitle: "Bangladesh Economy Grows 6.5% in Q4 — GDP Report 2026", note: "Most important read of the week" },
       { id: uid("ep"), articleTitle: "Shakib Al Hasan Retires from T20 Internationals", note: "End of an era" },
-      { id: uid("ep"), articleTitle: "BDApps Reaches 10 Million Developer Downloads", note: "Bangladesh tech milestone" },
+      { id: uid("ep"), articleTitle: "Orbit Reaches 10 Million Developer Downloads", note: "Bangladesh tech milestone" },
     ],
     ads: [
       { id: uid("ad"), name: "Sidebar Sponsor — Robi", image: "", targetUrl: "https://robi.com.bd", placement: "Sidebar" },
-      { id: uid("ad"), name: "Top Banner — BDApps", image: "", targetUrl: "https://bdapps.com", placement: "Header" },
+      { id: uid("ad"), name: "Top Banner — Orbit", image: "", targetUrl: "https://orbit.app", placement: "Header" },
     ],
     liveFeed: [
       { id: uid("lf"), source: "Prothom Alo", endpoint: "https://api.prothomalo.com/rss", category: "All" },
@@ -201,26 +201,26 @@ export const SAMPLE_CONTENT = {
       { id: uid("cert"), name: "Gold Master", template: "elegant-gold", passingRequirement: 90, color: "#eab308" },
     ],
   }),
-  // ============ MATRIMONY (BondoBD) ============
-  "web-bondobd": () => ({
-    storeInfo: { name: "BondoBD Matrimony", phone: "+880 1700-200200", email: "support@bondobd.com", address: "Banani Road 11, Dhaka 1213", hours: "24/7 Online Support", currency: "BDT" },
+  // ============ MATRIMONY (SathiBD) ============
+  "web-sathibd": () => ({
+    storeInfo: { name: "SathiBD Matrimony", phone: "+880 1700-000000", email: "hello@sathibd.com", address: "Banani Road 11, Dhaka 1213", hours: "24/7 Online Support", currency: "BDT" },
     profiles: [
-      { id: uid("pf"), name: "Rahima Akter", age: 24, gender: "Female", district: "Dhaka", religion: "Islam", education: "BSc, BUET", profession: "Software Engineer", height: "5'4\"", maritalStatus: "Never Married", about: "Family-oriented engineer who loves reading and travel.", status: "Active", featured: true, image: "" },
-      { id: uid("pf"), name: "Sadia Rahman", age: 26, gender: "Female", district: "Chittagong", religion: "Islam", education: "MBBS, DMC", profession: "Doctor", height: "5'3\"", maritalStatus: "Never Married", about: "Pediatrician passionate about child welfare.", status: "Active", featured: true, image: "" },
-      { id: uid("pf"), name: "Nusrat Jahan", age: 23, gender: "Female", district: "Sylhet", religion: "Islam", education: "MBA, IBA", profession: "Banker", height: "5'5\"", maritalStatus: "Never Married", about: "Loves classical music and cooking.", status: "Active", featured: false, image: "" },
-      { id: uid("pf"), name: "Karim Ahmed", age: 29, gender: "Male", district: "Dhaka", religion: "Islam", education: "BSc, NSU", profession: "Architect", height: "5'10\"", maritalStatus: "Never Married", about: "Designs sustainable homes for Bangladesh.", status: "Active", featured: true, image: "" },
-      { id: uid("pf"), name: "Tanvir Hossain", age: 31, gender: "Male", district: "Khulna", religion: "Islam", education: "MSc, RUET", profession: "Civil Engineer", height: "5'11\"", maritalStatus: "Never Married", about: "Family man who enjoys cricket and travelling.", status: "Active", featured: false, image: "" },
-      { id: uid("pf"), name: "Rafiqul Karim", age: 33, gender: "Male", district: "Rajshahi", religion: "Islam", education: "MBBS, RMC", profession: "Doctor", height: "5'9\"", maritalStatus: "Never Married", about: "Practising cardiologist in Rajshahi Medical.", status: "Active", featured: false, image: "" },
+      { id: uid("pf"), name: "Rahima Akter", age: 26, gender: "Female", district: "Dhaka", religion: "Islam", education: "Masters", profession: "Software Engineer", height: "155cm", maritalStatus: "Never Married", about: "Family-oriented engineer who loves reading and travel.", status: "Active", featured: true, image: "" },
+      { id: uid("pf"), name: "Nafisa Elizabeth", age: 24, gender: "Female", district: "Chittagong", religion: "Islam", education: "MBBS", profession: "Doctor", height: "160cm", maritalStatus: "Never Married", about: "Pediatrician passionate about child welfare.", status: "Active", featured: true, image: "" },
+      { id: uid("pf"), name: "Nusrat Jahan", age: 27, gender: "Female", district: "Sylhet", religion: "Islam", education: "Honors", profession: "Banker", height: "158cm", maritalStatus: "Never Married", about: "Loves classical music and cooking.", status: "Active", featured: false, image: "" },
+      { id: uid("pf"), name: "Karim Ahmed", age: 30, gender: "Male", district: "Dhaka", religion: "Islam", education: "Engineering", profession: "Civil Engineer", height: "175cm", maritalStatus: "Never Married", about: "Designs sustainable homes for Bangladesh.", status: "Active", featured: true, image: "" },
+      { id: uid("pf"), name: "Tanvir Hossain", age: 29, gender: "Male", district: "Khulna", religion: "Islam", education: "MBBS", profession: "Doctor", height: "170cm", maritalStatus: "Never Married", about: "Family man who enjoys cricket and travelling.", status: "Active", featured: false, image: "" },
+      { id: uid("pf"), name: "Rafiqul Karim", age: 31, gender: "Male", district: "Rajshahi", religion: "Islam", education: "PhD", profession: "University Professor", height: "178cm", maritalStatus: "Never Married", about: "Practising professor at Rajshahi University.", status: "Active", featured: false, image: "" },
     ],
     stories: [
-      { id: uid("st"), couple: "Imran & Tahmina", year: "2025", district: "Dhaka", quote: "Met on BondoBD in October, married in December. The OTP-verified profiles made us feel safe from day one.", image: "" },
-      { id: uid("st"), couple: "Sabbir & Mehjabin", year: "2024", district: "Chittagong", quote: "Our families connected through BondoBD's SMS interest alerts. Alhamdulillah, we're now a family of three!", image: "" },
-      { id: uid("st"), couple: "Rafi & Anika", year: "2024", district: "Sylhet", quote: "Premium contact unlock was worth every taka — saved us months of intermediaries.", image: "" },
+      { id: uid("st"), couple: "Imran & Tahmina", year: "2025", district: "Dhaka", quote: "Met on SathiBD in October, married in December. The OTP-verified profiles made us feel safe from day one.", image: "" },
+      { id: uid("st"), couple: "Sabbir & Mehjabin", year: "2024", district: "Chittagong", quote: "Our families connected through SathiBD's SMS interest alerts. Alhamdulillah, we're now a family of three!", image: "" },
+      { id: uid("st"), couple: "Rafi & Anika", year: "2024", district: "Sylhet", quote: "OTP-verified contact unlock was worth every taka — saved us months of intermediaries.", image: "" },
     ],
     plans: [
-      { id: uid("pl"), name: "Free", price: 0, period: "lifetime", features: ["Browse profiles","View blurred contact","Daily 5 match suggestions"], badge: "", status: "Active" },
-      { id: uid("pl"), name: "Premium 7 Days", price: 49, period: "7 days", features: ["Unlock 10 contacts","Direct WhatsApp","SMS interest alerts","Priority listing"], badge: "Popular", status: "Active" },
-      { id: uid("pl"), name: "Premium Monthly", price: 199, period: "month", features: ["Unlimited contact unlock","Verified badge","Family invitation","Priority support"], badge: "Best Value", status: "Active" },
+      { id: uid("pl"), name: "Free", price: 0, period: "lifetime", features: ["View 5 premium profiles/month","Browse free profiles","Send interest"], badge: "", status: "Active" },
+      { id: uid("pl"), name: "Gold", price: 349, period: "month", features: ["20 premium profiles/month","Full profile view","View contact info","Send + accept interest","Start chat"], badge: "Most Popular", status: "Active" },
+      { id: uid("pl"), name: "Platinum", price: 549, period: "month", features: ["50 premium profiles/month","All Gold features","Profile boost 2×/month","Priority support","Special matchmaking"], badge: "Best Value", status: "Active" },
     ],
   }),
 };
@@ -232,8 +232,8 @@ SAMPLE_CONTENT["and-doctor"] = SAMPLE_CONTENT["web-health"];
 SAMPLE_CONTENT["and-edu"] = SAMPLE_CONTENT["web-edu"];
 SAMPLE_CONTENT["and-travel"] = SAMPLE_CONTENT["web-travel"];
 // Matrimony — Pro + Android share the same seed
-SAMPLE_CONTENT["pro-bondobd"] = SAMPLE_CONTENT["web-bondobd"];
-SAMPLE_CONTENT["and-bondobd"] = SAMPLE_CONTENT["web-bondobd"];
+SAMPLE_CONTENT["pro-sathibd"] = SAMPLE_CONTENT["web-sathibd"];
+SAMPLE_CONTENT["and-sathibd"] = SAMPLE_CONTENT["web-sathibd"];
 // News (NewsNow BD) — Pro + Android share the same seed
 SAMPLE_CONTENT["pro-newsnow"] = SAMPLE_CONTENT["web-newsnow"];
 SAMPLE_CONTENT["and-newsnow"] = SAMPLE_CONTENT["web-newsnow"];
@@ -266,10 +266,10 @@ export const TEMPLATE_KIND = {
   "web-travel": "travel", "and-travel": "travel",
   "web-ngo": "ngo",
   "web-saas": "saas",
-  // Matrimony (BondoBD) — Web / Pro / Android all isolated
-  "web-bondobd": "matrimony",
-  "pro-bondobd": "matrimony",
-  "and-bondobd": "matrimony",
+  // Matrimony (SathiBD) — Web / Pro / Android all isolated
+  "web-sathibd": "matrimony",
+  "pro-sathibd": "matrimony",
+  "and-sathibd": "matrimony",
   // News (NewsNow BD) — Web / Pro / Android isolated
   "web-newsnow": "news",
   "pro-newsnow": "news",

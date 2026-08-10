@@ -5,6 +5,52 @@ Build a full-stack demo web app called "BDapps" — a telecom developer platform
 Mock data only (no real backend). Visually polished, fully navigable, client-demo ready.
 Two roles: Developer & Admin. Color scheme: deep navy (#0f172a) + red (#e11d48) + white.
 
+
+## CHANGELOG — 2026-06 (later): Deep Space design system + full Orbit rebrand + Provisioning/Lite/Pro removal
+- **Deep Space theme (dark by default, light toggle)**: rewrote `src/index.css` with CSS vars on `:root` (dark: bg #0B0C10, surface #14161D, primary #5B7CFA, ai #2DD4BF) and `:root.light` (bg #F7F8FB, surface #FFF, primary #3B50C7, ai #0E8F82). shadcn HSL tokens remapped for both modes. Added a scoped **compatibility override layer** (`.orbit-app .bg-white/.text-slate-*/.border-slate-*/.bg-[#2563EB]` → Deep Space vars) so the 60+ pages authored with hardcoded slate/zinc/hex utilities re-skin without per-file edits. `.orbit-app` wrapper added to Layout, Login, Register, AppStore(+Detail), CmsLayout. Demo apps under `/apps/*` intentionally excluded (keep own brand palettes).
+- **Theme controller**: `src/lib/theme.js` (initTheme/toggleTheme add/remove `.light` on `<html>`, persist `orbit_theme`), `components/ThemeToggle.jsx` (testid `theme-toggle`) wired into Layout header + Login.
+- **New Orbit mark**: `OrbitMark.jsx` rewritten — ring with a break + teal satellite dot (stroke `var(--c-primary)`, dot `var(--ai)`). Lowercase `orbit` wordmark (`.orbit-wordmark`, Inter 300). Favicon (inline SVG) + tab title 'Orbit — build your app' in index.html.
+- **Removed Provisioning/Lite/Pro (per user)**: admin `/admin/provisioning` route + import removed from App.js; provisioning link removed from ADMIN_LINKS; provisioning tile removed from AdminDashboard (now 5 tiles: User Management, App Store, Reporting, Tap Admin, App Store Admin). Dev dashboard = 4 tiles (App Store/Reports/Builder/My Apps). Digital already had only Web+Android tabs. AppBuilder submit copy no longer mentions Provisioning/Build Files.
+- **Orbit Builder**: Digital header title → 'Orbit Builder' (en+bn locale). Added AI compose bar (testids `ai-compose-bar`/`ai-compose-input`, teal pulsing dot + 'LISTENING' badge). Deep-space builder banner.
+- **Email domain**: all `orbit.com` → `orbit.app` across src (USERS login, mock data, seeds, demo apps, CMS). Demo creds: developer@orbit.app / dev123, admin@orbit.app / admin123.
+- Verified: testing_agent iteration_17 — frontend 100%, 0 console errors, all 12 checks pass (dark default, toggle persists, tile/sidebar counts, 2 builder tabs + AI bar, provisioning route gone, brand check clean).
+
+## CHANGELOG — 2026-06-27 (later): Blue rebrand theme + Play-Store App Store + logomark + app cleanup
+- **New palette (site-wide)**: primary `#2563EB`, hover `#1D4ED8`, ink `#09090B` (replaced the old rose #e11d48 / navy #0f172a via global find/replace). Fonts switched to **Outfit** (headings) + **Inter** (body); index.css imports + body updated.
+- **Orbit logomark**: new `components/OrbitMark.jsx` (planet core + tilted orbit ring + satellite dot, uses currentColor). Wired into Layout `<Logo>` (login hero + headers, blue), Sidebar (white on dark), and App Store header. Replaced the plain "B" square.
+- **Play-Store-style App Store** (`pages/AppStore.jsx` fully rewritten): sticky glass header w/ pill search, scrollable category chips (For you / Top charts / New + categories), Editor's Choice featured banner (`featured-banner` + `featured-install`), horizontal scroll rows (`row-recommended`/`row-top`/`row-new`), rounded-2xl app cards w/ star ratings, and a Browse-all grid. Detail page restyled to match. NOTE: `AppArt` renders `absolute inset-0` so any wrapper must be `position:relative` (fixed the featured-icon stretch bug).
+- **Removed pro/lite/SMS apps**: all `type:"lite"` entries removed from `seedAppStore` (9 web/android apps remain); `CATEGORIES` trimmed to real ones; `APP-QUIZBD` (pro) removed from `seedMyApps`. localStorage seeds bumped `bdapps_store_v5→v6`, `bdapps_myapps_v5→v6` to force reseed.
+- Verified: testing_agent iteration_16 — frontend 100%, 0 blocking issues (login dev/admin, App Store browse/filter/search/detail/OTP, dashboard w/o Provisioning/Lite, My Apps=9 no QuizBD, Digital 2 tabs no Pro, logomark present).
+
+
+> **NOTE (2026-06-27): Brand renamed "BDApps" → "Orbit".** The product is now branded **Orbit** throughout the UI. Internal localStorage keys (`bdapps_*`), custom events (`bdapps:sidebar`) and CSS/testid tokens (`bdapps-logo`) were intentionally left unchanged. Email domain changed to `orbit.com` (login: `developer@orbit.com` / `dev123`, `admin@orbit.com` / `admin123`). Service file `services/BDAppsAPI.js` → `services/OrbitAPI.js`.
+
+## CHANGELOG — 2026-06-27: Rebrand to Orbit + dashboard/builder trims
+- **Rebrand**: replaced all user-facing "BDApps/BDapps/BD Apps/BDAPPS" and Bengali "বিডিঅ্যাপস" strings with **Orbit** across pages, components, locales (en+bn); app URLs `*.bdapps.app→*.orbit.app`, `bdapps.dev→orbit.dev`, `bdapps.com→orbit.com`. Renamed `BDAppsAPI.js→OrbitAPI.js` (+ all imports).
+- **Removed developer-side Provisioning**: deleted `/provisioning` route, sidebar link (DEV_LINKS) and dashboard module tile. (Admin `/admin/provisioning` kept — it powers the app-approval workflow.)
+- **Removed Orbit Lite (formerly BDapps Lite)**: deleted `/lite` + `/lite/:sub` routes, sidebar link, and dashboard module tile. `Lite.jsx`/`Provisioning.jsx` page files remain in repo but are no longer routed.
+- **Removed "Pro" App Builder tab** from Digital Builder — only **Web** & **Android** tabs remain (default tab now `web`, tabs grid `cols-3→cols-2`). Pro templates catalog retained in `builderTemplates.js` but unreachable from UI.
+- Verified via screenshots: login (Orbit brand + orbit.com creds), developer dashboard (no Provisioning/Lite tiles), Digital Builder (2 tabs, welcome modal reads "Orbit Digital Builder"). Compiles clean (pre-existing lint warnings only).
+
+
+## CHANGELOG — 2026-06-08 (later): SathiBD real images + richer animations
+- Replaced all CSS gradient silhouettes/initials in `SathiBDPreview.jsx` (the SOT, so both `/apps/sathibd` and the Step 5 builder preview update) with **real photography**: profile/team/testimonial/dashboard faces use randomuser.me portraits (gender-matched); hero, recent-couples grid, photo gallery, blog, profile-detail and register imagery use curated Unsplash wedding/couple photos. All URLs verified 200 OK.
+- New `Photo` and `FaceAvatar` components: lazy-loaded `<img>` that fades in on load and **degrades gracefully** to the warm gradient + silhouette / initial avatar on error (zero broken-image risk).
+- Added animations: hero/detail/about/register images get a slow **ken-burns** zoom; all images **fade-in** on load; recent-couples, gallery, profile-card and related-profile photos **zoom on hover** (group-hover scale); hero "active profiles" badge **floats**; kept existing scroll fade-ups, count-up stats and 4s testimonial carousel.
+- Verified via Playwright: 0 console errors, 0 broken images; profiles 8/8, couples 8/8 real photos load; lint clean.
+
+## CHANGELOG — 2026-06-08: "Revenue Today" live ticker (SathiBD CMS)
+- Added gold animated **Revenue Today** ticker to the SathiBD My-Apps CMS Overview (matrimony stats branch) with pulsing LIVE badge; auto-increments from simulated Robi CaaS charges every ~6.5s and from real subscriptions completed in `/apps/sathibd` (persisted to localStorage + `sathibd:revenue` window event). Verified ৳6,397→৳6,945 in 8s.
+
+
+## CHANGELOG — 2026-06-08: SathiBD replaces BondoBD (Matrimony, Matrimo theme)
+- Completely replaced the BondoBD matrimony template/example with **SathiBD (সাথীBD) — Matrimony Portal**, rebuilt to mirror the "Matrimo" theme (gold #f6af04 + dark #222 + white; Playfair Display headings, Poppins body). Tagline: "বাংলাদেশের সেরা বিবাহ পোর্টাল".
+- New SOT component `components/digital/interactive/SathiBDPreview.jsx` (exports `SathiBDWebPreview` + `sathibdAndroidScreens`). Full 6-page navigable app: Home, All Profiles (filters+interest modal+chat popup), Profile Detail, Plans (Free/Gold/Platinum + OTP→CaaS subscribe flow), User Dashboard (matches, profile status, plan, interest requests Accept/Decline), Register. Page loader (3 gold rings), scroll fade-up (IntersectionObserver), counter animations, auto-sliding testimonial carousel.
+- Working app at `/apps/sathibd` (`pages/apps/SathiBD.jsx`) is a thin wrapper reusing `SathiBDWebPreview` (Single Source of Truth) + real BDAppsAPI hooks (OTP/subscription/SMS/CaaS) + APIMonitor.
+- Renamed IDs throughout: web-bondobd→web-sathibd, pro-bondobd→pro-sathibd, and-bondobd→and-sathibd. Updated builderTemplates.js, contentSeeds.js (SathiBD seed + matrimony kind), UniversalWebPreview/WebPreviews/UniversalAndroidPreview maps, TemplateMockup.jsx (gold mockup), data.js (AS-SATHIBD app store), AppContext.jsx (APP-SATHIBD + localStorage bumped to v5). Deleted MatrimonyPreview.jsx, BondoBD.jsx, unused demoI18n.jsx. Added Playfair Display + Poppins fonts to index.html.
+- Verified: all 6 app pages + flows (playwright, 0 console errors); builder gallery card; Step 4 matrimony sections w/ SathiBD seed; Step 5 preview renders SathiBD (preview-pane + sathibd-logo); My Apps & App Store show SathiBD, zero BondoBD; regression Quiz/News/Fit/RobiMart unaffected. Testing agent iteration_15: frontend 95%, no bugs.
+
+
 ## Architecture
 - **Frontend-only React app** (no backend logic needed for this demo)
 - All state via React Context (`/src/context/AppContext.jsx`)

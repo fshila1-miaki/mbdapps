@@ -1,80 +1,87 @@
 {
-  "project_name": "BDapps",
-  "theme": "Light",
-  "archetype": "Archetype 4: Swiss & High-Contrast",
-  "core_philosophy": "Objective, rigid, function-first interface mimicking elite developer platforms like Stripe or Twilio but stylized for a Bangladeshi telecom context. Avoids 'saas-bro' defaults by relying on Swiss grid discipline and high-contrast color blocks. Emphasizes authority and clarity.",
-  "colors": {
-    "primary": "#0f172a",
-    "primary_description": "Deep Navy (Mandatory). Use for structural elements: sidebars, top navs, and primary text.",
-    "accent": "#e11d48",
-    "accent_description": "Vibrant Red (Mandatory). Kinetic trigger. Use exclusively for primary CTAs (Create App, Add User, Submit), active states, and alert/notification pings. DO NOT over-use as a background color for large sections.",
-    "background": "#ffffff",
-    "background_description": "Pure White. Use for main content area and app store background.",
-    "surface": "#f8fafc",
-    "surface_description": "Tinted neutral. Slate-50 for secondary backgrounds like table headers or subtle card backgrounds.",
-    "border": "#e2e8f0",
-    "border_description": "Slate-200. Use for 1px sharp borders across all widgets and cards."
-  },
+  "project_name": "Orbit App Platform Redesign",
+  "theme": "light",
   "typography": {
     "headings": {
-      "family": "Cabinet Grotesk, sans-serif",
-      "rules": "Use for all H1-H4. Tracking-tight (e.g., tracking-tight or tracking-tighter). Never center-align by default."
+      "family": "Outfit",
+      "weights": ["500", "600", "700"],
+      "usage": "Use Outfit for all section headers, app titles, and hero text to provide a modern, tech-forward feel.",
+      "import": "@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap');"
     },
     "body": {
-      "family": "IBM Plex Sans, sans-serif",
-      "rules": "Developer-friendly structure. Use for tables, forms, and general UI text. Loose leading for readability (leading-relaxed)."
-    },
-    "code": {
-      "family": "JetBrains Mono, monospace",
-      "rules": "Use for API keys, JSON previews, or SMS template syntax. Also for Overlines / Labels in tiny uppercase wide tracking."
+      "family": "Inter",
+      "weights": ["400", "500"],
+      "usage": "Use Inter for body text, developer names, app descriptions, and UI elements for maximum legibility.",
+      "import": "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');"
     }
   },
-  "spacing_and_layout": {
-    "philosophy": "The 'Control Room' Grid. Dense but breathable. Optical alignment over geometric.",
-    "padding": "Cards and dashboard widgets MUST have internal p-6 or p-8 padding. No cramped content.",
-    "grid_system": "Base grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4. Summary widgets col-span-1, primary tables col-span-2 or 3.",
-    "alignment": "Left-align data, inputs, and headings. Center ONLY for empty states or standalone modals."
+  "colors": {
+    "palette": {
+      "primary": "#2563EB",
+      "primary_hover": "#1D4ED8",
+      "primary_foreground": "#FFFFFF",
+      "ink_dark": "#09090B",
+      "surface": "#FFFFFF",
+      "surface_muted": "#F4F4F5",
+      "muted": "#71717A",
+      "border": "#E4E4E7",
+      "success": "#16A34A",
+      "warning": "#EA580C",
+      "danger": "#DC2626"
+    },
+    "instructions_to_main_agent": [
+      "Perform a global find/replace across all components and CSS:",
+      "Replace #e11d48 with #2563EB (New Primary Blue)",
+      "Replace #be123c with #1D4ED8 (New Primary Hover)",
+      "Replace #0f172a with #09090B (New Ink/Dark)",
+      "Ensure text contrasts against the new primary background by using #FFFFFF",
+      "Avoid completely transparent backgrounds for dropdowns, overlays, or sticky headers. Use solid white (#FFFFFF) or glassmorphism (bg-white/80 backdrop-blur-md) for clear visibility."
+    ]
   },
-  "surface_strategies": {
-    "dashboard_cards": "Flat solid surfaces. 1px border-slate-200. NO default box-shadow. Add subtle shadow-sm and border-slate-300 ONLY on hover.",
-    "modals": "Crystal glass overlay: bg-slate-900/60 backdrop-blur-sm. The modal itself must be solid white with a sharp shadow-2xl.",
-    "app_store_cards": "Neumorphic subtle lift. Must include image/icon, clean typography, and a distinct hover lift (-translate-y-1)."
+  "visual_enhancers": {
+    "shadows": "Use soft, ambient shadows. App icons should have shadow-sm or shadow-[0_2px_8px_rgba(0,0,0,0.04)]. Featured banners can use shadow-lg.",
+    "radii": "Prioritize rounded and pill shapes to mimic Play Store. App icons should be rounded-2xl. Buttons and chips should be rounded-full.",
+    "motion": "Add subtle hover lifts to app cards: hover:-translate-y-1 hover:shadow-md transition-all duration-200. Buttons should have active:scale-95."
   },
-  "components_strategy": {
-    "buttons": "Primary: bg-[#e11d48] text-white hover:bg-[#be123c]. Secondary: bg-white text-[#0f172a] border border-slate-200 hover:border-[#0f172a]. Sharp corners rounded-md.",
-    "tables": "Shadcn based. Left-aligned columns. Right-aligned numerical data. Muted text for secondary info (dates, IDs). Custom padding: py-4 instead of default tight packing.",
-    "wizard": "Multi-step forms MUST show a clear progress indicator at the top. Break complex forms into manageable steps.",
-    "digital_templates": "Template gallery should feature card layouts that trigger modal previews showing simulated phone SMS layouts or architecture diagrams.",
-    "navigation": "Admin/Developer mode switch must be distinctly placed (e.g., in a unified Sidebar or Top Header). Sidebar navigation preferred for dashboards."
+  "orbit_logomark": {
+    "description": "An 'Orbit' SVG logomark featuring a solid planet core and a tilted elliptical orbit ring, with a small satellite dot on the ring.",
+    "svg_markup": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 32 32\" fill=\"none\" width=\"32\" height=\"32\" class=\"text-primary\"><circle cx=\"16\" cy=\"16\" r=\"6\" fill=\"currentColor\" /><ellipse cx=\"16\" cy=\"16\" rx=\"14\" ry=\"5\" stroke=\"currentColor\" stroke-width=\"2.5\" transform=\"rotate(-30 16 16)\" /><circle cx=\"28\" cy=\"9\" r=\"2.5\" fill=\"currentColor\" /></svg>",
+    "instructions_to_main_agent": "Replace the existing plain 'B' square logo across the sidebar, header, and login hero with this SVG. On dark backgrounds, apply text-white to the SVG class. On light backgrounds, apply text-primary."
   },
-  "icons": {
-    "library": "@phosphor-icons/react",
-    "style": "Duotone or Regular weight. Excellent for dense dashboards.",
-    "installation": "yarn add @phosphor-icons/react"
-  },
-  "media_and_assets": {
-    "images": [
-      {
-        "category": "app_store_hero",
-        "url": "https://images.unsplash.com/photo-1775150094058-345a412852bc?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzZ8MHwxfHNlYXJjaHwyfHxtb2JpbGUlMjB0ZWxlY29tbXVuaWNhdGlvbiUyMG5ldHdvcmt8ZW58MHx8fHwxNzc3OTU0NTI1fDA&ixlib=rb-4.1.0&q=85",
-        "description": "Telecommunication network hero banner. CRITICAL: Apply a dark navy gradient overlay (bg-gradient-to-r from-[#0f172a]/90 to-[#0f172a]/30) so the white hero text remains highly readable."
-      },
-      {
-        "category": "developer_coding",
-        "url": "https://images.unsplash.com/photo-1763568258535-fa1066506571?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1NzZ8MHwxfHNlYXJjaHw0fHxhcHAlMjBkZXZlbG9wZXIlMjBjb2Rpbmd8ZW58MHx8fHwxNzc3OTU0NTI1fDA&ixlib=rb-4.1.0&q=85",
-        "description": "Background image for 'BDapps Lite' or 'Provisioning' placeholder marketing cards."
-      },
-      {
-        "category": "mobile_app_preview",
-        "url": "https://images.unsplash.com/photo-1628233345409-349459e6f79a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1NzZ8MHwxfHNlYXJjaHwyfHxhcHAlMjBkZXZlbG9wZXIlMjBjb2Rpbmd8ZW58MHx8fHwxNzc3OTU0NTI1fDA&ixlib=rb-4.1.0&q=85",
-        "description": "Use in the Digital Template gallery to represent mobile digital templates."
+  "layouts": {
+    "app_store_redesign": {
+      "style": "Google Play Store / Android App Store pattern.",
+      "components": {
+        "header": "Clean white sticky header (z-50) with the Orbit logo on the left, a pill-shaped gray search bar in the center (bg-zinc-100), and user profile on the right. Must not be transparent.",
+        "category_chips": "Horizontal scrollable list of pill-shaped chips immediately below the header. E.g., 'For you', 'Top charts', 'Productivity', 'Games'. Classes: rounded-full px-4 py-1.5 text-sm font-medium bg-zinc-100 text-zinc-800 hover:bg-zinc-200 whitespace-nowrap.",
+        "featured_hero": "Large landscape banner card (max-w-5xl mx-auto). Large rounded corners (rounded-3xl). Image overlay with bg-gradient-to-t from-black/80 to-transparent. Bottom left should have App Icon, Title, Developer, and a bold pill-shaped 'Install' button.",
+        "horizontal_scroll_rows": "Sections like 'Recommended for you' or 'New releases'. Title row with 'See all' arrow button. Content is a horizontal scrolling flex container (flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 hide-scrollbar).",
+        "app_cards": "Width fixed to w-[120px] or w-[140px] flex-shrink-0 snap-start. \n- Icon: w-full aspect-square rounded-2xl bg-zinc-100 shadow-sm overflow-hidden mb-2\n- Title: text-sm font-medium text-zinc-900 truncate\n- Developer: text-xs text-zinc-500 truncate\n- Rating: flex items-center gap-1 text-xs text-zinc-700 mt-1 (Include a 12px yellow star icon)"
       }
-    ],
-    "rules": "Images MUST be wrapped with responsive constraints (max-h-[80vh] for mobile). Banners MUST use overlays if text is placed on them. DO NOT use placeholder services."
+    }
   },
-  "accessibility_and_testing": {
-    "data_testid": "MANDATORY. All interactive elements (buttons, links, form inputs, tabs) MUST include data-testid attributes (e.g., data-testid='create-app-submit').",
-    "contrast": "Ensure white text over Red (#e11d48) meets APCA standard. Hover state color MUST be a lighter hue of ACTIVE state."
+  "content_filtering": {
+    "instructions_to_main_agent": "CRITICAL: Remove any apps that belong to 'Pro', 'Lite', or 'SMS' categories from the 'My Apps' section and the public 'App Store' section mock data. Do not display them."
   },
-  "instructions_to_main_agent": "1. Write React code in .js / .jsx files. Do not use TypeScript (.tsx). 2. Do NOT use default Inter font. 3. Do NOT center align dashboard elements. 4. Build responsive grid layouts following the 'Control Room' protocol. 5. Heavily customize Shadcn components to remove the Vercel-look; use crisp rounded-md or rounded-sm. 6. Follow Deep Navy and Red hex codes strictly. 7. Implement Developer dashboard with 5 tiles and Admin dashboard with 6 tiles. 8. Ensure multi-step wizard, data tables, and tabbed dialogs are fully navigable with mocked data."
+  "media": {
+    "image_urls": {
+      "featured_banner": "https://images.unsplash.com/photo-1777503812370-bcae5728b463?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1OTV8MHwxfHNlYXJjaHwyfHxtb2JpbGUlMjBnYW1lJTIwcHJvbW90aW9uYWwlMjBiYW5uZXIlMjBsYW5kc2NhcGV8ZW58MHx8fHwxNzgyNTM0NjU2fDA&ixlib=rb-4.1.0&q=85",
+      "app_icon_1": "https://images.unsplash.com/photo-1611606063065-ee7946f0787a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzd8MHwxfHNlYXJjaHwyfHxtb2Rlcm4lMjBhcHAlMjBpY29uJTIwbG9nbyUyMDNkJTIwcmVuZGVyfGVufDB8fHx8MTc4MjUxOTI4NXww&ixlib=rb-4.1.0&q=85",
+      "app_icon_2": "https://images.unsplash.com/photo-1659885785824-3e72856b8fef?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBhcHAlMjBpY29uJTIwbG9nbyUyMDNkJTIwcmVuZGVyfGVufDB8fHx8MTc4MjUxOTI4NXww&ixlib=rb-4.1.0&q=85"
+    }
+  },
+  "accessibility": {
+    "testing": "All interactive and key informational elements MUST include a data-testid attribute (e.g., data-testid='install-app-button').",
+    "contrast": "Ensure sufficient contrast. Use APCA contrast checking if possible. Ensure text over images always has a gradient or scrim behind it for legibility."
+  },
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "Do not use generic centered layouts or simplistic styling.",
+    "Do not apply 'transition: all' globally, as it breaks transforms.",
+    "Create depth through layered design elements with z-index hierarchy.",
+    "Use glass-morphism effects with backdrop filters (12-24px blur) where appropriate, ensuring solid text contrast.",
+    "Every interaction needs micro-animations - hover states, transitions, parallax effects, and entrance animations.",
+    "Always use modern button styles like pill-shaped, or sharp button with interaction animations.",
+    "NEVER use AI assistant Emoji characters like 🤖🧠💭💡🔮🎯 for icons. Use lucide-react.",
+    "When customizing Shadcn components, ensure heights are flexible if content requires it (e.g., h-auto)."
+  ]
 }

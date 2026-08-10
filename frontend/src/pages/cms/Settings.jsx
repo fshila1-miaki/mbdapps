@@ -13,7 +13,7 @@ const Settings = () => {
   const { appContent, updateAppContent, updateMyApp, removeMyApp } = useApp();
   const info = appContent[app.id]?.storeInfo || {};
   const [tab, setTab] = useState("info");
-  const [notif, setNotif] = useState({ email: "developer@bdapps.com", sms: "+880 1700-000000", whatsapp: false, lowStock: 5, smsConfirm: true, doctorSms: true, reviewEmail: true });
+  const [notif, setNotif] = useState({ email: "developer@orbit.app", sms: "+880 1700-000000", whatsapp: false, lowStock: 5, smsConfirm: true, doctorSms: true, reviewEmail: true });
   const [seo, setSeo] = useState({ customDomain: "", title: app.name, desc: "", keywords: "" });
   const [integ, setIntegs] = useState({ ssl: true, robi: true, ga: false, fb: false, whatsapp: false, push: false });
   const [deleteText, setDeleteText] = useState("");
@@ -46,7 +46,7 @@ const Settings = () => {
             <Field label="Email"><Input data-testid="info-email" defaultValue={info.email} onChange={(e) => updateAppContent(app.id, "storeInfo", { ...info, email: e.target.value })} /></Field>
           </div>
           <Field label="Address"><Input defaultValue={info.address} onChange={(e) => updateAppContent(app.id, "storeInfo", { ...info, address: e.target.value })} /></Field>
-          <Button data-testid="save-info" onClick={saveInfo} className="bg-[#e11d48]">💾 Save Changes</Button>
+          <Button data-testid="save-info" onClick={saveInfo} className="bg-[#2563EB]">💾 Save Changes</Button>
         </div>
       )}
 
@@ -56,7 +56,7 @@ const Settings = () => {
             <div className="text-sm font-bold mb-2">New Order Notifications</div>
             <div className="space-y-2">
               <Field label="Email notify"><Input data-testid="notif-email" value={notif.email} onChange={(e) => setNotif({ ...notif, email: e.target.value })} /></Field>
-              <Field label="SMS notify (via BDApps)"><Input data-testid="notif-sms" value={notif.sms} onChange={(e) => setNotif({ ...notif, sms: e.target.value })} /></Field>
+              <Field label="SMS notify (via Orbit)"><Input data-testid="notif-sms" value={notif.sms} onChange={(e) => setNotif({ ...notif, sms: e.target.value })} /></Field>
               <label className="flex items-center gap-2 text-sm"><input data-testid="notif-whatsapp" type="checkbox" checked={notif.whatsapp} onChange={(e) => setNotif({ ...notif, whatsapp: e.target.checked })} /> WhatsApp notification (Add-On required)</label>
             </div>
           </div>
@@ -71,19 +71,19 @@ const Settings = () => {
               <label className="flex items-center gap-2 text-sm"><input type="checkbox" checked={notif.doctorSms} onChange={(e) => setNotif({ ...notif, doctorSms: e.target.checked })} /> Notify doctor via SMS</label>
             </div>
           )}
-          <Button data-testid="save-notif" onClick={saveNotif} className="bg-[#e11d48]">💾 Save Notification Settings</Button>
+          <Button data-testid="save-notif" onClick={saveNotif} className="bg-[#2563EB]">💾 Save Notification Settings</Button>
         </div>
       )}
 
       {tab === "seo" && (
         <div className="bg-white border border-slate-200 rounded-xl p-4 space-y-3 max-w-2xl">
           <Field label="Current Domain (read-only)">
-            <Input value={`${app.slug}.bdapps.app`} disabled className="bg-slate-50" />
+            <Input value={`${app.slug}.orbit.app`} disabled className="bg-slate-50" />
           </Field>
           <Field label="Custom Domain">
             <div className="flex gap-2">
               <Input data-testid="custom-domain" value={seo.customDomain} onChange={(e) => setSeo({ ...seo, customDomain: e.target.value })} placeholder="www.yourdomain.com" />
-              <Button data-testid="verify-domain" onClick={() => toast.success("DNS verification: Add CNAME → bdapps.app (point to ns1.bdapps.app)")} variant="outline">Verify Domain</Button>
+              <Button data-testid="verify-domain" onClick={() => toast.success("DNS verification: Add CNAME → orbit.app (point to ns1.orbit.app)")} variant="outline">Verify Domain</Button>
             </div>
           </Field>
           <Field label="SEO Title"><Input data-testid="seo-title" value={seo.title} onChange={(e) => setSeo({ ...seo, title: e.target.value })} /></Field>
@@ -91,7 +91,7 @@ const Settings = () => {
           <Field label="SEO Keywords"><Input data-testid="seo-keywords" value={seo.keywords} onChange={(e) => setSeo({ ...seo, keywords: e.target.value })} placeholder="bangladesh,shopping,electronics" /></Field>
           <Field label="Favicon (16×16)"><ImageDropzone testid="seo-favicon" value={null} onChange={() => toast.success("Favicon uploaded")} height="h-20" /></Field>
           <Field label="Open Graph Image (1200×630)"><ImageDropzone testid="seo-og" value={null} onChange={() => toast.success("OG image uploaded")} height="h-24" /></Field>
-          <Button data-testid="save-seo" onClick={() => triggerSave(() => toast.success("SEO settings saved"))} className="bg-[#e11d48]">💾 Save SEO</Button>
+          <Button data-testid="save-seo" onClick={() => triggerSave(() => toast.success("SEO settings saved"))} className="bg-[#2563EB]">💾 Save SEO</Button>
         </div>
       )}
 
@@ -119,7 +119,7 @@ const Settings = () => {
               ) : i.addon ? (
                 <Button size="sm" onClick={() => navigate("/add-ons")} className="bg-amber-500 hover:bg-amber-600 gap-1 text-xs">Upgrade <ExternalLink size={11} /></Button>
               ) : (
-                <Button size="sm" onClick={() => { setIntegs({ ...integ, [i.key]: true }); toast.success(`${i.name} connected`); }} className="bg-[#e11d48] gap-1 text-xs">Connect</Button>
+                <Button size="sm" onClick={() => { setIntegs({ ...integ, [i.key]: true }); toast.success(`${i.name} connected`); }} className="bg-[#2563EB] gap-1 text-xs">Connect</Button>
               )}
             </div>
           ))}

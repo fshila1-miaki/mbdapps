@@ -41,13 +41,13 @@ const ShelfCard = ({ app }) => {
     }, 1400);
   };
   const triggerShare = () => {
-    const url = app.previewUrl || `preview.bdapps.com/app/${Math.random().toString(36).slice(2, 8)}`;
+    const url = app.previewUrl || `preview.orbit.app/app/${Math.random().toString(36).slice(2, 8)}`;
     navigator.clipboard?.writeText(url).catch(() => {});
     toast.success(`Preview link copied! ${url}`);
   };
 
   return (
-    <div data-testid={`shelf-card-${app.id}`} className="min-w-[260px] max-w-[280px] border border-slate-200 rounded-xl bg-white p-4 hover:shadow-md transition-all hover:-translate-y-0.5 hover:border-[#e11d48]/40 flex-shrink-0">
+    <div data-testid={`shelf-card-${app.id}`} className="min-w-[260px] max-w-[280px] border border-slate-200 rounded-xl bg-white p-4 hover:shadow-md transition-all hover:-translate-y-0.5 hover:border-[#2563EB]/40 flex-shrink-0">
       <div className="flex items-start gap-3">
         <div className="text-3xl w-12 h-12 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center flex-shrink-0">
           {app.icon}
@@ -110,12 +110,12 @@ const MyGeneratedAppsShelf = () => {
     <section data-testid="generated-apps-shelf" className="border border-slate-200 rounded-2xl bg-gradient-to-br from-slate-50 to-white p-5">
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-2">
-          <Sparkles size={16} className="text-[#e11d48]" />
+          <Sparkles size={16} className="text-[#2563EB]" />
           <h2 className="font-bold tracking-tight text-base">My Generated Apps</h2>
           {apps.length > 0 && <span className="text-xs text-slate-500">({apps.length})</span>}
         </div>
         {apps.length > 3 && (
-          <button data-testid="shelf-viewall" onClick={() => setViewAll(true)} className="text-xs font-semibold text-[#e11d48] hover:underline">
+          <button data-testid="shelf-viewall" onClick={() => setViewAll(true)} className="text-xs font-semibold text-[#2563EB] hover:underline">
             View All →
           </button>
         )}

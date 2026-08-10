@@ -33,7 +33,7 @@ export const CreateAppDialog = ({ open, onOpenChange, prefill = null }) => {
 
   React.useEffect(() => {
     if (open && prefill) {
-      setBasic({ name: prefill.name || "", description: prefill.description || "", host: "https://api.bdapps.dev", whitelist: "", blacklist: "" });
+      setBasic({ name: prefill.name || "", description: prefill.description || "", host: "https://api.orbit.dev", whitelist: "", blacklist: "" });
       setServices({ operator: true, apis: prefill.apis || [] });
       setStep(1);
     } else if (open && !prefill) {
@@ -73,7 +73,7 @@ export const CreateAppDialog = ({ open, onOpenChange, prefill = null }) => {
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto" data-testid="create-app-dialog">
         <DialogHeader>
-          <DialogTitle className="text-2xl tracking-tight" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>Create New App</DialogTitle>
+          <DialogTitle className="text-2xl tracking-tight" style={{ fontFamily: "'Outfit', sans-serif" }}>Create New App</DialogTitle>
           <DialogDescription>Step {step} of 3</DialogDescription>
         </DialogHeader>
 
@@ -81,8 +81,8 @@ export const CreateAppDialog = ({ open, onOpenChange, prefill = null }) => {
         <div className="flex items-center gap-2 mb-4">
           {["Details", "Services", "Settings"].map((s, i) => (
             <div key={i} className="flex items-center gap-2 flex-1">
-              <div className={`h-1 w-full rounded-full ${step >= i + 1 ? "bg-[#e11d48]" : "bg-slate-200"}`}></div>
-              <span className={`text-xs font-semibold whitespace-nowrap ${step >= i + 1 ? "text-[#0f172a]" : "text-slate-400"}`}>{s}</span>
+              <div className={`h-1 w-full rounded-full ${step >= i + 1 ? "bg-[#2563EB]" : "bg-slate-200"}`}></div>
+              <span className={`text-xs font-semibold whitespace-nowrap ${step >= i + 1 ? "text-[#09090B]" : "text-slate-400"}`}>{s}</span>
             </div>
           ))}
         </div>
@@ -128,7 +128,7 @@ export const CreateAppDialog = ({ open, onOpenChange, prefill = null }) => {
           <div className="space-y-5 pt-2">
             <div>
               <Label className="mb-2 block">Operator</Label>
-              <label className="flex items-center gap-2 border border-slate-200 rounded-md p-3 cursor-pointer hover:border-[#0f172a]">
+              <label className="flex items-center gap-2 border border-slate-200 rounded-md p-3 cursor-pointer hover:border-[#09090B]">
                 <Checkbox checked={services.operator} onCheckedChange={(v) => setServices({ ...services, operator: !!v })} data-testid="op-robi" />
                 <span className="font-medium">Robi</span>
               </label>
@@ -137,7 +137,7 @@ export const CreateAppDialog = ({ open, onOpenChange, prefill = null }) => {
               <Label className="mb-2 block">Choose APIs</Label>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                 {API_OPTIONS.map((api) => (
-                  <label key={api} className={`flex items-center gap-2 border rounded-md p-3 cursor-pointer transition ${services.apis.includes(api) ? "border-[#e11d48] bg-rose-50" : "border-slate-200 hover:border-[#0f172a]"}`}>
+                  <label key={api} className={`flex items-center gap-2 border rounded-md p-3 cursor-pointer transition ${services.apis.includes(api) ? "border-[#2563EB] bg-rose-50" : "border-slate-200 hover:border-[#09090B]"}`}>
                     <Checkbox checked={services.apis.includes(api)} onCheckedChange={() => toggleApi(api)} data-testid={`api-${api}`} />
                     <span className="font-medium">{api}</span>
                   </label>
@@ -189,13 +189,13 @@ export const CreateAppDialog = ({ open, onOpenChange, prefill = null }) => {
         <DialogFooter className="!justify-between gap-2">
           <Button variant="outline" disabled={step === 1} onClick={() => setStep(step - 1)} data-testid="wizard-back">Back</Button>
           {step < 3 ? (
-            <Button data-testid="wizard-next" className="bg-[#e11d48] hover:bg-[#be123c]" onClick={() => {
+            <Button data-testid="wizard-next" className="bg-[#2563EB] hover:bg-[#1D4ED8]" onClick={() => {
               if (step === 1 && !validateStep1()) return;
               if (step === 2 && services.apis.length === 0) return toast.error("Select at least one API");
               setStep(step + 1);
             }}>Next</Button>
           ) : (
-            <Button data-testid="wizard-submit" className="bg-[#e11d48] hover:bg-[#be123c]" onClick={submit}>Submit</Button>
+            <Button data-testid="wizard-submit" className="bg-[#2563EB] hover:bg-[#1D4ED8]" onClick={submit}>Submit</Button>
           )}
         </DialogFooter>
       </DialogContent>
@@ -209,7 +209,7 @@ const Section = ({ title, children, defaultOpen = true }) => {
   return (
     <div className="border border-slate-200 rounded-md bg-white">
       <button type="button" onClick={() => setOpen(!open)} className="w-full flex items-center justify-between px-4 py-3 text-left hover:bg-slate-50 transition">
-        <span className="text-xs font-bold uppercase tracking-widest text-[#0f172a]">{title}</span>
+        <span className="text-xs font-bold uppercase tracking-widest text-[#09090B]">{title}</span>
         <ChevronDown size={14} className={`transition-transform ${open ? "rotate-180" : ""}`} />
       </button>
       {open && <div className="p-4 pt-2 border-t border-slate-100 space-y-3">{children}</div>}
@@ -218,8 +218,8 @@ const Section = ({ title, children, defaultOpen = true }) => {
 };
 
 const SubSection = ({ title, children }) => (
-  <div className="border-l-2 border-[#e11d48] pl-3 space-y-3">
-    <p className="text-xs font-bold uppercase tracking-wide text-[#e11d48]">{title}</p>
+  <div className="border-l-2 border-[#2563EB] pl-3 space-y-3">
+    <p className="text-xs font-bold uppercase tracking-wide text-[#2563EB]">{title}</p>
     {children}
   </div>
 );
@@ -254,8 +254,8 @@ const ApiConfigSMS = () => {
         {mo && <div><Label>Message Receiving URL<Req /></Label><Input placeholder="https://api.example.com/sms" data-testid="sms-mo-url" /></div>}
         <ToggleRow label="Enable Mobile Terminated SMS" checked={mt} onChange={setMt} testid="sms-mt" />
         {mt && <>
-          <div><Label>Default Sender Address</Label><Input defaultValue="BDapps" /></div>
-          <div><Label>Sender Address Aliases<Opt /></Label><Input defaultValue="BDapps,BDA" /></div>
+          <div><Label>Default Sender Address</Label><Input defaultValue="Orbit" /></div>
+          <div><Label>Sender Address Aliases<Opt /></Label><Input defaultValue="Orbit,BDA" /></div>
         </>}
         <ToggleRow label="Enable Delivery Reports" checked={dr} onChange={setDr} testid="sms-dr" />
         {dr && <div><Label>Delivery Report URL<Req /></Label><Input placeholder="https://api.example.com/dr" data-testid="sms-dr-url" /></div>}
@@ -412,7 +412,7 @@ const AppDetailDialog = ({ app, onClose }) => {
     <Dialog open={!!app} onOpenChange={(o) => !o && onClose()}>
       <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto" data-testid="app-detail-dialog">
         <DialogHeader>
-          <DialogTitle className="text-2xl tracking-tight flex items-center gap-3" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>
+          <DialogTitle className="text-2xl tracking-tight flex items-center gap-3" style={{ fontFamily: "'Outfit', sans-serif" }}>
             {app.name} <StatusBadge status={app.status} />
           </DialogTitle>
           <DialogDescription>{app.id} · {app.type} · {app.username}</DialogDescription>
@@ -449,7 +449,7 @@ const AppDetailDialog = ({ app, onClose }) => {
               {Object.entries(app.revenueShare || {}).map(([k, v]) => (
                 <div key={k}>
                   <div className="flex justify-between text-sm mb-1"><span className="capitalize">{k}</span><span className="font-bold">{v}%</span></div>
-                  <div className="h-2 bg-slate-100 rounded-full overflow-hidden"><div className="h-full bg-[#e11d48]" style={{ width: `${v}%` }}></div></div>
+                  <div className="h-2 bg-slate-100 rounded-full overflow-hidden"><div className="h-full bg-[#2563EB]" style={{ width: `${v}%` }}></div></div>
                 </div>
               ))}
             </div>
@@ -457,7 +457,7 @@ const AppDetailDialog = ({ app, onClose }) => {
           <TabsContent value="activity" className="pt-4">
             <div className="space-y-3">
               {(app.activity || []).map((a, i) => (
-                <div key={i} className="border-l-2 border-[#e11d48] pl-3 py-1">
+                <div key={i} className="border-l-2 border-[#2563EB] pl-3 py-1">
                   <div className="text-xs text-slate-500">{a.date} · {a.actor}</div>
                   <div className="text-sm font-medium">{a.remark}</div>
                 </div>
@@ -504,10 +504,10 @@ const Provisioning = () => {
       <div className="space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
           <div>
-            <p className="text-xs uppercase tracking-widest text-[#e11d48] font-bold mb-1">{t("nav.provisioning")}</p>
-            <h1 className="text-3xl sm:text-4xl tracking-tighter font-bold text-[#0f172a]" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>{t("provisioning.manageProApps")}</h1>
+            <p className="text-xs uppercase tracking-widest text-[#2563EB] font-bold mb-1">{t("nav.provisioning")}</p>
+            <h1 className="text-3xl sm:text-4xl tracking-tighter font-bold text-[#09090B]" style={{ fontFamily: "'Outfit', sans-serif" }}>{t("provisioning.manageProApps")}</h1>
           </div>
-          <Button data-testid="create-app-btn" className="bg-[#e11d48] hover:bg-[#be123c] text-white" onClick={() => setCreateOpen(true)}>
+          <Button data-testid="create-app-btn" className="bg-[#2563EB] hover:bg-[#1D4ED8] text-white" onClick={() => setCreateOpen(true)}>
             <Plus size={16} className="mr-1" /> {t("provisioning.createNewApp")}
           </Button>
         </div>
@@ -531,8 +531,8 @@ const Provisioning = () => {
             <SelectContent><SelectItem value="any">Any Operator</SelectItem><SelectItem value="robi">Robi</SelectItem></SelectContent>
           </Select>
           <div className="flex items-center gap-1 md:col-span-4">
-            <Button variant={view === "grid" ? "default" : "outline"} size="sm" onClick={() => setView("grid")} data-testid="view-grid" className={view === "grid" ? "bg-[#0f172a]" : ""}><Grid2X2 size={14} className="mr-1" />Grid</Button>
-            <Button variant={view === "list" ? "default" : "outline"} size="sm" onClick={() => setView("list")} data-testid="view-list" className={view === "list" ? "bg-[#0f172a]" : ""}><List size={14} className="mr-1" />List</Button>
+            <Button variant={view === "grid" ? "default" : "outline"} size="sm" onClick={() => setView("grid")} data-testid="view-grid" className={view === "grid" ? "bg-[#09090B]" : ""}><Grid2X2 size={14} className="mr-1" />Grid</Button>
+            <Button variant={view === "list" ? "default" : "outline"} size="sm" onClick={() => setView("list")} data-testid="view-list" className={view === "list" ? "bg-[#09090B]" : ""}><List size={14} className="mr-1" />List</Button>
             <span className="ml-auto text-sm text-slate-500"><Filter size={12} className="inline mr-1" />{filtered.length} results</span>
           </div>
         </div>
@@ -544,16 +544,16 @@ const Provisioning = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {visible.map((app) => (
               <button key={app.id} onClick={() => setDetailApp(app)} data-testid={`app-card-${app.id}`}
-                className="text-left border border-slate-200 rounded-md p-5 bg-white hover:border-[#0f172a] transition-all hover:-translate-y-0.5 hover:shadow-sm">
+                className="text-left border border-slate-200 rounded-md p-5 bg-white hover:border-[#09090B] transition-all hover:-translate-y-0.5 hover:shadow-sm">
                 <div className="flex justify-between items-start mb-3">
                   <span className="text-xs font-mono text-slate-500">{app.id}</span>
                   <StatusBadge status={app.status} />
                 </div>
                 <h3 className="font-semibold text-lg tracking-tight mb-1">{app.name}</h3>
                 <div className="text-xs text-slate-500 space-y-1 mt-3 pt-3 border-t border-slate-100">
-                  <div className="flex justify-between"><span>Type</span><span className="font-medium text-[#0f172a]">{app.type}</span></div>
-                  <div className="flex justify-between"><span>Username</span><span className="font-medium text-[#0f172a] truncate ml-2">{app.username}</span></div>
-                  <div className="flex justify-between"><span>Created</span><span className="font-medium text-[#0f172a]">{app.created}</span></div>
+                  <div className="flex justify-between"><span>Type</span><span className="font-medium text-[#09090B]">{app.type}</span></div>
+                  <div className="flex justify-between"><span>Username</span><span className="font-medium text-[#09090B] truncate ml-2">{app.username}</span></div>
+                  <div className="flex justify-between"><span>Created</span><span className="font-medium text-[#09090B]">{app.created}</span></div>
                 </div>
               </button>
             ))}

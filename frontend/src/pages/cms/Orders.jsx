@@ -150,7 +150,7 @@ const OrderDetailPanel = ({ order, onClose, appId, onUpdate }) => {
       </Field>
 
       <div className="grid grid-cols-2 gap-2">
-        <Button data-testid="save-order-status" onClick={saveStatus} className="bg-[#e11d48]"><RefreshCw size={12} className="mr-1" /> Save Status</Button>
+        <Button data-testid="save-order-status" onClick={saveStatus} className="bg-[#2563EB]"><RefreshCw size={12} className="mr-1" /> Save Status</Button>
         <Button variant="outline" data-testid="print-invoice" onClick={() => toast.success("📄 Invoice PDF ready — download started")}><Printer size={12} className="mr-1" /> Print Invoice</Button>
         <Button variant="outline" data-testid="contact-customer" onClick={() => setSmsOpen(true)}><MessageSquare size={12} className="mr-1" /> Contact Customer</Button>
         <Button variant="outline" data-testid="issue-refund" onClick={() => { if (window.confirm("Issue full refund?")) { toast.success("Refund initiated"); onClose(); } }} className="text-rose-600">Issue Refund</Button>
@@ -158,10 +158,10 @@ const OrderDetailPanel = ({ order, onClose, appId, onUpdate }) => {
 
       {smsOpen && (
         <div className="bg-blue-50 border border-blue-200 rounded p-3 mt-2" data-testid="sms-compose">
-          <div className="text-xs font-bold text-blue-800 mb-1">📨 Send SMS via BDApps</div>
+          <div className="text-xs font-bold text-blue-800 mb-1">📨 Send SMS via Orbit</div>
           <textarea value={smsText} onChange={(e) => setSmsText(e.target.value)} placeholder={`Hi ${order.customer}, your order ${order.id} update...`} className="w-full border border-blue-200 rounded p-2 text-sm h-20" />
           <div className="flex gap-2 mt-2">
-            <Button size="sm" data-testid="send-sms" onClick={() => { toast.success(`📨 SMS sent to ${order.phone} via BDApps`); setSmsOpen(false); setSmsText(""); }} className="bg-blue-600">Send SMS</Button>
+            <Button size="sm" data-testid="send-sms" onClick={() => { toast.success(`📨 SMS sent to ${order.phone} via Orbit`); setSmsOpen(false); setSmsText(""); }} className="bg-blue-600">Send SMS</Button>
             <Button size="sm" variant="outline" onClick={() => setSmsOpen(false)}>Cancel</Button>
           </div>
         </div>

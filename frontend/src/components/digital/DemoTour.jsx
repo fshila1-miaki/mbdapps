@@ -3,7 +3,7 @@ import { Button } from "../ui/button";
 import { X } from "lucide-react";
 
 const STEPS = [
-  { target: "tabs-bar", title: "Pick a Path", body: "Choose between Lite SMS templates, Provisioning API templates, Web app templates, or Android app templates." },
+  { target: "tabs-bar", title: "Pick a Path", body: "Choose between Web app templates or Android app templates." },
   { target: "template-card", title: "Pick a Template", body: "Pick a pre-built template matching your app idea." },
   { target: "design-picker", title: "Choose a Design", body: "Choose the look and feel of your app." },
   { target: "cust-form", title: "Tell Us About Your App", body: "Tell us about your app — name, colors, features." },
@@ -67,20 +67,20 @@ const DemoTour = ({ open, onClose }) => {
       {/* Spotlight */}
       {rect && (
         <div
-          className="absolute z-[61] rounded-xl pointer-events-none ring-4 ring-[#e11d48] shadow-[0_0_0_9999px_rgba(15,23,42,0.55)] transition-all"
+          className="absolute z-[61] rounded-xl pointer-events-none ring-4 ring-[#2563EB] shadow-[0_0_0_9999px_rgba(15,23,42,0.55)] transition-all"
           style={{ top: rect.top - 6, left: rect.left - 6, width: rect.width + 12, height: rect.height + 12 }}
         />
       )}
       {/* Tooltip */}
       <div
         data-testid="tour-tooltip"
-        className="fixed z-[62] w-80 bg-[#0f172a] text-white rounded-xl shadow-2xl p-4 border border-slate-700"
+        className="fixed z-[62] w-80 bg-[#09090B] text-white rounded-xl shadow-2xl p-4 border border-slate-700"
         style={{ top: ttTop, left: ttLeft }}
       >
         <button onClick={onClose} className="absolute top-2 right-2 p-1 text-slate-400 hover:text-white" data-testid="tour-close">
           <X size={14} />
         </button>
-        <div className="text-[10px] uppercase tracking-widest text-[#e11d48] font-bold mb-1">Step {idx + 1} of {STEPS.length}</div>
+        <div className="text-[10px] uppercase tracking-widest text-[#2563EB] font-bold mb-1">Step {idx + 1} of {STEPS.length}</div>
         <div className="font-bold tracking-tight text-base mb-1">{step.title}</div>
         <div className="text-xs text-slate-300 leading-relaxed">{step.body}</div>
         <div className="flex items-center justify-between mt-4 gap-2">
@@ -91,14 +91,14 @@ const DemoTour = ({ open, onClose }) => {
                 ← Back
               </Button>
             )}
-            <Button data-testid="tour-next" size="sm" onClick={() => isLast ? onClose() : setIdx(idx + 1)} className="bg-[#e11d48] hover:bg-[#be123c] h-7 text-xs">
+            <Button data-testid="tour-next" size="sm" onClick={() => isLast ? onClose() : setIdx(idx + 1)} className="bg-[#2563EB] hover:bg-[#1D4ED8] h-7 text-xs">
               {isLast ? "Finish" : "Next →"}
             </Button>
           </div>
         </div>
         {/* Arrow */}
         {rect && (
-          <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#0f172a] border-t border-l border-slate-700 rotate-45"></div>
+          <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#09090B] border-t border-l border-slate-700 rotate-45"></div>
         )}
       </div>
     </>

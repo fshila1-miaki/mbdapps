@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef, useCallback } from "react";
 // Single Pixel 7 Pro-style emulator with screen navigation
 // Props: screens = [{ id, label, render: (ctx) => JSX }], primary, accent
 // ctx = { goto(id), next(), back(), set(state), state, cartCount, addToCart }
-const AndroidEmulator = ({ screens, primary = "#e11d48", accent = "#fff", appName = "App", icon = "🚀", initialState = {} }) => {
+const AndroidEmulator = ({ screens, primary = "#2563EB", accent = "#fff", appName = "App", icon = "🚀", initialState = {} }) => {
   const [idx, setIdx] = useState(0);
   const [now, setNow] = useState(new Date());
   const [state, setStateRaw] = useState(initialState);

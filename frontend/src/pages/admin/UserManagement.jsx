@@ -46,7 +46,7 @@ const UserManagement = () => {
       <div className="space-y-6 max-w-3xl">
         <Button variant="outline" size="sm" onClick={() => setEditing(null)} data-testid="back-edit-user"><ArrowLeft size={14} className="mr-1" /> Back</Button>
         <div className="flex items-center justify-between">
-          <h1 className="text-3xl tracking-tighter font-bold" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>{editing.firstName} {editing.lastName}</h1>
+          <h1 className="text-3xl tracking-tighter font-bold" style={{ fontFamily: "'Outfit', sans-serif" }}>{editing.firstName} {editing.lastName}</h1>
           <span className={`text-xs font-bold uppercase px-2 py-0.5 rounded ${editing.status === "Active" ? "bg-emerald-100 text-emerald-700" : editing.status === "Disabled" ? "bg-rose-100 text-rose-700" : "bg-amber-100 text-amber-700"}`}>{editing.status}</span>
         </div>
         <Tabs defaultValue="basic">
@@ -78,8 +78,8 @@ const UserManagement = () => {
     <Layout>
       <div className="space-y-6">
         <div>
-          <p className="text-xs uppercase tracking-widest text-[#e11d48] font-bold mb-1">Admin · User Management</p>
-          <h1 className="text-3xl sm:text-4xl tracking-tighter font-bold" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>Users</h1>
+          <p className="text-xs uppercase tracking-widest text-[#2563EB] font-bold mb-1">Admin · User Management</p>
+          <h1 className="text-3xl sm:text-4xl tracking-tighter font-bold" style={{ fontFamily: "'Outfit', sans-serif" }}>Users</h1>
         </div>
 
         <Tabs defaultValue="system">
@@ -91,7 +91,7 @@ const UserManagement = () => {
                 <div className="relative flex-1 max-w-md"><Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" /><Input data-testid="user-search" placeholder="Search by name/username (required)" value={search} onChange={(e) => setSearch(e.target.value)} className="pl-9" /></div>
                 <Select value={statusFilter} onValueChange={setStatusFilter}><SelectTrigger className="md:w-44" data-testid="user-status-filter"><SelectValue /></SelectTrigger><SelectContent><SelectItem value="any">Any Status</SelectItem><SelectItem value="Initial">Initial</SelectItem><SelectItem value="Active">Active</SelectItem><SelectItem value="Disabled">Disabled</SelectItem></SelectContent></Select>
               </div>
-              <Button data-testid="add-user-btn" onClick={() => setAddOpen(true)} className="bg-[#e11d48] hover:bg-[#be123c]"><Plus size={14} className="mr-1" /> Add User</Button>
+              <Button data-testid="add-user-btn" onClick={() => setAddOpen(true)} className="bg-[#2563EB] hover:bg-[#1D4ED8]"><Plus size={14} className="mr-1" /> Add User</Button>
             </div>
             <div className="border border-slate-200 rounded-md overflow-hidden">
               <table className="w-full text-sm">
@@ -131,13 +131,13 @@ const UserManagement = () => {
             <div className="grid grid-cols-2 gap-3"><div><Label>First Name *</Label><Input data-testid="new-firstname" value={newUser.firstName} onChange={(e) => setNewUser({ ...newUser, firstName: e.target.value })} className={errors.firstName ? "border-rose-500" : ""} /></div><div><Label>Last Name</Label><Input value={newUser.lastName} onChange={(e) => setNewUser({ ...newUser, lastName: e.target.value })} /></div></div>
             <div><Label>Email *</Label><Input data-testid="new-email" type="email" value={newUser.email} onChange={(e) => setNewUser({ ...newUser, email: e.target.value })} className={errors.email ? "border-rose-500" : ""} /></div>
           </div>
-          <DialogFooter><Button data-testid="new-submit" onClick={addUser} className="bg-[#e11d48] hover:bg-[#be123c]">Create User</Button></DialogFooter>
+          <DialogFooter><Button data-testid="new-submit" onClick={addUser} className="bg-[#2563EB] hover:bg-[#1D4ED8]">Create User</Button></DialogFooter>
         </DialogContent>
       </Dialog>
 
       <Dialog open={!!editingCreator} onOpenChange={(o) => !o && setEditingCreator(null)}>
         <DialogContent><DialogHeader><DialogTitle>{editingCreator?.username}</DialogTitle><DialogDescription>App creator profile</DialogDescription></DialogHeader>
-          <div className="space-y-3"><div><Label>Email</Label><Input value={editingCreator?.email || ""} disabled /></div><div><Label>Mobile</Label><Input value={editingCreator?.mobile || ""} /></div><Button onClick={() => { toast.success("Profile saved"); setEditingCreator(null); }} className="bg-[#e11d48] hover:bg-[#be123c]" data-testid="creator-save">Save</Button></div>
+          <div className="space-y-3"><div><Label>Email</Label><Input value={editingCreator?.email || ""} disabled /></div><div><Label>Mobile</Label><Input value={editingCreator?.mobile || ""} /></div><Button onClick={() => { toast.success("Profile saved"); setEditingCreator(null); }} className="bg-[#2563EB] hover:bg-[#1D4ED8]" data-testid="creator-save">Save</Button></div>
         </DialogContent>
       </Dialog>
 

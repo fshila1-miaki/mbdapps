@@ -67,8 +67,8 @@ const DeshiFood = () => {
   const menu = selectedR ? (MENU[selectedR.id] || MENU.r1) : [];
 
   return (
-    <div className="min-h-screen bg-slate-900 flex items-center justify-center p-2 sm:p-4" data-testid="deshifood-app" style={{ fontFamily: "'IBM Plex Sans', sans-serif" }}>
-      <button onClick={() => navigate("/my-apps")} data-testid="back-from-deshifood" className="absolute top-3 left-3 text-xs text-white/60 hover:text-white flex items-center gap-1 z-10"><ChevronLeft size={14} /> Back to BDApps</button>
+    <div className="min-h-screen bg-slate-900 flex items-center justify-center p-2 sm:p-4" data-testid="deshifood-app" style={{ fontFamily: "'Inter', sans-serif" }}>
+      <button onClick={() => navigate("/my-apps")} data-testid="back-from-deshifood" className="absolute top-3 left-3 text-xs text-white/60 hover:text-white flex items-center gap-1 z-10"><ChevronLeft size={14} /> Back to Orbit</button>
 
       {/* Phone frame */}
       <div className="relative bg-slate-950 rounded-[3rem] p-3 border-4 border-slate-800 shadow-2xl" style={{ width: "min(390px, 100vw)" }}>
@@ -97,7 +97,7 @@ const DeshiFood = () => {
                   </div>
                   <button data-testid="send-otp" onClick={() => setScreen("otp")} className="w-full bg-white text-red-700 py-3 rounded-lg font-bold">Send OTP</button>
                 </div>
-                <div className="mt-auto text-center text-[10px] opacity-70">Powered by BDApps · Secure OTP via Robi</div>
+                <div className="mt-auto text-center text-[10px] opacity-70">Powered by Orbit · Secure OTP via Robi</div>
               </div>
             )}
 
