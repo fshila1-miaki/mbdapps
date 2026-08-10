@@ -1,11 +1,3 @@
-# Central Docker config — build context is the repo root (../.. from this file).
-# Run from repo root:
-#   cp frontend/docker/root.dockerignore .dockerignore
-#   docker compose -f frontend/docker/docker-compose.yml up --build
-#
-# After moving to repo root (mv frontend/docker docker), change dockerfile paths
-# from frontend/docker/... to docker/... and context from ../.. to ..
-
 services:
   mongo:
     image: mongo:7
@@ -33,7 +25,7 @@ services:
       dockerfile: docker/frontend/Dockerfile
     restart: unless-stopped
     ports:
-      - "80:80"
+      - "8089:80"
     depends_on:
       - backend
 
