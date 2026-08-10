@@ -2,14 +2,14 @@ import React, { useState, useMemo } from "react";
 import {
   LineChart, Line, BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid,
 } from "recharts";
-import { MatrimonyWebPreview } from "./MatrimonyPreview";
+import { SathiBDWebPreview } from "./SathiBDPreview";
 import { NewsWebPreview } from "./NewsPreview";
 import { QuizWebPreview } from "./QuizPreview";
 
-// Pro builder adapter: BDappsWebPreview passes (appName, tagline, primary, accent, language).
-// MatrimonyWebPreview expects cfg.* — wrap so Pro+Web previews share one source of truth.
-const ProMatrimonyAdapter = ({ appName, tagline, primary, accent, language }) => (
-  <MatrimonyWebPreview cfg={{ appName, tagline, primary, accent, language, fontFamily: "Inter, sans-serif" }} />
+// Pro builder adapter: OrbitWebPreview passes (appName, tagline, primary, accent, language).
+// SathiBDWebPreview expects cfg.* — wrap so Pro+Web previews share one source of truth.
+const ProSathiAdapter = ({ appName, tagline, primary, accent, language }) => (
+  <SathiBDWebPreview cfg={{ appName, tagline, primary, accent, language, fontFamily: "Poppins, sans-serif" }} />
 );
 const ProNewsAdapter = ({ appName, tagline, primary, accent, language, content }) => (
   <NewsWebPreview cfg={{ appName, tagline, primary, accent, language, fontFamily: "Inter, sans-serif" }} content={content} />
@@ -734,17 +734,17 @@ const PREVIEWS = {
   "pro-store": StorePreview,
   "pro-premium": PremiumPreview,
   "pro-admin": AdminPreview,
-  // Matrimony (BondoBD) — isolated preview
-  "pro-bondobd": ProMatrimonyAdapter,
+  // Matrimony (SathiBD) — isolated preview
+  "pro-sathibd": ProSathiAdapter,
   // News (NewsNow BD) — isolated preview
   "pro-newsnow": ProNewsAdapter,
   // Quiz (QuizBD) — isolated preview
   "pro-quizbd": ProQuizAdapter,
 };
 
-const BDappsWebPreview = ({ templateId, appName = "BDapps App", tagline = "Your tagline", primaryColor = "#0f172a", secondaryColor = "#e11d48", language = "English", url, height }) => {
+const OrbitWebPreview = ({ templateId, appName = "Orbit App", tagline = "Your tagline", primaryColor = "#09090B", secondaryColor = "#2563EB", language = "English", url, height }) => {
   const Comp = PREVIEWS[templateId] || SubPortalPreview;
-  const fallbackUrl = useMemo(() => url || `${(appName || "app").toLowerCase().replace(/[^a-z0-9]+/g, "-")}.bdapps.app`, [url, appName]);
+  const fallbackUrl = useMemo(() => url || `${(appName || "app").toLowerCase().replace(/[^a-z0-9]+/g, "-")}.orbit.app`, [url, appName]);
   return (
     <BrowserChrome url={fallbackUrl} height={height}>
       <div className="relative h-full">
@@ -754,4 +754,4 @@ const BDappsWebPreview = ({ templateId, appName = "BDapps App", tagline = "Your 
   );
 };
 
-export default BDappsWebPreview;
+export default OrbitWebPreview;

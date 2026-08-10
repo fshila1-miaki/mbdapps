@@ -35,7 +35,7 @@ const WhatsIncluded = ({ type = "web", sectionsCount = 4 }) => {
         className="w-full flex items-center justify-between px-4 py-3 hover:bg-slate-50 rounded-xl"
       >
         <div className="text-left">
-          <div className="text-xs uppercase tracking-widest font-bold text-[#e11d48]">What's Included</div>
+          <div className="text-xs uppercase tracking-widest font-bold text-[#2563EB]">What's Included</div>
           <div className="text-xs text-slate-500 mt-0.5">Deliverables in your download</div>
         </div>
         {open ? <ChevronUp size={16} /> : <ChevronDown size={16} />}

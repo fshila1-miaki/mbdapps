@@ -83,7 +83,7 @@ const Pages = () => {
             <Button variant="outline" size="sm" data-testid="add-image-block" onClick={() => addBlock("image")}>+ Image</Button>
             <Button variant="outline" size="sm" data-testid="add-divider-block" onClick={() => addBlock("divider")}>+ Divider</Button>
           </div>
-          <Button data-testid="save-publish-page" onClick={() => toast.success(`✓ "${cur.title}" published — live on site`)} className="w-full bg-[#e11d48] hover:bg-[#be123c]">💾 Save & Publish</Button>
+          <Button data-testid="save-publish-page" onClick={() => toast.success(`✓ "${cur.title}" published — live on site`)} className="w-full bg-[#2563EB] hover:bg-[#1D4ED8]">💾 Save & Publish</Button>
         </main>
       </div>
     </div>

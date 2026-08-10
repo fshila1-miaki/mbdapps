@@ -7,7 +7,7 @@ const ADD_ONS = [
   { id: "push", icon: "🔔", name: "Push Notifications", pitch: "Re-engage users with targeted push alerts. 94% open rate.", cta: "From BDT 500/mo", anchor: "push" },
   { id: "whatsapp", icon: "💬", name: "WhatsApp Campaigns", pitch: "98% message read rate. Better than email by 10x.", cta: "From BDT 1,200/mo", anchor: "whatsapp" },
   { id: "fbads", icon: "🎯", name: "Facebook & Google Ads", pitch: "Reach 50M+ Bangladeshis. AI-optimized.", cta: "From BDT 2,000/mo", anchor: "fbads" },
-  { id: "sms", icon: "📨", name: "SMS Marketing", pitch: "BDApps native. Reach every phone in Bangladesh.", cta: "BDT 0.25 / SMS", anchor: "sms" },
+  { id: "sms", icon: "📨", name: "SMS Marketing", pitch: "Orbit native. Reach every phone in Bangladesh.", cta: "BDT 0.25 / SMS", anchor: "sms" },
   { id: "influencer", icon: "🌟", name: "Influencer Connect", pitch: "BD's top influencers. 10M+ combined reach.", cta: "Custom pricing", anchor: "influencer" },
 ];
 
@@ -47,7 +47,7 @@ const LevelUp = ({ type, submittedToReview = true }) => {
             { done: true, label: "Content added" },
             { done: submittedToReview, label: "Submitted for admin review" },
             { done: false, label: "Get approved (24–48 hrs) — you'll be notified" },
-            { done: false, label: `Go live on ${type === "android" ? "BDApps App Store" : "the Web"}` },
+            { done: false, label: `Go live on ${type === "android" ? "Orbit App Store" : "the Web"}` },
             { done: false, label: "Add marketing to grow subscribers" },
           ].map((s, i) => (
             <li key={i} className="flex items-center gap-2">

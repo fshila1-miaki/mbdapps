@@ -156,7 +156,7 @@ const GenericSection = ({ sectionParam }) => {
     <div className="space-y-4" data-testid={`cms-${sectionParam}`}>
       <div className="flex items-end justify-between flex-wrap gap-2">
         <div><h1 className="text-2xl font-bold">{schema.label}s ({items.length})</h1></div>
-        <Button data-testid={`add-${sectionParam}`} onClick={() => setEditing({})} className="bg-[#e11d48] hover:bg-[#be123c] gap-1"><Plus size={14} /> Add {schema.label}</Button>
+        <Button data-testid={`add-${sectionParam}`} onClick={() => setEditing({})} className="bg-[#2563EB] hover:bg-[#1D4ED8] gap-1"><Plus size={14} /> Add {schema.label}</Button>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -188,7 +188,7 @@ const GenericSection = ({ sectionParam }) => {
       </div>
 
       <SlidePanel open={!!editing} onClose={() => setEditing(null)} title={`${editing?.id ? "Edit" : "Add"} ${schema.label}`} description="Changes go live immediately"
-        footer={<Button data-testid={`save-${sectionParam}`} onClick={() => save(editing)} className="w-full bg-[#e11d48]">💾 Save Changes</Button>}>
+        footer={<Button data-testid={`save-${sectionParam}`} onClick={() => save(editing)} className="w-full bg-[#2563EB]">💾 Save Changes</Button>}>
         {editing && schema.fields.map((f) => {
           if (f.type === "image") return <Field key={f.key} label={f.label}><ImageDropzone testid={`${sectionParam}-${f.key}`} value={editing[f.key]} onChange={(v) => setEditing({ ...editing, [f.key]: v })} height={f.height || "h-28"} /></Field>;
           if (f.type === "textarea") return <Field key={f.key} label={f.label} required={f.required} optional={f.optional}><Textarea data-testid={`${sectionParam}-${f.key}`} value={editing[f.key] || ""} onChange={(e) => setEditing({ ...editing, [f.key]: e.target.value })} maxLength={f.max} rows={3} /></Field>;

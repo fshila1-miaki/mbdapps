@@ -48,7 +48,7 @@ const Appointments = () => {
             <button data-testid="view-calendar" onClick={() => setView("calendar")} className={`px-3 py-1 text-xs font-bold rounded ${view === "calendar" ? "bg-white shadow" : "text-slate-600"}`}><CalIcon size={12} className="inline mr-1" /> Calendar</button>
             <button data-testid="view-list" onClick={() => setView("list")} className={`px-3 py-1 text-xs font-bold rounded ${view === "list" ? "bg-white shadow" : "text-slate-600"}`}><List size={12} className="inline mr-1" /> List</button>
           </div>
-          <Button data-testid="add-appointment" onClick={() => setAdding(true)} className="bg-[#e11d48] hover:bg-[#be123c] gap-1"><Plus size={14} /> Add Appointment</Button>
+          <Button data-testid="add-appointment" onClick={() => setAdding(true)} className="bg-[#2563EB] hover:bg-[#1D4ED8] gap-1"><Plus size={14} /> Add Appointment</Button>
         </div>
       </div>
 
@@ -92,7 +92,7 @@ const Appointments = () => {
                     <div className="flex items-center gap-1 flex-wrap">
                       {a.status === "Scheduled" && <button data-testid={`confirm-apt-${a.id}`} onClick={() => { updateAppointmentStatus(app.id, a.id, "Confirmed"); toast.success(`Appointment ${a.id} confirmed`); }} className="text-[10px] bg-blue-100 text-blue-700 px-2 py-1 rounded font-bold">Confirm</button>}
                       {a.status !== "Completed" && a.status !== "Cancelled" && <button data-testid={`complete-apt-${a.id}`} onClick={() => { updateAppointmentStatus(app.id, a.id, "Completed"); toast.success("Marked complete"); }} className="text-[10px] bg-emerald-100 text-emerald-700 px-2 py-1 rounded font-bold">Complete</button>}
-                      <button data-testid={`remind-apt-${a.id}`} onClick={() => toast.success(`📨 SMS reminder sent to ${a.patient} via BDApps`)} className="text-[10px] bg-slate-100 px-2 py-1 rounded font-bold">Remind</button>
+                      <button data-testid={`remind-apt-${a.id}`} onClick={() => toast.success(`📨 SMS reminder sent to ${a.patient} via Orbit`)} className="text-[10px] bg-slate-100 px-2 py-1 rounded font-bold">Remind</button>
                       {a.status !== "Cancelled" && <button data-testid={`cancel-apt-${a.id}`} onClick={() => { if (window.confirm("Cancel this appointment?")) { updateAppointmentStatus(app.id, a.id, "Cancelled"); toast.success("Cancelled"); } }} className="text-[10px] text-rose-600 px-2 py-1 hover:bg-rose-50 rounded font-bold">Cancel</button>}
                     </div>
                   </Td>
@@ -144,7 +144,7 @@ const AddAppointmentPanel = ({ open, onClose, doctors, onAdd }) => {
 
   return (
     <SlidePanel open={open} onClose={onClose} title="Book Appointment" description="For walk-in bookings"
-      footer={<Button data-testid="book-apt" onClick={submit} className="w-full bg-[#e11d48]">Book Appointment</Button>}>
+      footer={<Button data-testid="book-apt" onClick={submit} className="w-full bg-[#2563EB]">Book Appointment</Button>}>
       <Field label="Patient Name" required><Input data-testid="apt-patient" value={v.patient || ""} onChange={(e) => setV({ ...v, patient: e.target.value })} /></Field>
       <Field label="Patient Phone" required><Input data-testid="apt-phone" value={v.phone || ""} onChange={(e) => setV({ ...v, phone: e.target.value })} placeholder="+880 17..." /></Field>
       <Field label="Doctor" required>

@@ -4,7 +4,7 @@ import { toast } from "sonner";
 import { ChevronLeft } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import APIMonitor from "../../components/APIMonitor";
-import { requestOTP, verifyOTP, userSubscription, sendSMS, notifySubscribers } from "../../services/BDAppsAPI";
+import { requestOTP, verifyOTP, userSubscription, sendSMS, notifySubscribers } from "../../services/OrbitAPI";
 import { NewsWebPreview } from "../../components/digital/interactive/NewsPreview";
 
 /**
@@ -15,7 +15,7 @@ import { NewsWebPreview } from "../../components/digital/interactive/NewsPreview
  * therefore byte-identical to what users see when previewing the News
  * template in the App Builder. This page only adds:
  *   1. A thin outer toolbar (Back + Lang toggle)
- *   2. Real BDAppsAPI calls (requestOTP / verifyOTP / userSubscription / sendSMS / notifySubscribers)
+ *   2. Real OrbitAPI calls (requestOTP / verifyOTP / userSubscription / sendSMS / notifySubscribers)
  *      bound to the preview's onPhoneSubmit / onOtpVerify hooks
  *   3. APIMonitor panel so visitors can see live telecom API traffic.
  */
@@ -50,7 +50,7 @@ const NewsNow = () => {
       const subRes = await userSubscription(subscriberMsisdn, "SUB");
       await sendSMS([subscriberMsisdn], "You have subscribed to NewsNow BD breaking news alerts. Shortcode: 16222 | Unsub: Reply STOP", "16222");
       // Demo: also fire a sample broadcast so the activity feed lights up
-      notifySubscribers("BREAKING: Bangladesh Economy Grows 6.5% — Read at newsnow.bdapps.app", "APP_000375").catch(() => {});
+      notifySubscribers("BREAKING: Bangladesh Economy Grows 6.5% — Read at newsnow.orbit.app", "APP_000375").catch(() => {});
       if (subRes.statusCode === "S1000") {
         toast.success("Subscribed to SMS alerts!", { description: verifyRes.statusCode === "S1000" ? "Verified via Robi OTP." : "Demo bypass — subscription confirmed." });
       }

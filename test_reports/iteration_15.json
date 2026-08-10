@@ -1,0 +1,30 @@
+{
+  "summary": "Frontend-only testing of SathiBD rebuild (replacing BondoBD). Verified the working app at /apps/sathibd end-to-end (home, profiles, send-interest modal, chat popup, plans, full subscription flow with OTP+CaaS spinner, dashboard interest-requests Accept/Decline, register, BN/EN lang toggle). Verified surface integration: My Apps, App Store, and Digital Builder all show SathiBD and contain zero BondoBD references. Regression-checked QuizBD / NewsNow / FitBD / RobiMart — all still load and show no SathiBD leak. Could not auto-verify Step 5 builder preview rendering (template card 'Use Template' click did not produce a visible navigation in headless run); recommend a brief manual confirmation by main agent.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [
+      {"flow": "Digital Builder template → enter wizard", "issue": "Clicking 'Use Template' on the SathiBD card from the templates listing did not visibly change route / open the 5-step wizard in the headless Playwright run (URL stayed at /digital). Was unable to reach Step 5 preview programmatically to confirm gold matrimony homepage renders inside the builder browser-chrome. Builder may rely on a modal/state change not detected; please self-verify or instrument with a data-testid on the wizard root + 'Use Template' button.", "affected_selectors": ["template card 'Use Template' button on web-sathibd / pro-sathibd"]}
+    ],
+    "design_issues": []
+  },
+  "test_report_links": ["/app/test_reports/iteration_15.json"],
+  "action_items": [
+    "Manually verify Web App Builder → SathiBD template → Step 4 (matrimony sections + Skip-Use-Sample-Data populates SathiBD seed) → Step 5 (gold SathiBD homepage rendered inside browser-chrome preview, NOT generic e-commerce). Add data-testid to the 'Use Template' button and the wizard step indicators so this can be automated next iteration.",
+    "(Pre-existing, unrelated) NewsNow has a React hydration warning: '<button> cannot be a descendant of <button>' on /apps/newsnow CategoryPill nested inside news-hero-article button. Not caused by this iteration, but worth fixing in NewsPreview.jsx."
+  ],
+  "critical_code_review_comments": [
+    "SathiBDPreview.jsx is the single source of truth and is reused both at /apps/sathibd and in Step 5 — good architecture, no duplication.",
+    "All interactive SathiBD elements expose 'sathibd-*' data-testid attributes as documented; very testable.",
+    "BondoBD has been fully purged from My Apps / App Store / Digital templates surfaces (verified counts = 0).",
+    "Minor: 'Use Template' button on builder template cards should also expose a data-testid (e.g. builder-use-template-{slug}) to enable future automated end-to-end wizard tests."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "n/a (frontend-only)", "frontend": "95%"},
+  "test_credentials": "developer@bdapps.com / dev123 (used)",
+  "seed_data_creation": "None — localStorage v5 auto-seeded SathiBD entries as expected on fresh load.",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "SathiBD app at /apps/sathibd is fully working: home, profiles (filters update count 8→4/4 for male/female), send-interest modal (sathibd-interest-modal), chat popup (sathibd-chat-popup with input/send), Plans page with Gold most-popular badge, full subscription flow (phone → sendotp → 6 OTP boxes → verify → CaaS spinner → 'Charged BDT 349 via CaaS · Plan: Gold' toast → dashboard), dashboard with interest-requests Accept/Decline, register success page, lang-bn / lang-en toggles. My Apps lists 'SathiBD' (WEB · matrimony · Live · ₿642k revenue) with NO BondoBD. App Store lists SathiBD with NO BondoBD. Digital Builder lists 'SathiBD — Matrimony Portal' gold-themed card with NO BondoBD. Regression: /apps/quizbd, /apps/newsnow, /apps/fitbd, /apps/robimart-bd all still load. Only outstanding gap: Step 5 builder preview content was not auto-confirmed because the 'Use Template' click did not navigate in the headless run. Suggest adding data-testid to 'Use Template' and step-indicator elements, or having main agent self-verify visually.",
+  "rca_of_the_issue": "n/a — no functional bug found in SathiBD."
+}

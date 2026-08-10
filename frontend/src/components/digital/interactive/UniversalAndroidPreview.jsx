@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import AndroidEmulator from "../AndroidEmulator";
-import { matrimonyAndroidScreens } from "./MatrimonyPreview";
+import { sathibdAndroidScreens } from "./SathiBDPreview";
 
 const T = (l, en, bn) => (l === "Bengali" ? bn : en);
 
@@ -79,7 +79,7 @@ const ecomScreens = (lang) => {
               <div className="text-[10px] text-slate-500">⭐ 4.7 · 284 reviews</div>
               <div className="text-xl font-bold mt-1" style={{ color: ctx.primary }}>৳ {p.p}</div>
               <div className="text-[10px] mt-3">{T(lang, "Color", "রঙ")}</div>
-              <div className="flex gap-1.5 mt-1">{["#ef4444", "#3b82f6", "#10b981", "#0f172a"].map((c, i) => <span key={c} className={`w-5 h-5 rounded-full ${i === 0 ? "ring-2 ring-offset-1 ring-slate-900" : ""}`} style={{ background: c }}></span>)}</div>
+              <div className="flex gap-1.5 mt-1">{["#ef4444", "#3b82f6", "#10b981", "#09090B"].map((c, i) => <span key={c} className={`w-5 h-5 rounded-full ${i === 0 ? "ring-2 ring-offset-1 ring-slate-900" : ""}`} style={{ background: c }}></span>)}</div>
               <div className="text-[10px] mt-3">{T(lang, "Size", "সাইজ")}</div>
               <div className="flex gap-1 mt-1">{["S", "M", "L", "XL"].map((s, i) => <span key={s} className={`text-[10px] px-2 py-0.5 rounded ${i === 1 ? "text-white" : "bg-slate-100"}`} style={i === 1 ? { background: ctx.primary } : {}}>{s}</span>)}</div>
             </div>
@@ -144,7 +144,7 @@ const PaymentScreen = ({ ctx, lang }) => {
       <div className="h-full flex flex-col items-center justify-center bg-white p-6">
         <div className="w-12 h-12 rounded-full border-4 border-slate-200 border-t-current animate-spin" style={{ color: ctx.primary }}></div>
         <div className="text-xs font-bold mt-3" style={{ color: ctx.primary }}>{T(lang, "Processing payment...", "পেমেন্ট প্রসেসিং...")}</div>
-        <div className="text-[10px] text-slate-500 mt-1 text-center">{T(lang, "Routing through BDApps Proxy → SSL Commerz → bKash", "BDApps Proxy → SSL Commerz → bKash")}</div>
+        <div className="text-[10px] text-slate-500 mt-1 text-center">{T(lang, "Routing through Orbit Proxy → SSL Commerz → bKash", "Orbit Proxy → SSL Commerz → bKash")}</div>
       </div>
     );
   }
@@ -363,7 +363,7 @@ const rideScreens = (lang) => simpleScreens(lang, { screens: [
 const SCREENS = {
   "and-ecom": ecomScreens, "and-food": foodScreens, "and-doctor": doctorScreens, "and-edu": eduScreens,
   "and-fitness": fitnessScreens, "and-travel": travelScreens, "and-news": newsScreens, "and-ride": rideScreens,
-  "and-bondobd": matrimonyAndroidScreens,
+  "and-sathibd": sathibdAndroidScreens,
 };
 
 const UniversalAndroidPreview = ({ templateId, cfg }) => {

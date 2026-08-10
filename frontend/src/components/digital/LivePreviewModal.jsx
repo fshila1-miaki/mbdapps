@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "../ui/dialog";
 import { Button } from "../ui/button";
 import { X, ArrowRight } from "lucide-react";
-import BDappsWebPreview from "./interactive/WebPreviews";
+import OrbitWebPreview from "./interactive/WebPreviews";
 import UniversalWebPreview from "./interactive/UniversalWebPreview";
 import UniversalAndroidPreview from "./interactive/UniversalAndroidPreview";
 
 const LivePreviewModal = ({ open, onClose, template, type, onUse }) => {
   if (!template) return null;
-  const primary = template.palette?.primary || "#0f172a";
-  const accent = template.palette?.accent || "#e11d48";
+  const primary = template.palette?.primary || "#09090B";
+  const accent = template.palette?.accent || "#2563EB";
   const cfg = {
     appName: template.name, tagline: template.description,
     primary, secondary: accent, accent: "#f59e0b",
@@ -32,7 +32,7 @@ const LivePreviewModal = ({ open, onClose, template, type, onUse }) => {
             </div>
           </div>
           <div className="flex gap-2">
-            <Button data-testid="live-preview-use" onClick={() => { onUse?.(template); onClose(); }} className="bg-[#e11d48] hover:bg-[#be123c]" size="sm">
+            <Button data-testid="live-preview-use" onClick={() => { onUse?.(template); onClose(); }} className="bg-[#2563EB] hover:bg-[#1D4ED8]" size="sm">
               Use This Template <ArrowRight size={14} className="ml-1" />
             </Button>
             <button data-testid="live-preview-close" onClick={onClose} className="p-2 hover:bg-slate-100 rounded-md"><X size={16} /></button>
@@ -40,7 +40,7 @@ const LivePreviewModal = ({ open, onClose, template, type, onUse }) => {
         </div>
         <div className="flex-1 overflow-y-auto bg-slate-50 p-5">
           {type === "pro" ? (
-            <BDappsWebPreview templateId={template.id} appName={cfg.appName} tagline={cfg.tagline} primaryColor={primary} secondaryColor={accent} language="English" height="h-[65vh]" />
+            <OrbitWebPreview templateId={template.id} appName={cfg.appName} tagline={cfg.tagline} primaryColor={primary} secondaryColor={accent} language="English" height="h-[65vh]" />
           ) : type === "web" ? (
             <UniversalWebPreview templateId={template.id} cfg={cfg} height="h-[65vh]" />
           ) : (

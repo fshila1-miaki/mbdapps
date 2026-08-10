@@ -68,7 +68,7 @@ const CustomizationForm = ({ template, type, onSubmit, onBack }) => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
             {initialPages.map((p) => (
               <label key={p} data-testid={`cust-page-${p.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`} className="flex items-center gap-2 bg-slate-50 rounded-md p-2 cursor-pointer">
-                <input type="checkbox" checked={v.pages.includes(p)} onChange={() => togglePage(p)} className="accent-[#e11d48]" />
+                <input type="checkbox" checked={v.pages.includes(p)} onChange={() => togglePage(p)} className="accent-[#2563EB]" />
                 <span className="text-sm">{p}</span>
               </label>
             ))}
@@ -81,7 +81,7 @@ const CustomizationForm = ({ template, type, onSubmit, onBack }) => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
             {initialFeatures.map((f) => (
               <label key={f} data-testid={`cust-feature-${f.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`} className="flex items-center gap-2 bg-slate-50 rounded-md p-2 cursor-pointer">
-                <input type="checkbox" checked={v.features.includes(f)} onChange={() => toggleFeature(f)} className="accent-[#e11d48]" />
+                <input type="checkbox" checked={v.features.includes(f)} onChange={() => toggleFeature(f)} className="accent-[#2563EB]" />
                 <span className="text-sm">Enable {f}</span>
               </label>
             ))}
@@ -93,7 +93,7 @@ const CustomizationForm = ({ template, type, onSubmit, onBack }) => {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
           {["Email & Password", "Phone OTP", "Google Sign-In", "Facebook Login"].map((a) => (
             <label key={a} data-testid={`cust-auth-${a.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`} className="flex items-center gap-2 bg-slate-50 rounded-md p-2 cursor-pointer">
-              <input type="checkbox" checked={v.authMethods.includes(a)} onChange={() => toggleAuth(a)} className="accent-[#e11d48]" />
+              <input type="checkbox" checked={v.authMethods.includes(a)} onChange={() => toggleAuth(a)} className="accent-[#2563EB]" />
               <span className="text-sm">{a}</span>
             </label>
           ))}
@@ -102,7 +102,7 @@ const CustomizationForm = ({ template, type, onSubmit, onBack }) => {
 
       <div className="flex gap-2 justify-end">
         <Button variant="outline" onClick={onBack} data-testid="cust-back">← Back</Button>
-        <Button data-testid="cust-preview" disabled={!valid} onClick={() => onSubmit(v)} className="bg-[#e11d48] hover:bg-[#be123c] font-bold px-8">Preview My App →</Button>
+        <Button data-testid="cust-preview" disabled={!valid} onClick={() => onSubmit(v)} className="bg-[#2563EB] hover:bg-[#1D4ED8] font-bold px-8">Preview My App →</Button>
       </div>
     </div>
   );

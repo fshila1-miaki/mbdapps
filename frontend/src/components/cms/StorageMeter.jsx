@@ -21,8 +21,8 @@ const StorageMeter = ({ usedBytes = 0, capBytes = 500 * 1024 * 1024, compact = f
     <div data-testid="storage-banner" className="bg-gradient-to-r from-slate-900 to-slate-700 text-white rounded-xl px-4 py-3 flex items-center gap-3">
       <Database size={20} />
       <div className="flex-1">
-        <div className="text-sm font-bold flex items-center gap-2">BDApps Cloud Storage <span className="text-[10px] bg-emerald-500 px-2 py-0.5 rounded font-bold uppercase tracking-wider">Connected</span></div>
-        <div className="text-xs text-slate-300 mt-0.5">All content you add is stored in your BDApps database — your launched app reads from it in real-time.</div>
+        <div className="text-sm font-bold flex items-center gap-2">Orbit Cloud Storage <span className="text-[10px] bg-emerald-500 px-2 py-0.5 rounded font-bold uppercase tracking-wider">Connected</span></div>
+        <div className="text-xs text-slate-300 mt-0.5">All content you add is stored in your Orbit database — your launched app reads from it in real-time.</div>
         <div className="mt-2 flex items-center gap-2">
           <div className="flex-1 h-1.5 bg-white/10 rounded-full overflow-hidden">
             <div className="h-full bg-emerald-400 transition-all" style={{ width: `${pct}%` }} />

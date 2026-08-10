@@ -63,11 +63,11 @@ const Customers = () => {
             <div><b>Total Spent:</b> BDT {view.spent.toLocaleString()}</div>
             <div><b>Last Order:</b> {view.lastOrder}</div>
           </div>
-          <Field label="Send SMS via BDApps">
+          <Field label="Send SMS via Orbit">
             <Textarea data-testid="cust-sms-text" value={smsText} onChange={(e) => setSmsText(e.target.value)} placeholder={`Hi ${view.name}, ...`} rows={3} />
           </Field>
           <div className="grid grid-cols-2 gap-2">
-            <Button data-testid="send-cust-sms" onClick={() => { toast.success(`📨 SMS sent to ${view.phone} via BDApps`); setSmsText(""); setView(null); }} className="bg-blue-600 gap-1"><MessageSquare size={12} /> Send SMS</Button>
+            <Button data-testid="send-cust-sms" onClick={() => { toast.success(`📨 SMS sent to ${view.phone} via Orbit`); setSmsText(""); setView(null); }} className="bg-blue-600 gap-1"><MessageSquare size={12} /> Send SMS</Button>
             <Button variant="outline" data-testid="add-note" onClick={() => toast.success("Note added")} className="text-xs">Add Note</Button>
           </div>
         </>}

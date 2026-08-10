@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Activity, X, ChevronDown, ChevronRight, Trash2 } from "lucide-react";
-import { subscribeMonitor, getMonitorLogs, clearMonitorLogs } from "../services/BDAppsAPI";
+import { subscribeMonitor, getMonitorLogs, clearMonitorLogs } from "../services/OrbitAPI";
 
 const CATEGORY_COLORS = {
   OTP: "bg-blue-500",
@@ -49,7 +49,7 @@ const APIMonitor = ({ autoOpen = false }) => {
         onClick={() => setOpen((p) => !p)}
         style={{ zIndex: 2147483646 }}
         className={`fixed bottom-6 left-6 w-14 h-14 rounded-full bg-slate-900 hover:bg-slate-700 text-white shadow-2xl flex items-center justify-center transition-all ${pulse ? "ring-4 ring-emerald-400 scale-110" : ""}`}
-        title="BDApps API Monitor"
+        title="Orbit API Monitor"
       >
         <Activity size={22} className={pulse ? "text-emerald-400" : "text-white"} />
         {logs.length > 0 && (
@@ -70,7 +70,7 @@ const APIMonitor = ({ autoOpen = false }) => {
           <div className="px-4 py-3 border-b border-slate-700 flex items-center justify-between bg-gradient-to-r from-slate-800 to-slate-900">
             <div>
               <div className="text-sm font-bold flex items-center gap-1.5">
-                <Activity size={14} className="text-emerald-400" /> BDApps API Monitor
+                <Activity size={14} className="text-emerald-400" /> Orbit API Monitor
               </div>
               <div className="text-[10px] text-slate-400 mt-0.5">Real-time API activity log · {logs.length} calls</div>
             </div>
@@ -100,7 +100,7 @@ const APIMonitor = ({ autoOpen = false }) => {
 
           {/* Demo banner */}
           <div className="px-3 py-2 bg-amber-500/10 border-b border-amber-500/20 text-[10px] text-amber-200">
-            ℹ️ Demo Mode · Calls are simulated. Production endpoint: <code className="text-amber-300">developer.bdapps.com</code>
+            ℹ️ Demo Mode · Calls are simulated. Production endpoint: <code className="text-amber-300">developer.orbit.app</code>
           </div>
 
           {/* Logs */}

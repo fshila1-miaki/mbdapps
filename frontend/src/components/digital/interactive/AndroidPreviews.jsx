@@ -24,7 +24,7 @@ export const PhoneFrame = ({ children, size = 220, label }) => (
 );
 
 const StatusBar = ({ color, light = true }) => (
-  <div className="h-6 flex items-center justify-between px-4 text-[10px]" style={{ background: color, color: light ? "white" : "#0f172a" }}>
+  <div className="h-6 flex items-center justify-between px-4 text-[10px]" style={{ background: color, color: light ? "white" : "#09090B" }}>
     <span className="font-semibold">9:41</span>
     <div className="flex items-center gap-1.5">
       <span>📶</span><span>📡</span><span className="font-semibold">98%</span>
@@ -61,7 +61,7 @@ const AlertAppPreview = ({ appName, tagline, primary, icon, language }) => {
   return (
     <>
       <PhoneFrame label={T(language, "Splash", "স্প্ল্যাশ")}>
-        <div className="flex-1 flex flex-col items-center justify-center text-white" style={{ background: `linear-gradient(135deg, ${primary} 0%, #0f172a 100%)` }}>
+        <div className="flex-1 flex flex-col items-center justify-center text-white" style={{ background: `linear-gradient(135deg, ${primary} 0%, #09090B 100%)` }}>
           <div className="text-5xl mb-3 animate-pulse">{icon}</div>
           <div className="font-bold text-lg">{appName}</div>
           <div className="text-[10px] opacity-70 mt-1">{tagline}</div>
@@ -666,7 +666,7 @@ const PREVIEWS = {
   "and-islamic": IslamicAppPreview,
 };
 
-const BDappsAndroidPreview = ({ templateId, appName = "BDapps App", tagline = "Your tagline", primaryColor = "#e11d48", icon = "🚀", language = "English" }) => {
+const OrbitAndroidPreview = ({ templateId, appName = "Orbit App", tagline = "Your tagline", primaryColor = "#2563EB", icon = "🚀", language = "English" }) => {
   const Comp = PREVIEWS[templateId] || AlertAppPreview;
   return (
     <div className="flex flex-wrap items-start justify-center gap-4 py-3">
@@ -675,4 +675,4 @@ const BDappsAndroidPreview = ({ templateId, appName = "BDapps App", tagline = "Y
   );
 };
 
-export default BDappsAndroidPreview;
+export default OrbitAndroidPreview;

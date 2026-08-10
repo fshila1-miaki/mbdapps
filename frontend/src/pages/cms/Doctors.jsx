@@ -29,7 +29,7 @@ const Doctors = () => {
     <div className="space-y-4" data-testid="cms-doctors">
       <div className="flex items-end justify-between flex-wrap gap-2">
         <div><h1 className="text-2xl font-bold">Doctors ({doctors.length})</h1><p className="text-xs text-slate-500">Manage your clinic's medical team</p></div>
-        <Button data-testid="add-doctor" onClick={() => setEditing({ days: [], slot: 30, status: "Active" })} className="bg-[#e11d48] hover:bg-[#be123c] gap-1"><Plus size={14} /> Add Doctor</Button>
+        <Button data-testid="add-doctor" onClick={() => setEditing({ days: [], slot: 30, status: "Active" })} className="bg-[#2563EB] hover:bg-[#1D4ED8] gap-1"><Plus size={14} /> Add Doctor</Button>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -54,7 +54,7 @@ const Doctors = () => {
       </div>
 
       <SlidePanel open={!!editing} onClose={() => setEditing(null)} title={`${editing?.id ? "Edit" : "Add"} Doctor`} description="Changes go live immediately"
-        footer={<Button data-testid="save-doctor" onClick={() => save(editing)} className="w-full bg-[#e11d48]">💾 Save Doctor</Button>}>
+        footer={<Button data-testid="save-doctor" onClick={() => save(editing)} className="w-full bg-[#2563EB]">💾 Save Doctor</Button>}>
         {editing && <>
           <Field label="Photo"><ImageDropzone testid="doc-image" value={editing.image} onChange={(v) => setEditing({ ...editing, image: v })} height="h-32" label="Drop profile photo" /></Field>
           <Field label="Full Name" required><Input data-testid="doc-name" value={editing.name || ""} onChange={(e) => setEditing({ ...editing, name: e.target.value })} /></Field>

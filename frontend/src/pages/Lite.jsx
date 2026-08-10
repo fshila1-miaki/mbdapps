@@ -26,8 +26,8 @@ const LiteDashboard = () => {
     <Layout>
       <div className="space-y-8">
         <div>
-          <p className="text-xs uppercase tracking-widest text-[#e11d48] font-bold mb-1">{t("nav.bdappsLite")}</p>
-          <h1 className="text-3xl sm:text-4xl tracking-tighter font-bold text-[#0f172a]" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>{t("lite.console")}</h1>
+          <p className="text-xs uppercase tracking-widest text-[#2563EB] font-bold mb-1">{t("nav.bdappsLite")}</p>
+          <h1 className="text-3xl sm:text-4xl tracking-tighter font-bold text-[#09090B]" style={{ fontFamily: "'Outfit', sans-serif" }}>{t("lite.console")}</h1>
           <p className="text-slate-500 mt-2">{t("lite.consoleSub")}</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -117,17 +117,17 @@ const CreateLiteApp = () => {
     setStep(4);
   };
 
-  const SectionHdr = ({ children }) => <h3 className="text-xs font-bold uppercase tracking-widest text-[#e11d48] mt-6 mb-2 pb-2 border-b border-slate-100">{children}</h3>;
+  const SectionHdr = ({ children }) => <h3 className="text-xs font-bold uppercase tracking-widest text-[#2563EB] mt-6 mb-2 pb-2 border-b border-slate-100">{children}</h3>;
 
   return (
     <Layout>
       <div className="max-w-3xl space-y-6">
-        <Link to="/lite" data-testid="back-lite" className="inline-flex items-center gap-1 text-sm text-slate-500 hover:text-[#0f172a]"><ArrowLeft size={14} /> Back</Link>
-        <h1 className="text-3xl tracking-tighter font-bold" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>Create Lite Application</h1>
+        <Link to="/lite" data-testid="back-lite" className="inline-flex items-center gap-1 text-sm text-slate-500 hover:text-[#09090B]"><ArrowLeft size={14} /> Back</Link>
+        <h1 className="text-3xl tracking-tighter font-bold" style={{ fontFamily: "'Outfit', sans-serif" }}>Create Lite Application</h1>
 
         <div className="flex items-center gap-2">
           {[1, 2, 3, 4].map((s) => (
-            <div key={s} className={`h-1.5 flex-1 rounded-full ${step >= s ? "bg-[#e11d48]" : "bg-slate-200"}`}></div>
+            <div key={s} className={`h-1.5 flex-1 rounded-full ${step >= s ? "bg-[#2563EB]" : "bg-slate-200"}`}></div>
           ))}
         </div>
 
@@ -140,8 +140,8 @@ const CreateLiteApp = () => {
                 { id: "Services", icon: Wrench, desc: "Provide ongoing services (hadith, quotes, recipes)." },
               ].map((t) => (
                 <button key={t.id} onClick={() => update("template", t.id)} data-testid={`template-${t.id}`}
-                  className={`text-left border-2 rounded-md p-6 transition ${data.template === t.id ? "border-[#e11d48] bg-rose-50" : "border-slate-200 hover:border-[#0f172a]"}`}>
-                  <t.icon size={28} className="text-[#e11d48] mb-3" />
+                  className={`text-left border-2 rounded-md p-6 transition ${data.template === t.id ? "border-[#2563EB] bg-rose-50" : "border-slate-200 hover:border-[#09090B]"}`}>
+                  <t.icon size={28} className="text-[#2563EB] mb-3" />
                   <div className="font-semibold text-lg">{t.id}</div>
                   <div className="text-sm text-slate-500 mt-1">{t.desc}</div>
                 </button>
@@ -273,12 +273,12 @@ const CreateLiteApp = () => {
           <div className="text-center py-12 space-y-6 border border-emerald-200 bg-emerald-50 rounded-md">
             <Sparkles size={48} className="text-emerald-600 mx-auto" />
             <div>
-              <h2 className="text-3xl font-bold tracking-tighter" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>Application Created!</h2>
+              <h2 className="text-3xl font-bold tracking-tighter" style={{ fontFamily: "'Outfit', sans-serif" }}>Application Created!</h2>
               <p className="text-slate-600 mt-2">Your Lite app <span className="font-semibold">{data.name}</span> is awaiting approval.</p>
             </div>
             <div className="flex justify-center gap-3">
               <Button variant="outline" onClick={() => setTutorialOpen(true)} data-testid="view-tutorial"><BookOpen size={14} className="mr-1" /> View Tutorial</Button>
-              <Button data-testid="goto-myapps" onClick={() => navigate("/lite/applications")} className="bg-[#e11d48] hover:bg-[#be123c]">My Applications</Button>
+              <Button data-testid="goto-myapps" onClick={() => navigate("/lite/applications")} className="bg-[#2563EB] hover:bg-[#1D4ED8]">My Applications</Button>
             </div>
           </div>
         )}
@@ -286,8 +286,8 @@ const CreateLiteApp = () => {
         {step < 4 && (
           <div className="flex justify-between pt-4">
             <Button variant="outline" disabled={step === 1} onClick={() => setStep(step - 1)} data-testid="lite-back">Back</Button>
-            {step === 3 ? <Button data-testid="lite-submit" className="bg-[#e11d48] hover:bg-[#be123c]" onClick={submit}>Submit</Button>
-              : <Button data-testid="lite-next" className="bg-[#e11d48] hover:bg-[#be123c]" onClick={next}>Next</Button>}
+            {step === 3 ? <Button data-testid="lite-submit" className="bg-[#2563EB] hover:bg-[#1D4ED8]" onClick={submit}>Submit</Button>
+              : <Button data-testid="lite-next" className="bg-[#2563EB] hover:bg-[#1D4ED8]" onClick={next}>Next</Button>}
           </div>
         )}
 
@@ -339,10 +339,10 @@ const MyApplications = () => {
       <div className="space-y-6">
         <div className="flex justify-between items-end">
           <div>
-            <Link to="/lite" data-testid="back-lite-myapps" className="inline-flex items-center gap-1 text-sm text-slate-500 hover:text-[#0f172a] mb-2"><ArrowLeft size={14} /> Back</Link>
-            <h1 className="text-3xl tracking-tighter font-bold" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>My Applications</h1>
+            <Link to="/lite" data-testid="back-lite-myapps" className="inline-flex items-center gap-1 text-sm text-slate-500 hover:text-[#09090B] mb-2"><ArrowLeft size={14} /> Back</Link>
+            <h1 className="text-3xl tracking-tighter font-bold" style={{ fontFamily: "'Outfit', sans-serif" }}>My Applications</h1>
           </div>
-          <Button onClick={() => navigate("/lite/create")} className="bg-[#e11d48] hover:bg-[#be123c]"><Plus size={14} className="mr-1" /> New</Button>
+          <Button onClick={() => navigate("/lite/create")} className="bg-[#2563EB] hover:bg-[#1D4ED8]"><Plus size={14} className="mr-1" /> New</Button>
         </div>
 
         <div className="border border-slate-200 rounded-md overflow-x-auto">
@@ -364,7 +364,7 @@ const MyApplications = () => {
                         <Button size="sm" variant="outline" onClick={() => onUse(a)} data-testid={`use-${a.id}`}>Use</Button>
                         <Button size="sm" variant="outline" onClick={() => setViewApp(a)} data-testid={`view-${a.id}`}>View</Button>
                         <Button size="sm" variant="outline" onClick={() => setHelpApp(a)} data-testid={`help-${a.id}`}>Help</Button>
-                        <Button size="sm" className="bg-[#e11d48] hover:bg-[#be123c]" onClick={() => setPublishApp(a)} data-testid={`publish-${a.id}`}>Publish</Button>
+                        <Button size="sm" className="bg-[#2563EB] hover:bg-[#1D4ED8]" onClick={() => setPublishApp(a)} data-testid={`publish-${a.id}`}>Publish</Button>
                       </>)}
                       {a.status === "Rejected" && <Button size="sm" variant="outline" onClick={() => setViewApp(a)}>View</Button>}
                       {a.status === "Pending" && <span className="text-xs text-slate-400">Awaiting approval</span>}
@@ -392,7 +392,7 @@ const MyApplications = () => {
 
       <Dialog open={!!helpApp} onOpenChange={(o) => !o && setHelpApp(null)}>
         <DialogContent><DialogHeader><DialogTitle>Help · {helpApp?.name}</DialogTitle></DialogHeader>
-          <div className="text-sm space-y-2"><p>Subscribers SMS <span className="font-mono bg-slate-100 px-1 rounded">{helpApp?.keyword}</span> to 21333 to subscribe.</p><p>To unsubscribe, send STOP to 21333.</p><p>Need more help? Contact support@bdapps.com</p></div>
+          <div className="text-sm space-y-2"><p>Subscribers SMS <span className="font-mono bg-slate-100 px-1 rounded">{helpApp?.keyword}</span> to 21333 to subscribe.</p><p>To unsubscribe, send STOP to 21333.</p><p>Need more help? Contact support@orbit.app</p></div>
         </DialogContent>
       </Dialog>
 
@@ -412,7 +412,7 @@ const MyApplications = () => {
             <div><Label>Icon</Label><Input type="file" accept="image/*" /></div>
             <div><Label>Banner (optional)</Label><Input type="file" accept="image/*" /></div>
           </div>
-          <DialogFooter><Button data-testid="pub-submit" onClick={() => { if (!pubForm.name || !pubForm.category) return toast.error("Name & Category required"); toast.success("Published to App Store!"); setPublishApp(null); setPubForm({ name: "", category: "", description: "", short: "", instructions: "" }); }} className="bg-[#e11d48] hover:bg-[#be123c]">Publish</Button></DialogFooter>
+          <DialogFooter><Button data-testid="pub-submit" onClick={() => { if (!pubForm.name || !pubForm.category) return toast.error("Name & Category required"); toast.success("Published to App Store!"); setPublishApp(null); setPubForm({ name: "", category: "", description: "", short: "", instructions: "" }); }} className="bg-[#2563EB] hover:bg-[#1D4ED8]">Publish</Button></DialogFooter>
         </DialogContent>
       </Dialog>
     </Layout>
@@ -432,7 +432,7 @@ const LiteSettings = () => {
     <Layout>
       <div className="space-y-4">
         <Button variant="outline" size="sm" onClick={() => setView("dashboard")} data-testid="back-settings"><ArrowLeft size={14} className="mr-1" /> Settings</Button>
-        <h1 className="text-3xl tracking-tighter font-bold" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>Keywords</h1>
+        <h1 className="text-3xl tracking-tighter font-bold" style={{ fontFamily: "'Outfit', sans-serif" }}>Keywords</h1>
         <div className="border border-slate-200 rounded-md overflow-hidden">
           <table className="w-full text-sm">
             <thead className="bg-slate-50 text-xs uppercase tracking-wide text-slate-500"><tr><th className="text-left p-3">Keyword</th><th className="text-left p-3">App</th><th className="text-left p-3">Shortcode</th><th className="text-left p-3">Status</th></tr></thead>
@@ -449,17 +449,17 @@ const LiteSettings = () => {
     <Layout>
       <div className="space-y-4 max-w-3xl">
         <Button variant="outline" size="sm" onClick={() => setView("dashboard")} data-testid="back-settings2"><ArrowLeft size={14} className="mr-1" /> Settings</Button>
-        <h1 className="text-3xl tracking-tighter font-bold" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>My Profile</h1>
+        <h1 className="text-3xl tracking-tighter font-bold" style={{ fontFamily: "'Outfit', sans-serif" }}>My Profile</h1>
         <Tabs defaultValue="profile">
           <TabsList><TabsTrigger value="profile">My Profile</TabsTrigger><TabsTrigger value="security">Security</TabsTrigger></TabsList>
           <TabsContent value="profile" className="space-y-5 pt-4">
             <Card title="Basic Details" disabled>
               <Field label="Name" value="Rafiul Karim" disabled />
               <Field label="Username" value="developer" disabled />
-              <Field label="Email" value="developer@bdapps.com" disabled />
+              <Field label="Email" value="developer@orbit.app" disabled />
             </Card>
             <Card title="Organization Details" edit={orgEdit} onEdit={() => setOrgEdit(!orgEdit)} testid="edit-org">
-              <Field label="Org Name" defaultValue="BDapps Demo" disabled={!orgEdit} />
+              <Field label="Org Name" defaultValue="Orbit Demo" disabled={!orgEdit} />
               <Field label="Address" defaultValue="Gulshan, Dhaka" disabled={!orgEdit} />
               <Field label="Tax ID" defaultValue="TIN-12345" disabled={!orgEdit} />
             </Card>
@@ -491,16 +491,16 @@ const LiteSettings = () => {
   return (
     <Layout>
       <div className="space-y-6 max-w-3xl">
-        <Link to="/lite" data-testid="back-lite-set" className="inline-flex items-center gap-1 text-sm text-slate-500 hover:text-[#0f172a]"><ArrowLeft size={14} /> Back</Link>
-        <h1 className="text-3xl tracking-tighter font-bold" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>Settings</h1>
+        <Link to="/lite" data-testid="back-lite-set" className="inline-flex items-center gap-1 text-sm text-slate-500 hover:text-[#09090B]"><ArrowLeft size={14} /> Back</Link>
+        <h1 className="text-3xl tracking-tighter font-bold" style={{ fontFamily: "'Outfit', sans-serif" }}>Settings</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <button onClick={() => setView("keywords")} data-testid="open-keywords" className="text-left border border-slate-200 rounded-md p-6 hover:border-[#0f172a] transition">
-            <FileText size={24} className="text-[#e11d48] mb-3" />
+          <button onClick={() => setView("keywords")} data-testid="open-keywords" className="text-left border border-slate-200 rounded-md p-6 hover:border-[#09090B] transition">
+            <FileText size={24} className="text-[#2563EB] mb-3" />
             <h3 className="font-semibold text-lg">Keywords</h3>
             <p className="text-sm text-slate-500 mt-1">View your registered keywords.</p>
           </button>
-          <button onClick={() => setView("profile")} data-testid="open-profile" className="text-left border border-slate-200 rounded-md p-6 hover:border-[#0f172a] transition">
-            <Settings size={24} className="text-[#e11d48] mb-3" />
+          <button onClick={() => setView("profile")} data-testid="open-profile" className="text-left border border-slate-200 rounded-md p-6 hover:border-[#09090B] transition">
+            <Settings size={24} className="text-[#2563EB] mb-3" />
             <h3 className="font-semibold text-lg">My Profile</h3>
             <p className="text-sm text-slate-500 mt-1">Personal, organization & security.</p>
           </button>
@@ -533,8 +533,8 @@ const LiteReports = () => {
   return (
     <Layout>
       <div className="space-y-6">
-        <Link to="/lite" data-testid="back-lite-rep" className="inline-flex items-center gap-1 text-sm text-slate-500 hover:text-[#0f172a]"><ArrowLeft size={14} /> Back</Link>
-        <h1 className="text-3xl tracking-tighter font-bold" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>View Reports</h1>
+        <Link to="/lite" data-testid="back-lite-rep" className="inline-flex items-center gap-1 text-sm text-slate-500 hover:text-[#09090B]"><ArrowLeft size={14} /> Back</Link>
+        <h1 className="text-3xl tracking-tighter font-bold" style={{ fontFamily: "'Outfit', sans-serif" }}>View Reports</h1>
 
         <section className="border border-slate-200 rounded-md p-6 bg-white">
           <h2 className="font-semibold text-lg tracking-tight mb-4">Message History</h2>
@@ -548,7 +548,7 @@ const LiteReports = () => {
             <div><Label>To</Label><Input type="date" disabled={showAll} value={to} onChange={(e) => setTo(e.target.value)} data-testid="msg-to" /></div>
           </div>
           <div className="mt-4 flex gap-2">
-            <Button onClick={() => setGenerated(true)} className="bg-[#e11d48] hover:bg-[#be123c]" data-testid="msg-generate">Generate</Button>
+            <Button onClick={() => setGenerated(true)} className="bg-[#2563EB] hover:bg-[#1D4ED8]" data-testid="msg-generate">Generate</Button>
             {generated && <>
               <Button variant="outline" onClick={() => toast.success("CSV downloaded")} data-testid="msg-csv"><Download size={14} className="mr-1" /> CSV</Button>
               <Button variant="outline" onClick={() => toast.success("PDF downloaded")} data-testid="msg-pdf"><Download size={14} className="mr-1" /> PDF</Button>

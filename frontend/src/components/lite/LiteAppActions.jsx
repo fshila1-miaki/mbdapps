@@ -40,7 +40,7 @@ export const AlertBroadcastDialog = ({ app, open, onClose }) => {
         <DialogContent data-testid="alert-broadcast-dialog" className="max-w-lg">
           <DialogHeader>
             <DialogTitle className="flex items-center gap-2">
-              <Send size={16} className="text-[#e11d48]" /> Broadcast to Subscribers
+              <Send size={16} className="text-[#2563EB]" /> Broadcast to Subscribers
             </DialogTitle>
             <DialogDescription>
               Send a one-time SMS to all active subscribers of <span className="font-semibold">{app?.name}</span>.
@@ -48,9 +48,9 @@ export const AlertBroadcastDialog = ({ app, open, onClose }) => {
           </DialogHeader>
 
           <div className="border border-slate-200 rounded-md bg-slate-50 p-3 flex items-center gap-2">
-            <Users size={14} className="text-[#e11d48]" />
+            <Users size={14} className="text-[#2563EB]" />
             <span data-testid="active-subs-line" className="text-sm">
-              Active Subscribers: <span className="font-bold text-[#0f172a]">{subs.toLocaleString()}</span>
+              Active Subscribers: <span className="font-bold text-[#09090B]">{subs.toLocaleString()}</span>
             </span>
           </div>
 
@@ -73,7 +73,7 @@ export const AlertBroadcastDialog = ({ app, open, onClose }) => {
               data-testid="send-to-all"
               onClick={handleSend}
               disabled={!message.trim()}
-              className="bg-[#e11d48] hover:bg-[#be123c]"
+              className="bg-[#2563EB] hover:bg-[#1D4ED8]"
             >
               <Send size={14} className="mr-1.5" /> Send to All Subscribers
             </Button>
@@ -89,7 +89,7 @@ export const AlertBroadcastDialog = ({ app, open, onClose }) => {
               <AlertCircle size={16} className="text-amber-600" /> Confirm Broadcast
             </DialogTitle>
             <DialogDescription>
-              You are about to send this message to <span className="font-bold text-[#0f172a]">{subs.toLocaleString()} subscribers</span>. Confirm?
+              You are about to send this message to <span className="font-bold text-[#09090B]">{subs.toLocaleString()} subscribers</span>. Confirm?
             </DialogDescription>
           </DialogHeader>
           <div className="bg-slate-50 border border-slate-200 rounded-md p-3 text-sm whitespace-pre-wrap">
@@ -97,7 +97,7 @@ export const AlertBroadcastDialog = ({ app, open, onClose }) => {
           </div>
           <DialogFooter>
             <Button variant="outline" data-testid="confirm-cancel" onClick={() => setConfirm(false)}>Cancel</Button>
-            <Button data-testid="confirm-send" onClick={doSend} className="bg-[#e11d48] hover:bg-[#be123c]">
+            <Button data-testid="confirm-send" onClick={doSend} className="bg-[#2563EB] hover:bg-[#1D4ED8]">
               <Send size={14} className="mr-1.5" /> Send
             </Button>
           </DialogFooter>
@@ -253,7 +253,7 @@ export const ScheduledContentDialog = ({ app, open, onClose }) => {
       >
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2">
-            <Calendar size={16} className="text-[#e11d48]" /> Manage Scheduled Content · {app.name}
+            <Calendar size={16} className="text-[#2563EB]" /> Manage Scheduled Content · {app.name}
           </DialogTitle>
           <DialogDescription>
             Schedule and manage content items for this Service app.
@@ -332,16 +332,16 @@ export const ScheduledContentDialog = ({ app, open, onClose }) => {
 
             {/* Add Content */}
             <TabsContent value="add" className="pt-4 space-y-4">
-              <div className="text-xs font-bold uppercase tracking-widest text-[#e11d48]">Choose how to add content</div>
+              <div className="text-xs font-bold uppercase tracking-widest text-[#2563EB]">Choose how to add content</div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <button
                   data-testid="mode-single"
                   onClick={() => setMode("single")}
-                  className={`text-left rounded-md border-2 p-4 transition ${mode === "single" ? "border-[#e11d48] bg-rose-50" : "border-slate-200 hover:border-slate-400"}`}
+                  className={`text-left rounded-md border-2 p-4 transition ${mode === "single" ? "border-[#2563EB] bg-rose-50" : "border-slate-200 hover:border-slate-400"}`}
                 >
                   <div className="flex items-center gap-2 mb-1">
-                    <span className={`w-4 h-4 rounded-full border-2 ${mode === "single" ? "border-[#e11d48]" : "border-slate-400"} flex items-center justify-center`}>
-                      {mode === "single" && <span className="w-2 h-2 rounded-full bg-[#e11d48]"></span>}
+                    <span className={`w-4 h-4 rounded-full border-2 ${mode === "single" ? "border-[#2563EB]" : "border-slate-400"} flex items-center justify-center`}>
+                      {mode === "single" && <span className="w-2 h-2 rounded-full bg-[#2563EB]"></span>}
                     </span>
                     <span className="font-semibold text-sm">Add Single Content Item</span>
                   </div>
@@ -350,11 +350,11 @@ export const ScheduledContentDialog = ({ app, open, onClose }) => {
                 <button
                   data-testid="mode-bulk"
                   onClick={() => setMode("bulk")}
-                  className={`text-left rounded-md border-2 p-4 transition ${mode === "bulk" ? "border-[#e11d48] bg-rose-50" : "border-slate-200 hover:border-slate-400"}`}
+                  className={`text-left rounded-md border-2 p-4 transition ${mode === "bulk" ? "border-[#2563EB] bg-rose-50" : "border-slate-200 hover:border-slate-400"}`}
                 >
                   <div className="flex items-center gap-2 mb-1">
-                    <span className={`w-4 h-4 rounded-full border-2 ${mode === "bulk" ? "border-[#e11d48]" : "border-slate-400"} flex items-center justify-center`}>
-                      {mode === "bulk" && <span className="w-2 h-2 rounded-full bg-[#e11d48]"></span>}
+                    <span className={`w-4 h-4 rounded-full border-2 ${mode === "bulk" ? "border-[#2563EB]" : "border-slate-400"} flex items-center justify-center`}>
+                      {mode === "bulk" && <span className="w-2 h-2 rounded-full bg-[#2563EB]"></span>}
                     </span>
                     <span className="font-semibold text-sm">Bulk Add Content</span>
                   </div>
@@ -404,7 +404,7 @@ export const ScheduledContentDialog = ({ app, open, onClose }) => {
                       </label>
                     </RadioGroup>
                   </div>
-                  <Button data-testid="single-add" onClick={addSingle} className="bg-[#e11d48] hover:bg-[#be123c]">
+                  <Button data-testid="single-add" onClick={addSingle} className="bg-[#2563EB] hover:bg-[#1D4ED8]">
                     <Plus size={14} className="mr-1.5" /> Add to Queue
                   </Button>
                 </div>
@@ -451,7 +451,7 @@ export const ScheduledContentDialog = ({ app, open, onClose }) => {
                   </Button>
                   <div className="flex gap-2">
                     <Button data-testid="bulk-save-draft" variant="outline" onClick={() => saveBulk("Draft")}>Save All as Draft</Button>
-                    <Button data-testid="bulk-queue" onClick={() => saveBulk("Queued")} className="bg-[#e11d48] hover:bg-[#be123c]">Queue All</Button>
+                    <Button data-testid="bulk-queue" onClick={() => saveBulk("Queued")} className="bg-[#2563EB] hover:bg-[#1D4ED8]">Queue All</Button>
                   </div>
                 </div>
               )}
@@ -491,7 +491,7 @@ export const ScheduledContentDialog = ({ app, open, onClose }) => {
                   toast.success("Content updated");
                   setEditing(null);
                 }}
-                className="bg-[#e11d48] hover:bg-[#be123c]"
+                className="bg-[#2563EB] hover:bg-[#1D4ED8]"
               >
                 Save
               </Button>
